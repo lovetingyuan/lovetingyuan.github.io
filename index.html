@@ -12,6 +12,13 @@
     </noscript>
     <div id="app">
       Hello World
+
     </div>
+    <script>
+      const url = 'https://1650493675298486.cn-hangzhou.fc.aliyuncs.com/2016-08-15/proxy/common_data_proxy/test2/'
+      fetch(url).then(res => res.json()).then(data => {
+        document.getElementById('app').innerHTML += data.date
+      })
+    </script>
   </body>
 </html>
