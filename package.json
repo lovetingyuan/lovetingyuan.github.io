@@ -1,0 +1,28 @@
+{
+  "name": "lovetingyuan.github.io",
+  "version": "1.0.0",
+  "description": "my personl site",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovetingyuan/lovetingyuan.github.io.git"
+  },
+  "keywords": [
+    "site",
+    "personal",
+    "blog"
+  ],
+  "author": "tingyuan",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/lovetingyuan/lovetingyuan.github.io/issues"
+  },
+  "homepage": "https://tingyuan.me",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
