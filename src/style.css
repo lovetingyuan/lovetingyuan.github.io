@@ -1,0 +1,9 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+img {
+  display: inline-block;
+  object-fit: contain;
+}

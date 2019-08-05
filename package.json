@@ -1,11 +1,13 @@
 {
   "name": "lovetingyuan.github.io",
   "version": "1.0.0",
-  "description": "my personl site",
+  "private": true,
+  "description": "My personal site",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "live-server"
+    "serve": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir ./ --no-source-maps"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,14 @@
   },
   "homepage": "https://tingyuan.me",
   "devDependencies": {
-    "live-server": "^1.2.1"
+    "@vue/component-compiler-utils": "^3.0.0",
+    "cssnano": "^4.1.10",
+    "less": "^3.9.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-router": "^3.0.7"
   }
 }
