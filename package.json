@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node scripts/dev-server",
-    "build": "parcel build src/index.html --out-dir ./ --no-source-maps",
+    "build": "cross-env NODE_ENV=production parcel build src/index.html --out-dir ./ --no-source-maps",
+    "build:ssr": "cross-env NODE_ENV=production parcel build src/main.js --out-dir ./ --no-source-maps --no-minify",
     "prebuild": "yarn clean",
     "clean": "rimraf ./*.{css,js}"
   },
@@ -28,14 +29,18 @@
   "homepage": "https://tingyuan.me",
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
+    "cross-env": "^5.2.0",
     "cssnano": "^4.1.10",
     "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
     "http-proxy-middleware": "^0.19.1",
     "less": "^3.9.0",
     "parcel-bundler": "^1.12.3",
+    "vue-server-renderer": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "node-fetch": "^2.6.0",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3",
     "vue-router": "^3.0.7"

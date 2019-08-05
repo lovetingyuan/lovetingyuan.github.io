@@ -1,5 +1,7 @@
 const Bundler = require('parcel-bundler')
 const express = require('express')
+const chalk = require('chalk')
+const { name: appName } = require('../package.json')
 
 const bundler = new Bundler('src/index.html', {
   cache: false
@@ -20,3 +22,7 @@ app.use((req, res, next) => {
 app.use(bundler.middleware())
 
 app.listen(port)
+
+bundler.on('buildEnd', () => {
+  console.log(`😊 ${appName} run at: ${chalk.cyan('http://localhost:' + port)}`)
+})
