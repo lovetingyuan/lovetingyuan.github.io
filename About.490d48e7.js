@@ -119,14 +119,14 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"15h9":[function(require,module,exports) {
 
-        var $c72d39 = exports.default || module.exports;
+        var $d5a6e1 = exports.default || module.exports;
       
-      if (typeof $c72d39 === 'function') {
-        $c72d39 = $c72d39.options;
+      if (typeof $d5a6e1 === 'function') {
+        $d5a6e1 = $d5a6e1.options;
       }
     
         /* template */
-        Object.assign($c72d39, (function () {
+        Object.assign($d5a6e1, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._v("\n  this is about\n")])}
 var staticRenderFns = []
 

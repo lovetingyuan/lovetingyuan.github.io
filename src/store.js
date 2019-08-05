@@ -229,6 +229,17 @@ class VueStorePlugin {
             console.warn('Do not install the plugin again.');
         }
         Vue = vue;
+        Vue.mixin({ beforeCreate() {
+            const options = this.$options
+            // store injection
+            if (options.store) {
+            this.$store = typeof options.store === 'function'
+                ? options.store()
+                : options.store
+            } else if (options.parent && options.parent.$store) {
+                this.$store = options.parent.$store
+            }
+        } })
     }
 }
 VueStorePlugin.createVueStore = createVueStore;

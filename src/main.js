@@ -22,14 +22,11 @@ Vue.mixin({
   }
 })
 
-
 const createApp = () => {
-  const router = createRouter()
-  const store = createStore()
   return new Vue({
     render: h => h(App),
-    router,
-    store
+    router: createRouter(),
+    store: createStore()
   })
 }
 
@@ -54,21 +51,22 @@ class Deferred {
 
 export default context => {
   const app = createApp()
-  app.$store.origin = context.origin
-  app.$router.push(context.url)
+  const { store, router } = app.$options
+  store.origin = context.origin
+  router.push(context.url)
   const { promise, reject, resolve } = new Deferred()
-  app.$router.onReady(() => {
-    const matchedComponents = app.$router.getMatchedComponents()
+  router.onReady(() => {
+    const matchedComponents = router.getMatchedComponents()
     Promise.all(matchedComponents.filter(v => v.asyncData).map(Component => {
       if (process.env.NODE_ENV === 'development') {
-        console.log(`fetching data for ${Component.__file} ...`)
+        console.log(`Fetching data for ${Component.__file} ...`)
       }
-      return Component.asyncData(app.$store, app.$router)
+      return Component.asyncData(store, router)
     })).then(() => {
-      context.state = app.$store.getState()
+      context.state = store.getState()
       resolve(app)
     }).catch(reject)
   }, reject)
-  app.$router.onError(reject)
+  router.onError(reject)
   return promise
 }

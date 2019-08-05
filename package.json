@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node scripts/dev-server",
     "build": "cross-env NODE_ENV=production parcel build src/index.html --out-dir ./ --no-source-maps",
-    "build:ssr": "cross-env NODE_ENV=production parcel build src/main.js --out-dir ./ --no-source-maps --no-minify",
+    "build:ssr": "cross-env NODE_ENV=production parcel build src/main.js --target node --out-dir ./ --no-source-maps --no-minify",
     "prebuild": "yarn clean",
     "clean": "rimraf ./*.{css,js}"
   },
