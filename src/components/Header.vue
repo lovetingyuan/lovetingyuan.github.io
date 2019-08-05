@@ -1,9 +1,8 @@
 <template>
   <header>
-    <div>this is header</div>
     <nav>
       <ul>
-        <router-link tag="li" to="/home">Home</router-link>
+        <router-link tag="li" to="/">Home</router-link>
         <router-link tag="li" to="/about">About</router-link>
       </ul>
     </nav>

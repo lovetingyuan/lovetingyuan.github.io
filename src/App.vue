@@ -2,8 +2,9 @@
   <div id="app">
     <app-header></app-header>
     <main>
-      <p>{{date}}</p>
-      <router-view></router-view>
+      <transition name="slide-fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </main>
   </div>
 </template>
@@ -30,10 +31,31 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 main {
-  max-width: 800px;
+  max-width: var(--max-width);
   margin: 0 auto;
   border: 1px solid yellowgreen;
+  flex-grow: 1;
+  width: 80%;
+  padding: 40px;
+
+  .slide-fade-enter-active {
+    transition: all .2s ease;
+  }
+  .slide-fade-leave-active {
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(16px);
+    opacity: 0;
+  }
 }
+
 </style>
 
