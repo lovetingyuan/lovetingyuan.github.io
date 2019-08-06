@@ -141,16 +141,6 @@ function build () {
       console.error(err)
       process.exit(-1)
     })
-
-  return Promise.all([
-    createService('build'),
-    createService('build', serverVueConfigPath)
-  ].map(service => service._run())).then(() => {
-    console.log(chalk.green('Build done!'))
-  }).catch(err => {
-    console.error(err)
-    process.exit(-1)
-  })
 }
 
 if (require.main === module) {
