@@ -21,4 +21,5 @@ yarn-error.log*
 *.sw?
 
 # Vue ssr output
-ssr/
+/ssr/
+/ssr-dist/

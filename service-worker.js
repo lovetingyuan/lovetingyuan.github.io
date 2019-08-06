@@ -11,19 +11,19 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js')
 
 importScripts(
-  "/precache-manifest.411e6d6f45adbf8a79ccea1bacf40626.js"
-);
+  '/precache-manifest.319ef3ac6cafb24ea759cb3c14b1e6dd.js'
+)
 
-workbox.core.setCacheNameDetails({prefix: "tingyuan"});
+workbox.core.setCacheNameDetails({ prefix: 'tingyuan' })
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+self.__precacheManifest = [].concat(self.__precacheManifest || [])
+workbox.precaching.suppressWarnings()
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})

@@ -9,6 +9,9 @@ const { createBundleRenderer } = require('vue-server-renderer')
 const minimist = require('minimist')
 const fs = require('fs')
 
+const serverVueConfigPath = path.join(__dirname, 'vue.ssr.config.js')
+const templatePath = path.join(__dirname, '../public/ssr/index.html')
+
 const SSRoutes = [
   '/',
   '/about'
@@ -23,8 +26,12 @@ function createService (cmd, config) {
 
   const service = new Service(path.resolve(__dirname, '../'))
 
-  const rawArgv = process.argv.slice(2)
+  let rawArgv = process.argv.slice(2)
   rawArgv.unshift(cmd)
+  if (config === serverVueConfigPath) {
+    rawArgv = rawArgv.filter(v => v !== '--modern')
+    rawArgv.push('--no-clean')
+  }
 
   const args = minimist(rawArgv, {
     boolean: [
@@ -41,15 +48,13 @@ function createService (cmd, config) {
       'verbose'
     ]
   })
+  console.log(args, config)
 
   const command = args._[0]
   service._run = service.run.bind(service, command, args, rawArgv)
   service.init(process.env.NODE_ENV)
   return service
 }
-
-const serverVueConfigPath = path.join(__dirname, 'vue.ssr.config.js')
-const templatePath = path.join(__dirname, '../public/ssr/index.html')
 
 function serve () {
   let serverBundle
@@ -128,6 +133,15 @@ function serve () {
 }
 
 function build () {
+  return createService('build')._run()
+    .then(() => createService('build', serverVueConfigPath)._run())
+    .then(() => {
+      console.log(chalk.green('Build done!'))
+    }).catch(err => {
+      console.error(err)
+      process.exit(-1)
+    })
+
   return Promise.all([
     createService('build'),
     createService('build', serverVueConfigPath)

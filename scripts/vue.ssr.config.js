@@ -7,18 +7,13 @@ const nodeExternals = require('webpack-node-externals')
 module.exports = {
   lintOnSave: false,
   outputDir: 'dist/ssr',
-  assetsDir: 'assets',
   productionSourceMap: false,
+  filenameHashing: false,
   css: {
     extract: false
   },
   configureWebpack: {
     context: path.resolve(__dirname, '../'),
-    // entry: {
-    //   app: [ // keep same with vue-cli default entry setting
-    //     './src/ssr-main.js'
-    //   ]
-    // },
     target: 'node',
     devtool: 'source-map',
     output: {
@@ -29,6 +24,7 @@ module.exports = {
     }),
     optimization: {
       minimize: false,
+      minimizer: [],
       splitChunks: false
     },
     plugins: [
@@ -42,9 +38,12 @@ module.exports = {
     ]
   },
   chainWebpack (config) {
-    config.plugins.delete('friendly-errors')
-    config.plugins.delete('hmr')
-    config.plugins.delete('progress')
+    [
+      'friendly-errors', 'hmr', 'progress', 'copy', 'html', 'prefetch',
+      'preload', 'pwa', 'workbox', 'hash-module-ids', 'named-chunks'
+    ].forEach(name => {
+      config.plugins.delete(name)
+    })
     config.module.rule('js').uses.delete('babel-loader')
   }
 }

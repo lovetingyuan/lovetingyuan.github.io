@@ -12,4 +12,10 @@ fse.readdirSync(dest).forEach(file => {
 
 fse.copySync(src, dest)
 
+fse.readdirSync(dest).forEach(file => {
+  if (file === 'ssr' || file === 'report.html') {
+    fse.removeSync(path.join(dest, file))
+  }
+})
+
 console.log('copy done!')

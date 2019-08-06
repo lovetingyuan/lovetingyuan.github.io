@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import request from '../api'
+// import request from '../api'
 
 export default {
-  asyncData(store) {
+  asyncData (store) {
     return store.$fetchLinks('/data/home.json')
   },
   computed: {
-    homeLinks() {
+    homeLinks () {
       return this.$store.links
     }
-  },
+  }
 }
 </script>
