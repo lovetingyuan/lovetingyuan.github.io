@@ -23,7 +23,7 @@ export default {
   },
   created() {
     const url = 'https://1650493675298486.cn-hangzhou.fc.aliyuncs.com/2016-08-15/proxy/common_data_proxy/test2/'
-    fetch(url).then(res => res.json()).then(data => {
+    typeof fetch === 'function' && fetch(url).then(res => res.json()).then(data => {
       this.date = data.date;
     })
   }

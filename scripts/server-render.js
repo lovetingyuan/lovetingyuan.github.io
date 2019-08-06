@@ -1,80 +1,48 @@
-const createApp = require('../main').default
-const path = require('path')
 const fse = require('fs-extra')
-const critical = require('critical')
-const renderer = require('vue-server-renderer').createRenderer()
+const path = require('path')
+const { createBundleRenderer } = require('vue-server-renderer')
 
-global.fetch = require('node-fetch')
+const serverBundle = require('../dist/ssr/vue-ssr-server-bundle')
+const clientManifest = require('../dist/ssr/vue-ssr-client-manifest')
+
+const renderer = createBundleRenderer(serverBundle, {
+  template: fse.readFileSync(path.join(__dirname, '../dist/ssr/index.html'), 'utf8'),
+  runInNewContext: false,
+  clientManifest
+})
 
 const express = require('express')
 const server = express()
-const port = 3000
+const port = 8081
+const { minify } = require('html-minifier')
 
 server.use('/data', express.static(path.join(__dirname, '../data')))
+const _server = server.listen(port)
 
-const _server = server.listen(port, () => console.log(`Example app listening on port ${port}!`))
-const indexPath = path.join(__dirname, '../index.html')
-const template = fse.readFileSync(indexPath, 'utf8')
-
-function renderRoute(url) {
-  const dist = path.join(__dirname, '..', url === '/' ? '' : url, '/index.html')
-  const href = 'http://localhost:' + port + url
-  return createApp({
-    url,
-    origin: 'http://localhost:' + port
-  }).then(app => {
-    return renderer.renderToString(app)
-  }).then(html => {
-    const resultHtml = template.replace(/<div id="app"[\s\S]+<\/div>\s*<script src="/, html + '<script src="')
-    return fse.outputFile(dist, resultHtml)
-    
-    // return critical.generate({
-    //   base: path.resolve(__dirname, '../'),
-    //   html: resultHtml,
-    //   width: 2100,
-    //   height: 1200,
-    //   // target: 'index-critical.html',
-    //   inline: true,
-    //   // request: true,
-    //   penthouse: {
-    //     timeout: 30000,
-    //     blockJSRequests: false
-    //   }
-    //   // timeout: 3000,
-    // });
-    
-  }).then(res => {
-    const penthouse = require('penthouse')
-    console.log(99, fse.readdirSync(path.join(__dirname, '../')).filter(v => {
-      return v.endsWith('.css')
-    }).map(file => {
-      return fse.readFileSync(path.join(__dirname, '../', file), 'utf8')
-    }).join('\n'))
-    return penthouse({
-      url: href,
-      blockJSRequests: false,
-      cssString: fse.readdirSync(path.join(__dirname, '../')).filter(v => {
-        return v.endsWith('.css')
-      }).map(file => {
-        return fse.readFileSync(path.join(__dirname, '../', file), 'utf8')
-      }).join('\n')
-    })
-    .then(criticalCss => {
-      // use the critical css
-      console.log(criticalCss)
-    })
-    // return fse.outputFile(
-    //   path.join(__dirname, '..', url === '/' ? '' : url, '/index.html'),
-    //   res.html
-    // )
+function renderRoute (_path) {
+  const context = { url: _path, publicPath: clientManifest.publicPath }
+  return renderer.renderToString(context).then(html => {
+    return fse.outputFile(
+      path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),
+      minify(html, {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+        removeAttributeQuotes: true
+      })
+    )
   })
 }
 
 Promise.all([
   '/', '/about'
-].map(renderRoute)).catch(err => {
+].map(renderRoute)).then(() => {
+  console.log('ssr done!')
+}).catch(err => {
   console.error(err)
 }).finally(() => {
   _server.close()
 })
-

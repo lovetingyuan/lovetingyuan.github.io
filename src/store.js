@@ -273,11 +273,11 @@ export default function createStore() {
       }
     }
   })
-  request.origin || Object.defineProperty(request, 'origin', {
-    get() {
-      return store.origin
-    }
-  })
+  // request.origin || Object.defineProperty(request, 'origin', {
+  //   get() {
+  //     return store.origin
+  //   }
+  // })
   _Vue.prototype.$store = store
   return store
 }
