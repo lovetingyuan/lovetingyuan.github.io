@@ -1,5 +1,5 @@
 const request = {
-  get(url) {
+  get (url) {
     const baseUrl = typeof location === 'object' ? location.origin : this.origin
     return fetch(baseUrl + url).then(res => res.json())
   }

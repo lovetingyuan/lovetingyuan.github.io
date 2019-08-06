@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 let Vue;
 function createVueStore(modules, option) {
     if (!Vue) {
@@ -77,7 +79,7 @@ function createVueStore(modules, option) {
             return eventBus.$watch(getter, cb, option);
         },
         getState() {
-            if (process.env.NODE_ENV !== 'development') {
+            if (process.env.NODE_ENV !== 'production') {
                 console.warn('Only use getState in development mode.');
             }
             return JSON.parse(JSON.stringify(state));
@@ -204,7 +206,7 @@ function createVueStore(modules, option) {
     const [_store, state, stateGetters] = _createStore(modules);
     const store = _store;
     if (option && option.strict) {
-        if (process.env.NODE_ENV !== 'development') {
+        if (process.env.NODE_ENV !== 'production') {
             console.warn('Only use strict option in development mode!');
         }
         eventBus.$watch(() => state, () => {

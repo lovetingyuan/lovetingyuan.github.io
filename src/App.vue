@@ -30,7 +30,9 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style src="./style.css"></style>
+
+<style lang="less">
 #app {
   height: 100%;
   display: flex;

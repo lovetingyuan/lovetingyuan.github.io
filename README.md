@@ -1,2 +1,3 @@
-# lovetingyuan.github.io
-My personal site
+# tingyuan
+My personal site: https://tingyuan.me
+

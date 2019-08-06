@@ -1,48 +1,63 @@
 {
-  "name": "lovetingyuan.github.io",
-  "version": "1.0.0",
+  "name": "tingyuan",
+  "version": "0.1.0",
   "private": true,
-  "description": "My personal site",
-  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node scripts/dev-server",
-    "build": "cross-env NODE_ENV=production parcel build src/index.html --out-dir ./ --no-source-maps",
-    "build:ssr": "cross-env NODE_ENV=production parcel build src/main.js --target node --out-dir ./ --no-source-maps --no-minify",
-    "prebuild": "yarn clean",
-    "clean": "rimraf ./*.{css,js}"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lovetingyuan/lovetingyuan.github.io.git"
-  },
-  "keywords": [
-    "site",
-    "personal",
-    "blog"
-  ],
-  "author": "tingyuan",
-  "license": "CC-BY-NC-SA-4.0",
-  "bugs": {
-    "url": "https://github.com/lovetingyuan/lovetingyuan.github.io/issues"
-  },
-  "homepage": "https://tingyuan.me",
-  "devDependencies": {
-    "@vue/component-compiler-utils": "^3.0.0",
-    "cross-env": "^5.2.0",
-    "cssnano": "^4.1.10",
-    "express": "^4.17.1",
-    "fs-extra": "^8.1.0",
-    "http-proxy-middleware": "^0.19.1",
-    "less": "^3.9.0",
-    "parcel-bundler": "^1.12.3",
-    "vue-server-renderer": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "postbuild": "node scripts/copy-dist.js"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0",
+    "core-js": "^2.6.5",
+    "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.3",
-    "vue-router": "^3.0.7"
+    "vue-router": "^3.0.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-pwa": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "lint-staged": "^8.1.5",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }

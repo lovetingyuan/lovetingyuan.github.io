@@ -1,9 +1,11 @@
-import App from './App.vue'
 import Vue from 'vue'
+import App from './App.vue'
+import './registerServiceWorker'
+
 import createRouter from './router'
 import createStore from './store'
-import 'regenerator-runtime/runtime'
 
+Vue.config.productionTip = false
 
 Vue.mixin({
   beforeMount () {
@@ -41,11 +43,11 @@ if (typeof window === 'object' && window.document) {
 }
 
 class Deferred {
-  constructor() {
+  constructor () {
     this.promise = new Promise((resolve, reject) => {
-      this.reject = reject;
-      this.resolve = resolve;
-    });
+      this.reject = reject
+      this.resolve = resolve
+    })
   }
 }
 
