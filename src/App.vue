@@ -41,7 +41,8 @@ export default {
 main {
   max-width: var(--max-width);
   margin: 0 auto;
-  border: 1px solid yellowgreen;
+  // border: 1px solid yellowgreen;
+
   flex-grow: 1;
   width: 80%;
   padding: 40px;

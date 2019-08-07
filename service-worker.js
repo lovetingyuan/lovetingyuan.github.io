@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.b6893478dc2165203d43deacc093c387.js"
+  "/precache-manifest.55ed3353019b33264e802e617ecef856.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tingyuan"});

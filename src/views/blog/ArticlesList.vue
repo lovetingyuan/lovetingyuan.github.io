@@ -1,0 +1,19 @@
+<template>
+  <div>
+    this is <article> list </article>
+    <p>{{category}}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  created() {
+    console.log(this.$route)
+  },
+  computed: {
+    category() {
+      return this.$route.params.category
+    }
+  }
+}
+</script>

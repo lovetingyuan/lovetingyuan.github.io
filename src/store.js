@@ -263,21 +263,31 @@ function init(val) {
 export default function createStore() {
   const store = VueStorePlugin.createVueStore({
     links: init([]),
-    setLinks(links) {
-      this.links = links
+    set([key, val]) {
+      this[key] = val
     },
     async $fetchLinks() {
       if (init(this.links)) {
         const { links } = await request.get('/data/home.json')
-        this.setLinks(links)
+        this.set(['links', links])
+      }
+    },
+    Music: {
+      bestSongs: init([]),
+      set([key, val]) {
+        this[key] = val
+      },
+      async $fetchMusic() {
+        if (init(this.bestSongs)) {
+          const { best } = await request.get('/data/music.json')
+          this.set(['bestSongs', best])
+        }
       }
     }
   })
-  // request.origin || Object.defineProperty(request, 'origin', {
-  //   get() {
-  //     return store.origin
-  //   }
-  // })
   _Vue.prototype.$store = store
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('store', store)
+  }
   return store
 }

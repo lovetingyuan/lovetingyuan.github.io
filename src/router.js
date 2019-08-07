@@ -4,7 +4,6 @@ import Vue from 'vue'
 import Home from './views/Home.vue'
 
 Vue.use(VueRouter)
-// import a from './views/About.vue'
 
 export default () => {
   return new VueRouter({
@@ -13,7 +12,25 @@ export default () => {
     routes: [
       { path: '/', component: Home },
       // { path: '/about', component: a }
-      { path: '/about', component: () => import('./views/About.vue') }
+      {
+        path: '/blog/:category?',
+        component: () => import('./views/Blog.vue'),
+        children: [
+          {
+            path: '', component: () => import('./views/blog/ArticlesList.vue')
+          },
+          {
+            path: 'javascript', component: () => import('./views/blog/ArticlesList.vue')
+          },
+          {
+            path: 'css', component: () => import('./views/blog/ArticlesList.vue')
+          }
+        ]
+      },
+      { path: '/about', component: () => import('./views/About.vue') },
+      { path: '/music', component: () => import('./views/Music.vue') },
+      { path: '/movie', component: () => import('./views/Movie.vue') },
+      { path: '/story', component: () => import('./views/Story.vue') }
     ]
   })
 }
