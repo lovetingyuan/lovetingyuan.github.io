@@ -4,6 +4,7 @@
       <ul>
         <router-link tag="li" to="/">Home</router-link>
         <router-link tag="li" to="/about">About</router-link>
+        <li><a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">github</a></li>
       </ul>
     </nav>
   </header>

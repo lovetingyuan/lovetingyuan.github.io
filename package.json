@@ -7,7 +7,7 @@
     "build": "vue-cli-service build --modern",
     "build:ssr": "cross-env NODE_ENV=production node scripts/build --modern",
     "lint": "vue-cli-service lint",
-    "postbuild:ssr": "node scripts/copy-dist && node scripts/server-render"
+    "postbuild:ssr": "node scripts/pre-build && node scripts/server-render"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -51,7 +51,8 @@
   },
   "eslintIgnore": [
     "service-worker.js",
-    "assets"
+    "assets",
+    "precache-manifest.*.js"
   ],
   "postcss": {
     "plugins": {

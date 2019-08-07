@@ -1,8 +1,11 @@
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
-// const gitHash = require('git-rev-sync').short(null, 10)
-// const { name: appName, version: appVersion } = require('../package.json')
 
 module.exports = class SSRClientPlugin {
+  constructor ({ appName, appVersion, gitHash }) {
+    this.appName = appName
+    this.appVersion = appVersion
+    this.gitHash = gitHash
+  }
   apply (compiler) {
     (new VueSSRClientPlugin({
       filename: 'ssr/vue-ssr-client-manifest.json'
@@ -14,13 +17,11 @@ module.exports = class SSRClientPlugin {
           compilation.assets['ssr/vue-ssr-client-manifest.json'].source()
         )
         manifest.SSR_CONTEXT = {
-          // BASE_URL: process.env.VUE_APP_PUBLIC_PATH,
-          // HEAD_TAGS: [
-          //   '<meta name="robots" content="noindex">',
-          //   `<meta name="datePublished" content="${[
-          //     appName, appVersion, Date.now(), gitHash
-          //   ]}">`
-          // ],
+          HEAD_TAGS: [
+            `<meta name="datePublished" content="${[
+              this.appName, this.appVersion, Date.now(), this.gitHash
+            ]}">`
+          ]
         }
         manifest.all = manifest.all.filter(v => !v.endsWith('.css.map'))
         Object.keys(manifest.modules).forEach(moduleId => {

@@ -48,7 +48,6 @@ function createService (cmd, config) {
       'verbose'
     ]
   })
-  console.log(args, config)
 
   const command = args._[0]
   service._run = service.run.bind(service, command, args, rawArgv)
@@ -114,7 +113,11 @@ function serve () {
 
     app.get(SSRoutes, function (req, res, next) {
       if (renderer) {
-        renderer.renderToString({ url: req.url, SSR_CONTEXT: clientManifest.SSR_CONTEXT }, (err, html) => {
+        renderer.renderToString({
+          url: req.url,
+          publicPath: clientManifest.publicPath,
+          SSR_CONTEXT: clientManifest.SSR_CONTEXT
+        }, (err, html) => {
           if (err) {
             console.error('renderer callback error', err)
             next(err)

@@ -1,11 +1,12 @@
 const webpack = require('webpack')
 const SSRClientPlugin = require('./scripts/ssr-client-plugin')
+const gitHash = require('git-rev-sync').short(null, 10)
+const { name: appName, version: appVersion } = require('./package.json')
 
 module.exports = {
   lintOnSave: false,
   assetsDir: 'assets',
   productionSourceMap: false,
-  // outputDir: __dirname,
   devServer: {
     before (app, server) {
       app.use((req, res, next) => {
@@ -28,7 +29,21 @@ module.exports = {
         __DEV__: process.env.NODE_ENV === 'development'
       }),
       // new InlineManifestPlugin(),
-      new SSRClientPlugin()
+      new SSRClientPlugin({
+        appName, appVersion, gitHash
+      })
     ].filter(Boolean)
+  },
+  chainWebpack (config) {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].meta = {
+          datePublished: [
+            appName, appVersion, Date.now(), gitHash
+          ] + ''
+        }
+        return args
+      })
   }
 }

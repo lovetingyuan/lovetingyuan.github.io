@@ -20,7 +20,11 @@ server.use('/data', express.static(path.join(__dirname, '../data')))
 const _server = server.listen(port)
 
 function renderRoute (_path) {
-  const context = { url: _path, publicPath: clientManifest.publicPath }
+  const context = {
+    url: _path,
+    publicPath: clientManifest.publicPath,
+    SSR_CONTEXT: clientManifest.SSR_CONTEXT
+  }
   return renderer.renderToString(context).then(html => {
     return fse.outputFile(
       path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),
