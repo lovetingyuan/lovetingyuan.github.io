@@ -7,9 +7,11 @@
     "build": "vue-cli-service build --modern",
     "build:ssr": "cross-env NODE_ENV=production node scripts/build --modern",
     "lint": "vue-cli-service lint",
-    "postbuild:ssr": "node scripts/pre-build && node scripts/server-render"
+    "postbuild:ssr": "node scripts/pre-build && node scripts/server-render",
+    "check": "npx npm-check-updates"
   },
   "dependencies": {
+    "@tingyuan/vue-store": "^0.0.2",
     "core-js": "^2.6.5",
     "cross-env": "^5.2.0",
     "git-rev-sync": "^1.12.0",
@@ -17,7 +19,7 @@
     "null-loader": "^3.0.0",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3",
+    "vue-router": "^3.1.0",
     "vue-server-renderer": "^2.6.10",
     "webpack-node-externals": "^1.7.2"
   },
@@ -30,8 +32,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "less": "^3.0.4",
-    "less-loader": "^4.1.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
     "lint-staged": "^8.1.5",
     "vue-template-compiler": "^2.6.10"
   },

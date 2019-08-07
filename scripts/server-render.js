@@ -1,3 +1,5 @@
+process.env.NODE_ENV = 'production'
+
 const fse = require('fs-extra')
 const path = require('path')
 const { createBundleRenderer } = require('vue-server-renderer')
