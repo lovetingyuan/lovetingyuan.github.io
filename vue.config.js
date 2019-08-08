@@ -44,9 +44,7 @@ module.exports = {
         __DEV__: process.env.NODE_ENV === 'development'
       }),
       // new InlineManifestPlugin(),
-      new SSRClientPlugin({
-        appName, appVersion, gitHash
-      })
+      new SSRClientPlugin()
     ].filter(Boolean)
   },
   chainWebpack (config) {

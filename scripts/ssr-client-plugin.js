@@ -1,10 +1,8 @@
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 module.exports = class SSRClientPlugin {
-  constructor ({ appName, appVersion, gitHash }) {
-    this.appName = appName
-    this.appVersion = appVersion
-    this.gitHash = gitHash
+  constructor (options) {
+    this.userOptions = options
   }
   apply (compiler) {
     (new VueSSRClientPlugin({
@@ -16,17 +14,15 @@ module.exports = class SSRClientPlugin {
         let manifest = JSON.parse(
           compilation.assets['ssr/vue-ssr-client-manifest.json'].source()
         )
-        manifest.SSR_CONTEXT = {
-          HEAD_TAGS: [
-            `<meta name="datePublished" content="${[
-              this.appName, this.appVersion, Date.now(), this.gitHash
-            ]}">`
-          ]
-        }
         manifest.all = manifest.all.filter(v => !v.endsWith('.css.map'))
         Object.keys(manifest.modules).forEach(moduleId => {
           manifest.modules[moduleId] = manifest.modules[moduleId].filter(v => v !== -1)
         })
+        if (typeof this.userOptions === 'function') {
+          this.userOptions(manifest)
+        } else if (this.userOptions && typeof this.userOptions === 'object') {
+          Object.assign(manifest, this.userOptions)
+        }
         manifest = JSON.stringify(manifest)
         compilation.assets['ssr/vue-ssr-client-manifest.json'] = {
           source () { return manifest },

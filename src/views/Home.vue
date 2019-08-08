@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ul>
+    <h2>一些有用的链接</h2>
+    <ul class="links">
       <li v-for="link in homeLinks" :key="link.url">
         <a :href="link.url" target="_blank">{{link.name}}</a>
       </li>
@@ -9,8 +10,6 @@
 </template>
 
 <script>
-// import request from '../api'
-
 export default {
   asyncData (store) {
     return store.$fetchLinks('/data/home.json')
@@ -22,3 +21,15 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.links {
+  li {
+    margin: 20px;
+  }
+  li a {
+    text-transform: capitalize;
+    text-decoration: none;
+  }
+}
+</style>

@@ -13,7 +13,7 @@
 
 importScripts(
   "https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js",
-  "/assets/precache/precache-manifest.a1148959defd08a2503df4b8ef85b6ec.js"
+  "/assets/precache/precache-manifest.e77ae170110744dbc3c6409f4b81c8da.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tingyuan"});

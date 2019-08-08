@@ -1,0 +1,16 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    tingyuan -- https://github.com/lovetingyuan
+
+# THANKS
+
+    mayingxue
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5, ESNext
+    Github Pages, Vue, vue-router, less, vue-cli, pwa
+

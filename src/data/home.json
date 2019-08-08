@@ -1,0 +1,12 @@
+{
+  "links": [
+    {
+      "url": "https://github.com/trending",
+      "name": "github trending"
+    },
+    {
+      "url": "https://frontendmasters.com/books/front-end-handbook/2019/",
+      "name": "front-end-handbook-2019"
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   <header>
     <nav>
       <ul>
-        <router-link tag="li" to="/">Home</router-link>
-        <router-link tag="li" to="/blog">Blog</router-link>
-        <router-link tag="li" to="/music">Music</router-link>
-        <router-link tag="li" to="/movie">Movie</router-link>
-        <router-link tag="li" to="/story">Story</router-link>
-        <li><a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">github</a></li>
+        <router-link tag="li" to="/">首页</router-link>
+        <router-link tag="li" to="/blog">博客</router-link>
+        <router-link tag="li" to="/music">音乐</router-link>
+        <router-link tag="li" to="/movie">电影</router-link>
+        <router-link tag="li" to="/story">故事</router-link>
+        <li><a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">Github</a></li>
       </ul>
     </nav>
   </header>
