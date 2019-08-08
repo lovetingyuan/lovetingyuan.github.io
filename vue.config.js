@@ -18,6 +18,14 @@ module.exports = {
       })
     }
   },
+  pwa: {
+    assetsVersion: 'v' + appVersion,
+    workboxOptions: {
+      precacheManifestFilename: './precache/precache-manifest.[manifestHash].js',
+      importWorkboxFrom: 'disabled',
+      importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js'
+    }
+  },
   configureWebpack: {
     optimization: {
       runtimeChunk: {

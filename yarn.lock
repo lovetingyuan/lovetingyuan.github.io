@@ -659,10 +659,10 @@
     error-stack-parser "^2.0.0"
     string-width "^2.0.0"
 
-"@tingyuan/vue-store@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@tingyuan/vue-store/-/vue-store-0.0.2.tgz#265f484016482e77ca3dd2d50ff062d3d4a5cf4f"
-  integrity sha512-l+aXkVOQakKXZ5VgIDRHFdJdgKiaqgTJzfmSFz4huQpicDcNjJWUrxr7cWEbS9fCTxvBDeBqsituZZLqCpgGfg==
+"@tingyuan/vue-store@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@tingyuan/vue-store/-/vue-store-0.0.3.tgz#e2083a5a96ef4792bedc1caa125b7ebb5f454bb8"
+  integrity sha512-3Dkgh6NSNVKd1oMG1y0a72A24uCEqqU5YRqZz+0R3ypduMMntBk2IHB78lGVLN5rZMg02Hkr2K4ODSed7d2INQ==
   dependencies:
     "@types/node" "^12.6.6"
     tslib "^1.10.0"
@@ -4570,7 +4570,7 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
-loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
+loader-utils@^1.0.2, loader-utils@^1.1.0:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
   dependencies:
@@ -5162,13 +5162,6 @@ nth-check@^1.0.2, nth-check@~1.0.1:
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
   dependencies:
     boolbase "~1.0.0"
-
-null-loader@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/null-loader/-/null-loader-3.0.0.tgz#3e2b6c663c5bda8c73a54357d8fa0708dc61b245"
-  dependencies:
-    loader-utils "^1.2.3"
-    schema-utils "^1.0.0"
 
 num2fraction@^1.2.2:
   version "1.2.2"
