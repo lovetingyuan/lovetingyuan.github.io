@@ -6,7 +6,7 @@ const src = path.join(__dirname, '../dist')
 
 fse.readdirSync(dest).forEach(file => {
   if (
-    file.startsWith('precache-manifest.') ||
+    // file === 'precache' ||
     file === 'assets'
   ) {
     fse.removeSync(path.join(dest, file))

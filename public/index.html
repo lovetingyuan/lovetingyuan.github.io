@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>tingyuan</title>
+    <script>window.ThemeColor="#4DBA87";</script>
     <!--[if renderStyles]><![endif]-->
   </head>
   <body>
@@ -18,7 +19,7 @@
     <script>
     setTimeout(function(){var e=document.querySelector('meta[name="datePublished"]');if(!e){return}var v=e.content.split(',');var d=new Date(+v[2]);
     console.log('%c '+v[0]+'('+v[1]+')'+': '+[d.getFullYear(),'/',d.getMonth()+1,'/',d.getDate(),' ',d.getHours(),':',d.getMinutes(),' ',v[3],' '].join(''),
-    'background:#EE4D2D;color:#fff;padding:1px 2px;border-radius:2px')})
+    'background-color:'+ThemeColor+';color:#fff;padding:1px 2px;border-radius:2px')})
     </script>
   </body>
 </html>

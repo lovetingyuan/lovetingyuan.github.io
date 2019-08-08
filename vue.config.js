@@ -21,9 +21,16 @@ module.exports = {
   pwa: {
     assetsVersion: 'v' + appVersion,
     workboxOptions: {
-      precacheManifestFilename: './precache/precache-manifest.[manifestHash].js',
+      precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
       importWorkboxFrom: 'disabled',
       importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js'
+    },
+    iconPaths: {
+      favicon32: 'assets/icons/favicon-32x32.png',
+      favicon16: 'assets/icons/favicon-16x16.png',
+      appleTouchIcon: 'assets/icons/apple-icon-152x152.png',
+      maskIcon: 'assets/icons/safari-pinned-tab.svg',
+      msTileImage: 'assets/icons/ms-icon-144x144.png'
     }
   },
   configureWebpack: {
