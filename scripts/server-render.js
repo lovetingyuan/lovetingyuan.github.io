@@ -18,7 +18,7 @@ const port = 8081
 const { minify } = require('html-minifier')
 const template = fse.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
 
-server.use('/data', express.static(path.join(__dirname, '../src/data')))
+server.use('/src/data', express.static(path.join(__dirname, '../src/data')))
 const _server = server.listen(port)
 
 function renderRoute (_path) {

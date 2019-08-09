@@ -17,13 +17,14 @@ if (process.env.NODE_ENV === 'development') {
 
 const request = {
   get (url) {
+    if (!url.startsWith('/data')) {
+      throw new Error('request not startsWith /data is not supported.')
+    }
     if (process.env.NODE_ENV === 'development') {
-      if (url.startsWith('/data')) {
-        return Promise.resolve(data['.' + url.substr('/data'.length)])
-      }
+      return Promise.resolve(data['.' + url.substr('/data'.length)])
     } else {
       const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
-      return _fetch(baseUrl + url).then(res => res.json())
+      return _fetch(baseUrl + '/src' + url).then(res => res.json())
     }
   }
 }

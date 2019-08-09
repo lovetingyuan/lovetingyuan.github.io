@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>tingyuan</title>
-    <script>window.ThemeColor="#4DBA87";</script>
+    <script>
+      window.ThemeColor = "#4DBA87";
+      window.Promise || document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"><\/script>');
+      window.fetch || document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"><\/script>');
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css">
     <!--[if renderStyles]><![endif]-->
   </head>
