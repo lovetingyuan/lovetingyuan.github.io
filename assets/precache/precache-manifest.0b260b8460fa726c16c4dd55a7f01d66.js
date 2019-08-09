@@ -52,7 +52,7 @@ self.__precacheManifest = [
     "url": "/assets/js/manifest-legacy.643d09da.js"
   },
   {
-    "revision": "08ece0fe6038149656b2d7f975f970ad",
+    "revision": "fd0952d20d133d927a33419ea28f8cb5",
     "url": "/index.html"
   }
 ];
