@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const SSRClientPlugin = require('./scripts/ssr-client-plugin')
 const gitHash = require('git-rev-sync').short(null, 10)
 const { name: appName, version: appVersion } = require('./package.json')
+const path = require('path')
+const fse = require('fs-extra')
 
 module.exports = {
   lintOnSave: false,
@@ -40,6 +42,25 @@ module.exports = {
       }
     },
     plugins: [
+      {
+        apply (compiler) {
+          compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
+            fse.readdirSync(__dirname).forEach(file => {
+              if (file === 'assets') {
+                fse.removeSync(path.join(__dirname, file))
+              }
+            })
+          })
+          compiler.hooks.done.tap('copy-dist-to-root', () => {
+            const src = path.join(__dirname, 'dist')
+            fse.readdirSync(src).forEach(file => {
+              if (file !== 'ssr' && file !== 'report.html') {
+                fse.copySync(path.join(src, file), path.join(__dirname, file))
+              }
+            })
+          })
+        }
+      },
       new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development'
       }),

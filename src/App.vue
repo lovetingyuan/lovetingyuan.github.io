@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <main>
+    <main :style="`margin-top: ${marginTop}px`">
       <transition name="slide-fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -18,13 +18,19 @@ export default {
   },
   data () {
     return {
-      date: null
+      marginTop: 0
     }
   },
   created () {
     const url = 'https://1650493675298486.cn-hangzhou.fc.aliyuncs.com/2016-08-15/proxy/common_data_proxy/test2/'
     typeof fetch === 'function' && fetch(url).then(res => res.json()).then(data => {
       this.date = data.date
+    })
+  },
+  mounted () {
+    this.$nextTick(() => {
+      const headerHeight = document.querySelector('header').clientHeight
+      this.marginTop = headerHeight
     })
   }
 }

@@ -42,21 +42,17 @@ if (typeof window === 'object' && window.document) {
   })
 }
 
-class Deferred {
-  constructor () {
-    this.promise = new Promise((resolve, reject) => {
-      this.reject = reject
-      this.resolve = resolve
-    })
-  }
-}
-
 export default context => {
   const app = createApp()
   const { store, router } = app.$options
   store.origin = context.origin
   router.push(context.url)
-  const { promise, reject, resolve } = new Deferred()
+  const { promise, reject, resolve } = new function () {
+    this.promise = new Promise((resolve, reject) => {
+      this.resolve = resolve
+      this.reject = reject
+    })
+  }()
   router.onReady(() => {
     const matchedComponents = router.getMatchedComponents()
     Promise.all(matchedComponents.filter(v => v.asyncData).map(Component => {

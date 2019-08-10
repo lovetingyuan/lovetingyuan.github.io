@@ -1,5 +1,33 @@
 <template>
   <div>
-    this is story
+    <h2>
+      随着海风吹，吹向来时庭院...
+    </h2>
+    <ul class="story-list">
+      <li>
+        <details>
+          <summary>时间的女儿</summary>
+            <div class="content" style="padding:5px 0px;margin-top:0px;margin-bottom:0px;text-indent:2em;color:rgb(43, 43, 43);font-family:Verdana, Arial, Tahoma"><p>英国姑娘戴希·瑟基托尔的两只婚戒很特别，所需金料是由她从小到大一点点亲手从河里淘拣出来的。</p><p>从3岁开始，戴希便跟随父亲在苏格兰和威尔士的河里淘金。25岁时，这个利兹大学博士生决定嫁给心上人马提恩·洛帕。</p><p>她把积攒了22年的金子拿到珠宝商那里，却被告知若想打造一对婚戒，金料还差一点儿。</p><p>于是在婚礼前夕，戴希和未婚夫前往威尔士旅行时，双双下水，去淘“最后的金子”。</p><p>“我们最后在一块泥土里发现了几颗细小的金粒，那种感觉太奇妙了。”戴希说。</p></div>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>一个人的车站</summary>
+          <div class="content"><div><div><p style="font-family:微软雅黑;font-size:16px">今天是日本的旧白泷车站最后一个营运日，明天车站会正式关闭。许多民众自发前往告别，挂出“69年间非常感谢”的横幅。<br></p></div><div><p style="font-family:微软雅黑;font-size:16px">旧白泷车站位置偏僻，长期亏损，很早就有人建议关闭。后来日本北海道旅客铁路公司发现有一名高中女学生每天还在乘坐这趟列车上下学，于是决定继续保留，直到她毕业。</p></div><p style="font-family:微软雅黑;font-size:16px">女孩名叫原田华奈，后来便成了旧白泷车站“唯一的定期乘客”。在本月1日，原田华奈还曾乘车去学校参加毕业式。今年4月，她将前往东京上护士学校。</p><div><p style="font-family:微软雅黑;font-size:16px">“感谢这个车站一直保留到我高中毕业。”今年18岁的原田近期接受媒体采访时表示，过去三年她每天都乘坐这个火车上下学，有时候火车晚点列车员还会提前通知她。</p></div><div><p style="font-family:微软雅黑;font-size:16px">原田华奈的父母来到现场，为参加告别活动的人们分发热牛奶和土豆。她的父亲在现场通过媒体表达了对铁路公司的感谢。此时的北海道还在漫天飞雪，但这个小站却充满了浓浓的暖意。</p></div><div><p style="font-family:微软雅黑;font-size:16px">女孩即将离开故乡去远方求学，车站也履行完了自己的使命，愿她带着这个独属于自己的故事，和这份感动走的更远。</p></div><br><br></div></div>
+        </details>
+      </li>
+    </ul>
   </div>
 </template>
+
+<style lang="less" scoped>
+  .story-list {
+    li {
+      margin: 20px 0;
+      line-height: 2;
+      .content {
+        text-indent: 2em;
+      }
+    }
+  }
+</style>

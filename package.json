@@ -7,7 +7,7 @@
     "build": "vue-cli-service build --modern",
     "build:ssr": "cross-env NODE_ENV=production node scripts/build --modern",
     "lint": "vue-cli-service lint",
-    "postbuild:ssr": "node scripts/pre-build && node scripts/server-render",
+    "postbuild:ssr": "node scripts/server-render",
     "check": "npx npm-check-updates"
   },
   "dependencies": {

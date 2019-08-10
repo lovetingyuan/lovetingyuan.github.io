@@ -11,7 +11,6 @@ export default () => {
     base: process.env.BASE_URL,
     routes: [
       { path: '/', component: Home },
-      // { path: '/about', component: a }
       {
         path: '/blog/:category?',
         component: () => import('./views/Blog.vue'),

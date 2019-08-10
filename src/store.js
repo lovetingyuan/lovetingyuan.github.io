@@ -20,6 +20,10 @@ export default function createStore () {
     set ([key, val]) {
       this[key] = val
     },
+    $showDialog (show, id = 'dialog') {
+      const dialog = document.getElementById('dialog')
+      show ? dialog.showModal() : dialog.close()
+    },
     async $fetchLinks () {
       if (init(this.links)) {
         const { links } = await request.get('/data/home.json')
@@ -39,7 +43,6 @@ export default function createStore () {
       }
     }
   })
-  Vue.prototype.$store = store
   if (process.env.NODE_ENV !== 'production') {
     console.log('store', store)
   }
