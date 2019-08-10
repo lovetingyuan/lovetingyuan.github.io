@@ -3,11 +3,9 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
-    "build:ssr": "cross-env NODE_ENV=production node scripts/build --modern",
-    "lint": "vue-cli-service lint",
-    "postbuild:ssr": "node scripts/server-render",
+    "serve": "cross-env NODE_ENV=development node scripts/serve-build serve --no-ssr",
+    "build": "cross-env NODE_ENV=production node scripts/serve-build build --modern",
+    "lint": "vue-cli-service lint --fix",
     "check": "npx npm-check-updates"
   },
   "dependencies": {
@@ -54,8 +52,7 @@
   },
   "eslintIgnore": [
     "service-worker.js",
-    "assets",
-    "precache-manifest.*.js"
+    "assets"
   ],
   "postcss": {
     "plugins": {

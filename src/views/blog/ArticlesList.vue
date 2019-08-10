@@ -7,10 +7,10 @@
 
 <script>
 export default {
-  created() {
+  created () {
   },
   computed: {
-    category() {
+    category () {
       return this.$route.params.category
     }
   }

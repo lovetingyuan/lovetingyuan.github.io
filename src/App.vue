@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <app-header :navs-list="navs"></app-header>
     <main :style="`margin-top: ${marginTop}px`">
       <transition name="slide-fade" mode="out-in">
         <router-view></router-view>
@@ -10,15 +10,35 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import AppHeader from './components/Header.vue'
 
 export default {
-  components: {
-    appHeader: Header
-  },
+  components: { AppHeader },
   data () {
     return {
-      marginTop: 0
+      marginTop: 0,
+      navs: [
+        {
+          title: '首页',
+          path: '/'
+        },
+        {
+          title: '博客',
+          path: '/blog'
+        },
+        {
+          title: '音乐',
+          path: '/music'
+        },
+        {
+          title: '电影',
+          path: '/movie'
+        },
+        {
+          title: '远方',
+          path: '/spirit'
+        }
+      ]
     }
   },
   created () {

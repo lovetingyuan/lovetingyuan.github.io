@@ -2,16 +2,23 @@
   <header>
     <nav>
       <ul>
-        <router-link tag="li" to="/">首页</router-link>
-        <router-link tag="li" to="/blog">博客</router-link>
-        <router-link tag="li" to="/music">音乐</router-link>
-        <router-link tag="li" to="/movie">电影</router-link>
-        <router-link tag="li" to="/story">远方</router-link>
+        <router-link tag="li" v-for="nav in navsList" :key="nav.title + nav.path" :to="nav.path">{{nav.title}}</router-link>
         <li><a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">Github</a></li>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  props: {
+    navsList: Array
+  },
+  mounted () {
+    console.log(this.navsList)
+  }
+}
+</script>
 
 <style lang="less" scoped>
 header {

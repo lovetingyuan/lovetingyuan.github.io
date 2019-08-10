@@ -24,7 +24,6 @@ module.exports = {
     }),
     optimization: {
       minimize: false,
-      minimizer: [],
       splitChunks: false
     },
     plugins: [

@@ -17,6 +17,10 @@ img {
   object-fit: contain;
 }
 
+summary {
+  cursor: pointer;
+}
+
 .router-link-exact-active {
   color: var(--theme-color);
 }

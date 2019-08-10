@@ -16,11 +16,11 @@
 
 <script>
 export default {
-  asyncData(store) {
+  asyncData (store) {
     return store.Music.$fetchMusic()
   },
   computed: {
-    bestSongs() {
+    bestSongs () {
       return this.$store.Music.bestSongs
     }
   }

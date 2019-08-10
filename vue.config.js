@@ -37,6 +37,7 @@ module.exports = {
   },
   configureWebpack: {
     optimization: {
+      minimize: false,
       runtimeChunk: {
         name: 'manifest'
       }
@@ -44,7 +45,8 @@ module.exports = {
     plugins: [
       {
         apply (compiler) {
-          compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
+          if (process.env.NODE_ENV !== 'production') return
+          compiler.hooks.entryOption.tap('clear-prev-build', () => {
             fse.readdirSync(__dirname).forEach(file => {
               if (file === 'assets') {
                 fse.removeSync(path.join(__dirname, file))
@@ -54,9 +56,25 @@ module.exports = {
           compiler.hooks.done.tap('copy-dist-to-root', () => {
             const src = path.join(__dirname, 'dist')
             fse.readdirSync(src).forEach(file => {
-              if (file !== 'ssr' && file !== 'report.html') {
+              if (!['ssr', 'report.html', 'legacy-assets-index.html.json'].includes(file)) {
                 fse.copySync(path.join(src, file), path.join(__dirname, file))
               }
+            })
+          })
+          const addefer = 'add-defer-body-scripts'
+          compiler.hooks.afterEnvironment.tap(addefer, () => {
+            compiler.hooks.compilation.tap(addefer, compilation => {
+              compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync(addefer, async (data, cb) => {
+                data.body.forEach(tag => {
+                  if (tag.tagName === 'script' && tag.attributes) {
+                    tag.attributes.defer = ''
+                  }
+                })
+                cb()
+              })
+              compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tap(addefer, data => {
+                data.html = data.html.replace(/\sdefer=""\s/gm, ' defer ')
+              })
             })
           })
         }
@@ -72,11 +90,15 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].meta = {
+        args[0].meta = Object.assign(args[0].meta || {}, {
           datePublished: [
             appName, appVersion, Date.now(), gitHash
           ] + ''
-        }
+        })
+        args[0].minify = Object.assign(args[0].minify || {}, {
+          minifyCSS: true,
+          minifyJS: true
+        })
         return args
       })
   }

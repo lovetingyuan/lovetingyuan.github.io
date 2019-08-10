@@ -45,7 +45,6 @@ if (typeof window === 'object' && window.document) {
 export default context => {
   const app = createApp()
   const { store, router } = app.$options
-  store.origin = context.origin
   router.push(context.url)
   const { promise, reject, resolve } = new function () {
     this.promise = new Promise((resolve, reject) => {
