@@ -1,2 +1,2 @@
 # tingyuan
-My personal site: https://tingyuan.me
+Welcome to my personal site: https://tingyuan.me
