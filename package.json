@@ -1,17 +1,23 @@
 {
   "name": "tingyuan",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "cross-env NODE_ENV=development node scripts/serve-build serve --no-ssr",
+    "build": "cross-env NODE_ENV=production node scripts/serve-build build --modern",
+    "lint": "vue-cli-service lint --fix",
+    "check": "npx npm-check-updates"
   },
   "dependencies": {
+    "@tingyuan/vue-store": "^0.0.3",
     "core-js": "^2.6.5",
+    "main.css": "^2.0.0",
+    "node-fetch": "^2.6.0",
+    "normalize.css": "^8.0.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vue-server-renderer": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
@@ -25,7 +31,10 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "lint-staged": "^8.1.5",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "cross-env": "^5.2.0",
+    "git-rev-sync": "^1.12.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "eslintConfig": {
     "root": true,
@@ -41,6 +50,10 @@
       "parser": "babel-eslint"
     }
   },
+  "eslintIgnore": [
+    "service-worker.js",
+    "assets"
+  ],
   "postcss": {
     "plugins": {
       "autoprefixer": {}
@@ -51,7 +64,7 @@
     "last 2 versions"
   ],
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged && echo 324"
   },
   "lint-staged": {
     "*.{js,vue}": [

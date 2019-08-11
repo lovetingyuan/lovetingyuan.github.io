@@ -1,25 +1,35 @@
+import VueRouter from 'vue-router'
 import Vue from 'vue'
-import Router from 'vue-router'
+
 import Home from './views/Home.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
-})
+export default () => {
+  return new VueRouter({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+      { path: '/', component: Home },
+      {
+        path: '/blog/:category?',
+        component: () => import('./views/Blog.vue'),
+        children: [
+          {
+            path: '', component: () => import('./views/blog/ArticlesList.vue')
+          },
+          {
+            path: 'javascript', component: () => import('./views/blog/ArticlesList.vue')
+          },
+          {
+            path: 'css', component: () => import('./views/blog/ArticlesList.vue')
+          }
+        ]
+      },
+      { path: '/about', component: () => import('./views/About.vue') },
+      { path: '/music', component: () => import('./views/Music.vue') },
+      { path: '/movie', component: () => import('./views/Movie.vue') },
+      { path: '/spirit', component: () => import('./views/Story.vue') }
+    ]
+  })
+}

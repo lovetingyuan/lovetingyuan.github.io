@@ -6,12 +6,37 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>tingyuan</title>
+    <meta name="description" content="Welcome to tingyuan. This is my personal site, including my favorite.">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <script>
+      window.ThemeColor = '#4DBA87';
+      window.Promise || document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"><\/script>');
+      window.fetch || document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"><\/script>');
+    </script>
+    <!--[if renderStyles]><![endif]-->
   </head>
   <body>
+    <!--[if IE]>
+      <p style="margin:0.2em 0;background:#ccc;color:#000;padding:0.2em 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
     <noscript>
       <strong>We're sorry but tingyuan doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!--[if renderState]><![endif]-->
+    <script>
+    setTimeout(function() {
+      var e = document.querySelector('meta[name="datePublished"]');
+      if(!e) return;
+      var v = e.content.split(',');var d=new Date(+v[2]);
+      console.log(
+        '%c '+ v[0] + '(' + v[1] + ')' + ': ' +
+        [d.getFullYear(),'/',d.getMonth()+1,'/',d.getDate(),' ',d.getHours(),':',d.getMinutes(),' ',v[3],' '].join(''),
+        'background-color:' + ThemeColor + ';color:#fff;padding:1px 2px;border-radius:2px'
+      )
+    })
+    </script>
   </body>
 </html>

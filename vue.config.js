@@ -1,3 +1,104 @@
+const webpack = require('webpack')
+const SSRClientPlugin = require('./scripts/ssr-client-plugin')
+const gitHash = require('git-rev-sync').short(null, 10)
+const { name: appName, version: appVersion } = require('./package.json')
+const path = require('path')
+const fse = require('fs-extra')
+
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+  assetsDir: 'assets',
+  productionSourceMap: false,
+  devServer: {
+    before (app, server) {
+      app.use((req, res, next) => {
+        if (req.url.startsWith('/data/') && req.url.endsWith('.json')) {
+          res.json(require('.' + req.url))
+        } else {
+          next()
+        }
+      })
+    }
+  },
+  pwa: {
+    assetsVersion: 'v' + appVersion,
+    workboxOptions: {
+      precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
+      importWorkboxFrom: 'disabled',
+      importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js'
+    },
+    iconPaths: {
+      favicon32: 'assets/icons/favicon-32x32.png',
+      favicon16: 'assets/icons/favicon-16x16.png',
+      appleTouchIcon: 'assets/icons/apple-icon-152x152.png',
+      maskIcon: 'assets/icons/safari-pinned-tab.svg',
+      msTileImage: 'assets/icons/ms-icon-144x144.png'
+    }
+  },
+  configureWebpack: {
+    optimization: {
+      runtimeChunk: {
+        name: 'manifest'
+      }
+    },
+    plugins: [
+      {
+        apply (compiler) {
+          if (process.env.NODE_ENV !== 'production') return
+          compiler.hooks.entryOption.tap('clear-prev-build', () => {
+            fse.readdirSync(__dirname).forEach(file => {
+              if (file === 'assets') {
+                fse.removeSync(path.join(__dirname, file))
+              }
+            })
+          })
+          compiler.hooks.done.tap('copy-dist-to-root', () => {
+            const src = path.join(__dirname, 'dist')
+            fse.readdirSync(src).forEach(file => {
+              if (!['ssr', 'report.html', 'legacy-assets-index.html.json'].includes(file)) {
+                fse.copySync(path.join(src, file), path.join(__dirname, file))
+              }
+            })
+          })
+          const addefer = 'add-defer-body-scripts'
+          compiler.hooks.afterEnvironment.tap(addefer, () => {
+            compiler.hooks.compilation.tap(addefer, compilation => {
+              compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync(addefer, async (data, cb) => {
+                data.body.forEach(tag => {
+                  if (tag.tagName === 'script' && tag.attributes) {
+                    tag.attributes.defer = ''
+                  }
+                })
+                cb()
+              })
+              compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tap(addefer, data => {
+                data.html = data.html.replace(/\sdefer=""\s/gm, ' defer ')
+              })
+            })
+          })
+        }
+      },
+      new webpack.DefinePlugin({
+        __DEV__: process.env.NODE_ENV === 'development'
+      }),
+      // new InlineManifestPlugin(),
+      new SSRClientPlugin()
+    ].filter(Boolean)
+  },
+  chainWebpack (config) {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].meta = Object.assign(args[0].meta || {}, {
+          datePublished: [
+            appName, appVersion, Date.now(), gitHash
+          ] + ''
+        })
+        args[0].minify = Object.assign(args[0].minify || {}, {
+          minifyCSS: true,
+          minifyJS: true
+        })
+        return args
+      })
+  }
 }
