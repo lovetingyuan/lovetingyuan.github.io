@@ -3,7 +3,11 @@
     <nav>
       <ul>
         <router-link tag="li" v-for="nav in navsList" :key="nav.title + nav.path" :to="nav.path">{{nav.title}}</router-link>
-        <li><a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">Github</a></li>
+        <li>
+          <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">
+            <img src="~@/assets/github-mark.png" alt="github" width="22" style="vertical-align: top">
+          </a>
+        </li>
       </ul>
     </nav>
   </header>

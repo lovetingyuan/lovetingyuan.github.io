@@ -17,6 +17,7 @@ function init (val) {
 export default function createStore () {
   const store = VueStore.createStore({
     links: init([]),
+    githubs: init([]),
     set ([key, val]) {
       this[key] = val
     },
@@ -26,8 +27,9 @@ export default function createStore () {
     },
     async $fetchLinks () {
       if (init(this.links)) {
-        const { links } = await request.get('/data/home.json')
+        const { links, githubs } = await request.get('/data/home.json')
         this.set(['links', links])
+        this.set(['githubs', githubs])
       }
     },
     Music: {

@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "362d6e0c720f48f3a305",
-    "url": "/assets/css/app.036f0e12.css"
+    "revision": "eb29c1a60d13ac76c683",
+    "url": "/assets/css/app.2cbb1ee4.css"
   },
   {
-    "revision": "362d6e0c720f48f3a305",
-    "url": "/assets/js/app-legacy.bbb8c409.js"
+    "revision": "eb29c1a60d13ac76c683",
+    "url": "/assets/js/app-legacy.cf07585f.js"
   },
   {
     "revision": "9606dab7da5427594922",
@@ -56,7 +56,11 @@ self.__precacheManifest = [
     "url": "/assets/js/manifest-legacy.d13ce3e7.js"
   },
   {
-    "revision": "2ce9aa101e6ceb926c9292ebd7237f1f",
+    "revision": "ef7a02b69836dc8b6a732a54c4200dcb",
+    "url": "/assets/img/github-mark.ef7a02b6.png"
+  },
+  {
+    "revision": "37bea00fe93856f671dba8cf947d0b4c",
     "url": "/index.html"
   }
 ];
