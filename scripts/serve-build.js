@@ -13,8 +13,9 @@ const serverVueConfigPath = require.resolve('./vue.ssr.config')
 
 const SSRoutes = [
   '/',
-  '/about',
-  '/music'
+  '/movie',
+  '/music',
+  '/spirit'
 ]
 
 function createService (configPath) {
