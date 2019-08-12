@@ -1,12 +1,15 @@
 {
-  "Ghibli": [
+  "ghibli": [
     {
-      "title": "千与千寻",
-      "origin_title": "",
-      "imdb": "",
-      "director": "",
-      "producer": ""
-
+      "name": "千与千寻",
+      "cover": "https://img5.mtime.cn/mg/2019/06/20/161106.48021449_270X405X4.jpg",
+      "origin_name": "千と千尋の神隠し",
+      "imdb": "https://www.imdb.com/title/tt0245429/",
+      "director": "宫崎骏",
+      "producer": "吉卜力",
+      "date": "2001-7-20",
+      "duration": 125,
+      "country": "日本"
     }
   ]
 }

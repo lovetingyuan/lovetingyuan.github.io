@@ -43,6 +43,18 @@ export default function createStore () {
           this.set(['bestSongs', best])
         }
       }
+    },
+    Movie: {
+      ghibli: init([]),
+      set ([key, val]) {
+        this[key] = val
+      },
+      async $fetchMovies () {
+        if (init(this.ghibli)) {
+          const { ghibli } = await request.get('/data/movie.json')
+          this.set(['ghibli', ghibli])
+        }
+      }
     }
   })
   if (process.env.NODE_ENV !== 'production') {

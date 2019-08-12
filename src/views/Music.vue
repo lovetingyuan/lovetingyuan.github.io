@@ -2,6 +2,10 @@
   <div>
     <h2>喜欢的音乐</h2>
     <ul class="music-list">
+      <list-item
+        v-for="song in bestSongs" :key="song.name"
+       :item-img="">
+      </list-item>
       <li v-for="song in bestSongs" :key="song.name" class="music-item clearfix">
         <img class="music-img" :src="song.cover" :alt="song.name">
         <ul class="music-info">
@@ -15,13 +19,22 @@
 </template>
 
 <script>
+import ListItem from '@/components/ListItem.vue'
+
 export default {
+  components: { ListItem },
   asyncData (store) {
     return store.Music.$fetchMusic()
   },
   computed: {
     bestSongs () {
-      return this.$store.Music.bestSongs
+      const songs = this.$store.Music.bestSongs
+      return {
+        name: {
+          label: '歌曲名称',
+
+        }
+      }
     }
   }
 }
@@ -33,23 +46,24 @@ export default {
 }
 .music-item {
   margin-bottom: 40px;
+  display: flex;
 }
 .music-img {
   border-radius: 4px;
-  float: left;
-  margin-right: 40px;
   width: 150px;
 }
 .music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   li {
-    margin: 18px;
     font-size: .8em;
-    &:before {
-      content: attr(data-title);
-      color: var(--theme-color);
-      margin-right: 10px;
-      font-size: 1.2em;
-    }
   }
+}
+[data-title]:before {
+  content: attr(data-title);
+  color: var(--theme-color);
+  margin-right: 10px;
+  font-size: 1.2em;
 }
 </style>
