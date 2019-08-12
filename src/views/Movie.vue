@@ -1,29 +1,23 @@
 <template>
   <div>
     <h2>喜欢的电影</h2>
-    <ul>
-      <li v-for="great in ghibli" :key="great.name">
-        <div>
-          <img :src="great.cover" :alt="great.name" width="120" style="float: left">
-          <ul>
-            <li data-title="影片名称">
-              <a :href="great.imdb" target="_blank" rel="noopener">{{great.name}}</a>
-              《{{great.origin_name}}》
-            </li>
-            <li data-title="地区/年份">{{great.country}} ({{great.date}})</li>
-            <li data-title="导演">{{great.director}}</li>
-            <li data-title="制作单位">{{great.producer}}</li>
-            <li data-title="片长">{{great.duration}}分钟</li>
-          </ul>
-        </div>
-      </li>
-    </ul>
+    <details open>
+      <summary>
+        吉卜力&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.ghibli.jp/works" target="_blank" rel="noopener">Ghibli</a>
+      </summary>
+      <div class="movie-list">
+        <movie-item v-for="great in ghibli" :key="great.name" v-bind="great"></movie-item>
+      </div>
+    </details>
+
   </div>
 </template>
 
 <script>
+import MovieItem from '@/components/MovieItem.vue'
 
 export default {
+  components: { MovieItem },
   asyncData (store) {
     return store.Movie.$fetchMovies()
   },
@@ -36,9 +30,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
-[data-title]:before {
-  content: attr(data-title);
-  color: var(--theme-color);
-  margin-right: 10px;
+.movie-list {
+  background-image: url('~@/assets/totoro.png');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position-x: 200%;
+}
+::v-deep .movie-item {
+  margin: 50px 0;
 }
 </style>

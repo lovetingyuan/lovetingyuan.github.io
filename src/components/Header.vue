@@ -4,7 +4,7 @@
       <ul>
         <router-link tag="li" v-for="nav in navsList" :key="nav.title + nav.path" :to="nav.path">{{nav.title}}</router-link>
         <li>
-          <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener">
+          <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener" title="github">
             <img src="~@/assets/github-mark.png" alt="github" width="22" style="vertical-align: top">
           </a>
         </li>
@@ -17,9 +17,6 @@
 export default {
   props: {
     navsList: Array
-  },
-  mounted () {
-    console.log(this.navsList)
   }
 }
 </script>
@@ -32,6 +29,7 @@ header {
   position: fixed;
   width: 100%;
   background-color: rgba(255, 255, 255, .9);
+  z-index: 9;
   nav {
     max-width: var(--max-width);
     margin: 0 auto;
