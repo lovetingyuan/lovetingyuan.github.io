@@ -7,8 +7,8 @@ const nodeExternals = require('webpack-node-externals')
 module.exports = {
   lintOnSave: false,
   outputDir: 'dist/ssr',
+  assetsDir: 'assets',
   productionSourceMap: false,
-  filenameHashing: false,
   css: {
     extract: false
   },
