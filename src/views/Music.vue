@@ -10,10 +10,12 @@
 
 <script>
 import MusicItem from '@/components/MusicItem.vue'
+import MusicModule from '@/modules/music'
 
 export default {
   components: { MusicItem },
   asyncData (store) {
+    store.addModule('Music', MusicModule)
     return store.Music.$fetchMusic()
   },
   computed: {

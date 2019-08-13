@@ -1,3 +1,13 @@
+export function init (val) {
+  if (val && typeof val === 'object') {
+    if (val.__init__) {
+      return true
+    }
+    val.__init__ = true
+  }
+  return val
+}
+
 // eslint-disable-next-line
 let _fetch
 if (process.env.SERVER_SSR) {
@@ -9,13 +19,13 @@ if (process.env.SERVER_SSR) {
 const data = {}
 
 if (process.env.NODE_ENV === 'development') {
-  const context = require.context('./data', true, /\.json$/)
+  const context = require.context('@/data', true, /\.json$/)
   context.keys().forEach(path => {
     data[path] = context(path)
   })
 }
 
-const request = {
+export const request = {
   get (url) {
     if (!url.startsWith('/data')) {
       throw new Error('request not startsWith /data is not supported.')
@@ -28,5 +38,3 @@ const request = {
     }
   }
 }
-
-export default request

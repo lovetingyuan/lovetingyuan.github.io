@@ -31,6 +31,7 @@ export default {
   position: relative;
   border-radius: 6px;
   display: inline-block;
+  background-color: #eee;
   .info-list {
     margin: 0;
     padding: 076y87u8;

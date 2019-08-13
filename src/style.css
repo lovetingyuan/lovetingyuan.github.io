@@ -2,7 +2,7 @@
 @import '~main.css/dist/main.css';
 
 :root {
-  --theme-color: yellowgreen;
+  --theme-color: #4DBA87;
   --font-color: #555;
   --max-width: 900px;
 }
@@ -17,10 +17,19 @@ img {
   object-fit: contain;
 }
 
-summary {
-  cursor: pointer;
+ul {
+  padding: 0 20px;
 }
 
-.router-link-exact-active {
+p {
+  margin: .8em 0;
+}
+
+summary {
+  cursor: pointer;
+  outline: none;
+}
+
+.router-link-active, .router-link-exact-active {
   color: var(--theme-color);
 }

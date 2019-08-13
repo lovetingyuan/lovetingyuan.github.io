@@ -14,6 +14,17 @@ Vue.mixin({
       this.asyncDataPromise = asyncData(this.$store, this.$route)
     }
   },
+  mounted () {
+    const routerLink = Vue.component('RouterLink')
+    if (this.constructor === routerLink) {
+      if (this.$el && this.$router && this.to) {
+        const { path } = this.$router.resolve(this.to).resolved
+        if (!this.$el.title) {
+          this.$el.title = path
+        }
+      }
+    }
+  },
   beforeRouteUpdate (to, from, next) {
     const { asyncData } = this.$options
     if (asyncData) {

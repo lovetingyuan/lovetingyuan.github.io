@@ -20,7 +20,8 @@ export default {
       navs: [
         {
           title: '首页',
-          path: '/'
+          path: '/',
+          exact: true
         },
         {
           title: '博客',
@@ -28,7 +29,9 @@ export default {
         },
         {
           title: '音乐',
-          path: '/music'
+          to: {
+            name: 'Music'
+          }
         },
         {
           title: '电影',
@@ -67,11 +70,16 @@ export default {
 main {
   max-width: var(--max-width);
   margin: 0 auto;
-  // border: 1px solid yellowgreen;
+  position: relative;
+  @media screen and (max-width: 544px) {
+    width: 90%;
+    padding: 20px;
+  }
 
   flex-grow: 1;
   width: 80%;
   padding: 40px;
+  padding-top: 20px;
 
   .slide-fade-enter-active {
     transition: all .2s ease;
