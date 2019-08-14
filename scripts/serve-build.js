@@ -8,6 +8,7 @@ const minimist = require('minimist')
 const fse = require('fs-extra')
 const express = require('express')
 const lodashTemplate = require('lodash/template')
+const { minify } = require('html-minifier')
 
 const serverVueConfigPath = require.resolve('./vue.ssr.config')
 
@@ -153,7 +154,7 @@ async function build () {
   const server = express()
   const template = fse.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
 
-  server.use('/src/data', express.static(path.join(__dirname, '../src/data')))
+  server.use('/data', express.static(path.join(__dirname, '../public/data')))
   const _server = server.listen(8081)
 
   await Promise.all(SSRoutes.map(async _path => {
@@ -169,7 +170,13 @@ async function build () {
     ).replace(/<div id=(app|"app")><\/div>/m, html)
     await fse.outputFile(
       path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),
-      html
+      minify(html, {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        collapseBooleanAttributes: true,
+        removeScriptTypeAttributes: true
+      })
     )
   }))
   console.log(chalk.green('Build done!'))

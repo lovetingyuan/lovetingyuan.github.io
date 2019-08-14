@@ -1,0 +1,65 @@
+{
+  "links": [
+    {
+      "url": "https://github.com/trending",
+      "name": "github trending"
+    },
+    {
+      "url": "https://frontendmasters.com/books/front-end-handbook/2019/",
+      "name": "front-end-handbook-2019"
+    }
+  ],
+  "githubs": {
+    "JS框架": [
+      {
+        "name": "htm",
+        "description": "Hyperscript Tagged Markup: JSX alternative using standard tagged templates, with compiler support.",
+        "git": "https://github.com/developit/htm"
+      },
+      {
+        "name": "riot",
+        "description": "Simple and elegant component-based UI library.",
+        "git": "https://github.com/riot/riot",
+        "url": "https://riot.js.org/"
+      },
+      {
+        "name": "svelte",
+        "description": "Cybernetically enhanced web apps.",
+        "git": "https://github.com/sveltejs/svelte",
+        "url": "https://svelte.dev/"
+      },
+      {
+        "name": "hyperapp",
+        "description": "The tiny framework for building web interfaces.",
+        "git": "https://github.com/jorgebucaran/hyperapp",
+        "url": "https://hyperapp.dev/"
+      }
+    ],
+    "CSS": [
+      {
+        "name": "purecss",
+        "description": "A set of small, responsive CSS modules that you can use in every web project.",
+        "url": "http://purecss.io/",
+        "git": "https://github.com/pure-css/pure"
+      },
+      {
+        "name": "animate.css",
+        "description": "🍿 A cross-browser library of CSS animations. As easy to use as an easy thing.",
+        "url": "http://daneden.github.io/animate.css",
+        "git": "https://github.com/daneden/animate.css"
+      },
+      {
+        "name": "normalize.css",
+        "description": "A modern alternative to CSS resets.",
+        "url": "http://necolas.github.io/normalize.css",
+        "git": "https://github.com/necolas/normalize.css"
+      },
+      {
+        "name": "balloon.css",
+        "description": "Simple tooltips made of pure CSS.",
+        "git": "https://github.com/kazzkiq/balloon.css",
+        "url": "https://kazzkiq.github.io/balloon.css/"
+      }
+    ]
+  }
+}

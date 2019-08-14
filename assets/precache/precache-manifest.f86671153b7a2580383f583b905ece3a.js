@@ -1,43 +1,43 @@
 self.__precacheManifest = [
   {
-    "revision": "8442cb2c5c97c137c6d3",
+    "revision": "ebf81684e9904941fa77",
     "url": "/assets/css/app.778caac0.css"
   },
   {
-    "revision": "8442cb2c5c97c137c6d3",
-    "url": "/assets/js/app.47c6fbe5.js"
+    "revision": "ebf81684e9904941fa77",
+    "url": "/assets/js/app.95d4d43c.js"
   },
   {
-    "revision": "8f7691ff01a3ae019b6e",
-    "url": "/assets/js/async-articleslist.6d29d24a.js"
+    "revision": "9bd6a781c81865a6a5ea",
+    "url": "/assets/js/async-articleslist.fdf174cd.js"
   },
   {
-    "revision": "b9e46c116722376bac37",
-    "url": "/assets/js/async-blog.63d1e1b1.js"
+    "revision": "f3bf020df395343259ff",
+    "url": "/assets/js/async-blog.165ee43d.js"
   },
   {
-    "revision": "2af91c1c3bad6144d044",
+    "revision": "595dc5f48476961e7bad",
     "url": "/assets/css/async-movie.64412bd4.css"
   },
   {
-    "revision": "2af91c1c3bad6144d044",
-    "url": "/assets/js/async-movie.f52e933c.js"
+    "revision": "595dc5f48476961e7bad",
+    "url": "/assets/js/async-movie.1c357821.js"
   },
   {
-    "revision": "d09ae9362882e9e4154d",
+    "revision": "7427d85313cecf097e20",
     "url": "/assets/css/async-music.705ec4ae.css"
   },
   {
-    "revision": "d09ae9362882e9e4154d",
-    "url": "/assets/js/async-music.27924156.js"
+    "revision": "7427d85313cecf097e20",
+    "url": "/assets/js/async-music.3bccfc1a.js"
   },
   {
-    "revision": "9dc5d73e71148476bccb",
+    "revision": "410705cb72157f8fa98b",
     "url": "/assets/css/async-story.b7546785.css"
   },
   {
-    "revision": "9dc5d73e71148476bccb",
-    "url": "/assets/js/async-story.b6ce287c.js"
+    "revision": "410705cb72157f8fa98b",
+    "url": "/assets/js/async-story.a7f94319.js"
   },
   {
     "revision": "7267e0eaae468cb3678f",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/assets/js/chunk-vendors.c059dc5c.js"
   },
   {
-    "revision": "10d4f72a451bfe195155",
-    "url": "/assets/js/manifest.9a982984.js"
+    "revision": "7096e0f2fcc6c3484f19",
+    "url": "/assets/js/manifest.088e2ac0.js"
   },
   {
     "revision": "ef7a02b69836dc8b6a732a54c4200dcb",
@@ -60,36 +60,32 @@ self.__precacheManifest = [
     "url": "/assets/img/totoro.5a2a18db.png"
   },
   {
-    "revision": "082021a8e2078e811670b7f916098351",
+    "revision": "00b8ce1797502353288f5df142b3e771",
     "url": "/index.html"
-  },
-  {
-    "revision": "7c1852c5f853447864e002d3469db7ee",
-    "url": "/assets/icons/android-icon-144x144.png"
   },
   {
     "revision": "92c1432c71c05e331ce8446a96aa3308",
     "url": "/assets/icons/android-icon-192x192.png"
   },
   {
-    "revision": "fe1dfcffc82446290d84bbf772a0ced7",
-    "url": "/assets/icons/android-icon-36x36.png"
+    "revision": "7c1852c5f853447864e002d3469db7ee",
+    "url": "/assets/icons/android-icon-144x144.png"
   },
   {
     "revision": "c3bef98b0852faf379e263e2d4ec3133",
     "url": "/assets/icons/android-icon-48x48.png"
   },
   {
-    "revision": "4033387c3b18ac9428f02594961a2f64",
-    "url": "/assets/icons/android-icon-72x72.png"
-  },
-  {
     "revision": "3d5b48cf1adc96bace571b23dcd04bf3",
     "url": "/assets/icons/android-icon-96x96.png"
   },
   {
-    "revision": "79ce9d82ab048198a8711c902c13737f",
-    "url": "/assets/icons/apple-icon-114x114.png"
+    "revision": "4033387c3b18ac9428f02594961a2f64",
+    "url": "/assets/icons/android-icon-72x72.png"
+  },
+  {
+    "revision": "fe1dfcffc82446290d84bbf772a0ced7",
+    "url": "/assets/icons/android-icon-36x36.png"
   },
   {
     "revision": "d7e4494ecc986d902ceeb7f6b848833d",
@@ -98,6 +94,10 @@ self.__precacheManifest = [
   {
     "revision": "7c1852c5f853447864e002d3469db7ee",
     "url": "/assets/icons/apple-icon-144x144.png"
+  },
+  {
+    "revision": "79ce9d82ab048198a8711c902c13737f",
+    "url": "/assets/icons/apple-icon-114x114.png"
   },
   {
     "revision": "7c5d037091d78eaf81c31e49cc198d61",
@@ -112,12 +112,12 @@ self.__precacheManifest = [
     "url": "/assets/icons/apple-icon-57x57.png"
   },
   {
-    "revision": "999990fe64e037a37f7e3f00a341ecff",
-    "url": "/assets/icons/apple-icon-60x60.png"
-  },
-  {
     "revision": "4033387c3b18ac9428f02594961a2f64",
     "url": "/assets/icons/apple-icon-72x72.png"
+  },
+  {
+    "revision": "999990fe64e037a37f7e3f00a341ecff",
+    "url": "/assets/icons/apple-icon-60x60.png"
   },
   {
     "revision": "abba4e925b35082a9bae8b6b59ad0a64",
@@ -125,19 +125,19 @@ self.__precacheManifest = [
   },
   {
     "revision": "cd178670229519dd2edb9e0168ee1353",
-    "url": "/assets/icons/apple-icon-precomposed.png"
-  },
-  {
-    "revision": "cd178670229519dd2edb9e0168ee1353",
     "url": "/assets/icons/apple-icon.png"
-  },
-  {
-    "revision": "126acc1aa04f72b1fdf4e5346293024c",
-    "url": "/assets/icons/favicon-16x16.png"
   },
   {
     "revision": "83d5eac9e1f9cdbdd3bfeb8ec8e27b72",
     "url": "/assets/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "cd178670229519dd2edb9e0168ee1353",
+    "url": "/assets/icons/apple-icon-precomposed.png"
+  },
+  {
+    "revision": "126acc1aa04f72b1fdf4e5346293024c",
+    "url": "/assets/icons/favicon-16x16.png"
   },
   {
     "revision": "3d5b48cf1adc96bace571b23dcd04bf3",
@@ -156,16 +156,12 @@ self.__precacheManifest = [
     "url": "/assets/icons/ms-icon-310x150.png"
   },
   {
-    "revision": "2597437103dc1e0e211d924269567f42",
-    "url": "/assets/icons/ms-icon-310x310.png"
-  },
-  {
     "revision": "5905a20619f96623b301b0643f88cebb",
     "url": "/assets/icons/ms-icon-70x70.png"
   },
   {
-    "revision": "05ddb9d985a4c05c7825097cb27a935b",
-    "url": "/assets/icons/safari-pinned-tab.svg"
+    "revision": "2597437103dc1e0e211d924269567f42",
+    "url": "/assets/icons/ms-icon-310x310.png"
   },
   {
     "revision": "34334d602afba0f20a92a07424ce0c1d",
@@ -174,6 +170,22 @@ self.__precacheManifest = [
   {
     "revision": "4732e17da124a6da29b72b48a3e22908",
     "url": "/CNAME"
+  },
+  {
+    "revision": "8d22e3f0c809e9292418b938033a9d5d",
+    "url": "/data/home.json"
+  },
+  {
+    "revision": "05ddb9d985a4c05c7825097cb27a935b",
+    "url": "/assets/icons/safari-pinned-tab.svg"
+  },
+  {
+    "revision": "6f914b9062940d7830d0358d1d5c25af",
+    "url": "/data/movie.json"
+  },
+  {
+    "revision": "0234ac0462ca82f247d4b13ce68d4c73",
+    "url": "/data/music.json"
   },
   {
     "revision": "62988e4c5e3b0dd87375c9e713bb24fa",

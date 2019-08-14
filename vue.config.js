@@ -4,6 +4,7 @@ const gitHash = require('git-rev-sync').short(null, 10)
 const { name: appName, version: appVersion } = require('./package.json')
 const CopyDistPlugin = require('./scripts/copy-dist-plugin')
 const InlinePlugin = require('./scripts/inline-html-plugin')
+const path = require('path')
 
 module.exports = {
   lintOnSave: false,
@@ -41,6 +42,11 @@ module.exports = {
         name: 'manifest'
       }
     },
+    resolve: {
+      modules: [
+        path.join(__dirname, './public/data')
+      ]
+    },
     plugins: [
       process.env.NODE_ENV === 'production' && new CopyDistPlugin(),
       new webpack.DefinePlugin({
@@ -59,10 +65,12 @@ module.exports = {
             appName, appVersion, Date.now(), gitHash
           ] + ''
         })
-        args[0].minify = Object.assign(args[0].minify || {}, {
-          minifyCSS: true,
-          minifyJS: true
-        })
+        if (process.env.NODE_ENV === 'production') {
+          args[0].minify = Object.assign(args[0].minify || {}, {
+            minifyCSS: true,
+            minifyJS: true
+          })
+        }
         return args
       })
   }

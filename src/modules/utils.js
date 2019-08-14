@@ -19,7 +19,7 @@ if (process.env.SERVER_SSR) {
 const data = {}
 
 if (process.env.NODE_ENV === 'development') {
-  const context = require.context('@/data', true, /\.json$/)
+  const context = require.context('@/../public/data', true, /\.json$/)
   context.keys().forEach(path => {
     data[path] = context(path)
   })
@@ -34,7 +34,7 @@ export const request = {
       return Promise.resolve(data['.' + url.substr('/data'.length)])
     } else {
       const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
-      return _fetch(baseUrl + '/src' + url).then(res => res.json())
+      return _fetch(baseUrl + url).then(res => res.json())
     }
   }
 }
