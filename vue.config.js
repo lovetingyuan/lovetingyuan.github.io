@@ -30,7 +30,7 @@ module.exports = {
     iconPaths: {
       favicon32: 'assets/icons/favicon-32x32.png',
       favicon16: 'assets/icons/favicon-16x16.png',
-      appleTouchIcon: 'assets/icons/apple-icon-152x152.png',
+      appleTouchIcon: 'assets/icons/apple-icon-180x180.png',
       maskIcon: 'assets/icons/safari-pinned-tab.svg',
       msTileImage: 'assets/icons/ms-icon-144x144.png'
     }

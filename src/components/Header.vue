@@ -1,8 +1,12 @@
 <template>
   <header>
     <nav>
-      <ul>
-        <router-link tag="li" v-for="nav in navsList" :key="nav.title + nav.path" :to="nav.path || nav.to" :exact="!!nav.exact">{{nav.title}}</router-link>
+      <ul class="nav-list">
+        <li v-for="nav in navsList" :key="nav.title + nav.path">
+          <router-link :to="nav.path || nav.to" :exact="!!nav.exact" class="a-link">
+            {{nav.title}}
+          </router-link>
+        </li>
         <li>
           <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener" title="github">
             <img src="~@/assets/github-mark.png" alt="github" width="22" style="vertical-align: top">
@@ -33,8 +37,12 @@ header {
   nav {
     max-width: var(--max-width);
     margin: 0 auto;
+    .a-link {
+      text-decoration: none;
+      color: var(--font-color);
+    }
   }
-  ul {
+  .nav-list {
     list-style: none;
     overflow: hidden;
     margin: 0;

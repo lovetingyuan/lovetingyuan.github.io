@@ -30,7 +30,7 @@ export default {
         {
           title: '音乐',
           to: {
-            name: 'Music'
+            path: '/music'
           }
         },
         {

@@ -31,5 +31,5 @@ summary {
 }
 
 .router-link-active, .router-link-exact-active {
-  color: var(--theme-color);
+  color: var(--theme-color)!important;
 }

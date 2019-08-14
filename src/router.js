@@ -26,7 +26,7 @@ export default () => {
           }
         ]
       },
-      { path: '/music', name: 'Music', component: () => import('./views/Music.vue') },
+      { path: '/music', component: () => import('./views/Music.vue') },
       { path: '/movie', component: () => import('./views/Movie.vue') },
       { path: '/spirit', component: () => import('./views/Story.vue') }
     ]

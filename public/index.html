@@ -2,14 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>tingyuan</title>
-    <meta name="description" content="Welcome to tingyuan. This is my personal site, including my favorite.">
+    <title>庭院</title>
+    <meta name="description" content="欢迎来到我的庭院，这里有我喜欢的一些东西以及有关前端开发的部分内容">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <meta name="google" value="notranslate">
+    <meta name="author" content="humans.txt">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
     <script>
+      // Avoid `console` errors in browsers that lack a console.
+      (function() {
+        var method;
+        var noop = function () {};
+        var methods = [
+          'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+          'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+          'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+          'timeline', 'timelineEnd', 'timeStamp', 'trace', 'warn'
+        ];
+        var length = methods.length;
+        var console = (window.console = window.console || {});
+
+        while (length--) {
+          method = methods[length];
+
+          // Only stub undefined methods.
+          if (!console[method]) {
+            console[method] = noop;
+          }
+        }
+      }());
       window.ThemeColor = '#4DBA87';
       window.Promise || document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"><\/script>');
       window.fetch || document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"><\/script>');
@@ -30,13 +56,14 @@
     setTimeout(function() {
       var e = document.querySelector('meta[name="datePublished"]');
       if(!e) return;
-      var v = e.content.split(',');var d=new Date(+v[2]);
+      var v = e.content.split(','); // name, version, timestamp, commit
+      var d = new Date(+v[2]);
       console.log(
         '%c '+ v[0] + '(' + v[1] + ')' + ': ' +
         [d.getFullYear(),'/',d.getMonth()+1,'/',d.getDate(),' ',d.getHours(),':',d.getMinutes(),' ',v[3],' '].join(''),
         'background-color:' + ThemeColor + ';color:#fff;padding:1px 2px;border-radius:2px'
-      )
-    })
+      );
+    });
     </script>
   </body>
 </html>

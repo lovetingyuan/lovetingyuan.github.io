@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <div>
     <h2>
       随着海风吹，吹向来时庭院...

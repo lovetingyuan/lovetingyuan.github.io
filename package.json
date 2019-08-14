@@ -64,7 +64,7 @@
     "last 2 versions"
   ],
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged && echo \"Remember to build your site!\""
   },
   "lint-staged": {
     "*.{js,vue}": [
