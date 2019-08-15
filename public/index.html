@@ -11,8 +11,14 @@
     <meta name="google" value="notranslate">
     <meta name="author" content="humans.txt">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
+    <style>
+      :root {
+        --theme-color: <%= VUE_APP_THEME_COLOR %>;
+        --font-color: #555;
+        --max-width: 900px;
+      }
+    </style>
     <script>
       // Avoid `console` errors in browsers that lack a console.
       (function() {
@@ -36,7 +42,7 @@
           }
         }
       }());
-      window.ThemeColor = '#4DBA87';
+      window.ThemeColor = '<%= VUE_APP_THEME_COLOR %>'
       window.Promise || document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"><\/script>');
       window.fetch || document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"><\/script>');
     </script>
@@ -46,6 +52,7 @@
     <!--[if IE]>
       <p style="margin:0.2em 0;background:#ccc;color:#000;padding:0.2em 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
+    <script></script>
     <div id="app"></div>
     <noscript>
       <strong>We're sorry but tingyuan doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
@@ -54,14 +61,14 @@
     <!--[if renderState]><![endif]-->
     <script>
     setTimeout(function() {
-      var e = document.querySelector('meta[name="datePublished"]');
-      if(!e) return;
-      var v = e.content.split(','); // name, version, timestamp, commit
-      var d = new Date(+v[2]);
+      var ele = document.querySelector('meta[name="datePublished"]');
+      if(!ele) return;
+      var val = ele.content.split(','); // name, version, timestamp, commit
+      var d = new Date(+val[2]);
       console.log(
-        '%c '+ v[0] + '(' + v[1] + ')' + ': ' +
-        [d.getFullYear(),'/',d.getMonth()+1,'/',d.getDate(),' ',d.getHours(),':',d.getMinutes(),' ',v[3],' '].join(''),
-        'background-color:' + ThemeColor + ';color:#fff;padding:1px 2px;border-radius:2px'
+        '%c '+ val[0] + '(' + val[1] + ')' + ': ' +
+        [d.getFullYear(),'/',d.getMonth()+1,'/',d.getDate(),' ',d.getHours(),':',d.getMinutes(),' ',val[3],' '].join(''),
+        'background-color:' + window.ThemeColor + ';color:#fff;padding:1px 2px;border-radius:2px'
       );
     });
     </script>

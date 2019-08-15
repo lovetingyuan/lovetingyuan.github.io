@@ -1,12 +1,6 @@
 @import '~normalize.css';
 @import '~main.css/dist/main.css';
 
-:root {
-  --theme-color: #4DBA87;
-  --font-color: #555;
-  --max-width: 900px;
-}
-
 body, html {
   color: var(--font-color);
   height: 100%;
@@ -32,4 +26,9 @@ summary {
 
 .router-link-active, .router-link-exact-active {
   color: var(--theme-color)!important;
+}
+
+::selection {
+  background-color: var(--theme-color);
+  color: white;
 }

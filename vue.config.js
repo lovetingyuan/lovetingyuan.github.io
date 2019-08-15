@@ -6,6 +6,8 @@ const CopyDistPlugin = require('./scripts/copy-dist-plugin')
 const InlinePlugin = require('./scripts/inline-html-plugin')
 const path = require('path')
 
+process.env.VUE_APP_THEME_COLOR = require('./public/manifest.json').theme_color
+
 module.exports = {
   lintOnSave: false,
   assetsDir: 'assets',
@@ -34,7 +36,8 @@ module.exports = {
       appleTouchIcon: 'assets/icons/apple-icon-180x180.png',
       maskIcon: 'assets/icons/safari-pinned-tab.svg',
       msTileImage: 'assets/icons/ms-icon-144x144.png'
-    }
+    },
+    themeColor: process.env.VUE_APP_THEME_COLOR
   },
   configureWebpack: {
     optimization: {
@@ -50,7 +53,10 @@ module.exports = {
     plugins: [
       process.env.NODE_ENV === 'production' && new CopyDistPlugin(),
       new webpack.DefinePlugin({
-        __DEV__: process.env.NODE_ENV === 'development'
+        __DEV__: process.env.NODE_ENV === 'development',
+        'process.env': {
+          SERVER_SSR: true
+        }
       }),
       new InlinePlugin(),
       new SSRClientPlugin()

@@ -1,10 +1,26 @@
 <template>
   <div class="music-item" :style="{backgroundImage: `url(${cover})`}">
-    <ul class="info-list">
+    <table class="music-info-table">
+      <tbody>
+        <tr>
+          <td>歌曲名</td>
+          <td>
+            {{name}}
+          </td>
+        </tr>
+        <tr>
+          <td>歌手</td><td>{{singer}}</td>
+        </tr>
+        <tr>
+          <td>专辑</td><td>《{{album}}》{{year}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <ul class="info-list">
       <li data-title="歌曲名">{{name}}</li>
       <li data-title="歌手">{{singer}}</li>
       <li data-title="专辑/年份">《{{album}}》 {{year}}</li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
@@ -22,6 +38,30 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.music-info-table {
+  align-self: center;
+  background-color: rgba(0,0,0,.8);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.music-info-table tr td {
+  padding: 5px 0;
+  color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.music-info-table tr td:first-child {
+  text-align: justify;
+  text-align-last: justify;
+  padding-right: 16px;
+  color: var(--theme-color);
+  user-select: none;
+  width: 70px;
+}
 .music-item {
   width: 320px;
   height: 300px;
