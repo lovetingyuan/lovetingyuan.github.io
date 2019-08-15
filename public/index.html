@@ -19,6 +19,7 @@
         --max-width: 900px;
       }
     </style>
+    <!--[if renderStyles]><![endif]-->
     <script>
       // Avoid `console` errors in browsers that lack a console.
       (function() {
@@ -42,17 +43,15 @@
           }
         }
       }());
-      window.ThemeColor = '<%= VUE_APP_THEME_COLOR %>'
+      window.ThemeColor = '<%= VUE_APP_THEME_COLOR %>';
       window.Promise || document.write('<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"><\/script>');
       window.fetch || document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.min.js"><\/script>');
     </script>
-    <!--[if renderStyles]><![endif]-->
   </head>
   <body>
     <!--[if IE]>
       <p style="margin:0.2em 0;background:#ccc;color:#000;padding:0.2em 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
-    <script></script>
     <div id="app"></div>
     <noscript>
       <strong>We're sorry but tingyuan doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
