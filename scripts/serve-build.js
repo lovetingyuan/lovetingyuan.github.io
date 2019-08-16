@@ -31,6 +31,7 @@ function createService (configPath) {
   let rawArgv = process.argv.slice(2)
   if (configPath === serverVueConfigPath) {
     rawArgv = rawArgv.filter(v => v !== '--modern')
+    rawArgv = rawArgv.filter(v => v !== '--report')
     rawArgv.push('--no-clean')
   }
 

@@ -14,7 +14,7 @@ module.exports = class CopyDistPlugin {
     compiler.hooks.done.tap('copy-dist-to-root', () => {
       const src = compiler.options.output.path
       fse.readdirSync(src).forEach(file => {
-        if (!['ssr', 'report.html', 'legacy-assets-index.html.json'].includes(file)) {
+        if (!['ssr', 'report.html', 'legacy-report.html', 'legacy-assets-index.html.json'].includes(file)) {
           fse.copySync(path.join(src, file), path.join(dest, file))
         }
       })
