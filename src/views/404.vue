@@ -47,6 +47,20 @@
   </div>
 </template>
 
+<script>
+export default {
+  beforeCreate () {
+    console.log('404 beforecreate')
+  },
+  created () {
+    console.log('404 created', this)
+  },
+  errorCaptured (err, vm, info) {
+    console.log('error', err, info)
+  }
+}
+</script>
+
 <style scoped>
 .page404 {
   text-align: center;

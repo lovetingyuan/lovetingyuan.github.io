@@ -12,7 +12,7 @@ const route404 = () => ({
 })
 
 export default () => {
-  return new VueRouter({
+  const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
@@ -51,4 +51,5 @@ export default () => {
       route404()
     ]
   })
+  return router
 }

@@ -41,6 +41,7 @@ module.exports = {
   },
   configureWebpack: {
     optimization: {
+      minimize: false,
       runtimeChunk: {
         name: 'manifest'
       }
