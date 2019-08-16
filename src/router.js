@@ -16,7 +16,20 @@ export default () => {
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
-      { path: '/', component: Home },
+      {
+        path: '/',
+        component: Home,
+        beforeEnter (to, from, next) {
+          if (to.query.redirect) {
+            next({
+              path: '/' + to.query.redirect,
+              replace: true
+            })
+          } else {
+            next()
+          }
+        }
+      },
       {
         path: '/blog/:category?',
         component: () => import('./views/Blog.vue'),

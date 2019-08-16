@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b17bd0f01971a8ac6f63",
-    "url": "/assets/css/app.8dbc1471.css"
+    "revision": "f7b6b49d657c022df022",
+    "url": "/assets/css/app.4983c12b.css"
   },
   {
-    "revision": "b17bd0f01971a8ac6f63",
-    "url": "/assets/js/app-legacy.3fda9590.js"
+    "revision": "f7b6b49d657c022df022",
+    "url": "/assets/js/app-legacy.57850530.js"
   },
   {
     "revision": "58a2ef531da81075f0e5",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/assets/img/totoro.5a2a18db.png"
   },
   {
-    "revision": "0a3b5a8d96293b4186a11903a3f7a1ec",
+    "revision": "7363ad0985c061b0602b4272d0f5f70d",
     "url": "/index.html"
   }
 ];
