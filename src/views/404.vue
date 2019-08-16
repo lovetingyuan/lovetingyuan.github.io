@@ -2,7 +2,7 @@
   <div class="page404">
     <h1>Page Not Found</h1>
     <p>
-      抱歉，您请求的页面不存在，您可以返回
+      抱歉，您请求的页面不存在，<br>在此返回
       <router-link to="/" replace>
         <span class="home-link">
           首页
@@ -46,20 +46,6 @@
 
   </div>
 </template>
-
-<script>
-export default {
-  beforeCreate () {
-    console.log('404 beforecreate')
-  },
-  created () {
-    console.log('404 created', this)
-  },
-  errorCaptured (err, vm, info) {
-    console.log('error', err, info)
-  }
-}
-</script>
 
 <style scoped>
 .page404 {

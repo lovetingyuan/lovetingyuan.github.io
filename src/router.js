@@ -22,7 +22,7 @@ export default () => {
         beforeEnter (to, from, next) {
           if (to.query.redirect) {
             next({
-              path: '/' + to.query.redirect,
+              path: to.query.redirect,
               replace: true
             })
           } else {

@@ -56,11 +56,8 @@
 <body>
     <h1>Loading...</h1>
     <script>
-        (function(){
-            // hack to 404 page for SPA website
-            var path = location.pathname.substr(1)
-            location.href = '/?redirect=' + encodeURIComponent(path)
-        })()
+    // hack to 404 page for SPA website
+    location.href = '/?redirect=' + encodeURIComponent(location.pathname)
     </script>
 </body>
 </html>
