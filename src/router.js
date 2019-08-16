@@ -2,8 +2,14 @@ import VueRouter from 'vue-router'
 import Vue from 'vue'
 
 import Home from './views/Home.vue'
+import View404 from './views/404.vue'
 
 Vue.use(VueRouter)
+
+const route404 = () => ({
+  path: '*',
+  component: View404
+})
 
 export default () => {
   return new VueRouter({
@@ -28,7 +34,8 @@ export default () => {
       },
       { path: '/music', component: () => import('./views/Music.vue') },
       { path: '/movie', component: () => import('./views/Movie.vue') },
-      { path: '/spirit', component: () => import('./views/Story.vue') }
+      { path: '/spirit', component: () => import('./views/Story.vue') },
+      route404()
     ]
   })
 }
