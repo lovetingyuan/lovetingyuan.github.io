@@ -31,7 +31,26 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
   ::v-deep .music-item {
-    margin: 50px 30px;
+    margin: 45px 0;
+  }
+}
+</style>
+<style lang="postcss" scoped>
+@lost flexbox flex;
+
+.music-list {
+  lost-flex-container: row;
+  lost-utility: clearfix;
+}
+.music-item {
+  lost-column: 1/2 2 60px;
+}
+@media screen and (max-width: 680px) {
+  .music-list {
+    lost-center: 86%;
+  }
+  .music-item {
+    lost-column: 1/1 1;
   }
 }
 </style>

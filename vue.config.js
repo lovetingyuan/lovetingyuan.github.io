@@ -41,7 +41,6 @@ module.exports = {
   },
   configureWebpack: {
     optimization: {
-      minimize: false,
       runtimeChunk: {
         name: 'manifest'
       }
@@ -56,7 +55,7 @@ module.exports = {
       new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
         'process.env': {
-          SERVER_SSR: true
+          SERVER_SSR: false
         }
       }),
       new InlinePlugin(),

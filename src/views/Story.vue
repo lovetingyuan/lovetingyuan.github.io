@@ -34,7 +34,16 @@
 </template>
 
 <style lang="less" scoped>
+@keyframes open {
+  0% {opacity: 0; margin-top: -20px}
+  100% {opacity: 1; margin-top: 0px}
+}
+
   .story-list {
+    margin-top: 20px;
+    details[open] summary ~ * {
+      animation: open .5s ease-in-out;
+    }
     details {
       margin: 20px 0;
       line-height: 2;
