@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "20e4fe97f119efcc1f9c",
+    "revision": "43a0f6d7eea65428a778",
     "url": "/assets/css/app.9c9f53cf.css"
   },
   {
-    "revision": "20e4fe97f119efcc1f9c",
-    "url": "/assets/js/app-legacy.5dbd941a.js"
+    "revision": "43a0f6d7eea65428a778",
+    "url": "/assets/js/app-legacy.29b6faa5.js"
   },
   {
-    "revision": "bd3d5f7584c38e48cc52",
-    "url": "/assets/css/async-blog.5b92cde9.css"
+    "revision": "aca17edea0d8eee702e8",
+    "url": "/assets/css/async-blog.32700609.css"
   },
   {
-    "revision": "bd3d5f7584c38e48cc52",
-    "url": "/assets/js/async-blog-legacy.62866fab.js"
+    "revision": "aca17edea0d8eee702e8",
+    "url": "/assets/js/async-blog-legacy.2687d1d5.js"
   },
   {
     "revision": "e8e2a480e4f7bdfd7df4",
@@ -48,8 +48,8 @@ self.__precacheManifest = [
     "url": "/assets/js/chunk-vendors-legacy.1da9989e.js"
   },
   {
-    "revision": "e9776b19b7b85e060635",
-    "url": "/assets/js/manifest-legacy.4ad615bc.js"
+    "revision": "f0c7b24b179c67146697",
+    "url": "/assets/js/manifest-legacy.9eaca859.js"
   },
   {
     "revision": "ef7a02b69836dc8b6a732a54c4200dcb",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/assets/img/totoro.5a2a18db.png"
   },
   {
-    "revision": "2bd5de9a5d436459b0f0c46628657be7",
+    "revision": "98996447228f7719b7816eb871e49176",
     "url": "/index.html"
   }
 ];

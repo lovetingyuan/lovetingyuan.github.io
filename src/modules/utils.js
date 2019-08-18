@@ -38,7 +38,7 @@ export const request = {
       const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
       const headers = url.endsWith('.md') ? {
         'accept': 'application/vnd.github.v3.raw'
-      } : null
+      } : {}
       return _fetch(baseUrl + url, {
         method: 'GET',
         headers
