@@ -55,7 +55,7 @@ module.exports = {
       new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
         'process.env': {
-          SERVER_SSR: false
+          VUE_ENV: false
         }
       }),
       new InlinePlugin(),
@@ -79,5 +79,14 @@ module.exports = {
         }
         return args
       })
+    config.module
+      .rule('markdown')
+      .test(/\.md$/)
+      .use('html-loader')
+      .loader('html-loader')
+      .end()
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end()
   }
 }

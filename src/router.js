@@ -31,19 +31,8 @@ export default () => {
         }
       },
       {
-        path: '/blog/:category?',
-        component: () => import('./views/Blog.vue'),
-        children: [
-          {
-            path: '', component: () => import('./views/blog/ArticlesList.vue')
-          },
-          {
-            path: 'javascript', component: () => import('./views/blog/ArticlesList.vue')
-          },
-          {
-            path: 'css', component: () => import('./views/blog/ArticlesList.vue')
-          }
-        ]
+        path: '/blog/:tag?/:name?',
+        component: () => import('./views/Blog.vue')
       },
       { path: '/music', component: () => import('./views/Music.vue') },
       { path: '/movie', component: () => import('./views/Movie.vue') },

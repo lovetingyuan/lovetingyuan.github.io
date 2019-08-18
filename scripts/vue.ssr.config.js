@@ -30,7 +30,7 @@ module.exports = {
       new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
         'process.env': {
-          SERVER_SSR: true
+          VUE_ENV: JSON.stringify('server')
         }
       }),
       new VueSSRServerPlugin(),
@@ -44,5 +44,14 @@ module.exports = {
       config.plugins.delete(name)
     })
     config.module.rule('js').uses.delete('babel-loader')
+    config.module
+      .rule('markdown')
+      .test(/\.md$/)
+      .use('html-loader')
+      .loader('html-loader')
+      .end()
+      .use('markdown-loader')
+      .loader('markdown-loader')
+      .end()
   }
 }

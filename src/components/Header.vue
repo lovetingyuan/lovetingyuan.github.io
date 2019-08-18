@@ -34,6 +34,7 @@ header {
   width: 100%;
   background-color: rgba(255, 255, 255, .9);
   z-index: 9;
+  user-select: none;
   nav {
     max-width: var(--max-width);
     margin: 0 auto;

@@ -6,6 +6,10 @@ body, html {
   height: 100%;
 }
 
+a {
+  color: #0366d6;
+}
+
 img {
   display: inline-block;
   object-fit: contain;

@@ -1,16 +1,16 @@
 export function init (val) {
   if (val && typeof val === 'object') {
-    if (val.__init__) {
+    if (val.__INIT__) {
       return true
     }
-    val.__init__ = true
+    Object.defineProperty(val, '__INIT__', { value: true })
   }
   return val
 }
 
 // eslint-disable-next-line
 let _fetch
-if (process.env.SERVER_SSR) {
+if (process.env.VUE_ENV === 'server') {
   _fetch = require('node-fetch')
 } else {
   _fetch = fetch
@@ -19,10 +19,11 @@ if (process.env.SERVER_SSR) {
 const data = {}
 
 if (process.env.NODE_ENV === 'development') {
-  const context = require.context('@/../public/data', true, /\.json$/)
+  const context = require.context('@/../public/data', true, /\.(json|md)$/)
   context.keys().forEach(path => {
     data[path] = context(path)
   })
+  console.log(data)
 }
 
 export const request = {
@@ -31,10 +32,22 @@ export const request = {
       throw new Error('request not startsWith /data is not supported.')
     }
     if (process.env.NODE_ENV === 'development') {
+      console.log('request: ' + url)
       return Promise.resolve(data['.' + url.substr('/data'.length)])
     } else {
       const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
-      return _fetch(baseUrl + url).then(res => res.json())
+      const headers = url.endsWith('.md') ? {
+        'accept': 'application/vnd.github.v3.raw'
+      } : null
+      return _fetch(baseUrl + url, {
+        method: 'GET',
+        headers
+      }).then(res => {
+        if (url.endsWith('.json')) {
+          return res.json()
+        }
+        return res.text()
+      })
     }
   }
 }
