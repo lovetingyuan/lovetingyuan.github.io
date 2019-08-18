@@ -4,12 +4,10 @@ const path = require('path')
 module.exports = class CopyDistPlugin {
   apply (compiler) {
     const dest = path.join(__dirname, '..')
-    compiler.hooks.entryOption.tap('clear-prev-build', () => {
-      fse.readdirSync(dest).forEach(file => {
-        if (file === 'assets') {
-          fse.removeSync(path.join(dest, file))
-        }
-      })
+    fse.readdirSync(dest).forEach(file => {
+      if (file === 'assets') {
+        fse.removeSync(path.join(dest, file))
+      }
     })
     compiler.hooks.done.tap('copy-dist-to-root', () => {
       const src = compiler.options.output.path
@@ -34,6 +32,19 @@ module.exports = class CopyDistPlugin {
           data.html = data.html.replace(/\sdefer=""\s/gm, ' defer ')
         })
       })
+    })
+    compiler.hooks.emit.tapAsync('minify-data-json', (compilation, cb) => {
+      Object.keys(compilation.assets)
+        .filter(file => file.startsWith('data/') && file.endsWith('.json'))
+        .forEach(file => {
+          let source = compilation.assets[file].source()
+          source = JSON.stringify(JSON.parse(source))
+          compilation.assets[file] = {
+            source () { return source },
+            size () { return source.length }
+          }
+        })
+      cb()
     })
   }
 }
