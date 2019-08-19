@@ -1,22 +1,39 @@
 const fse = require('fs-extra')
 const path = require('path')
+const marked = require('marked')
 
 module.exports = class CopyDistPlugin {
+  constructor () {
+    this.dest = path.join(__dirname, '..')
+    this.cleanList = [ 'assets' ]
+    this.ignoreCopyList = [
+      'ssr', 'report.html', 'legacy-report.html', 'legacy-assets-index.html.json'
+    ]
+  }
   apply (compiler) {
-    const dest = path.join(__dirname, '..')
-    fse.readdirSync(dest).forEach(file => {
-      if (file === 'assets') {
-        fse.removeSync(path.join(dest, file))
+    this.clean()
+    this.copyDist(compiler)
+    this.addDefer(compiler)
+    this.optimizeData(compiler)
+  }
+  clean () {
+    fse.readdirSync(this.dest).forEach(file => {
+      if (this.cleanList.includes(file)) {
+        fse.removeSync(path.join(this.dest, file))
       }
     })
+  }
+  copyDist (compiler) {
     compiler.hooks.done.tap('copy-dist-to-root', () => {
       const src = compiler.options.output.path
       fse.readdirSync(src).forEach(file => {
-        if (!['ssr', 'report.html', 'legacy-report.html', 'legacy-assets-index.html.json'].includes(file)) {
-          fse.copySync(path.join(src, file), path.join(dest, file))
+        if (!this.ignoreCopyList.includes(file)) {
+          fse.copySync(path.join(src, file), path.join(this.dest, file))
         }
       })
     })
+  }
+  addDefer (compiler) {
     const ID = 'add-defer-body-scripts'
     compiler.hooks.afterEnvironment.tap(ID, () => {
       compiler.hooks.compilation.tap(ID, compilation => {
@@ -33,15 +50,26 @@ module.exports = class CopyDistPlugin {
         })
       })
     })
+  }
+  optimizeData (compiler) {
     compiler.hooks.emit.tapAsync('minify-data-json', (compilation, cb) => {
       Object.keys(compilation.assets)
-        .filter(file => file.startsWith('data/') && file.endsWith('.json'))
         .forEach(file => {
-          let source = compilation.assets[file].source()
-          source = JSON.stringify(JSON.parse(source))
-          compilation.assets[file] = {
-            source () { return source },
-            size () { return source.length }
+          if (!file.startsWith('data/')) return
+          if (file.endsWith('.json')) {
+            let source = compilation.assets[file].source()
+            source = JSON.stringify(JSON.parse(source.toString()))
+            compilation.assets[file] = {
+              source () { return source },
+              size () { return source.length }
+            }
+          } else if (file.endsWith('.md')) {
+            let source = compilation.assets[file].source()
+            source = marked(source.toString())
+            compilation.assets[file] = {
+              source () { return source },
+              size () { return source.length }
+            }
           }
         })
       cb()

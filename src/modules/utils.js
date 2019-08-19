@@ -36,13 +36,7 @@ export const request = {
       return Promise.resolve(data['.' + url.substr('/data'.length)])
     } else {
       const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
-      const headers = url.endsWith('.md') ? {
-        'accept': 'application/vnd.github.v3.raw'
-      } : {}
-      return _fetch(baseUrl + url, {
-        method: 'GET',
-        headers
-      }).then(res => {
+      return _fetch(baseUrl + url).then(res => {
         if (url.endsWith('.json')) {
           return res.json()
         }
