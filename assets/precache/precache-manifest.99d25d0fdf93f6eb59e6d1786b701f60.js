@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/assets/js/async-story-legacy.1d231330.js"
   },
   {
-    "revision": "29eea93441839a67838b",
+    "revision": "f41b1a11fa9438adcf78",
     "url": "/assets/css/chunk-vendors.fd0a9e68.css"
   },
   {
-    "revision": "29eea93441839a67838b",
-    "url": "/assets/js/chunk-vendors-legacy.1da9989e.js"
+    "revision": "f41b1a11fa9438adcf78",
+    "url": "/assets/js/chunk-vendors-legacy.0f9f0943.js"
   },
   {
     "revision": "5b2e210340e4fb0fd12c",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/assets/img/totoro.5a2a18db.png"
   },
   {
-    "revision": "673c8c621fc971b3eb5c0ce60c2ceb26",
+    "revision": "8ff201ed7b8863b0ecff2657e35a1436",
     "url": "/index.html"
   }
 ];
