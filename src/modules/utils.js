@@ -32,10 +32,9 @@ export const request = {
       throw new Error('request not startsWith /data is not supported.')
     }
     if (process.env.NODE_ENV === 'development') {
-      console.log('request: ' + url)
       return Promise.resolve(data['.' + url.substr('/data'.length)])
     } else {
-      const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8081'
+      const baseUrl = typeof location === 'object' ? location.origin : 'http://localhost:8888'
       return _fetch(baseUrl + url).then(res => {
         if (url.endsWith('.json')) {
           return res.json()

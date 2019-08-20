@@ -156,7 +156,7 @@ async function build () {
   const template = fse.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
 
   server.use('/data', express.static(path.join(__dirname, '../public/data')))
-  const _server = server.listen(8081)
+  const _server = server.listen(8888)
 
   await Promise.all(SSRoutes.map(async _path => {
     const context = {
