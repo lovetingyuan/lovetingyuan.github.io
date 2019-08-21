@@ -16,6 +16,7 @@ const SSRoutes = [
   '/',
   '/movie',
   '/music',
+  '/blog',
   '/spirit'
 ]
 

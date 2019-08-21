@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav class="tag-list">
-      <router-link v-for="tag in tags" :key="tag" class="tag" :to="`/blog/${tag}`">{{tag}}</router-link>
+      <router-link v-for="tag in tags" :key="tag" class="tag" :to="`/blog/${tag}`" :exact="!tag">{{tag || 'all'}}</router-link>
     </nav>
-    <section>
+    <section class="article">
       <ul class="blog-list" v-if="!content">
         <li v-for="(val, name) in articles" :key="name">
           <h2>
@@ -35,10 +35,13 @@ export default {
   },
   computed: {
     tags () {
-      return this.$store.Blog.tags
+      return [''].concat(this.$store.Blog.tags)
     },
     currentTag () {
       return this.$route.params.tag
+    },
+    blogName () {
+      return this.$route.params.name
     },
     articles () {
       if (this.currentTag) {
@@ -47,7 +50,7 @@ export default {
       return this.$store.Blog.allBlogs
     },
     content () {
-      if (this.$route.params.name) {
+      if (this.blogName) {
         return this.$store.Blog.content
       }
       return null
@@ -69,15 +72,24 @@ export default {
   .tag-list {
     .tag {
       display: inline-block;
-      padding: 5px 10px;
+      padding: 6px 16px;
       background-color: #eee;
-      border-radius: 30%;
+      border-radius: 100px;
       margin-right: 20px;
+      text-decoration: none;
+      transition: background-color .3s;
+      margin-top: 12px;
+      &:hover {
+        background-color: darken(#eee, 8%);
+      }
     }
   }
   .blog-list {
     // list-style: none;
     margin: 20px 0;
     padding: 0;
+  }
+  .article {
+    margin: 30px 0;
   }
 </style>

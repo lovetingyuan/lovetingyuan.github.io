@@ -745,10 +745,10 @@
     error-stack-parser "^2.0.0"
     string-width "^2.0.0"
 
-"@tingyuan/vue-store@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@tingyuan/vue-store/-/vue-store-0.0.7.tgz#9b4695d4022ca3b79e03f575fd3a51c0baf18757"
-  integrity sha512-fBYrG7Rc0GsHCj3RN38SAQVzRjpOa52I5XozyHDvvCcGBvUW7RFJ+kJV12YXlUIRbEVzmip/4xB18LyRaG6TVQ==
+"@tingyuan/vue-store@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@tingyuan/vue-store/-/vue-store-0.0.8.tgz#cf9a85fe2e77003466abf997020f88530df127ac"
+  integrity sha512-Ca0+MwGuzo/lu1DF0t3k0UGMTOZ8RUC4IuuRKQSS4w/OOvQK8eESzb8/9AD5LzZG3k/D1rStwvg2sfmi18fp1g==
   dependencies:
     "@types/node" "^12.6.6"
     tslib "^1.10.0"

@@ -69,7 +69,7 @@ export default context => {
       if (process.env.NODE_ENV === 'development') {
         console.log(`Fetching data for ${Component.__file} ...`)
       }
-      return Component.asyncData(store, router)
+      return Component.asyncData(store, router.currentRoute)
     })).then(() => {
       context.state = store.getState()
       resolve(app)
