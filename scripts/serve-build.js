@@ -168,7 +168,7 @@ async function build () {
     let html = await renderer.renderToString(context)
     html = template.replace(
       /<!--\[if ([A-Za-z]+)\]><!\[endif\]-->/gm,
-      (str, group) => context[group]()
+      (str, group) => context[group] ? context[group]() : ''
     ).replace(/<div id=(app|"app")><\/div>/m, html)
     await fse.outputFile(
       path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),

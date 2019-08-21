@@ -3,7 +3,7 @@
     <h2>一些有用的链接</h2>
     <ul class="links">
       <li v-for="link in homeLinks" :key="link.url">
-        <a :href="link.url" target="_blank">{{link.name}}</a>
+        <a :href="link.url" target="_blank" rel="noopener noreferrer">{{link.name}}</a>
       </li>
     </ul>
     <h2>Github好的项目</h2>
