@@ -19,26 +19,26 @@ export default {
       marginTop: 0,
       navs: [
         {
-          title: '首页',
+          title: '<svg width="20" height="20"><use xlink:href="#home" /></svg>',
           path: '/',
           exact: true
         },
         {
-          title: '博客',
+          title: '博客 📄',
           path: '/blog'
         },
         {
-          title: '音乐',
+          title: '音乐 🎵',
           to: {
             path: '/music'
           }
         },
         {
-          title: '电影',
+          title: '电影 🎬',
           path: '/movie'
         },
         {
-          title: '远方',
+          title: '远方 🛤',
           path: '/spirit'
         }
       ]

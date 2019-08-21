@@ -3,13 +3,12 @@
     <nav>
       <ul class="nav-list">
         <li v-for="nav in navsList" :key="nav.title + nav.path">
-          <router-link :to="nav.path || nav.to" :exact="!!nav.exact" class="a-link">
-            {{nav.title}}
+          <router-link :to="nav.path || nav.to" :exact="!!nav.exact" class="a-link" v-html="nav.title">
           </router-link>
         </li>
         <li>
           <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener noreferrer" title="github">
-            <img src="~@/assets/github-mark.png" alt="github" width="22" style="vertical-align: top">
+            <svg width="20" height="20"><use xlink:href="#github"/></svg>
           </a>
         </li>
       </ul>
@@ -56,6 +55,9 @@ header {
       &:hover {
         color: var(--theme-color);
       }
+    }
+    ::v-deep svg {
+      vertical-align: top;
     }
   }
 }

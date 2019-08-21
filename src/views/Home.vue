@@ -14,7 +14,9 @@
           <ul class="github-links">
             <li v-for="link in item" :key="link.name" class="github-link">
               <a :href="link.url || link.git" rel="noopener noreferrer" target="_blank">{{link.name}}</a>&nbsp;&nbsp;
-              <a :href="link.git" rel="noopener noreferrer" target="_blank" class="github-logo" title="github"></a>
+              <a :href="link.git" rel="noopener noreferrer" target="_blank" class="github-logo" title="github">
+                <svg width="18" height="18"><use xlink:href="#github"/></svg>
+              </a>
               <p>{{link.description}}</p>
             </li>
           </ul>
@@ -56,18 +58,14 @@ export default {
   }
   .github-links {
     margin-top: 20px;
-    .github-link {
-      // float: left;
-    }
     .github-logo {
       display: inline-block;
       width: 18px;
       height: 18px;
       vertical-align: middle;
-      background-image: url(~@/assets/github-mark.png);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+      svg {
+        vertical-align: top;
+      }
     }
   }
 }
