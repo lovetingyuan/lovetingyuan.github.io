@@ -6,7 +6,7 @@
         <tr>
           <td>影片名称</td>
           <td>
-            <a :href="'https://www.imdb.com/title/' + imdb" target="_blank" rel="noopener">{{name}}</a>
+            <a :href="'https://www.imdb.com/title/' + imdb" target="_blank" rel="noopener noreferrer">{{name}}</a>
             《{{origin_name}}》
           </td>
         </tr>

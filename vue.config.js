@@ -5,8 +5,10 @@ const { name: appName, version: appVersion } = require('./package.json')
 const CopyDistPlugin = require('./scripts/copy-dist-plugin')
 const InlinePlugin = require('./scripts/inline-html-plugin')
 const path = require('path')
+const fse = require('fs-extra')
+const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'))
 
-process.env.VUE_APP_THEME_COLOR = require('./public/manifest.json').theme_color
+process.env.VUE_APP_THEME_COLOR = webManifest.theme_color
 
 module.exports = {
   lintOnSave: false,
@@ -25,6 +27,7 @@ module.exports = {
   },
   pwa: {
     assetsVersion: 'v' + appVersion,
+    manifestPath: 'site.webmanifest',
     workboxOptions: {
       precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
       importWorkboxFrom: 'disabled',

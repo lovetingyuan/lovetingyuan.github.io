@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li>
-          <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener" title="github">
+          <a href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank" rel="noopener noreferrer" title="github">
             <img src="~@/assets/github-mark.png" alt="github" width="22" style="vertical-align: top">
           </a>
         </li>

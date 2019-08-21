@@ -4,7 +4,7 @@
     <div class="totoro"></div>
     <details open class="ghibli-works">
       <summary>
-        吉卜力&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.ghibli.jp/works" target="_blank" rel="noopener">Ghibli</a>
+        吉卜力&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.ghibli.jp/works" target="_blank" rel="noopener noreferrer">Ghibli</a>
       </summary>
       <div class="movie-list">
         <movie-item v-for="great in ghibli" :key="great.name" v-bind="great"></movie-item>

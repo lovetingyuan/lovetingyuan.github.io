@@ -13,8 +13,8 @@
           <summary>{{name}}</summary>
           <ul class="github-links">
             <li v-for="link in item" :key="link.name" class="github-link">
-              <a :href="link.url || link.git" rel="noopener" target="_blank">{{link.name}}</a>&nbsp;&nbsp;
-              <a :href="link.git" rel="noopener" target="_blank" class="github-logo" title="github"></a>
+              <a :href="link.url || link.git" rel="noopener noreferrer" target="_blank">{{link.name}}</a>&nbsp;&nbsp;
+              <a :href="link.git" rel="noopener noreferrer" target="_blank" class="github-logo" title="github"></a>
               <p>{{link.description}}</p>
             </li>
           </ul>
