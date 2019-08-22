@@ -36,6 +36,9 @@ module.exports = {
       precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
       importWorkboxFrom: 'disabled',
       importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js',
+      ignoreUrlParametersMatching: [
+        /^v/
+      ],
       manifestTransforms: [
         manifest => {
           ['music', 'blog', 'movie', 'spirit'].forEach(route => {

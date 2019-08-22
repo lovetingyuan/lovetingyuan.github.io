@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/assets/img/totoro.5a2a18db.png"
   },
   {
-    "revision": "d03e715c5c852be237f63b2e1660de17",
+    "revision": "eb74bc3dc48a14f09eb5548b9fd091ca",
     "url": "/index.html"
   }
 ];

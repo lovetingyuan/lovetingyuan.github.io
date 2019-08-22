@@ -13,7 +13,7 @@
 
 importScripts(
   "https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js",
-  "/assets/precache/precache-manifest.cf758631f47787baca9a3f8499c18ccb.js"
+  "/assets/precache/precache-manifest.16ea6602d4b34be915dd7e0e8eaf1a87.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "tingyuan"});
@@ -25,21 +25,23 @@ workbox.core.setCacheNameDetails({prefix: "tingyuan"});
  */
 self.__precacheManifest = [
   {
-    "revision": "eb50f0526be93b8e2d48",
+    "revision": "de6db523fafa26f77636",
     "url": "/music/index.html"
   },
   {
-    "revision": "7a74370fbd7e8e97afe1",
+    "revision": "b2b6578106edc3a6e5c4",
     "url": "/blog/index.html"
   },
   {
-    "revision": "00acc8341dd57461a28e",
+    "revision": "9542d869dbd23d7eb100",
     "url": "/movie/index.html"
   },
   {
-    "revision": "90137d9bcec0ca8881c6",
+    "revision": "293cfbf5661be616a67a",
     "url": "/spirit/index.html"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {
+  "ignoreUrlParametersMatching": [/^v/]
+});
