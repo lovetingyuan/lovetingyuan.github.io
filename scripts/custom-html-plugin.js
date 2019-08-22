@@ -4,25 +4,30 @@ const SVGSpriter = require('svg-sprite')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = class InlintManifestPlugin {
+module.exports = class CustomHtmlPlugin {
+  constructor(options) {
+    this.svgSpriteDir = options.svgSpriteDir
+  }
   apply (compiler) {
     const name = 'inline-manifest-plugin'
     compiler.hooks.compilation.tap(name, compilation => {
-      // (
-      //   HtmlWebpackPlugin.getHooks
-      //     ? HtmlWebpackPlugin.getHooks(compilation).alterAssetTags
-      //     : compilation.hooks.htmlWebpackPluginAlterAssetTags
-      // ).tapAsync(
-      //   name,
-      //   (data, cb) => { this.inlineManifest(compilation, data, cb) }
-      // );
+      (
+        HtmlWebpackPlugin.getHooks
+          ? HtmlWebpackPlugin.getHooks(compilation).alterAssetTags
+          : compilation.hooks.htmlWebpackPluginAlterAssetTags
+      ).tapAsync(
+        name,
+        (data, cb) => { cb() }
+      );
       (
         HtmlWebpackPlugin.getHooks
           ? HtmlWebpackPlugin.getHooks(compilation).afterTemplateExecution
           : compilation.hooks.htmlWebpackPluginAfterHtmlProcessing
       ).tapAsync(
         name,
-        (data, cb) => { this.inlineSvgSprite(data, cb) }
+        (data, cb) => {
+          this.inlineSvgSprite(data, cb)
+        }
       )
     })
   }
@@ -39,19 +44,18 @@ module.exports = class InlintManifestPlugin {
         }
       }
     })
-    const src = path.join(__dirname, '../src/assets/svg')
-    fs.readdirSync(src).forEach(file => {
-      const filePath = path.join(src, file)
+    fs.readdirSync(this.svgSpriteDir).forEach(file => {
+      const filePath = path.join(this.svgSpriteDir, file)
       if (file.endsWith('.svg')) {
         spriter.add(filePath, file, fs.readFileSync(filePath, 'utf8'))
       }
     })
     spriter.compile((error, result) => {
-      if (error) {
-        return cb(error)
-      }
-      data.html = data.html
-        .replace(/<!--\[if svgSprite\]><!\[endif\]-->/, result.symbol.sprite.contents.toString())
+      if (error) return cb(error)
+      data.html = data.html.replace(
+        /<svg-sprite.+<\/svg-sprite>/,
+        result.symbol.sprite.contents.toString()
+      )
       cb()
     })
   }

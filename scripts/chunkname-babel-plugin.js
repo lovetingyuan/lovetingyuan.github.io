@@ -1,4 +1,5 @@
 const Path = require('path')
+// may be you could remove this with webpack 5
 
 module.exports = function addAsyncChunkName ({ types: t }) {
   return {

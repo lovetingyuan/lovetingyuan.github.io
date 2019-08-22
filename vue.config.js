@@ -2,15 +2,11 @@ const webpack = require('webpack')
 const SSRClientPlugin = require('./scripts/ssr-client-plugin')
 const gitHash = require('git-rev-sync').short(null, 10)
 const { name: appName, version: appVersion } = require('./package.json')
-const CopyDistPlugin = require('./scripts/copy-dist-plugin')
-const InlinePlugin = require('./scripts/inline-html-plugin')
+const PostBuildPlugin = require('./scripts/post-build-plugin')
+const CustomHtmlPlugin = require('./scripts/custom-html-plugin')
 const path = require('path')
 const fse = require('fs-extra')
 const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'))
-const crypto = require('crypto')
-const hash = (txt) => {
-  return crypto.createHash('sha256').update(txt).digest('hex')
-}
 
 process.env.VUE_APP_THEME_COLOR = webManifest.theme_color
 
@@ -33,24 +29,10 @@ module.exports = {
     assetsVersion: 'v' + appVersion,
     manifestPath: 'site.webmanifest',
     workboxOptions: {
-      precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
+      precacheManifestFilename: './precache/precache-manifest.[manifestHash].js',
       importWorkboxFrom: 'disabled',
       importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js',
-      ignoreUrlParametersMatching: [
-        /^v/
-      ],
-      manifestTransforms: [
-        manifest => {
-          ['music', 'blog', 'movie', 'spirit'].forEach(route => {
-            const index = fse.readFileSync(path.join(__dirname, route, 'index.html'), 'utf8')
-            const revision = hash(index).substr(0, 20)
-            manifest.push({
-              revision, url: '/' + route + '/index.html'
-            })
-          })
-          return { manifest }
-        }
-      ]
+      ignoreUrlParametersMatching: [/^v/]
     },
     iconPaths: {
       favicon32: 'assets/icons/favicon-32x32.png',
@@ -73,14 +55,28 @@ module.exports = {
       ]
     },
     plugins: [
-      process.env.NODE_ENV === 'production' && new CopyDistPlugin(),
+      process.env.NODE_ENV === 'production' && new PostBuildPlugin({
+        dest: __dirname,
+        cleanList: ['assets', 'data'],
+        ignoreCopyList: [
+          'ssr', 'precache', 'report.html', 'legacy-report.html', 'legacy-assets-index.html.json'
+        ],
+        extraPrecacheList: ['music', 'blog', 'movie', 'spirit'].map(route => {
+          return {
+            file: path.join(__dirname, route, 'index.html'),
+            url: route + '/index.html'
+          }
+        })
+      }),
       new webpack.DefinePlugin({
         __DEV__: process.env.NODE_ENV === 'development',
         'process.env': {
           VUE_ENV: false
         }
       }),
-      new InlinePlugin(),
+      new CustomHtmlPlugin({
+        svgSpriteDir: path.join(__dirname, 'src/assets/svg')
+      }),
       new SSRClientPlugin()
     ].filter(Boolean)
   },
@@ -104,6 +100,7 @@ module.exports = {
       .use('markdown-loader')
       .loader('markdown-loader')
       .end()
+    // we use vue ssr renderResourceHints to inject pre links
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
   }

@@ -7,11 +7,11 @@
     <meta name="description" content="随着海风吹，吹向来时庭院……">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <!--[if renderResourceHints]><![endif]-->
     <meta name="google" value="notranslate">
     <meta name="author" content="humans.txt">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <!--[if renderResourceHints]><![endif]-->
     <style>
       :root {
         --theme-color: <%= VUE_APP_THEME_COLOR %>;
@@ -19,17 +19,16 @@
         --max-width: 900px;
       }
     </style>
-    <!--[if renderStyles]><![endif]-->
+    <!--[if styles]><![endif]-->
   </head>
   <body>
     <!--[if IE]><p style="margin:0.2em 0;background:#ccc;color:#000;padding:0.2em 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p><![endif]-->
-    <!--[if svgSprite]><![endif]-->
+    <svg-sprite hidden></svg-sprite>
     <div id="app"></div>
     <noscript>
-      <strong>We're sorry but tingyuan doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but this site doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <!-- built files will be auto injected -->
-    <!--[if renderState]><![endif]-->
     <script>
       // Avoid `console` errors in browsers that lack a console.
       (function() {
@@ -73,6 +72,7 @@
         document.getElementById('app').removeAttribute('data-server-rendered')
       }
     </script>
+    <!--[if renderState]><![endif]-->
     <!--[if renderScripts]><![endif]-->
     <!--[if renderStyles]><![endif]-->
   </body>

@@ -1,14 +1,9 @@
 const Service = require('@vue/cli-service/lib/Service')
 const chalk = require('chalk')
 const path = require('path')
-const webpack = require('webpack')
-const MFS = require('memory-fs')
 const { createBundleRenderer } = require('vue-server-renderer')
 const minimist = require('minimist')
 const fse = require('fs-extra')
-const express = require('express')
-const lodashTemplate = require('lodash/template')
-const { minify } = require('html-minifier')
 
 const serverVueConfigPath = require.resolve('./vue.ssr.config')
 
@@ -67,8 +62,10 @@ function serve () {
 
   const serverService = createService(serverVueConfigPath)
   const webpackConfig = serverService.resolveWebpackConfig()
+  const webpack = require('webpack')
 
   const serverCompiler = webpack(webpackConfig)
+  const MFS = require('memory-fs')
   const mfs = new MFS()
   serverCompiler.outputFileSystem = mfs
   serverCompiler.watch({}, (err, stats) => {
@@ -85,6 +82,7 @@ function serve () {
     console.log('server bundle done')
     updateRenderer()
   })
+  const lodashTemplate = require('lodash/template')
 
   function updateRenderer () {
     if (clientManifest && serverBundle) {
@@ -141,8 +139,6 @@ function serve () {
   return clientService._run()
 }
 
-const { JSDOM } = require('jsdom')
-
 async function build () {
   await createService()._run()
   await createService(serverVueConfigPath)._run()
@@ -152,14 +148,26 @@ async function build () {
 
   const renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false,
-    clientManifest
+    clientManifest,
+    shouldPrefetch (file, type) {
+      if (type === 'style') {
+        return false
+      }
+      if (type === 'script' && file.includes('precache-manifest.')) {
+        return false
+      }
+      return true
+    }
   })
+  const express = require('express')
 
   const server = express()
   const template = fse.readFileSync(path.join(__dirname, '../index.html'), 'utf8')
 
   server.use('/data', express.static(path.join(__dirname, '../public/data')))
   const _server = server.listen(8888)
+  const { JSDOM } = require('jsdom')
+  const { minify } = require('html-minifier')
 
   await Promise.all(SSRoutes.map(async _path => {
     const context = {
@@ -170,7 +178,12 @@ async function build () {
     let html = await renderer.renderToString(context)
     const indexTemplate = template.replace(
       /<!--\[if ([A-Za-z]+)\]><!\[endif\]-->/gm,
-      (str, func) => context[func]()
+      (str, func) => {
+        if (typeof context[func] === 'function') {
+          return context[func]()
+        }
+        return context[func]
+      }
     )
     const dom = new JSDOM(indexTemplate)
     const doc = dom.window.document
