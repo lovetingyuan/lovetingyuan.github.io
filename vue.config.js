@@ -7,6 +7,10 @@ const InlinePlugin = require('./scripts/inline-html-plugin')
 const path = require('path')
 const fse = require('fs-extra')
 const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'))
+const crypto = require('crypto')
+const hash = (txt) => {
+  return crypto.createHash('sha256').update(txt).digest('hex')
+}
 
 process.env.VUE_APP_THEME_COLOR = webManifest.theme_color
 
@@ -31,7 +35,19 @@ module.exports = {
     workboxOptions: {
       precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
       importWorkboxFrom: 'disabled',
-      importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js'
+      importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js',
+      manifestTransforms: [
+        manifest => {
+          ['music', 'blog', 'movie', 'spirit'].forEach(route => {
+            const index = fse.readFileSync(path.join(__dirname, route, 'index.html'), 'utf8')
+            const revision = hash(index).substr(0, 20)
+            manifest.push({
+              revision, url: '/' + route + '/index.html'
+            })
+          })
+          return { manifest }
+        }
+      ]
     },
     iconPaths: {
       favicon32: 'assets/icons/favicon-32x32.png',
@@ -74,12 +90,6 @@ module.exports = {
             appName, appVersion, Date.now(), gitHash
           ] + ''
         })
-        if (process.env.NODE_ENV === 'production') {
-          args[0].minify = Object.assign(args[0].minify || {}, {
-            minifyCSS: true,
-            minifyJS: true
-          })
-        }
         return args
       })
     config.module
@@ -91,5 +101,7 @@ module.exports = {
       .use('markdown-loader')
       .loader('markdown-loader')
       .end()
+    config.plugins.delete('preload')
+    config.plugins.delete('prefetch')
   }
 }

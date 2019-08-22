@@ -141,6 +141,8 @@ function serve () {
   return clientService._run()
 }
 
+const { JSDOM } = require('jsdom')
+
 async function build () {
   await createService()._run()
   await createService(serverVueConfigPath)._run()
@@ -166,10 +168,51 @@ async function build () {
       SSR_CONTEXT: clientManifest.SSR_CONTEXT
     }
     let html = await renderer.renderToString(context)
-    html = template.replace(
+    const indexTemplate = template.replace(
       /<!--\[if ([A-Za-z]+)\]><!\[endif\]-->/gm,
-      (str, group) => context[group] ? context[group]() : ''
-    ).replace(/<div id=(app|"app")><\/div>/m, html)
+      (str, func) => context[func]()
+    )
+    const dom = new JSDOM(indexTemplate)
+    const doc = dom.window.document
+    // for vue cli modern build mode
+    doc.head.querySelectorAll('link[rel=preload][as=script]').forEach(tag => {
+      if (/\/manifest\.[0-9a-z]+\.js$/.test(tag.href)) {
+        tag.remove()
+      } else {
+        tag.rel = 'modulepreload'
+      }
+    })
+    doc.body.querySelectorAll('script[src$=".js"]').forEach(tag => {
+      if (tag.getAttribute('type') === 'module') {
+        tag.remove()
+      } else if (tag.getAttribute('type') === null) {
+        if (tag.getAttribute('nomodule') === null) {
+          tag.setAttribute('type', 'module')
+        } else if (tag.getAttribute('nomodule') === '') {
+          tag.setAttribute('defer', true)
+        }
+      }
+    })
+    // "lazy" to load stylesheets because we have critical css
+    doc.head.querySelectorAll('link[rel=stylesheet][href$=".css"]').forEach(tag => tag.remove())
+    doc.body.querySelector('style[data-vue-ssr-id]').remove()
+    // inline small js
+    doc.querySelectorAll('script[src$=".js"][type=module]').forEach(tag => {
+      const src = tag.src
+      const file = path.join(__dirname, '../dist', '.' + src)
+      if (fse.lstatSync(file).size < 5000) {
+        const content = fse.readFileSync(file, 'utf8')
+        tag.setAttribute('data-src', src)
+        tag.removeAttribute('src')
+        tag.innerHTML = content
+        doc.querySelectorAll('link[rel=modulepreload]').forEach(tag => {
+          if (tag.href === src) {
+            tag.remove()
+          }
+        })
+      }
+    })
+    html = dom.serialize().replace(/<div id=(app|"app")><\/div>/m, html)
     await fse.outputFile(
       path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),
       minify(html, {
@@ -177,13 +220,18 @@ async function build () {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
         collapseBooleanAttributes: true,
-        removeScriptTypeAttributes: true
+        removeScriptTypeAttributes: true,
+        minifyCSS: true,
+        minifyJS: true
       })
     )
   }))
-  console.log(chalk.green('Build done!'))
-  _server && _server.close()
+  _server.close(() => {
+    console.log(chalk.green('Build done!'))
+  })
 }
+
+// process.env.NODE_ENV = 'production'
 
 if (require.main === module) {
   if (process.env.NODE_ENV === 'development') {

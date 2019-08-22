@@ -13,7 +13,6 @@ module.exports = class CopyDistPlugin {
   apply (compiler) {
     this.clean()
     this.copyDist(compiler)
-    this.addDefer(compiler)
     this.optimizeData(compiler)
   }
   clean () {
@@ -30,24 +29,6 @@ module.exports = class CopyDistPlugin {
         if (!this.ignoreCopyList.includes(file)) {
           fse.copySync(path.join(src, file), path.join(this.dest, file))
         }
-      })
-    })
-  }
-  addDefer (compiler) {
-    const ID = 'add-defer-body-scripts'
-    compiler.hooks.afterEnvironment.tap(ID, () => {
-      compiler.hooks.compilation.tap(ID, compilation => {
-        compilation.hooks.htmlWebpackPluginAlterAssetTags.tapAsync(ID, async (data, cb) => {
-          data.body.forEach(tag => {
-            if (tag.tagName === 'script' && tag.attributes) {
-              tag.attributes.defer = ''
-            }
-          })
-          cb()
-        })
-        compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tap(ID, data => {
-          data.html = data.html.replace(/\sdefer=""\s/gm, ' defer ')
-        })
       })
     })
   }
