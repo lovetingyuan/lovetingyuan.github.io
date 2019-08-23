@@ -32,11 +32,11 @@ export default () => {
       },
       {
         path: '/blog/:tag?/:name?',
-        component: () => import('./views/Blog.vue')
+        component: () => import(/* webpackChunkName: async-blog */'./views/Blog.vue')
       },
-      { path: '/music', component: () => import('./views/Music.vue') },
-      { path: '/movie', component: () => import('./views/Movie.vue') },
-      { path: '/spirit', component: () => import('./views/Story.vue') },
+      { path: '/music', component: () => import(/* webpackChunkName: async-music */'./views/Music.vue') },
+      { path: '/movie', component: () => import(/* webpackChunkName: async-movie */'./views/Movie.vue') },
+      { path: '/spirit', component: () => import(/* webpackChunkName: async-spirit */'./views/Spirit.vue') },
       route404()
     ]
   })

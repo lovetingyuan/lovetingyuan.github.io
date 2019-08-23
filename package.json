@@ -3,8 +3,10 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "serve": "cross-env NODE_ENV=development node scripts/serve-build serve --no-ssr",
-    "build": "cross-env NODE_ENV=production node scripts/serve-build build --modern --report",
+    "serve": "vue-cli-service serve",
+    "build:client": "vue-cli-service build --modern --report",
+    "build:server": "cross-env VUE_ENV=server vue-cli-service build --no-clean",
+    "build": "npm run build:client && npm run build:server",
     "lint": "vue-cli-service lint --fix",
     "check": "npx npm-check-updates"
   },

@@ -11,14 +11,14 @@ module.exports = class CustomHtmlPlugin {
   apply (compiler) {
     const name = 'inline-manifest-plugin'
     compiler.hooks.compilation.tap(name, compilation => {
-      (
-        HtmlWebpackPlugin.getHooks
-          ? HtmlWebpackPlugin.getHooks(compilation).alterAssetTags
-          : compilation.hooks.htmlWebpackPluginAlterAssetTags
-      ).tapAsync(
-        name,
-        (data, cb) => { cb() }
-      );
+      // (
+      //   HtmlWebpackPlugin.getHooks
+      //     ? HtmlWebpackPlugin.getHooks(compilation).alterAssetTags
+      //     : compilation.hooks.htmlWebpackPluginAlterAssetTags
+      // ).tapAsync(
+      //   name,
+      //   (data, cb) => { cb() }
+      // );
       (
         HtmlWebpackPlugin.getHooks
           ? HtmlWebpackPlugin.getHooks(compilation).afterTemplateExecution

@@ -3,6 +3,5 @@ module.exports = {
     '@vue/app'
   ],
   plugins: [
-    './scripts/chunkname-babel-plugin'
   ]
 }
