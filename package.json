@@ -1,12 +1,12 @@
 {
   "name": "tingyuan",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:client": "vue-cli-service build --modern --report",
     "build:server": "cross-env VUE_ENV=server vue-cli-service build --no-clean",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run lint && npm run build:client && npm run build:server",
     "lint": "vue-cli-service lint --fix",
     "check": "npx npm-check-updates"
   },
