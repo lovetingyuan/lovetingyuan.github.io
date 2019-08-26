@@ -1,6 +1,5 @@
 const webpack = require('webpack')
 const gitHash = require('git-rev-sync').short(null, 10)
-const { name: appName, version: appVersion } = require('./package.json')
 const path = require('path')
 const fse = require('fs-extra')
 const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'))
@@ -89,7 +88,7 @@ function clientConfig () {
       }
     },
     pwa: {
-      assetsVersion: 'v' + appVersion,
+      assetsVersion: 'v' + process.env.npm_package_version,
       manifestPath: 'site.webmanifest',
       workboxOptions: {
         precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
@@ -144,7 +143,7 @@ function clientConfig () {
         .tap(args => {
           args[0].meta = Object.assign(args[0].meta || {}, {
             datePublished: [
-              appName, appVersion, Date.now(), gitHash
+              process.env.npm_package_name, process.env.npm_package_version, Date.now(), gitHash
             ] + ''
           })
           return args
