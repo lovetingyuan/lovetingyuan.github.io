@@ -31,6 +31,10 @@ export default () => {
         }
       },
       {
+        path: '/index.html',
+        redirect: '/'
+      },
+      {
         path: '/blog/:tag?/:name?',
         component: () => import(/* webpackChunkName: "async-blog" */ './views/Blog.vue')
       },
