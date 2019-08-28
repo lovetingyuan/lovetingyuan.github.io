@@ -11,7 +11,7 @@
     "check": "npx npm-check-updates"
   },
   "dependencies": {
-    "@tingyuan/vue-store": "^0.0.10",
+    "@tingyuan/vue-store": "^0.0.13",
     "core-js": "^2.6.5",
     "main.css": "^2.0.0",
     "normalize.css": "^8.0.1",

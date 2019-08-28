@@ -28,6 +28,9 @@ export default {
     ghibli () {
       return this.$store.Movie.ghibli
     }
+  },
+  beforeDestroy () {
+    this.$store.removeModule('Movie')
   }
 }
 </script>

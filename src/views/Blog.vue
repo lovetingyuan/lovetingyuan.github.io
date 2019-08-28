@@ -64,6 +64,9 @@ export default {
       style.href = 'https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css'
       document.head.appendChild(style)
     }
+  },
+  beforeDestroy () {
+    this.$store.removeModule('Blog', blogModule)
   }
 }
 </script>

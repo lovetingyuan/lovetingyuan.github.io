@@ -22,6 +22,9 @@ export default {
     bestSongs () {
       return this.$store.Music.bestSongs
     }
+  },
+  destroyed () {
+    this.$store.removeModule('Music')
   }
 }
 </script>
