@@ -6,6 +6,8 @@ const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'
 
 process.env.VUE_APP_THEME_COLOR = webManifest.theme_color
 
+const productionSourceMap = true
+
 function serverConfig () {
   const nodeExternals = require('webpack-node-externals')
   const SSRenderPlugin = require('./scripts/ssr-render-plugin')
@@ -13,7 +15,7 @@ function serverConfig () {
     lintOnSave: false,
     outputDir: 'dist/ssr',
     assetsDir: 'assets',
-    productionSourceMap: false,
+    productionSourceMap,
     css: {
       extract: false
     },
@@ -75,7 +77,7 @@ function clientConfig () {
   return {
     lintOnSave: false,
     assetsDir: 'assets',
-    productionSourceMap: false,
+    productionSourceMap,
     devServer: {
       before (app, server) {
         app.use((req, res, next) => {
