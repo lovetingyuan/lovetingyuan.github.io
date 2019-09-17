@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === 'development') {
   context.keys().forEach(path => {
     data[path] = context(path)
   })
-  console.log(data)
 }
 
 export const request = {
