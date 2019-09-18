@@ -6,7 +6,7 @@ const webManifest = fse.readJSONSync(require.resolve('./public/site.webmanifest'
 
 process.env.VUE_APP_THEME_COLOR = webManifest.theme_color
 
-const productionSourceMap = true
+const productionSourceMap = false
 
 function serverConfig () {
   const nodeExternals = require('webpack-node-externals')
