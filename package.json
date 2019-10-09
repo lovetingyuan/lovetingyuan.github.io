@@ -35,7 +35,7 @@
     "jsdom": "^15.1.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.4.2",
     "lost": "^8.3.1",
     "markdown-loader": "^5.1.0",
     "node-fetch": "^2.6.0",
