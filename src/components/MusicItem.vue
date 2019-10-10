@@ -16,11 +16,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <ul class="info-list">
-      <li data-title="歌曲名">{{name}}</li>
-      <li data-title="歌手">{{singer}}</li>
-      <li data-title="专辑/年份">《{{album}}》 {{year}}</li>
-    </ul> -->
   </div>
 </template>
 

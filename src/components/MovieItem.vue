@@ -24,16 +24,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- <ul class="info-list">
-      <li data-title="影片名称">
-        <a :href="'https://www.imdb.com/title/' + imdb" target="_blank" rel="noopener">{{name}}</a>
-        《{{origin_name}}》
-      </li>
-      <li data-title="地区/年份">{{country}} ({{date}})</li>
-      <li data-title="导演">{{director}}</li>
-      <li data-title="制作单位">{{producer}}</li>
-      <li data-title="片长">{{duration}}分钟</li>
-    </ul> -->
   </div>
 </template>
 
