@@ -13,28 +13,28 @@
 
 importScripts(
   "https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js",
-  "/assets/precache/precache-manifest.1795e91d643b1ee7e3615c621effe86b.js"
+  "/assets/precache/precache-manifest.6a4f14325cc5aacecc989328a5548324.js"
 );
 
 self.__precacheManifest = [
   {
-    "revision": "23c9db43bd929bebd9ee",
+    "revision": "0a94a7b6bd5371f38b3d",
     "url": "/index.html"
   },
   {
-    "revision": "0f57f588f85b2b8893bc",
+    "revision": "a83f145bd4853e177794",
     "url": "/blog/index.html"
   },
   {
-    "revision": "34d5e9bd017a18802287",
+    "revision": "6244acfe204723c5e563",
     "url": "/music/index.html"
   },
   {
-    "revision": "56b13a4511c45e280de4",
+    "revision": "2e0c69e4bf6f65efe1a3",
     "url": "/movie/index.html"
   },
   {
-    "revision": "07827205672603780558",
+    "revision": "d186a25c1ba3a76d6ec4",
     "url": "/spirit/index.html"
   }
 ].concat(self.__precacheManifest || []);
