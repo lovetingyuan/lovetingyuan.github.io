@@ -45,7 +45,7 @@ function serverConfig () {
           clientManifestPath: 'dist/ssr/vue-ssr-client-manifest.json',
           apiPath: 'public/data',
           templatePath: 'dist/index.html',
-          swPath: 'service-worker.js'
+          swPath: 'dist/service-worker.js'
         })
       ]
     },

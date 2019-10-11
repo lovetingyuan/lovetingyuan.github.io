@@ -8,7 +8,7 @@ module.exports = class PostBuildPlugin {
   }
   apply (compiler) {
     this.clean()
-    this.copyDist(compiler)
+    // this.copyDist(compiler)
     this.optimizeData(compiler)
   }
   clean () {

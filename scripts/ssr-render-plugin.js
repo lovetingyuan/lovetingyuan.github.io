@@ -108,7 +108,7 @@ module.exports = class SSRenderPlugin {
       })
       html = dom.serialize().replace(/<div id=(app|"app")><\/div>/m, html)
       await fse.outputFile(
-        path.join(__dirname, '..', _path === '/' ? '' : _path, '/index.html'),
+        path.join(__dirname, '..', 'dist', _path === '/' ? '' : _path, '/index.html'),
         minify(html, {
           removeComments: true,
           collapseWhitespace: true,
@@ -134,7 +134,7 @@ module.exports = class SSRenderPlugin {
     const swCode = fse.readFileSync(this.swPath, 'utf8')
     const extraPrecaches = this.routes.map(route => {
       const url = (route === '/' ? '' : route) + '/index.html'
-      const file = path.join(context, '.' + url)
+      const file = path.join(context, 'dist', '.' + url)
       return {
         revision: hash(fse.readFileSync(file, 'utf8')).substr(0, 20),
         url
