@@ -1,84 +1,16 @@
 {
-  "name": "tingyuan",
-  "version": "0.2.0",
-  "private": true,
+  "name": "lovetingyuan.github.io",
+  "description": "Welcome to my personal site: https://tingyuan.me",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build:client": "vue-cli-service build --modern --report",
-    "build:server": "cross-env VUE_ENV=server vue-cli-service build --no-clean",
-    "build": "npm run lint && npm run build:client && npm run build:server",
-    "lint": "vue-cli-service lint --fix",
-    "check": "npx npm-check-updates"
+    "prebuild": "rm -rf assets data",
+    "build": "cp -rf dist/* ./",
+    "postbuild": "rm -rf ssr report.html legacy-report.html"
   },
-  "dependencies": {
-    "@tingyuan/vue-store": "^0.0.15",
-    "core-js": "^2.6.5",
-    "main.css": "^2.0.0",
-    "normalize.css": "^8.0.1",
-    "register-service-worker": "^1.6.2",
-    "vue": "^2.6.10",
-    "vue-router": "^3.1.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovetingyuan/lovetingyuan.github.io.git"
   },
-  "devDependencies": {
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-pwa": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.5.1",
-    "cross-env": "^6.0.3",
-    "eslint-plugin-vue": "^5.2.3",
-    "eslint-utils": "^1.4.2",
-    "git-rev-sync": "^1.12.0",
-    "html-loader": "^0.5.5",
-    "jsdom": "^15.1.1",
-    "less": "^3.10.3",
-    "less-loader": "^5.0.0",
-    "lint-staged": "^8.1.5",
-    "lost": "^8.3.1",
-    "markdown-loader": "^5.1.0",
-    "node-fetch": "^2.6.0",
-    "svg-sprite": "^1.5.0",
-    "vue-server-renderer": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-node-externals": "^1.7.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/standard"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "eslintIgnore": [
-    "service-worker.js",
-    "assets"
-  ],
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {},
-      "lost": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "gitHooks": {
-    "pre-commit": "echo \"Remember to build your site!\" && lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
+  "keywords": [],
+  "author": "tingyuan",
+  "homepage": "https://tingyuan.me"
 }
