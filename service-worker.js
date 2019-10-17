@@ -13,33 +13,39 @@
 
 importScripts(
   "https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js",
-  "/assets/precache/precache-manifest.6a4f14325cc5aacecc989328a5548324.js"
+  "/assets/precache/precache-manifest.3a0f05b144ff007c1b0865815be9a4b4.js"
 );
 
 self.__precacheManifest = [
   {
-    "revision": "0a94a7b6bd5371f38b3d",
+    "revision": "a0807718f181441bc8fd",
     "url": "/index.html"
   },
   {
-    "revision": "a83f145bd4853e177794",
+    "revision": "b9ce2294fdb2bc4611ad",
     "url": "/blog/index.html"
   },
   {
-    "revision": "6244acfe204723c5e563",
+    "revision": "6133411f7ec0f92090ed",
     "url": "/music/index.html"
   },
   {
-    "revision": "2e0c69e4bf6f65efe1a3",
+    "revision": "9420f5500108b2be7955",
     "url": "/movie/index.html"
   },
   {
-    "revision": "d186a25c1ba3a76d6ec4",
+    "revision": "dd43f5adfc7df75cd22a",
     "url": "/spirit/index.html"
   }
 ].concat(self.__precacheManifest || []);
 
 workbox.core.setCacheNameDetails({prefix: "tingyuan"});
+
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
@@ -47,7 +53,6 @@ workbox.core.setCacheNameDetails({prefix: "tingyuan"});
  * See https://goo.gl/S9QRab
  */
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {
-  "ignoreUrlParametersMatching": [/^v/]
+  "ignoreURLParametersMatching": [/^v/]
 });
