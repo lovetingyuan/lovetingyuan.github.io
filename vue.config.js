@@ -91,12 +91,14 @@ function clientConfig () {
     },
     pwa: {
       assetsVersion: 'v' + process.env.npm_package_version,
-      manifestPath: 'site.webmanifest',
+      // manifestPath: 'site.webmanifest',
+      manifestOptions: webManifest,
       workboxOptions: {
         precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
         importWorkboxFrom: 'disabled',
         importScripts: 'https://cdn.jsdelivr.net/npm/workbox-sw@3.6.3/build/workbox-sw.min.js',
-        ignoreUrlParametersMatching: [/^v/],
+        // ignoreUrlParametersMatching: [/^v/],
+        ignoreURLParametersMatching: [/^v/],
         exclude: 'index.html'
       },
       iconPaths: {
