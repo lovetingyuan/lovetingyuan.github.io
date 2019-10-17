@@ -18,23 +18,23 @@ importScripts(
 
 self.__precacheManifest = [
   {
-    "revision": "a0807718f181441bc8fd",
+    "revision": "7db9265f753f3567f0d6",
     "url": "/index.html"
   },
   {
-    "revision": "b9ce2294fdb2bc4611ad",
+    "revision": "455465ba1bf45a880e36",
     "url": "/blog/index.html"
   },
   {
-    "revision": "6133411f7ec0f92090ed",
+    "revision": "2548fa10baced5eee62a",
     "url": "/music/index.html"
   },
   {
-    "revision": "9420f5500108b2be7955",
+    "revision": "f94317f4c7cca98061b5",
     "url": "/movie/index.html"
   },
   {
-    "revision": "dd43f5adfc7df75cd22a",
+    "revision": "c69a4235c2f169c8834d",
     "url": "/spirit/index.html"
   }
 ].concat(self.__precacheManifest || []);
