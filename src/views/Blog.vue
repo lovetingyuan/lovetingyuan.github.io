@@ -2,6 +2,7 @@
   <div>
     <nav class="tag-list">
       <router-link v-for="tag in tags" :key="tag" class="tag" :to="`/blog/${tag}`" :exact="!tag">{{tag || 'all'}}</router-link>
+      <span @click="onEdit">edit</span>
     </nav>
     <section class="article">
       <ul class="blog-list" v-if="!content">
@@ -13,8 +14,7 @@
           </h2>
         </li>
       </ul>
-      <article v-html="content" v-else class="markdown-body">
-      </article>
+      <article v-html="content" v-else class="markdown-body"></article>
     </section>
   </div>
 </template>
@@ -54,6 +54,36 @@ export default {
         return this.$store.Blog.content
       }
       return null
+    }
+  },
+  data () {
+    return { token: '' }
+  },
+  methods: {
+    verify () {
+      const t = prompt('请认证:')
+      if (!t) return
+      try {
+        const ciphertext = 'U2FsdGVkX1/Fnzeor5i6wdpxKOW0/h+Q0+epQVP8w0s='
+        let key = window.CryptoJS.SHA512(t)
+        key = window.CryptoJS.SHA512(t + key)
+        const bytes = window.CryptoJS.AES.decrypt(ciphertext, key.toString(window.CryptoJS.enc.HEX))
+        this.token = bytes.toString(window.CryptoJS.enc.Utf8).trim()
+      } catch (err) {}
+    },
+    onEdit () {
+      if (typeof CryptoJS !== 'object') {
+        const script = document.createElement('script')
+        script.src = 'https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.js'
+        script.onload = () => {
+          script.onload = null
+          script.remove()
+          this.verify()
+        }
+        document.head.appendChild(script)
+      } else {
+        this.verify()
+      }
     }
   },
   mounted () {
