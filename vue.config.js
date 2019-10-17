@@ -91,7 +91,7 @@ function clientConfig () {
     },
     pwa: {
       assetsVersion: 'v' + process.env.npm_package_version,
-      // manifestPath: 'site.webmanifest',
+      manifestPath: 'site.webmanifest',
       manifestOptions: webManifest,
       workboxOptions: {
         precacheManifestFilename: './assets/precache/precache-manifest.[manifestHash].js',
