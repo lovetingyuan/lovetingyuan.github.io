@@ -6,12 +6,12 @@
     </nav>
     <section class="article">
       <ul class="blog-list" v-if="!content">
-        <li v-for="(val, name) in articles" :key="name">
-          <h2>
+        <li v-for="(val, name) in articles" :key="name" class="blog-item">
+          <h3>
             <router-link :to="`/blog/${val.tag}/${val.name}`">
               {{val.title}}
             </router-link>
-          </h2>
+          </h3>
         </li>
       </ul>
       <article v-html="content" v-else class="markdown-body"></article>
@@ -65,10 +65,10 @@ export default {
       if (!t) return
       try {
         const ciphertext = 'U2FsdGVkX1/Fnzeor5i6wdpxKOW0/h+Q0+epQVP8w0s='
-        let key = window.CryptoJS.SHA512(t)
-        key = window.CryptoJS.SHA512(t + key)
-        const bytes = window.CryptoJS.AES.decrypt(ciphertext, key.toString(window.CryptoJS.enc.HEX))
-        this.token = bytes.toString(window.CryptoJS.enc.Utf8).trim()
+        let key = this.CryptoJS.SHA512(t)
+        key = this.CryptoJS.SHA512(t + key)
+        const bytes = this.CryptoJS.AES.decrypt(ciphertext, key.toString(this.CryptoJS.enc.HEX))
+        this.token = bytes.toString(this.CryptoJS.enc.Utf8).trim()
       } catch (err) {}
     },
     onEdit () {
@@ -78,8 +78,11 @@ export default {
         script.onload = () => {
           script.onload = null
           script.remove()
+          this.CryptoJS = window.CryptoJS
+          delete window.CryptoJS
           this.verify()
         }
+        script.onerror = () => alert('auth error')
         document.head.appendChild(script)
       } else {
         this.verify()
