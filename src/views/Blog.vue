@@ -5,19 +5,30 @@
       <span @click="onEdit">edit</span>
     </nav>
     <section class="article">
-      <ul class="blog-list" v-if="!content">
-        <li v-for="(val, name) in articles" :key="name" class="blog-item">
-          <h3>
-            <router-link :to="`/blog/${val.tag}/${val.name}`">
-              {{val.title}}
-            </router-link>
-          </h3>
+      <transition-group name="list-complete" tag="ul" class="blog-list" v-if="!content">
+        <li v-for="(val) in articles" :key="val.tag + val.name" class="blog-item list-complete-item">
+          <router-link :to="`/blog/${val.tag}/${val.name}`"> {{val.title}} </router-link>
         </li>
-      </ul>
+      </transition-group>
       <article v-html="content" v-else class="markdown-body"></article>
     </section>
   </div>
 </template>
+
+<style>
+.list-complete-item {
+  transition: all .4s;
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
+</style>
 
 <script>
 import blogModule from '@/modules/blog'
@@ -108,22 +119,31 @@ export default {
   .tag-list {
     .tag {
       display: inline-block;
-      padding: 6px 16px;
+      padding: 4px 16px;
       background-color: #eee;
+      text-transform: capitalize;
       border-radius: 100px;
       margin-right: 20px;
       text-decoration: none;
       transition: background-color .3s;
       margin-top: 12px;
+      font-size: 14px;
       &:hover {
         background-color: darken(#eee, 8%);
       }
     }
   }
   .blog-list {
-    // list-style: none;
     margin: 20px 0;
     padding: 0;
+    list-style-position: inside;
+  }
+  .blog-item {
+    font-size: 20px;
+    margin: 12px 0;
+    a {
+      text-decoration: none;
+    }
   }
   .article {
     margin: 30px 0;
