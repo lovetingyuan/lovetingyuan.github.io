@@ -1,2 +1,2 @@
 <h2 id="javascript">javascript</h2>
-<p>es6</p>
+<p>强缓存，协商缓存</p>

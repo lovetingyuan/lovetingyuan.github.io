@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/css/app.7035af45.css"
   },
   {
-    "revision": "84f7bf4ae5618817ca79",
-    "url": "/assets/css/async-blog.d3e011ee.css"
+    "revision": "6d0fe95a67b23aa831c3",
+    "url": "/assets/css/async-blog.e3bd73be.css"
   },
   {
     "revision": "21d06c007546d1c039e9",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/js/app-legacy.d79594b2.js"
   },
   {
-    "revision": "84f7bf4ae5618817ca79",
-    "url": "/assets/js/async-blog-legacy.6cce8249.js"
+    "revision": "6d0fe95a67b23aa831c3",
+    "url": "/assets/js/async-blog-legacy.c45c1e90.js"
   },
   {
     "revision": "21d06c007546d1c039e9",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/js/chunk-vendors-legacy.c93af4c1.js"
   },
   {
-    "revision": "33dd46f840e0432757e6",
-    "url": "/assets/js/manifest-legacy.04276919.js"
+    "revision": "f173ed5002a95424eee1",
+    "url": "/assets/js/manifest-legacy.383bd224.js"
   },
   {
     "revision": "c7eb48924e7e842372d83e0aa846bffd",
