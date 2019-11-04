@@ -197,3 +197,7 @@ Procfile    text
 * linguist-detectable=true
 assets/js/*legacy.*.js linguist-generated=true
 assets/js/*legacy.*.js linguist-detectable=false
+
+*.png linguist-detectable=false
+*.jpg linguist-detectable=false
+*.svg linguist-detectable=false
