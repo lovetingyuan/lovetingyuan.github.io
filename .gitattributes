@@ -195,5 +195,5 @@ Procfile    text
 
 * linguist-generated=false
 * linguist-detectable=true
-*-legacy.*.js linguist-generated=true
-*-legacy.*.js linguist-detectable=false
+assets/js/*legacy.*.js linguist-generated=true
+assets/js/*legacy.*.js linguist-detectable=false
