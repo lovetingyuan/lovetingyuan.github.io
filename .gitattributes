@@ -194,3 +194,6 @@ Procfile    text
 *.pyc binary
 
 * linguist-generated=false
+* linguist-detectable=true
+*-legacy.*.js linguist-generated=true
+*-legacy.*.js linguist-detectable=false
