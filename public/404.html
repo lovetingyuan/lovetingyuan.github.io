@@ -57,7 +57,11 @@
     <h1>Loading...</h1>
     <script>
     // hack to 404 page for SPA website
-    location.href = '/?redirect=' + encodeURIComponent(location.pathname)
+    if (location.pathname.startsWith('/nblog/')) {
+        location.href = '/nblog/?redirect=' + encodeURIComponent(location.pathname.split('nblog')[1])
+    } else {
+        location.href = '/?redirect=' + encodeURIComponent(location.pathname)
+    }
     </script>
 </body>
 </html>
