@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/lovetingyuan/lovetingyuan.github.io.git"
   },
-  "keywords": [],
+  "keywords": ["blog", "personal", "site", "github", "page", "tingyuan"],
   "author": "tingyuan",
   "homepage": "https://tingyuan.me"
 }
