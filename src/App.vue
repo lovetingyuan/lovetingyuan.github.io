@@ -1,91 +1,78 @@
-<template>
-  <div id="app">
-    <app-header :navs-list="navs"></app-header>
-    <main :style="`margin-top: ${marginTop}px`">
-      <transition name="slide-fade" mode="out-in">
-        <router-view></router-view>
-      </transition>
-    </main>
-  </div>
-</template>
-
-<script>
-import AppHeader from './components/Header.vue'
-
-export default {
-  components: { AppHeader },
-  data () {
-    return {
-      marginTop: 0,
-      navs: [
-        {
-          title: '<svg width="20" height="20"><use xlink:href="#home" /></svg>',
-          path: '/',
-          exact: true
-        },
-        {
-          title: '博客 📄',
-          path: '/blog'
-        },
-        {
-          title: '音乐 🎵',
-          to: {
-            path: '/music'
-          }
-        },
-        {
-          title: '电影 🎬',
-          path: '/movie'
-        },
-        {
-          title: '远方 🛤',
-          path: '/spirit'
-        }
-      ]
-    }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      const headerHeight = document.querySelector('header').clientHeight
-      this.marginTop = headerHeight
-    })
-  }
-}
+<script setup lang="ts">
 </script>
 
-<style src="./style.css"></style>
+<template>
 
-<style lang="less">
+<header>
+  <h4 class="title">
+    <router-link to="/">庭院 Ⴆʅσɠ</router-link>
+  </h4>
+  <ul class="links">
+    <li>
+      <router-link to="/blog">博客 📟</router-link>
+    </li>
+    <li>
+      <router-link to="/music">音乐 🎵</router-link>
+    </li>
+    <li>
+      <router-link to="/movie">电影 🎬</router-link>
+    </li>
+  </ul>
+</header>
+<main>
+  <router-view></router-view>
+</main>
+</template>
+
+<style>
 #app {
-  height: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  padding: 20px 40px;
+  --theme-color: rgb(0, 157, 230);
+  --theme-color2: rgb(0, 120, 175);
+  --text-color: #2c3e50;
+}
+.router-link-active {
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: var(--theme-color);
+}
+a:hover {
+  color: var(--theme-color2);
+}
+</style>
+
+<style scoped>
+header {
   display: flex;
-  flex-direction: column;
+}
+.title {
+  margin: 0;
+  user-select: none;
+}
+.title a {
+  color: var(--text-color);
+
+}
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  margin-left: 50px;
+}
+.links li {
+  float: left;
+  margin: 0 15px;
 }
 main {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  margin-top: 50px;
   position: relative;
-  @media screen and (max-width: 544px) {
-    width: 90%;
-    padding: 20px;
-  }
-
-  flex-grow: 1;
-  width: 80%;
-  padding: 40px;
-  padding-top: 20px;
-
-  .slide-fade-enter-active {
-    transition: all .2s ease;
-  }
-  .slide-fade-leave-active {
-    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
-  .slide-fade-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateX(16px);
-    opacity: 0;
-  }
+  padding: 0 20px;
 }
-
 </style>
