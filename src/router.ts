@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory, Router } from 'vue-router'
 import Home from './pages/home.vue'
 import BlogList from './pages/blogList.vue'
-import BlogContent from './pages/blogContent.vue'
 import Music from './pages/music.vue'
 import Movie from './pages/movie.vue'
 
@@ -24,13 +23,30 @@ export default function () {
     history: historyMethod(import.meta.env.BASE_URL),
     routes: [
       { path: '/:anyPath(.*)*', name: 'NotFound', component: NotFound },
-      { path: '/', component: Home, },
+      {
+        path: '/',
+        component: Home,
+        beforeEnter (to, from, next) {
+          if (to.query.redirect) {
+            next({
+              path: to.query.redirect as string,
+              replace: true
+            })
+          } else {
+            next()
+          }
+        }
+      },
+      {
+        path: '/index.html',
+        redirect: '/'
+      },
       {
         path: '/blog/:cate?', component: BlogList,
         props: true, meta: { title: '博客 - {{cate}}' }
       },
       {
-        path: '/blog/:cate/:name', component: BlogContent,
+        path: '/blog/:cate/:name', component: () => import('./pages/blogContent.vue'),
         props: true, meta: { title: '博客 - {{ name }}' }
       },
       {

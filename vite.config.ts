@@ -6,6 +6,25 @@ import {marked} from 'marked'
 const md = () => {
   return {
     name: 'md-plugin',
+    transformIndexHtml(html) {
+      const buildTime = new Intl.DateTimeFormat('zh', {
+        year: 'numeric',  
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      }).format(new Date())
+      return {
+        html,
+        tags: [{
+          tag: 'script',
+          injectTo: 'body',
+          children: `console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
+          `
+        }]
+      }
+    },
     load(id) {
       if (id.endsWith('.md')) {
         const code = readFileSync(id, 'utf-8')
@@ -19,14 +38,6 @@ const md = () => {
         `.replace(/\s/g, '')
       }
     },
-    // generateBundle(options, bundles) {
-    //   Object.keys(bundles).forEach(f => {
-    //     const bundle = bundles[f];
-    //     if (bundle.type === 'chunk' && (bundle.facadeModuleId || '').endsWith('.md')) {
-    //       delete bundles[f]
-    //     }
-    //   })
-    // },
   } as Plugin
 }
 
