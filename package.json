@@ -1,16 +1,28 @@
 {
-  "name": "lovetingyuan.github.io",
-  "description": "Welcome to my personal site: https://tingyuan.me",
+  "name": "tingyuan",
+  "private": true,
+  "description": "庭院的个人网站，https://tingyuan.me",
+  "version": "0.0.0",
+  "homepage": "https://tingyuan.me",
   "scripts": {
-    "prebuild": "rm -rf assets data",
-    "build": "cp -rf dist/* ./",
-    "postbuild": "rm -rf ssr report.html legacy-report.html"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lovetingyuan/lovetingyuan.github.io.git"
+  "dependencies": {
+    "github-markdown-css": "^5.0.0",
+    "marked": "^4.0.5",
+    "prismjs": "^1.25.0",
+    "vue": "^3.2.16",
+    "vue-router": "4"
   },
-  "keywords": ["blog", "personal", "site", "github", "page", "tingyuan"],
-  "author": "tingyuan",
-  "homepage": "https://tingyuan.me"
+  "devDependencies": {
+    "@types/marked": "^4.0.1",
+    "@types/node": "^16.11.10",
+    "@types/prismjs": "^1.16.6",
+    "@vitejs/plugin-vue": "^1.10.1",
+    "typescript": "^4.4.3",
+    "vite": "^2.6.14",
+    "vue-tsc": "^0.29.6"
+  }
 }
