@@ -31,7 +31,6 @@ header {
 .title {
   margin: 0;
   user-select: none;
-  text-align: center;
 }
 .title a {
   color: var(--text-color);

@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  min-width: 300px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -11,8 +10,25 @@ body {
   --theme-color2: rgb(0, 120, 175);
   --text-color: #2c3e50;
   max-width: 800px;
+  min-width: 300px;
+  box-sizing: border-box;
   margin: 30px auto;
   padding: 0 16px;
+}
+@media screen and (max-width: 1000px) {
+  #app {
+    margin: 30px 100px;
+  }
+}
+@media screen and (max-width: 750px) {
+  #app {
+    margin: 30px 50px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #app {
+    margin: 30px auto;
+  }
 }
 .router-link-active {
   font-weight: bold;
