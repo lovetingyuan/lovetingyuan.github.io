@@ -47,6 +47,10 @@ watchEffect(() => {
 li {
   margin: 15px 0;
 }
+.blog-list {
+  padding-left: 20px;
+}
 .blog-list ul {
+  padding-left: 16px;
 }
 </style>

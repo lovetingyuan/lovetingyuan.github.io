@@ -24,29 +24,6 @@
 </main>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--text-color);
-  padding: 20px 40px;
-  --theme-color: rgb(0, 157, 230);
-  --theme-color2: rgb(0, 120, 175);
-  --text-color: #2c3e50;
-}
-.router-link-active {
-  font-weight: bold;
-}
-a {
-  text-decoration: none;
-  color: var(--theme-color);
-}
-a:hover {
-  color: var(--theme-color2);
-}
-</style>
-
 <style scoped>
 header {
   display: flex;
@@ -54,6 +31,7 @@ header {
 .title {
   margin: 0;
   user-select: none;
+  text-align: center;
 }
 .title a {
   color: var(--text-color);
@@ -68,11 +46,19 @@ header {
 }
 .links li {
   float: left;
-  margin: 0 15px;
+  margin: 0 15px  10px 15px;
 }
+@media screen and (max-width: 500px) {
+  .links {
+    margin-left: 10px;
+  }
+  .links li {
+    margin: 0 10px 10px 10px;
+  }
+}
+
 main {
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative;
-  padding: 0 20px;
 }
 </style>

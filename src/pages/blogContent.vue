@@ -6,6 +6,7 @@
 <article v-html="blogContent" ref="article" class="markdown-body" >
 
 </article>
+
 </template>
 
 <script lang="ts" setup>
@@ -29,8 +30,9 @@ const props = defineProps<{
   cate: string
   name: string
 }>()
-
+const loading = ref(true)
 watchEffect(() => {
+  loading.value = true
   getBlogContent(props.cate, props.name).then(blog => {
     blogContent.value = blog
     nextTick(() => {
@@ -40,6 +42,8 @@ watchEffect(() => {
     })
   }).catch(err => {
     blogContent.value = '找不到这篇'
+  }).finally(() => {
+    // loading.value = false
   })
 })
 

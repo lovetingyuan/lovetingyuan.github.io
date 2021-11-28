@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  min-width: 300px;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  --theme-color: rgb(0, 157, 230);
+  --theme-color2: rgb(0, 120, 175);
+  --text-color: #2c3e50;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+.router-link-active {
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: var(--theme-color);
+}
+a:hover {
+  color: var(--theme-color2);
+}
+
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre, .markdown-body details {
+  font-size: 15px;
+}
+.markdown-body p, .markdown-body li {
+  line-height: 30px;
+}
+.markdown-body code:not([class]) {
+  font-weight: bold;
+  font-size: 14px;
+}
+article.markdown-body ul {
+  padding-left: 14px;
+}
