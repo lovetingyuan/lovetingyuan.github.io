@@ -1,16 +1,18 @@
 <template>
 <div class="item">
-  <img class="cover" :src="image" alt="封面">
-  <div class="info-list" v-for="info of infoList">
-    <span class="info-item">{{info}}</span>
+  <img class="cover" width="100" :src="image" alt="封面">
+  <div class="info-list" v-for="(info, i) of infoList">
+    <a :href="link" target="_blank" rel="noreferer noopener" v-if="link && !i">{{info}}</a>
+    <span class="info-item" v-else>{{info}}</span>
   </div>
 </div>
 </template>
 <script lang="ts" setup>
 
-const props = defineProps<{
+defineProps<{
   infoList: any[],
   image: string
+  link?: string
 }>()
 
 </script>
@@ -20,10 +22,11 @@ const props = defineProps<{
   overflow: hidden;
   font-size: 14px;
 }
+.item a:hover {
+  text-decoration: underline;
+}
 .cover {
-  width: 100px;
-  /* height: 100px; */
-  object-fit: contain;
+  object-fit: cover;
   float: left;
   margin-right: 20px;
 }

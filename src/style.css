@@ -6,8 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
-  --theme-color: rgb(0, 157, 230);
-  --theme-color2: rgb(0, 120, 175);
+  --theme-color: rgb(1, 113, 165);
+  --theme-color2: rgb(0, 71, 104);
   --text-color: #2c3e50;
   max-width: 800px;
   min-width: 300px;

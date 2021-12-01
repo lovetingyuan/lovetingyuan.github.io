@@ -6,7 +6,8 @@
   "homepage": "https://tingyuan.me",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "check-type": "vue-tsc --noEmit",
+    "build": "vite build",
     "serve": "vite preview"
   },
   "dependencies": {
