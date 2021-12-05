@@ -30,6 +30,6 @@
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
-    "pre-push": "node scripts/pre-push"
+    "pre-push": "echo 'remember to build'"
   }
 }
