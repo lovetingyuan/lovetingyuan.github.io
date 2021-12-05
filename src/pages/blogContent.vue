@@ -1,12 +1,8 @@
 <template>
-
-<span class="catename">
-  <router-link :to="`/blog/${cate}`">{{cate}}</router-link>
-</span>
-<article v-html="blogContent" ref="article" class="markdown-body" >
-
-</article>
-
+  <span class="catename">
+    <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
+  </span>
+  <article v-html="blogContent" ref="article" class="markdown-body"></article>
 </template>
 
 <script lang="ts" setup>
@@ -23,28 +19,17 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 window.Prism = Prism
 
-const { getBlogContent } = useBlogs()
-const blogContent = ref('')
-const article = ref<any>(null)
-const props = defineProps<{
-  cate: string
-  name: string
-}>()
-const loading = ref(true)
+const { blogContent, cate } = useBlogs()
+const article = ref<HTMLElement | null>(null)
+
 watchEffect(() => {
-  loading.value = true
-  getBlogContent(props.cate, props.name).then(blog => {
-    blogContent.value = blog
+  if (blogContent.value) {
     nextTick(() => {
       if (article.value) {
         Prism.highlightAllUnder(article.value)
       }
     })
-  }).catch(err => {
-    blogContent.value = '找不到这篇'
-  }).finally(() => {
-    // loading.value = false
-  })
+  }
 })
 
 </script>

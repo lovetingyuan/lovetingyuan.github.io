@@ -1,15 +1,53 @@
-const getBlogContent = (cate: string, name: string) => {
-  return importMap[`./${cate}/${name}.md`]().then(r => r.default)
-}
-const getBlogList = (cate?: string) => {
-  return Object.keys(importMap).map(key => {
-    return key.slice(2, -3)
-  }).filter(v => cate ? v.startsWith(cate + '/') : true)
-}
-const importMap = import.meta.glob('./**/*.md') as Record<string, () => Promise<{ default: string }>>
+import { useRoute } from 'vue-router'
+import { ref, computed, watchEffect, reactive } from 'vue'
 
-export default function useBlogs () {
+type BlogGlob = Record<string, () => Promise<{ default: string }>>
+
+const importMap = reactive(
+  import.meta.glob('./**/*.md') as BlogGlob
+)
+
+export default function useBlogs() {
+  const route = useRoute()
+  const blogContent = ref('')
+  const blogList = computed(() => {
+    if (route.name !== 'BlogList') {
+      return []
+    }
+    const { cate } = route.params
+    return Object.keys(importMap).map(key => {
+      return key.slice(2, -3)
+    }).filter(v => cate ? v.startsWith(cate + '/') : true)
+  })
+  watchEffect(() => {
+    if (route.name === 'BlogContent') {
+      const { name, cate } = route.params
+      const blog = importMap[`./${cate}/${name}.md`]
+      if (!blog) {
+        blogContent.value = '当前博客不存在'
+        return
+      }
+      blog().then(r => {
+        blogContent.value = r.default
+      }).catch(err => {
+        blogContent.value = '加载失败，请重试'
+      })
+    }
+  })
+  const cate = computed(() => route.params.cate)
+  const name = computed(() => route.params.name)
   return {
-    getBlogList, getBlogContent
+    blogList, blogContent,
+    cate, name
+  }
+}
+
+if (import.meta.env.DEV) {
+  if (typeof window === 'object' && import.meta.hot) {
+    (window as any)._hotUpdateBlog = (meta: ImportMeta, module: any) => {
+      const { pathname } = new URL(meta.url)
+      const key = pathname.split('/').slice(-2).join('/')
+      importMap[`./${decodeURIComponent(key)}`] = () => Promise.resolve(module)
+    }
   }
 }

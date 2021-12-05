@@ -42,12 +42,14 @@ export default function () {
         redirect: '/'
       },
       {
+        name: 'BlogList',
         path: '/blog/:cate?', component: BlogList,
-        props: true, meta: { title: '博客 - {{cate}}' }
+        meta: { title: '博客 - {{cate}}' }
       },
       {
+        name: 'BlogContent',
         path: '/blog/:cate/:name', component: () => import('./pages/blogContent.vue'),
-        props: true, meta: { title: '博客 - {{ name }}' }
+        meta: { title: '博客 - {{ name }}' }
       },
       {
         path: '/music',

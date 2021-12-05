@@ -1,6 +1,6 @@
 <template>
-  <ul v-if="Object.keys(blogsList).length" class="blog-list">
-    <li v-for="(list, cate) of blogsList" :key="cate">
+  <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
+    <li v-for="(list, cate) of displayBlogList" :key="cate">
       <span>
         <router-link :to="`/blog/${cate}`">{{cate}}</router-link>
       </span>
@@ -16,23 +16,19 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect } from 'vue'
+import { computed } from 'vue'
 import useBlogs from '../blogs'
 
-const { getBlogList } = useBlogs()
-const props = defineProps<{
-  cate?: string
-}>()
-const blogsList = ref<Record<string, string[]>>({})
-watchEffect(() => {
-  const list = getBlogList(props.cate)
+const { blogList } = useBlogs()
+
+const displayBlogList = computed(() => {
   const blogs: Record<string, string[]> = {}
-  list.forEach(k => {
+  blogList.value.forEach(k => {
     const [cate, name] = k.split('/')
     blogs[cate] ??= []
     blogs[cate].push(name)
   })
-  blogsList.value = blogs
+  return blogs
 })
 
 </script>
