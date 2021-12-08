@@ -4,37 +4,39 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
+  background-color: snow;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --theme-color: rgb(1, 113, 165);
+  --theme-color2: rgb(0, 71, 104);
+  --text-color: #2c3e50;
 }
 
 #app {
   color: var(--text-color);
-  --theme-color: rgb(1, 113, 165);
-  --theme-color2: rgb(0, 71, 104);
-  --text-color: #2c3e50;
   max-width: 800px;
   min-width: 300px;
   box-sizing: border-box;
-  margin: 30px auto;
-  padding: 0 16px;
+  margin: 0 auto;
+  padding: 30px 18px;
 }
 @media screen and (max-width: 1000px) {
   #app {
-    margin: 30px 100px;
+    margin: 0 100px;
   }
 }
 @media screen and (max-width: 750px) {
   #app {
-    margin: 30px 50px;
+    margin: 0 50px;
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   #app {
-    margin: 30px auto;
+    margin: 0 auto;
   }
 }
+
 .router-link-active {
   font-weight: bold;
 }

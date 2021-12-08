@@ -10,9 +10,9 @@ export default () => {
         const code = readFileSync(id, 'utf-8')
         const src = JSON.stringify(marked(code))
         return `export default ${src};\n` + `
-        if (import.meta.hot) {
+        if (import.meta.hot && window._hotUpdateBlog) {
           import.meta.hot.accept((m) => {
-            window._hotUpdateBlog && window._hotUpdateBlog(import.meta, m)
+             window._hotUpdateBlog(import.meta, m)
           })
         }
         `.replace(/\s/g, '')

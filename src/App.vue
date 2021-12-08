@@ -1,21 +1,17 @@
-<script setup lang="ts">
-</script>
-
 <template>
-
 <header>
   <h4 class="title">
-    <router-link to="/">庭院 Ⴆʅσɠ</router-link>
+    <router-link to="/" style="color: #555">庭院 Ⴆʅσɠ</router-link>
   </h4>
   <ul class="links">
     <li>
-      <router-link to="/blog">博客 📟</router-link>
+      <router-link to="/blog" style="color: #0092b7">博客 📟</router-link>
     </li>
     <li>
-      <router-link to="/music">音乐 🎵</router-link>
+      <router-link to="/music" style="color: #00911f">音乐 🎵</router-link>
     </li>
     <li>
-      <router-link to="/movie">电影 🎬</router-link>
+      <router-link to="/movie" style="color: #7b00ac">电影 🎬</router-link>
     </li>
   </ul>
 </header>
@@ -27,6 +23,7 @@
 <style scoped>
 header {
   display: flex;
+  font-size: 1.15em;
 }
 .title {
   margin: 0;
@@ -34,7 +31,6 @@ header {
 }
 .title a {
   color: var(--text-color);
-
 }
 .links {
   list-style: none;

@@ -12,7 +12,6 @@
     </li>
   </ul>
   <p v-else>暂无博客</p>
-  <router-view></router-view>
 </template>
 
 <script lang="ts" setup>
@@ -34,15 +33,25 @@ const displayBlogList = computed(() => {
 </script>
 
 <style scoped>
+.blog-list {
+  column-count: 2;
+  column-gap: 20px;
+}
 .blog-list a {
   text-transform: capitalize;
 }
+.blog-list li {
+  margin: 12px 0;
+  font-size: 14px;
+}
 .blog-list > li {
-  margin-top: 30px;
+  margin-top: 32px;
+  font-size: 15px;
 }
-li {
-  margin: 15px 0;
+.blog-list > li:first-child {
+  margin-top: 0;
 }
+
 .blog-list {
   padding-left: 20px;
 }

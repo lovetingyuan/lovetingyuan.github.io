@@ -44,10 +44,11 @@ export default function useBlogs() {
 
 if (import.meta.env.DEV) {
   if (typeof window === 'object' && import.meta.hot) {
-    (window as any)._hotUpdateBlog = (meta: ImportMeta, module: any) => {
+    // @ts-ignore
+    window._hotUpdateBlog = (meta: ImportMeta, module: { default: string }) => {
       const { pathname } = new URL(meta.url)
       const key = pathname.split('/').slice(-2).join('/')
-      importMap[`./${decodeURIComponent(key)}`] = () => Promise.resolve(module)
+      importMap[`./${decodeURIComponent(key)}`] = async () => module
     }
   }
 }

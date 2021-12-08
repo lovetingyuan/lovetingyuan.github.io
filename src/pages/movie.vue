@@ -4,7 +4,7 @@
   :image="movie.image"
   :link="movie.link"
   :info-list="movie.infos"
-  style="margin-top: 30px;"
+  style="margin-top: 40px;"
 />
 </template>
 

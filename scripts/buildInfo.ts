@@ -26,5 +26,4 @@ const injectBuildInfo = () => {
   } as Plugin
 }
 
-
 export default injectBuildInfo

@@ -35,6 +35,9 @@ watchEffect(() => {
 </script>
 
 <style scoped>
+article.markdown-body {
+  background-color: transparent;
+}
 .catename {
   position: absolute;
   right: 0;

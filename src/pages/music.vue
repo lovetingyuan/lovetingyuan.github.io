@@ -4,7 +4,7 @@
   :image="music.image"
   :link="music.link"
   :info-list="music.infos"
-  style="margin-top: 30px;"
+  style="margin-top: 40px;"
 >
 
 </music-item>
@@ -76,7 +76,7 @@ const musics = [
     infos: [
       item.name,
       item.singer,
-      `《${item.album}》${item.year}`
+      `${item.album} - ${item.year}`
     ]
   }
 })
