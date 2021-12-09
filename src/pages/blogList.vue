@@ -1,9 +1,9 @@
 <template>
   <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
     <li v-for="(list, cate) of displayBlogList" :key="cate">
-      <span>
+      <h3>
         <router-link :to="`/blog/${cate}`">{{cate}}</router-link>
-      </span>
+      </h3>
       <ul>
         <li v-for="name of list" :key="name">
           <router-link :to="`/blog/${cate}/${name}`">{{name}}</router-link>
@@ -18,7 +18,7 @@
 import { computed } from 'vue'
 import useBlogs from '../blogs'
 
-const { blogList } = useBlogs()
+const { blogList, cate } = useBlogs()
 
 const displayBlogList = computed(() => {
   const blogs: Record<string, string[]> = {}
@@ -30,11 +30,15 @@ const displayBlogList = computed(() => {
   return blogs
 })
 
+const columns = computed(() => {
+  return cate.value ? 1 : 2;
+})
+
 </script>
 
 <style scoped>
 .blog-list {
-  column-count: 2;
+  column-count: v-bind(columns);
   column-gap: 20px;
 }
 .blog-list a {
@@ -42,13 +46,16 @@ const displayBlogList = computed(() => {
 }
 .blog-list li {
   margin: 12px 0;
-  font-size: 14px;
+  font-size: 15px;
 }
 .blog-list > li {
   margin-top: 32px;
-  font-size: 15px;
+  font-size: 16px;
 }
 .blog-list > li:first-child {
+  margin-top: 0;
+}
+.blog-list > li:first-child h3 {
   margin-top: 0;
 }
 

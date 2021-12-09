@@ -23,7 +23,7 @@
 <style scoped>
 header {
   display: flex;
-  font-size: 1.15em;
+  font-size: 18px;
 }
 .title {
   margin: 0;
