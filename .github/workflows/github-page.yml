@@ -12,5 +12,4 @@ jobs:
       - name: Build-Deploy
         run: |
           npx pnpm install
-          npm run build
           npm run deploy

@@ -9,6 +9,8 @@ console.log(__filename, process.cwd())
 async function main () {
   const docs = path.join(__dirname, 'docs')
   const dist = path.join(__dirname, 'dist')
+  await exec('npm', ['run', 'build'])
+  console.log('run npm build')
   await exec('git', ['checkout', '-b', 'origin/gh'])
   console.log('git checkout to gh')
   await rmRF(docs)
