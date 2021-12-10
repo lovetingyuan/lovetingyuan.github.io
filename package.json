@@ -8,7 +8,8 @@
     "dev": "cross-env NODE_ENV=development vite",
     "check-type": "vue-tsc --noEmit",
     "build": "cross-env NODE_ENV=production vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "deploy": "node ./scripts/deploy"
   },
   "dependencies": {
     "github-markdown-css": "^5.0.0",
@@ -18,6 +19,8 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/exec": "^1.1.0",
     "@types/marked": "^4.0.1",
     "@types/node": "^16.11.10",
     "@types/prismjs": "^1.16.6",
