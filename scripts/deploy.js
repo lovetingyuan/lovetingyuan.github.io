@@ -9,7 +9,7 @@ console.log(__filename, process.cwd())
 async function main () {
   const docs = path.join(__dirname, 'docs')
   const dist = path.join(__dirname, 'dist')
-  await exec('git', ['checkout', 'gh'])
+  await exec('git', ['checkout', '-b', 'origin/gh'])
   console.log('git checkout to gh')
   await rmRF(docs)
   console.log('remove old docs dir')
