@@ -11,6 +11,6 @@ jobs:
         uses: actions/checkout@main
       - name: Build-Deploy
         run: |
-          npm ci
+          npx pnpm install
           npm run build
           npm run deploy
