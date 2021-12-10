@@ -8,7 +8,6 @@ console.log(__filename, process.cwd())
 
 async function main () {
   const docs = path.join(__dirname, 'docs')
-  const dist = path.join(__dirname, 'dist')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
   await exec('git', ['checkout', '-b', 'origin/gh'])
@@ -17,6 +16,7 @@ async function main () {
   console.log('remove old docs dir')
   await mkdirP(docs)
   console.log('make new docs dir')
+  const dist = path.join(__dirname, 'dist')
   await cp(dist, docs, {
     recursive: true, force: true
   })
