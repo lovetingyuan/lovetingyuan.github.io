@@ -1,5 +1,5 @@
 // 用于github actions自动部署到github pages
-// const core = require('@actions/core')
+const core = require('@actions/core')
 const {exec} = require('@actions/exec')
 const {rmRF, mkdirP, cp} = require('@actions/io')
 const path = require('path')
@@ -48,4 +48,7 @@ async function main () {
 main().catch(err => {
   console.log('部署失败')
   console.error(err)
+  process.exitCode(-1)
+  core.setFailed(err.message);
+  throw err
 })

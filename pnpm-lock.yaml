@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@actions/core': ^1.6.0
   '@actions/exec': ^1.1.0
   '@actions/io': ^1.1.1
   '@types/marked': ^4.0.1
@@ -25,6 +26,7 @@ dependencies:
   vue-router: 4.0.12_vue@3.2.21
 
 devDependencies:
+  '@actions/core': 1.6.0
   '@actions/exec': 1.1.0
   '@actions/io': 1.1.1
   '@types/marked': 4.0.1
@@ -38,10 +40,22 @@ devDependencies:
 
 packages:
 
+  /@actions/core/1.6.0:
+    resolution: {integrity: sha512-NB1UAZomZlCV/LmJqkLhNTqtKfFXJZAUPcfl/zqG7EfsQdeUJtaWO98SGbuQ3pydJ3fHl2CvI/51OKYlCYYcaw==}
+    dependencies:
+      '@actions/http-client': 1.0.11
+    dev: true
+
   /@actions/exec/1.1.0:
     resolution: {integrity: sha512-LImpN9AY0J1R1mEYJjVJfSZWU4zYOlEcwSTgPve1rFQqK5AwrEs6uWW5Rv70gbDIQIAUwI86z6B+9mPK4w9Sbg==}
     dependencies:
       '@actions/io': 1.1.1
+    dev: true
+
+  /@actions/http-client/1.0.11:
+    resolution: {integrity: sha512-VRYHGQV1rqnROJqdMvGUbY/Kn8vriQe/F9HR2AlYHzmKuM/p3kjNuXhmdBfcVgsvRWTz5C5XW5xvndZrVBuAYg==}
+    dependencies:
+      tunnel: 0.0.6
     dev: true
 
   /@actions/io/1.1.1:
@@ -826,6 +840,11 @@ packages:
 
   /token-stream/1.0.0:
     resolution: {integrity: sha1-zCAOqyYT9BZtJ/+a/HylbUnfbrQ=}
+    dev: true
+
+  /tunnel/0.0.6:
+    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
+    engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
     dev: true
 
   /typescript/4.4.4:
