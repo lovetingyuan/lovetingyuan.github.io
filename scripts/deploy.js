@@ -12,6 +12,8 @@ async function main () {
   const docs = path.join(workDir, 'docs')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
+  await exec('git', ['fetch', 'origin'])
+  console.log('git fetch origin')
   await exec('git', ['checkout', 'gh'])
   console.log('git checkout to gh')
   await rmRF(docs)
