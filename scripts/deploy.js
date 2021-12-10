@@ -7,16 +7,17 @@ const path = require('path')
 console.log(__filename, process.cwd())
 
 async function main () {
-  const docs = path.join(__dirname, 'docs')
+  const workDir = path.join(__dirname, '..')
+  const docs = path.join(workDir, 'docs')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
-  await exec('git', ['checkout', '-b', 'origin/gh'])
+  await exec('git', ['checkout', '-b', 'gh', 'origin/gh'])
   console.log('git checkout to gh')
   await rmRF(docs)
   console.log('remove old docs dir')
   await mkdirP(docs)
   console.log('make new docs dir')
-  const dist = path.join(__dirname, 'dist')
+  const dist = path.join(workDir, 'dist')
   await cp(dist, docs, {
     recursive: true, force: true
   })
