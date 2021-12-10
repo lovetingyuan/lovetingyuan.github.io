@@ -5,8 +5,6 @@ const {rmRF, mkdirP, cp} = require('@actions/io')
 const path = require('path')
 const fs = require('fs')
 
-console.log(__filename, process.cwd())
-
 async function main () {
   const workDir = path.join(__dirname, '..')
   const docs = path.join(workDir, 'docs')
@@ -36,7 +34,8 @@ async function main () {
     day: '2-digit',
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false
+    hour12: false,
+    timeZone: 'Asia/Shanghai'
   }).format(new Date())
   await exec('git', ['config', 'user.email', '1932294867@qq.com'])
   await exec('git', ['config', 'user.name', 'tingyuan'])
