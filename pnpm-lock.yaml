@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@actions/core': ^1.6.0
   '@actions/exec': ^1.1.0
+  '@actions/io': ^1.1.1
   '@types/marked': ^4.0.1
   '@types/node': ^16.11.10
   '@types/prismjs': ^1.16.6
@@ -28,6 +29,7 @@ dependencies:
 devDependencies:
   '@actions/core': 1.6.0
   '@actions/exec': 1.1.0
+  '@actions/io': 1.1.1
   '@types/marked': 4.0.1
   '@types/node': 16.11.10
   '@types/prismjs': 1.16.6
