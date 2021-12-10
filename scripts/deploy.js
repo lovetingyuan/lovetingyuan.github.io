@@ -39,7 +39,7 @@ async function main () {
   }).format(new Date())
   await exec('git', ['config', 'user.email', '1932294867@qq.com'])
   await exec('git', ['config', 'user.name', 'tingyuan'])
-  await exec('git', ['commit', '-m', `"Build at ${buildTime}"`])
+  await exec('git', ['commit', '-m', `Build at ${buildTime}`])
   console.log('git commit')
   await exec('git', ['push'])
   console.log('git push to origin gh')
