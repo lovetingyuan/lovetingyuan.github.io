@@ -6,7 +6,7 @@
   "homepage": "https://tingyuan.me",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
-    "check-type": "vue-tsc --noEmit",
+    "typecheck": "vue-tsc --noEmit",
     "build": "cross-env NODE_ENV=production vite build",
     "serve": "vite preview",
     "deploy": "node ./scripts/deploy"

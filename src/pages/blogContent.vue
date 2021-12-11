@@ -7,11 +7,8 @@
   </section>
 </template>
 
-<script lang="ts" setup>
-import { ref, nextTick, watchEffect } from 'vue'
-import useBlogs from '../blogs'
+<script lang="ts">
 import 'github-markdown-css/github-markdown.css'
-
 import * as Prism from 'prismjs'
 // @ts-ignore
 import('prismjs/components/prism-typescript')
@@ -20,6 +17,12 @@ import('prismjs/components/prism-typescript')
 import 'prismjs/themes/prism-tomorrow.css'
 
 window.Prism = Prism
+
+</script>
+
+<script lang="ts" setup>
+import { ref, nextTick, watchEffect } from 'vue'
+import useBlogs from '../blogs'
 
 const { blogContent, cate } = useBlogs()
 const article = ref<HTMLElement | null>(null)
@@ -51,13 +54,13 @@ watchEffect(() => {
 article.markdown-body ul {
   padding-left: 14px;
 }
-
-</style>
-
-<style scoped>
 article.markdown-body {
   background-color: transparent;
 }
+</style>
+
+<style scoped>
+
 .catename {
   position: absolute;
   right: 0;

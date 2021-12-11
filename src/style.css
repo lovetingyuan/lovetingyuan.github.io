@@ -68,6 +68,6 @@ a:hover {
 
 .slide-enter-from,
 .slide-leave-to {
-  transform: translateX(30px);
+  transform: translateX(24px);
   opacity: 0;
 }
