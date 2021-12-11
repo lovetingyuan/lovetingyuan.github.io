@@ -5,10 +5,10 @@
   </h4>
   <ul class="links">
     <li>
-      <router-link to="/blog" style="color: #0092b7">博客 📟</router-link>
+      <router-link to="/blog" style="color: #007896">博客 📟</router-link>
     </li>
     <li>
-      <router-link to="/music" style="color: #00911f">音乐 🎵</router-link>
+      <router-link to="/music" style="color: #007419">音乐 🎵</router-link>
     </li>
     <li>
       <router-link to="/movie" style="color: #7b00ac">电影 🎬</router-link>
