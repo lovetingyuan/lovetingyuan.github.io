@@ -1,3 +1,4 @@
+/* global */
 body {
   margin: 0;
   min-height: 100vh;
@@ -12,7 +13,6 @@ body {
   --theme-color2: rgb(0, 71, 104);
   --text-color: #2c3e50;
 }
-
 #app {
   color: var(--text-color);
   max-width: 800px;
@@ -21,6 +21,8 @@ body {
   margin: 0 auto;
   padding: 30px 18px;
 }
+
+/* responsive */
 @media screen and (max-width: 1000px) {
   #app {
     margin: 0 100px;
@@ -48,16 +50,24 @@ a:hover {
   color: var(--theme-color2);
 }
 
-.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre, .markdown-body details {
-  font-size: 15px;
+/* transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease;
 }
-.markdown-body p, .markdown-body li {
-  line-height: 30px;
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
-.markdown-body code:not([class]) {
-  font-weight: bold;
-  font-size: 14px;
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease, opacity .3s ease;
 }
-article.markdown-body ul {
-  padding-left: 14px;
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(30px);
+  opacity: 0;
 }

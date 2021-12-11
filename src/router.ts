@@ -21,6 +21,7 @@ export default function () {
   const historyMethod = typeof document === 'object' ? createWebHistory : createMemoryHistory
   router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
+    scrollBehavior: () => ({ top: 0 }),
     routes: [
       { path: '/:anyPath(.*)*', name: 'NotFound', component: NotFound },
       {
@@ -54,12 +55,12 @@ export default function () {
       {
         path: '/music',
         component: Music,
-        meta: { title: '歌曲' }
+        meta: { title: '歌曲', animation: 'slide' }
       },
       {
         path: '/movie',
         component: Movie,
-        meta: { title: '电影' }
+        meta: { title: '电影', animation: 'slide' }
       }
     ]
   })

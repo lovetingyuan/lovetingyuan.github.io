@@ -1,8 +1,10 @@
 <template>
-  <span class="catename">
-    <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-  </span>
-  <article v-html="blogContent" ref="article" class="markdown-body"></article>
+  <section>
+    <span class="catename">
+      <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
+    </span>
+    <article v-html="blogContent" ref="article" class="markdown-body"></article>
+  </section>
 </template>
 
 <script lang="ts" setup>
@@ -33,6 +35,24 @@ watchEffect(() => {
 })
 
 </script>
+
+<style>
+/* markdown */
+.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre, .markdown-body details {
+  font-size: 15px;
+}
+.markdown-body p, .markdown-body li {
+  line-height: 30px;
+}
+.markdown-body code:not([class]) {
+  font-weight: bold;
+  font-size: 14px;
+}
+article.markdown-body ul {
+  padding-left: 14px;
+}
+
+</style>
 
 <style scoped>
 article.markdown-body {

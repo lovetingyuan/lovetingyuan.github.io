@@ -1,13 +1,13 @@
 <template>
-<music-item
+<div>
+  <music-item
   v-for="music of musics"
   :image="music.image"
   :link="music.link"
   :info-list="music.infos"
   style="margin-top: 40px;"
->
-
-</music-item>
+  />
+</div>
 </template>
 
 <script setup lang="ts">

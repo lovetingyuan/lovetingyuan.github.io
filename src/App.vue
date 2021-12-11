@@ -16,7 +16,11 @@
   </ul>
 </header>
 <main>
-  <router-view></router-view>
+  <router-view v-slot="{ Component, route }">
+    <transition :name="route.meta.animation || 'fade'" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </main>
 </template>
 

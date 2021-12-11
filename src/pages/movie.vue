@@ -1,11 +1,13 @@
 <template>
-<movie-item
-  v-for="movie of movies"
-  :image="movie.image"
-  :link="movie.link"
-  :info-list="movie.infos"
-  style="margin-top: 40px;"
-/>
+<div>
+  <movie-item
+    v-for="movie of movies"
+    :image="movie.image"
+    :link="movie.link"
+    :info-list="movie.infos"
+    style="margin-top: 40px;"
+  />
+</div>
 </template>
 
 <script lang='ts' setup>
