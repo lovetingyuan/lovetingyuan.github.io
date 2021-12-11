@@ -42,6 +42,7 @@ header {
   margin: 0;
   overflow: hidden;
   margin-left: 50px;
+  user-select: none;
 }
 .links li {
   float: left;
