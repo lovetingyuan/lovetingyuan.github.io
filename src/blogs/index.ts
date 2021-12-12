@@ -29,7 +29,7 @@ export default function useBlogs() {
       }
       blog().then(r => {
         blogContent.value = r.default
-      }).catch(err => {
+      }).catch(() => {
         blogContent.value = '加载失败，请重试'
       })
     }
@@ -44,8 +44,7 @@ export default function useBlogs() {
 
 if (import.meta.env.DEV) {
   if (typeof window === 'object' && import.meta.hot) {
-    // @ts-ignore
-    window._hotUpdateBlog = (meta: ImportMeta, module: { default: string }) => {
+    Object(window)._hotUpdateBlog = (meta: ImportMeta, module: { default: string }) => {
       const { pathname } = new URL(meta.url)
       const key = pathname.split('/').slice(-2).join('/')
       importMap[`./${decodeURIComponent(key)}`] = async () => module

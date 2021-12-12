@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createMemoryHistory, Router } from 'vue-router'
+import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import Home from './pages/home.vue'
 import BlogList from './pages/blogList.vue'
 import Music from './pages/music.vue'
@@ -16,6 +16,7 @@ const NotFound = {
 }
 
 export default function () {
+  const originTitle = document.title
   const historyMethod = typeof document === 'object' ? createWebHistory : createMemoryHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
@@ -71,7 +72,7 @@ export default function () {
         title = ' ' + to.meta.title
       }
     }
-    document.title = 'tingyuan' + title
+    document.title = originTitle + title
   })
   return router;
 }
