@@ -12,7 +12,7 @@ async function main () {
   console.log('run npm build')
   await exec('git', ['fetch', 'origin'])
   console.log('git fetch origin')
-  await exec('git', ['checkout', 'gh'])
+  // await exec('git', ['checkout', 'gh'])
   console.log('git checkout to gh')
   // await rmRF(docs)
   // console.log('remove old docs dir')
