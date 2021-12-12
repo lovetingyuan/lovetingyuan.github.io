@@ -89,6 +89,7 @@ footer {
   font-size: 12px;
   user-select: none;
   color: #999;
+  left: 0;
 }
 .fa-github {
   width: 14px; height: 14px;
