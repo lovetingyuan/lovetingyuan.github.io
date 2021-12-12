@@ -6,26 +6,26 @@ const path = require('path')
 const fs = require('fs')
 
 async function main () {
-  const workDir = path.join(__dirname, '..')
-  const docs = path.join(workDir, 'docs')
+  // const workDir = path.join(__dirname, '..')
+  // const docs = path.join(workDir, 'docs')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
   await exec('git', ['fetch', 'origin'])
   console.log('git fetch origin')
   await exec('git', ['checkout', 'gh'])
   console.log('git checkout to gh')
-  await rmRF(docs)
-  console.log('remove old docs dir')
-  await mkdirP(docs)
-  console.log('make new docs dir')
-  const dist = path.join(workDir, 'dist')
-  const files = fs.readdirSync(dist)
-  await Promise.all(files.map(async f => {
-    await cp(path.join(dist, f), docs, {
-      recursive: true, force: true
-    })
-  }))
-  console.log('copy dist to docs')
+  // await rmRF(docs)
+  // console.log('remove old docs dir')
+  // await mkdirP(docs)
+  // console.log('make new docs dir')
+  // const dist = path.join(workDir, 'dist')
+  // const files = fs.readdirSync(dist)
+  // await Promise.all(files.map(async f => {
+  //   await cp(path.join(dist, f), docs, {
+  //     recursive: true, force: true
+  //   })
+  // }))
+  // console.log('copy dist to docs')
   await exec('git', ['add', '.'])
   console.log('git add all files')
   const buildTime = new Intl.DateTimeFormat('zh', {
@@ -50,5 +50,4 @@ main().catch(err => {
   console.error(err)
   process.exitCode(-1)
   core.setFailed(err.message);
-  throw err
 })
