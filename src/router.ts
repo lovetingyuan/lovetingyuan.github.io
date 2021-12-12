@@ -6,8 +6,6 @@ import Movie from './pages/movie.vue'
 
 import { h } from 'vue'
 
-export let router: Router | null = null
-
 const NotFound = {
   name: 'NotFound',
   render() {
@@ -19,7 +17,7 @@ const NotFound = {
 
 export default function () {
   const historyMethod = typeof document === 'object' ? createWebHistory : createMemoryHistory
-  router = createRouter({
+  const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
     scrollBehavior: () => ({ top: 0 }),
     routes: [
@@ -45,12 +43,12 @@ export default function () {
       {
         name: 'BlogList',
         path: '/blog/:cate?', component: BlogList,
-        meta: { title: '博客 - {{cate}}' }
+        meta: { title: ({ cate }: any) => `博客${cate ? " - " + cate : ""}` }
       },
       {
         name: 'BlogContent',
         path: '/blog/:cate/:name', component: () => import('./pages/blogContent.vue'),
-        meta: { title: '博客 - {{ name }}' }
+        meta: { title: ({ cate, name }: any) => `博客 - ${ cate + "/" + name }` }
       },
       {
         path: '/music',
@@ -65,13 +63,15 @@ export default function () {
     ]
   })
   router.afterEach((to) => {
-    let _title = ''
+    let title = ''
     if (to.meta?.title) {
-      _title = ' ' + (to.meta.title as string).replace(/\{\{([^}]+?)\}\}/g, (_s, g) => {
-        return to.params[g.trim()] + ''
-      })
+      if (typeof to.meta.title === 'function') {
+        title = ' ' + to.meta.title(to.params)
+      } else if (typeof to.meta.title === 'string') {
+        title = ' ' + to.meta.title
+      }
     }
-    document.title = 'tingyuan' + _title
+    document.title = 'tingyuan' + title
   })
   return router;
 }

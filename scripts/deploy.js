@@ -1,14 +1,13 @@
 // 用于github actions自动部署到github pages
 const core = require('@actions/core')
-const {exec} = require('@actions/exec')
-const {rmRF, mkdirP, cp, mv} = require('@actions/io')
-const path = require('path')
-const fs = require('fs')
+const { exec } = require('@actions/exec')
+const { rmRF, mv } = require('@actions/io')
+const { join } = require('path')
 
 async function main () {
-  const workDir = path.join(__dirname, '..')
-  const docs = path.join(workDir, 'docs')
-  const dist = path.join(workDir, 'dist')
+  const workDir = join(__dirname, '..')
+  const docs = join(workDir, 'docs')
+  const dist = join(workDir, 'dist')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
   await exec('git', ['fetch', 'origin'])
@@ -16,18 +15,9 @@ async function main () {
   await exec('git', ['checkout', 'gh'])
   console.log('git checkout to gh')
   await rmRF(docs)
+  console.log('delete docs')
   await mv(dist, docs)
-  // console.log('remove old docs dir')
-  // await mkdirP(docs)
-  // console.log('make new docs dir')
-  // const dist = path.join(workDir, 'dist')
-  // const files = fs.readdirSync(dist)
-  // await Promise.all(files.map(async f => {
-  //   await cp(path.join(dist, f), docs, {
-  //     recursive: true, force: true
-  //   })
-  // }))
-  // console.log('copy dist to docs')
+  console.log('rename dist to docs')
   await exec('git', ['add', '.'])
   console.log('git add all files')
   const buildTime = new Intl.DateTimeFormat('zh', {

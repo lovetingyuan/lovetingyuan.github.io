@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import { marked } from 'marked'
-import { Plugin } from 'vite'
+import type { Plugin } from 'vite'
 
 export default () => {
   return {

@@ -1,6 +1,6 @@
-import { Plugin } from 'vite'
+import type { Plugin } from 'vite'
 
-const injectBuildInfo = () => {
+export default () => {
   return {
     name: 'build-time-plugin',
     apply: 'build',
@@ -20,11 +20,9 @@ const injectBuildInfo = () => {
           tag: 'script',
           injectTo: 'body',
           children: `console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
-          `
+          `.replace(/\s{2,}/g, ' ')
         }]
       }
     },
   } as Plugin
 }
-
-export default injectBuildInfo
