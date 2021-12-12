@@ -19,7 +19,7 @@ export default () => {
         tags: [{
           tag: 'script',
           injectTo: 'body',
-          children: `console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
+          children: `window._buildTime="${buildTime}";console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
           `.replace(/\s{2,}/g, ' ')
         }]
       }

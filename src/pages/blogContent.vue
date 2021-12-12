@@ -31,7 +31,7 @@ watchEffect(() => {
   if (blogContent.value) {
     nextTick(() => {
       if (article.value) {
-        Prism.highlightAllUnder(article.value)
+        Prism.highlightAllUnder(article.value as HTMLElement)
       }
     })
   }

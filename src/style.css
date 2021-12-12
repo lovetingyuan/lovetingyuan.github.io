@@ -1,7 +1,10 @@
 /* global */
+html {
+  height: 100%;
+}
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
@@ -20,6 +23,23 @@ body {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 30px 18px;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+/*滚动条整体部分,必须要设置*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+/*滚动条的轨道*/
+::-webkit-scrollbar-track {
+  background-color: snow;
+}
+/*滚动条的滑块按钮*/
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(214, 214, 214);
 }
 
 /* responsive */
