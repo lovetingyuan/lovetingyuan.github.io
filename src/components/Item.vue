@@ -2,7 +2,7 @@
 <div class="item">
   <img class="cover" width="110" style="min-height: 110px" :src="image" alt="封面">
   <div class="info-list" v-for="(info, i) of infoList">
-    <a :href="link" target="_blank" rel="noreferer noopener" v-if="link && !i">{{info}}</a>
+    <a :href="link" target="_blank" rel="noreferrer noopener" v-if="link && !i">{{info}}</a>
     <span class="info-item" v-else>{{info}}</span>
   </div>
 </div>

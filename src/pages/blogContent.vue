@@ -2,6 +2,9 @@
   <section>
     <span class="catename">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
+      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
+      >✍️</a>
     </span>
     <article v-html="blogContent" ref="article" class="markdown-body"></article>
   </section>
@@ -24,7 +27,7 @@ window.Prism = Prism
 import { ref, nextTick, watchEffect } from 'vue'
 import useBlogs from '../blogs'
 
-const { blogContent, cate } = useBlogs()
+const { blogContent, cate, name } = useBlogs()
 const article = ref<HTMLElement | null>(null)
 
 watchEffect(() => {
@@ -65,5 +68,10 @@ article.markdown-body {
   position: absolute;
   right: 0;
   text-transform: capitalize;
+}
+.edit {
+  margin-left: 1em;
+  color: #00b722;
+  font-size: 18px;
 }
 </style>

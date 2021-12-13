@@ -1,12 +1,17 @@
 <template>
   <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
-    <li v-for="(list, cate) of displayBlogList" :key="cate">
+    <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
-        <router-link :to="`/blog/${cate}`">{{cate}}</router-link>
+        <router-link :to="`/blog/${c}`">{{c}}</router-link>
+        <a
+          v-if="cate"
+          :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
+          class="add" target="_blank" rel="noopener noreferrer" title="新增">➕
+        </a>
       </h3>
       <ul>
         <li v-for="name of list" :key="name">
-          <router-link :to="`/blog/${cate}/${name}`">{{name}}</router-link>
+          <router-link :to="`/blog/${c}/${name}`">{{name}}</router-link>
         </li>
       </ul>
     </li>
@@ -40,6 +45,11 @@ const columns = computed(() => {
 .blog-list {
   column-count: v-bind(columns);
   column-gap: 20px;
+}
+.blog-list .add {
+  margin-left: 12px;
+  font-size: 15px;
+  user-select: none;
 }
 .blog-list a {
   text-transform: capitalize;
