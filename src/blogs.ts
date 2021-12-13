@@ -4,7 +4,7 @@ import { ref, computed, watchEffect, reactive } from 'vue'
 type BlogGlob = Record<string, () => Promise<{ default: string }>>
 
 const importMap = reactive(
-  import.meta.glob('./**/*.md') as BlogGlob
+  import.meta.glob('/blogs/**/*.md') as BlogGlob
 )
 
 export default function useBlogs() {
@@ -15,14 +15,14 @@ export default function useBlogs() {
       return []
     }
     const { cate } = route.params
-    return Object.keys(importMap).map(key => {
-      return key.slice(2, -3)
-    }).filter(v => cate ? v.startsWith(cate + '/') : true)
+    return Object.keys(importMap)
+      .map(key => key.slice(7, -3))
+      .filter(v => cate ? v.startsWith(cate + '/') : true)
   })
   watchEffect(() => {
     if (route.name === 'BlogContent') {
       const { name, cate } = route.params
-      const blog = importMap[`./${cate}/${name}.md`]
+      const blog = importMap[`/blogs/${cate}/${name}.md`]
       if (!blog) {
         blogContent.value = '当前博客不存在'
         return
@@ -46,8 +46,7 @@ if (import.meta.env.DEV) {
   if (typeof window === 'object' && import.meta.hot) {
     Object(window)._hotUpdateBlog = (meta: ImportMeta, module: { default: string }) => {
       const { pathname } = new URL(meta.url)
-      const key = pathname.split('/').slice(-2).join('/')
-      importMap[`./${decodeURIComponent(key)}`] = async () => module
+      importMap[decodeURIComponent(pathname)] = async () => module
     }
   }
 }
