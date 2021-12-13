@@ -62,3 +62,5 @@ h1是紫色，优先级相同就按照顺序覆盖
 * `:is()`，参数为一组选择器，然后会遍历这些选择器让其每一个都生效，与此类似的是`:where()`.[mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is)
 * `:target` 匹配和当前路由哈希（#）对的上的那个元素
 * `:not()` [mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not)，反向匹配，匹配不是某选择器的元素
+* `:scope` [mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:scope) 表示当前元素，在css里相当于`:root`，在js里指代当前元素，如`someElement.querySelectorAll(':scope > div');`
+* `:has()` [mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has) 表示匹配当前元素并且满足给定的选择器，如`a:has(> img)`表示只会匹配直接包含 \<img\> 子元素的 \<a\> 元素
