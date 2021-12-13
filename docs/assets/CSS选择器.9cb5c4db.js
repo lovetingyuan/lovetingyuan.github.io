@@ -66,5 +66,7 @@ html h1 {
 <li><code>:is()</code>\uFF0C\u53C2\u6570\u4E3A\u4E00\u7EC4\u9009\u62E9\u5668\uFF0C\u7136\u540E\u4F1A\u904D\u5386\u8FD9\u4E9B\u9009\u62E9\u5668\u8BA9\u5176\u6BCF\u4E00\u4E2A\u90FD\u751F\u6548\uFF0C\u4E0E\u6B64\u7C7B\u4F3C\u7684\u662F<code>:where()</code>.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is">mdn</a></li>
 <li><code>:target</code> \u5339\u914D\u548C\u5F53\u524D\u8DEF\u7531\u54C8\u5E0C\uFF08#\uFF09\u5BF9\u7684\u4E0A\u7684\u90A3\u4E2A\u5143\u7D20</li>
 <li><code>:not()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not">mdn</a>\uFF0C\u53CD\u5411\u5339\u914D\uFF0C\u5339\u914D\u4E0D\u662F\u67D0\u9009\u62E9\u5668\u7684\u5143\u7D20</li>
+<li><code>:scope</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:scope">mdn</a> \u8868\u793A\u5F53\u524D\u5143\u7D20\uFF0C\u5728css\u91CC\u76F8\u5F53\u4E8E<code>:root</code>\uFF0C\u5728js\u91CC\u6307\u4EE3\u5F53\u524D\u5143\u7D20\uFF0C\u5982<code>someElement.querySelectorAll(&#39;:scope &gt; div&#39;);</code></li>
+<li><code>:has()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has">mdn</a> \u8868\u793A\u5339\u914D\u5F53\u524D\u5143\u7D20\u5E76\u4E14\u6EE1\u8DB3\u7ED9\u5B9A\u7684\u9009\u62E9\u5668\uFF0C\u5982<code>a:has(&gt; img)</code>\u8868\u793A\u53EA\u4F1A\u5339\u914D\u76F4\u63A5\u5305\u542B &lt;img&gt; \u5B50\u5143\u7D20\u7684 &lt;a&gt; \u5143\u7D20</li>
 </ul>
 `;export{e as default};
