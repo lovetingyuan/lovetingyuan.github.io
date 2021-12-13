@@ -81,27 +81,3 @@ const musics = [
   }
 })
 </script>
-
-<style scoped>
-.music-item {
-  overflow: hidden;
-  margin: 30px 0;
-  font-size: 14px;
-}
-.cover {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  float: left;
-  margin-right: 20px;
-}
-.description {
-  display: flex;
-  flex-direction: column;
-  margin: 8px 0;
-}
-.description-item {
-  line-height: 1.8;
-  margin: 0;
-}
-</style>
