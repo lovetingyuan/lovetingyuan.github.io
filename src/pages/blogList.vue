@@ -45,16 +45,17 @@ const columns = computed(() => {
 .blog-list {
   column-count: v-bind(columns);
   column-gap: 20px;
+  list-style: none;
 }
 .blog-list .add {
   margin-left: 12px;
   font-size: 15px;
   user-select: none;
 }
-.blog-list a {
+.blog-list li {
   text-transform: capitalize;
 }
-.blog-list li {
+.blog-list ul li {
   margin: 12px 0;
   font-size: 15px;
 }
@@ -70,9 +71,10 @@ const columns = computed(() => {
 }
 
 .blog-list {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .blog-list ul {
   padding-left: 16px;
+  list-style-position: inside;
 }
 </style>

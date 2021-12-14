@@ -1,10 +1,10 @@
 <template>
 <div class="item">
-  <img class="cover" width="110" style="min-height: 110px" :src="image" alt="封面">
-  <div class="info-list" v-for="(info, i) of infoList">
-    <a :href="link" target="_blank" rel="noreferrer noopener" v-if="link && !i">{{info}}</a>
+  <img class="cover" width="120" style="min-height: 120px" :src="image" alt="封面">
+  <p class="info-list" v-for="(info, i) of infoList">
+    <a :href="link" target="_blank" rel="noreferrer noopener" v-if="!i">{{info}}</a>
     <span class="info-item" v-else>{{info}}</span>
-  </div>
+  </p>
 </div>
 </template>
 <script lang="ts" setup>
@@ -12,6 +12,7 @@
 defineProps<{
   infoList: any[],
   image: string
+  song?: string
   link?: string
 }>()
 
@@ -31,13 +32,11 @@ defineProps<{
   margin-right: 20px;
 }
 .info-list {
-  display: flex;
-  flex-direction: column;
   margin: 8px 0;
 }
-.info-list a {
-  font-size: 15px;
-  margin-bottom: 8px;
+.info-list:first-of-type {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 .info-item {
   line-height: 1.6;

@@ -12,8 +12,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --theme-color: rgb(1, 113, 165);
-  --theme-color2: rgb(0, 71, 104);
+  --theme-color: rgb(0, 87, 128);
+  --theme-color2: rgb(0, 41, 59);
   --text-color: #2c3e50;
 }
 #app {

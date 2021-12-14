@@ -1,11 +1,11 @@
 <template>
 <div>
   <music-item
-  v-for="music of musics"
-  :image="music.image"
-  :link="music.link"
-  :info-list="music.infos"
-  style="margin-top: 40px;"
+    v-for="music of musics"
+    :image="music.image"
+    :link="music.link"
+    :info-list="music.infos"
+    style="margin-top: 60px;"
   />
 </div>
 </template>
@@ -19,7 +19,8 @@ const musics = [
     cover: 'https://pic.xiami.net/images/album/img88/23488/1688691354849018.jpg',
     album: 'Sing and Dance',
     year: 2002,
-    link: 'https://baike.baidu.com/item/breeze/18612901'
+    link: 'https://baike.baidu.com/item/breeze/18612901',
+    song: 'https://mp3.haoge500.com/new/2008/05-24/117452.mp3'
   },
   {
     name: '500 miles',
