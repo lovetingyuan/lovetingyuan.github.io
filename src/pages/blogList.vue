@@ -26,13 +26,12 @@ import useBlogs from '../blogs'
 const { blogList, cate } = useBlogs()
 
 const displayBlogList = computed(() => {
-  const blogs: Record<string, string[]> = {}
-  blogList.value.forEach(k => {
+  return blogList.value.reduce((blogs, k) => {
     const [cate, name] = k.split('/')
     blogs[cate] ??= []
     blogs[cate].push(name)
-  })
-  return blogs
+    return blogs
+  }, {} as Record<string, string[]>)
 })
 
 const columns = computed(() => {

@@ -1,23 +1,24 @@
 /* global */
 html {
   height: 100%;
-}
-body {
-  margin: 0;
-  height: 100vh;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  background-color: snow;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   --theme-color: rgb(0, 87, 128);
   --theme-color2: rgb(0, 41, 59);
   --text-color: #2c3e50;
 }
-#app {
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  background-color: snow;
   color: var(--text-color);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#app {
   max-width: 800px;
   min-width: 300px;
   box-sizing: border-box;
@@ -28,6 +29,12 @@ body {
   padding-bottom: 60px;
   box-sizing: border-box;
 }
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  body { background: #333; color: white; }
+}
+
 /*滚动条整体部分,必须要设置*/
 ::-webkit-scrollbar {
   width: 10px;

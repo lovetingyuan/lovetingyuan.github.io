@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import MusicItem from '../components/Item.vue'
+
 const musics = [
   {
     name: 'Breeze',
