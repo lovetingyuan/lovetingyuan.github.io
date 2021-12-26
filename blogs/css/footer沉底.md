@@ -2,24 +2,24 @@
 
 ```html
 <div class="wrapper">
-    <div class="content"><!-- 页面主体内容区域 --></div>
-    <div class="footer"><!-- 需要做到 Sticky Footer 效果的页脚 --></div>
+  <div class="content"><!-- 页面主体内容区域 --></div>
+  <div class="footer"><!-- 需要做到 Sticky Footer 效果的页脚 --></div>
 </div>
 
 <style>
 html, body {
-    height: 100%;
+  height: 100%;
 }
 .wrapper {
-    position: relative;
-    min-height: 100%;
-    padding-bottom: 50px;
-    box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 50px;
+  box-sizing: border-box;
 }
 .footer {
-    position: absolute;
-    bottom: 0;
-    height: 50px;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
 }
 </style>
 
@@ -28,9 +28,7 @@ html, body {
 ### 方法二：为footer设置负margin-top
 
 ```html
-<div class="content">
- 
-</div>
+<div class="content"></div>
 <footer class="footer"></footer>
 
 <style>
