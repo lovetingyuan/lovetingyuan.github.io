@@ -37,6 +37,7 @@ html, body {
 
 .footer {
   height: 50px;
+  /* \u4E0B\u9762\u7684margin-top\u4E5F\u53EF\u4EE5\u8F6C\u4E3A\u5BF9.content \u8BBE\u7F6E margin-bottom: -50px; */
   margin-top: -50px;
 }
 &lt;/style&gt;
