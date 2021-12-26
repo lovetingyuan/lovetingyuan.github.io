@@ -43,6 +43,7 @@ html, body {
 
 .footer {
   height: 50px;
+  /* 下面的margin-top也可以转为对.content 设置 margin-bottom: -50px; */
   margin-top: -50px;
 }
 </style>
