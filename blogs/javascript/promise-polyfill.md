@@ -3,11 +3,7 @@
 ## Promise的polyfill实现
 
 ```javascript
-// 用来resolve一个值，这个值可能是pomise,thenable或者其他
-function resolveValue (promise, value, resolve, reject) {
-  if (promise === value) { // 不能resolve自身
-    return reject(new TypeError('Can not resolve or return the current promise.'))
-  }
+function resolveValue (value, resolve, reject) {
   if (value === null || (typeof value !== 'object' && typeof value !== 'function')) {
     return resolve(value)
   }
@@ -17,44 +13,60 @@ function resolveValue (promise, value, resolve, reject) {
   } catch (err) {
     return reject(err)
   }
-  if (typeof then !== 'function') return resolve(value)
+  if (typeof then !== 'function') {
+    return resolve(value)
+  }
   let called = false // 所有的回调只能调用一次
   try { // 处理thenable，当然promise本身也是thenable
     then.call(value, val => {
-      if (called) return
-      called = true
-      resolveValue(promise, val, resolve, reject) // 需要递归resolve，因为可能多次返回thenable
-    }, err => {
-      if (called) return
-      called = true
-      reject(err) // reject就直接调用即可
+      if (!called) {
+        called = true
+        resolveValue(val, resolve, reject) // 需要递归resolve，因为可能多次返回thenable
+      }
+    }, reason => {
+      if (!called) {
+        called = true
+        reject(reason) // reject就直接调用即可
+      }
     })
   } catch (err) {
-    if (!called) reject(err)
+    if (!called) {
+      reject(err)
+    }
   }
 }
 
 function Promise (callback) {
-  if (!(this instanceof Promise)) throw new TypeError('Promise cannot be invoked without "new".')
-  if (typeof callback !== 'function') throw new TypeError('Promise callback is not a function.')
+  if (!(this instanceof Promise)) {
+    throw new TypeError('Promise cannot be invoked without "new".')
+  }
+  if (typeof callback !== 'function') {
+    throw new TypeError('Promise callback is not a function.')
+  }
   this._status = 'pending'
   this._value = undefined
   this._callbacks = { resolved: [], rejected: [] }
-  const settle = (status, value) => {
+  const fulfill = (status, value) => {
     this._value = value
     this._status = status
     this._callbacks[status].forEach(cb => cb(value))
   }
   let called = false
   const onResolve = value => {
-    if (called) return
-    called = true
-    resolveValue(this, value, val => settle('resolved', val), err => settle('rejected', err))
+    if (!called) {
+      called = true
+      if (this === value) {
+        fulfill('rejected', new TypeError('Can not resolve or return the current promise.'))
+      } else {
+        resolveValue(value, fulfill.bind(null, 'resolved'), fulfill.bind(null, 'rejected'))
+      }
+    }
   }
-  const onReject = err => {
-    if (called) return
-    called = true
-    settle('rejected', err)
+  const onReject = reason => {
+    if (!called) {
+      called = true
+      fulfill('rejected', reason)
+    }
   }
   try {
     callback(onResolve, onReject)
@@ -64,32 +76,33 @@ function Promise (callback) {
 }
 
 Promise.prototype.then = function then (onResolve, onReject) {
-  const handleCallback = (promise, status, resolve, reject) => {
-    const callback = status === 'resolved' ? onResolve : onReject
-    const settle = status === 'resolved' ? resolve : reject
-    setTimeout(() => { // then的回调需要延迟执行，实际应该放到微任务队列中
-      try {
-        if (typeof callback === 'function') {
-          resolveValue(promise, callback(this._value), resolve, reject)
-        } else {
-          settle(this._value)
+  const promise = new Promise((resolve, reject) => {
+    const handleCallback = (resolved) => {
+      setTimeout(() => { // then的回调需要延迟执行，实际应该放到微任务队列中
+        const callback = resolved ? onResolve : onReject
+        if (typeof callback !== 'function') {
+          return (resolved ? resolve : reject)(this._value)
         }
-      } catch (err) {
-        reject(err)
-      }
-    })
-  }
-  let promise // then必须返回一个新的promise
-  if (this._status === 'pending') { // 如果是异步执行需要先把回调存储在队列中
-    promise = new Promise((resolve, reject) => {
-      this._callbacks.resolved.push(() => handleCallback(promise, 'resolved', resolve, reject))
-      this._callbacks.rejected.push(() => handleCallback(promise, 'rejected', resolve, reject))
-    })
-  } else {
-    let resolve, reject
-    promise = new Promise((...args) => [resolve, reject] = args)
-    handleCallback(promise, this._status, resolve, reject)
-  }
+        let val
+        try {
+          val = callback(this._value)
+        } catch (err) {
+          return reject(err)
+        }
+        if (promise === val) {
+          reject(new TypeError('Can not resolve or return the current promise.'))
+        } else {
+          resolveValue(val, resolve, reject)
+        }
+      })
+    }
+    if (this._status === 'pending') {
+      this._callbacks.resolved.push(() => handleCallback(true))
+      this._callbacks.rejected.push(() => handleCallback(false))
+    } else {
+      handleCallback(this._status === 'resolved')
+    }
+  })
   return promise
 }
 
