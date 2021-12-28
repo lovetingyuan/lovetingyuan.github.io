@@ -39,12 +39,10 @@ function Promise (callback) {
   if (typeof callback !== &#39;function&#39;) {
     throw new TypeError(&#39;Promise callback is not a function.&#39;)
   }
-  this._status = &#39;pending&#39;
-  this._value = undefined
+  [this._status, this._value] = [&#39;pending&#39;]
   this._callbacks = { resolved: [], rejected: [] }
   const fulfill = (status, value) =&gt; {
-    this._value = value
-    this._status = status
+    [this._status, this._value] = [status, value]
     this._callbacks[status].forEach(cb =&gt; cb(value))
   }
   let called = false
