@@ -43,12 +43,10 @@ function Promise (callback) {
   if (typeof callback !== 'function') {
     throw new TypeError('Promise callback is not a function.')
   }
-  this._status = 'pending'
-  this._value = undefined
+  [this._status, this._value] = ['pending']
   this._callbacks = { resolved: [], rejected: [] }
   const fulfill = (status, value) => {
-    this._value = value
-    this._status = status
+    [this._status, this._value] = [status, value]
     this._callbacks[status].forEach(cb => cb(value))
   }
   let called = false
@@ -105,7 +103,6 @@ Promise.prototype.then = function then (onResolve, onReject) {
   })
   return promise
 }
-
 ```
 
 -----
