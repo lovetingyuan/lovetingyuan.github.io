@@ -75,9 +75,8 @@ Promise.prototype.then = function then(onResolve, onReject) {
         if (typeof callback !== 'function') {
           return (resolved ? resolve : reject)(this._value)
         }
-        let val
         try {
-          val = callback(this._value)
+          var val = callback(this._value)
         } catch (err) {
           return reject(err)
         }
