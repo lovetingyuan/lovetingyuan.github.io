@@ -3,9 +3,8 @@ var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u7
   if (value === null || (typeof value !== &#39;object&#39; &amp;&amp; typeof value !== &#39;function&#39;)) {
     return resolve(value)
   }
-  let then // thenable\u53EF\u80FD\u662F\u5BF9\u8C61\u6216\u8005\u51FD\u6570\uFF0C\u5B83\u7684then\u53EA\u80FD\u8BFB\u53D6\u4E00\u6B21\u5E76\u4E14\u9700\u8981\u6355\u83B7\u53EF\u80FD\u7684\u9519\u8BEF
   try {
-    then = value.then
+    var then = value.then // thenable\u53EA\u80FD\u8BFB\u53D6\u4E00\u6B21\u5E76\u4E14\u9700\u8981\u6355\u83B7\u53EF\u80FD\u7684\u9519\u8BEF
   } catch (err) {
     return reject(err)
   }
@@ -13,7 +12,7 @@ var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u7
     return resolve(value)
   }
   let called = false // \u6240\u6709\u7684\u56DE\u8C03\u53EA\u80FD\u8C03\u7528\u4E00\u6B21
-  try { // \u5904\u7406thenable\uFF0C\u5F53\u7136promise\u672C\u8EAB\u4E5F\u662Fthenable
+  try {
     then.call(value, val =&gt; {
       if (!called) {
         called = true
@@ -26,9 +25,7 @@ var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u7
       }
     })
   } catch (err) {
-    if (!called) {
-      reject(err)
-    }
+    called || reject(err)
   }
 }
 
@@ -42,37 +39,34 @@ function Promise (callback) {
   [this._status, this._value] = [&#39;pending&#39;]
   this._callbacks = { resolved: [], rejected: [] }
   const fulfill = (status, value) =&gt; {
-    [this._status, this._value] = [status, value]
-    this._callbacks[status].forEach(cb =&gt; cb(value))
-  }
-  let called = false
-  const onResolve = value =&gt; {
-    if (!called) {
-      called = true
-      if (this === value) {
-        fulfill(&#39;rejected&#39;, new TypeError(&#39;Can not resolve or return the current promise.&#39;))
-      } else {
-        resolveValue(value, fulfill.bind(null, &#39;resolved&#39;), fulfill.bind(null, &#39;rejected&#39;))
-      }
-    }
-  }
-  const onReject = reason =&gt; {
-    if (!called) {
-      called = true
-      fulfill(&#39;rejected&#39;, reason)
+    if (this._status === &#39;pending&#39;) { // \u72B6\u6001\u53EA\u80FD\u53D8\u66F4\u4E00\u6B21
+      [this._status, this._value] = [status, value]
+      this._callbacks[status].forEach(cb =&gt; cb(value))
     }
   }
   try {
-    callback(onResolve, onReject)
+    callback(value =&gt; {
+      if (this === value) { // \u4E0D\u80FD\u8FD4\u56DE\u81EA\u8EAB
+        fulfill(&#39;rejected&#39;, new TypeError(&#39;Can not resolve or return the current promise.&#39;))
+      } else {
+        resolveValue(value, val =&gt; {
+          fulfill(&#39;resolved&#39;, val)
+        }, reason =&gt; {
+          fulfill(&#39;rejected&#39;, reason)
+        })
+      }
+    }, reason =&gt; {
+      fulfill(&#39;rejected&#39;, reason) // reject \u76F4\u63A5\u8FD4\u56DE\u503C
+    })
   } catch (err) {
-    onReject(err)
+    fulfill(&#39;rejected&#39;, reason)
   }
 }
 
-Promise.prototype.then = function then (onResolve, onReject) {
+Promise.prototype.then = function then(onResolve, onReject) {
   const promise = new Promise((resolve, reject) =&gt; {
     const handleCallback = (resolved) =&gt; {
-      setTimeout(() =&gt; { // then\u7684\u56DE\u8C03\u9700\u8981\u5EF6\u8FDF\u6267\u884C\uFF0C\u5B9E\u9645\u5E94\u8BE5\u653E\u5230\u5FAE\u4EFB\u52A1\u961F\u5217\u4E2D
+      setTimeout(() =&gt; { // then\u7684\u56DE\u8C03\u9700\u8981\u5728\u65B0\u7684\u4E8B\u4EF6\u5FAA\u73AF\u4E2D\u6267\u884C
         const callback = resolved ? onResolve : onReject
         if (typeof callback !== &#39;function&#39;) {
           return (resolved ? resolve : reject)(this._value)
@@ -83,7 +77,7 @@ Promise.prototype.then = function then (onResolve, onReject) {
         } catch (err) {
           return reject(err)
         }
-        if (promise === val) {
+        if (promise === val) { // \u8FD4\u56DE\u7684\u503C\u4E0D\u80FD\u662Fpromise\u672C\u8EAB(TypeError: Chaining cycle detected for promise)
           reject(new TypeError(&#39;Can not resolve or return the current promise.&#39;))
         } else {
           resolveValue(val, resolve, reject)
