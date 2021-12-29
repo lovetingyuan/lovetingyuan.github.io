@@ -52,7 +52,6 @@ body {
 /* responsive */
 @media screen and (min-width: 1500px) {
   #app {
-    margin: 0 100px;
     max-width: 1000px;
   }
 }
