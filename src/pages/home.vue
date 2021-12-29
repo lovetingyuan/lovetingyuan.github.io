@@ -4,7 +4,7 @@
   </p>
   <br />
   <ul>
-    <li v-for="a of links" :key="a.url">
+    <li v-for="a of links" :key="a.url" class="link-item">
       <a :href="a.url" target="_blank" rel="noopener noreferrer">{{
         a.title
       }}</a>
@@ -24,3 +24,9 @@ const links = [
   },
 ];
 </script>
+
+<style scoped>
+.link-item {
+  margin: 20px 0;
+}
+</style>
