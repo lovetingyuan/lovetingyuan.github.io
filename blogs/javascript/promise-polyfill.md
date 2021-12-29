@@ -7,9 +7,8 @@ function resolveValue (value, resolve, reject) {
   if (value === null || (typeof value !== 'object' && typeof value !== 'function')) {
     return resolve(value)
   }
-  let then // thenable可能是对象或者函数，它的then只能读取一次并且需要捕获可能的错误
   try {
-    then = value.then
+    var then = value.then // thenable只能读取一次并且需要捕获可能的错误
   } catch (err) {
     return reject(err)
   }
@@ -17,7 +16,7 @@ function resolveValue (value, resolve, reject) {
     return resolve(value)
   }
   let called = false // 所有的回调只能调用一次
-  try { // 处理thenable，当然promise本身也是thenable
+  try {
     then.call(value, val => {
       if (!called) {
         called = true
@@ -30,9 +29,7 @@ function resolveValue (value, resolve, reject) {
       }
     })
   } catch (err) {
-    if (!called) {
-      reject(err)
-    }
+    called || reject(err)
   }
 }
 
@@ -46,37 +43,34 @@ function Promise (callback) {
   [this._status, this._value] = ['pending']
   this._callbacks = { resolved: [], rejected: [] }
   const fulfill = (status, value) => {
-    [this._status, this._value] = [status, value]
-    this._callbacks[status].forEach(cb => cb(value))
-  }
-  let called = false
-  const onResolve = value => {
-    if (!called) {
-      called = true
-      if (this === value) {
-        fulfill('rejected', new TypeError('Can not resolve or return the current promise.'))
-      } else {
-        resolveValue(value, fulfill.bind(null, 'resolved'), fulfill.bind(null, 'rejected'))
-      }
-    }
-  }
-  const onReject = reason => {
-    if (!called) {
-      called = true
-      fulfill('rejected', reason)
+    if (this._status === 'pending') { // 状态只能变更一次
+      [this._status, this._value] = [status, value]
+      this._callbacks[status].forEach(cb => cb(value))
     }
   }
   try {
-    callback(onResolve, onReject)
+    callback(value => {
+      if (this === value) { // 不能返回自身
+        fulfill('rejected', new TypeError('Can not resolve or return the current promise.'))
+      } else {
+        resolveValue(value, val => {
+          fulfill('resolved', val)
+        }, reason => {
+          fulfill('rejected', reason)
+        })
+      }
+    }, reason => {
+      fulfill('rejected', reason) // reject 直接返回值
+    })
   } catch (err) {
-    onReject(err)
+    fulfill('rejected', reason)
   }
 }
 
-Promise.prototype.then = function then (onResolve, onReject) {
+Promise.prototype.then = function then(onResolve, onReject) {
   const promise = new Promise((resolve, reject) => {
     const handleCallback = (resolved) => {
-      setTimeout(() => { // then的回调需要延迟执行，实际应该放到微任务队列中
+      setTimeout(() => { // then的回调需要在新的事件循环中执行
         const callback = resolved ? onResolve : onReject
         if (typeof callback !== 'function') {
           return (resolved ? resolve : reject)(this._value)
@@ -87,7 +81,7 @@ Promise.prototype.then = function then (onResolve, onReject) {
         } catch (err) {
           return reject(err)
         }
-        if (promise === val) {
+        if (promise === val) { // 返回的值不能是promise本身(TypeError: Chaining cycle detected for promise)
           reject(new TypeError('Can not resolve or return the current promise.'))
         } else {
           resolveValue(val, resolve, reject)
@@ -103,6 +97,7 @@ Promise.prototype.then = function then (onResolve, onReject) {
   })
   return promise
 }
+
 ```
 
 -----
