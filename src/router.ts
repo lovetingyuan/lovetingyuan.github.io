@@ -32,8 +32,6 @@ export default function () {
               path: to.query.redirect as string,
               replace: true
             })
-          } else {
-            next(to)
           }
         }
       },
