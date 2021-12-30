@@ -59,7 +59,7 @@ function Promise (callback) {
       fulfill(&#39;rejected&#39;, reason) // reject \u76F4\u63A5\u8FD4\u56DE\u503C
     })
   } catch (err) {
-    fulfill(&#39;rejected&#39;, reason)
+    fulfill(&#39;rejected&#39;, err)
   }
 }
 
