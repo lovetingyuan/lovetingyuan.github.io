@@ -63,7 +63,7 @@ function Promise (callback) {
       fulfill('rejected', reason) // reject 直接返回值
     })
   } catch (err) {
-    fulfill('rejected', reason)
+    fulfill('rejected', err)
   }
 }
 
