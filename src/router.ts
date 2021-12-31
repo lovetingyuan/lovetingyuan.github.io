@@ -26,9 +26,9 @@ export default function () {
       {
         path: '/',
         component: Home,
-        beforeEnter (to, from, next) {
+        beforeEnter (to, from) {
           if (to.query.redirect) {
-            next({
+            return ({
               path: to.query.redirect as string,
               replace: true
             })
