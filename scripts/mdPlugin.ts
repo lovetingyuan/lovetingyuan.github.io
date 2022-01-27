@@ -1,6 +1,12 @@
 import { readFileSync } from 'fs'
-import { marked } from 'marked'
 import type { Plugin } from 'vite'
+import MarkdownIt from 'markdown-it'
+
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true,
+});
 
 export default () => {
   return {
@@ -8,7 +14,7 @@ export default () => {
     load(id) {
       if (id.endsWith('.md')) {
         const code = readFileSync(id, 'utf-8')
-        const src = JSON.stringify(marked(code))
+        const src = JSON.stringify(md.render(code))
         return `export default ${src};\n` + `
         if (import.meta.hot && window._hotUpdateBlog) {
           import.meta.hot.accept((m) => {

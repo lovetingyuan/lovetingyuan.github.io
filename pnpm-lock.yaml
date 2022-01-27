@@ -4,13 +4,14 @@ specifiers:
   '@actions/core': ^1.6.0
   '@actions/exec': ^1.1.0
   '@actions/io': ^1.1.1
+  '@types/markdown-it': ^12.2.3
   '@types/marked': ^4.0.1
   '@types/node': ^16.11.10
   '@types/prismjs': ^1.16.6
   '@vitejs/plugin-vue': ^2.0.0
   cross-env: ^7.0.3
   github-markdown-css: ^5.0.0
-  marked: ^4.0.7
+  markdown-it: ^12.3.2
   prismjs: ^1.25.0
   typescript: ^4.4.3
   vite: ^2.7.1
@@ -20,7 +21,6 @@ specifiers:
 
 dependencies:
   github-markdown-css: 5.0.0
-  marked: 4.0.7
   prismjs: 1.25.0
   vue: 3.2.26
   vue-router: 4.0.12_vue@3.2.26
@@ -29,11 +29,13 @@ devDependencies:
   '@actions/core': 1.6.0
   '@actions/exec': 1.1.0
   '@actions/io': 1.1.1
+  '@types/markdown-it': 12.2.3
   '@types/marked': 4.0.1
   '@types/node': 16.11.10
   '@types/prismjs': 1.16.6
   '@vitejs/plugin-vue': 2.0.0_vite@2.7.1+vue@3.2.26
   cross-env: 7.0.3
+  markdown-it: 12.3.2
   typescript: 4.4.4
   vite: 2.7.1
   vue-tsc: 0.29.8_typescript@4.4.4
@@ -103,8 +105,23 @@ packages:
     resolution: {integrity: sha512-8HqW8EVqjnCmWXVpqAOZf+EGESdkR27odcMMMGefgKXtar00SoYNSryGv//TELI4T3QFsECo78p+0lmalk/CFA==}
     dev: true
 
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
+    dev: true
+
   /@types/marked/4.0.1:
     resolution: {integrity: sha512-ZigEmCWdNUU7IjZEuQ/iaimYdDHWHfTe3kg8ORfKjyGYd9RWumPoOJRQXB0bO+XLkNwzCthW3wUIQtANaEZ1ag==}
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
   /@types/node/16.11.10:
@@ -305,6 +322,10 @@ packages:
     hasBin: true
     dev: true
 
+  /argparse/2.0.1:
+    resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+    dev: true
+
   /asap/2.0.6:
     resolution: {integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=}
     dev: true
@@ -397,6 +418,10 @@ packages:
     dependencies:
       '@emmetio/abbreviation': 2.2.2
       '@emmetio/css-abbreviation': 2.1.4
+    dev: true
+
+  /entities/2.1.0:
+    resolution: {integrity: sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==}
     dev: true
 
   /entities/2.2.0:
@@ -671,6 +696,12 @@ packages:
       promise: 7.3.1
     dev: true
 
+  /linkify-it/3.0.3:
+    resolution: {integrity: sha512-ynTsyrFSdE5oZ/O9GEf00kPngmOfVwazR5GKDq6EYfhlpFug3J2zybX56a2PRRpc9P+FuSoGNAwjlbDs9jJBPQ==}
+    dependencies:
+      uc.micro: 1.0.6
+    dev: true
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -684,11 +715,20 @@ packages:
       sourcemap-codec: 1.4.8
     dev: false
 
-  /marked/4.0.7:
-    resolution: {integrity: sha512-mQrRvV2vRk7DHZsWsYJfAjmBo+lSYPhTJPThaaGpkEfmC+4oefeug2txZniQTieDS0CFpokfVhd7JuS5GtnHhA==}
-    engines: {node: '>= 12'}
+  /markdown-it/12.3.2:
+    resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
     hasBin: true
-    dev: false
+    dependencies:
+      argparse: 2.0.1
+      entities: 2.1.0
+      linkify-it: 3.0.3
+      mdurl: 1.0.1
+      uc.micro: 1.0.6
+    dev: true
+
+  /mdurl/1.0.1:
+    resolution: {integrity: sha1-/oWy7HWlkDfyrf7BAP1sYBdhFS4=}
+    dev: true
 
   /nanoid/3.1.30:
     resolution: {integrity: sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==}
@@ -890,6 +930,10 @@ packages:
     resolution: {integrity: sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
+
+  /uc.micro/1.0.6:
+    resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
     dev: true
 
   /upath/2.0.1:
