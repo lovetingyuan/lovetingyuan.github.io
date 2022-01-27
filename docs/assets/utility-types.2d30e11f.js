@@ -1,4 +1,4 @@
-var t=`<h3 id="typescript\u9AD8\u9636\u7C7B\u578B">TypeScript\u9AD8\u9636\u7C7B\u578B</h3>
+var t=`<h3>TypeScript\u9AD8\u9636\u7C7B\u578B</h3>
 <p>Typescript\u7684\u4E00\u4E2A\u5F3A\u5927\u4E4B\u5904\u5728\u4E8E\u5B83\u652F\u6301\u901A\u8FC7\u6CDB\u578B\u4EE5\u53CA\u4E00\u4E9B\u5173\u952E\u5B57\u548C\u64CD\u4F5C\u7B26\u5BF9\u7C7B\u578B\u672C\u8EAB\u8FDB\u884C\u7F16\u7A0B\u3002</p>
 <p>TypeScript\u8BED\u8A00\u672C\u8EAB\u5C31\u5185\u7F6E\u7684\u4E00\u4E9B\u9AD8\u9636\u7C7B\u578B\uFF0C\u5229\u7528\u5B83\u4EEC\u53EF\u4EE5\u65B9\u4FBF\u7684\u5B9E\u73B0\u7C7B\u578B\u7F16\u7A0B\uFF1A</p>
 <p>\u501F\u52A9\u4E8E\u4E0B\u9762\u8981\u4ECB\u7ECD\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u53EF\u4EE5\u5B9E\u73B0\u4E00\u4E9B\u5176\u4ED6\u5E38\u7528\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u4F8B\u5982<a href="https://github.com/sindresorhus/type-fest"><code>type-fest</code></a>\u4EE5\u53CA<a href="https://github.com/piotrwitek/utility-types"><code>utility-types</code></a>, <a href="https://github.com/millsp/ts-toolbelt"><code>ts-toolbelt</code></a> \u90FD\u662F\u4E00\u4E9B\u4E0D\u9519\u7684\u5B9E\u73B0\uFF0C\u503C\u5F97\u53C2\u8003\u3002</p>
@@ -32,10 +32,10 @@ type Record&lt;K extends keyof any, T&gt; = {
 };
 // \u4F8B\u5B50
     type AnyObject = Record&lt;string, any&gt;
-    const x: Record&lt;&#39;home&#39; | &#39;about&#39; | &#39;contact&#39;, { title: string }&gt; = {
-        about: { title: &#39;about&#39; },
-        contact: { title: &#39;contact&#39; },
-        home: { title: &#39;home&#39; },
+    const x: Record&lt;'home' | 'about' | 'contact', { title: string }&gt; = {
+        about: { title: 'about' },
+        contact: { title: 'contact' },
+        home: { title: 'home' },
     };
 
 // \u4ECE\u7C7B\u578BT\u4E2D\u53BB\u9664\u5C5E\u4E8E\u7C7B\u578BU\u7684\u7C7B\u578B\u6240\u5F97\u5230\u7684\u5269\u4F59\u7C7B\u578B\uFF0CT\u901A\u5E38\u662F\u8054\u5408\u7C7B\u578B
@@ -58,8 +58,8 @@ type Omit&lt;T, K extends keyof any&gt; = Pick&lt;T, Exclude&lt;keyof T, K&gt;&g
         title: string;
         description: string;
         completed: boolean;
-    }, &#39;description&#39;&gt; = {
-        title: &#39;Clean room&#39;,
+    }, 'description'&gt; = {
+        title: 'Clean room',
         completed: false,
     };
 
@@ -122,5 +122,6 @@ type OmitThisParameter&lt;T&gt; = unknown extends ThisParameterType&lt;T&gt; ? T
         return this.toString(16);
     }
     const fiveToHex: OmitThisParameter&lt;typeof toHex&gt; = toHex.bind(5);
+
 </code></pre>
 `;export{t as default};

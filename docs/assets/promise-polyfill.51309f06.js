@@ -1,6 +1,6 @@
-var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u73B0</h2>
+var e=`<h2>Promise\u7684polyfill\u5B9E\u73B0</h2>
 <pre><code class="language-javascript">function resolveValue (value, resolve, reject) {
-  if (value === null || (typeof value !== &#39;object&#39; &amp;&amp; typeof value !== &#39;function&#39;)) {
+  if (value === null || (typeof value !== 'object' &amp;&amp; typeof value !== 'function')) {
     return resolve(value)
   }
   try {
@@ -8,7 +8,7 @@ var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u7
   } catch (err) {
     return reject(err)
   }
-  if (typeof then !== &#39;function&#39;) {
+  if (typeof then !== 'function') {
     return resolve(value)
   }
   let called = false // \u6240\u6709\u7684\u56DE\u8C03\u53EA\u80FD\u8C03\u7528\u4E00\u6B21
@@ -31,15 +31,15 @@ var e=`<h2 id="promise\u7684polyfill\u5B9E\u73B0">Promise\u7684polyfill\u5B9E\u7
 
 function Promise (callback) {
   if (!(this instanceof Promise)) {
-    throw new TypeError(&#39;Promise cannot be invoked without &quot;new&quot;.&#39;)
+    throw new TypeError('Promise cannot be invoked without &quot;new&quot;.')
   }
-  if (typeof callback !== &#39;function&#39;) {
-    throw new TypeError(&#39;Promise callback is not a function.&#39;)
+  if (typeof callback !== 'function') {
+    throw new TypeError('Promise callback is not a function.')
   }
-  [this._status, this._value] = [&#39;pending&#39;]
+  [this._status, this._value] = ['pending']
   this._callbacks = { resolved: [], rejected: [] }
   const fulfill = (status, value) =&gt; {
-    if (this._status === &#39;pending&#39;) { // \u72B6\u6001\u53EA\u80FD\u53D8\u66F4\u4E00\u6B21
+    if (this._status === 'pending') { // \u72B6\u6001\u53EA\u80FD\u53D8\u66F4\u4E00\u6B21
       [this._status, this._value] = [status, value]
       this._callbacks[status].forEach(cb =&gt; cb(value))
     }
@@ -47,19 +47,19 @@ function Promise (callback) {
   try {
     callback(value =&gt; {
       if (this === value) { // \u4E0D\u80FD\u8FD4\u56DE\u81EA\u8EAB
-        fulfill(&#39;rejected&#39;, new TypeError(&#39;Can not resolve or return the current promise.&#39;))
+        fulfill('rejected', new TypeError('Can not resolve or return the current promise.'))
       } else {
         resolveValue(value, val =&gt; {
-          fulfill(&#39;resolved&#39;, val)
+          fulfill('resolved', val)
         }, reason =&gt; {
-          fulfill(&#39;rejected&#39;, reason)
+          fulfill('rejected', reason)
         })
       }
     }, reason =&gt; {
-      fulfill(&#39;rejected&#39;, reason) // reject \u76F4\u63A5\u8FD4\u56DE\u503C
+      fulfill('rejected', reason) // reject \u76F4\u63A5\u8FD4\u56DE\u503C
     })
   } catch (err) {
-    fulfill(&#39;rejected&#39;, err)
+    fulfill('rejected', err)
   }
 }
 
@@ -68,7 +68,7 @@ Promise.prototype.then = function then(onResolve, onReject) {
     const handleCallback = (resolved) =&gt; {
       setTimeout(() =&gt; { // then\u7684\u56DE\u8C03\u9700\u8981\u5728\u65B0\u7684\u4E8B\u4EF6\u5FAA\u73AF\u4E2D\u6267\u884C
         const callback = resolved ? onResolve : onReject
-        if (typeof callback !== &#39;function&#39;) {
+        if (typeof callback !== 'function') {
           return (resolved ? resolve : reject)(this._value)
         }
         try {
@@ -77,21 +77,22 @@ Promise.prototype.then = function then(onResolve, onReject) {
           return reject(err)
         }
         if (promise === val) { // \u8FD4\u56DE\u7684\u503C\u4E0D\u80FD\u662Fpromise\u672C\u8EAB(TypeError: Chaining cycle detected for promise)
-          reject(new TypeError(&#39;Can not resolve or return the current promise.&#39;))
+          reject(new TypeError('Can not resolve or return the current promise.'))
         } else {
           resolveValue(val, resolve, reject)
         }
       })
     }
-    if (this._status === &#39;pending&#39;) {
+    if (this._status === 'pending') {
       this._callbacks.resolved.push(() =&gt; handleCallback(true))
       this._callbacks.rejected.push(() =&gt; handleCallback(false))
     } else {
-      handleCallback(this._status === &#39;resolved&#39;)
+      handleCallback(this._status === 'resolved')
     }
   })
   return promise
 }
+
 </code></pre>
 <hr>
 <p>\u4EE5\u4E0A\u662F\u5BF9<code>Promise</code>\u7684\u7B80\u5355\u5B9E\u73B0\uFF0C\u5B9E\u9645\u4E0APromise/A+\u89C4\u8303\u53EA\u8981\u6C42\u5B9E\u4F8B\u5BF9\u8C61\u5FC5\u987B\u8981\u6709then\u65B9\u6CD5\uFF0CES\u89C4\u8303\u4E2D\u8FD8\u89C4\u5B9A\u4E86\u4E00\u4E9B\u9759\u6001\u548C\u5B9E\u4F8B\u65B9\u6CD5\uFF0C\u8FD9\u4E9B\u90FD\u53EF\u4EE5\u4F9D\u8D56Promise\u6838\u5FC3\u6765\u5B9E\u73B0</p>
@@ -121,7 +122,7 @@ Promise.reject = function reject (reason) {
 <li><code>Promise.all</code><pre><code class="language-javascript">Promise.all = function all (values) {
   return new Promise((resolve, reject) =&gt; {
     // \u5B9E\u9645\u4E0A\u8FD9\u91CC\u7684values\u53EA\u8981\u662F\u53EF\u8FED\u4EE3\u5BF9\u8C61\u5C31\u53EF\u4EE5\uFF0C\u8FD9\u91CC\u7B80\u5316\u4E86\u5224\u65AD\uFF0C\u5176\u4ED6\u65B9\u6CD5\u4E5F\u4E00\u6837
-    if (!Array.isArray(values)) throw new TypeError(&#39;Promise.all only accepts iterable value.&#39;)
+    if (!Array.isArray(values)) throw new TypeError('Promise.all only accepts iterable value.')
     const resolvedValues = [], len = values.length
     if (len === 0) return resolve(resolvedValues)
     for (let i = 0; i &lt; len; i++) {
@@ -140,20 +141,20 @@ Promise.reject = function reject (reason) {
 </li>
 <li><code>Promise.allSettled</code><pre><code class="language-javascript">Promise.allSettled = function allSettled (values) {
   return new Promise((resolve) =&gt; {
-    if (!Array.isArray(values)) throw new TypeError(&#39;Promise.allSettled only accepts iterable value.&#39;)
+    if (!Array.isArray(values)) throw new TypeError('Promise.allSettled only accepts iterable value.')
     const resolvedValues = [], len = values.length
     if (len === 0) return resolve(resolvedValues)
     for (let i = 0; i &lt; len; i++) {
       Promise.resolve(values[i]).then(val =&gt; {
         resolvedValues[i] = {
-          status: &#39;fulfilled&#39;, value: val
+          status: 'fulfilled', value: val
         }
         if (i === len - 1) {
           resolve(resolvedValues)
         }
       }, err =&gt; {
         resolvedValues[i] = {
-          status: &#39;rejected&#39;, reason: err
+          status: 'rejected', reason: err
         }
         if (i === len - 1) {
           resolve(resolvedValues)
@@ -166,7 +167,7 @@ Promise.reject = function reject (reason) {
 </li>
 <li><code>Promise.race</code>\uFF0C\u8C01\u5148\u7ED3\u675F\u5C31\u8FD4\u56DE\u8C01<pre><code class="language-javascript">Promise.race = function race (values) {
   return new Promise((resolve, reject) =&gt; {
-    if (!Array.isArray(values)) throw new TypeError(&#39;Promise.race only accepts iterable value.&#39;)
+    if (!Array.isArray(values)) throw new TypeError('Promise.race only accepts iterable value.')
     for (let i = 0; i &lt; values.length; i++) {
       Promise.resolve(values[i]).then(resolve, reject)
     }
@@ -176,16 +177,16 @@ Promise.reject = function reject (reason) {
 </li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/any"><code>Promise.any</code></a>\uFF0C\u548C<code>Promise.all</code>\u5728\u529F\u80FD\u4E0A\u662F\u76F8\u53CD\u7684\uFF0C\u4F1A\u5C1D\u8BD5\u8FD4\u56DE\u7B2C\u4E00\u4E2A\u6210\u529F\u7684promise\uFF0C\u5982\u679C\u90FD\u5931\u8D25\u90A3\u5C31\u4EE5<code>AggregateError</code>\u6765reject<pre><code class="language-javascript">Promise.any = function any (values) {
   return new Promise((resolve, reject) =&gt; {
-    if (!Array.isArray(values)) throw new TypeError(&#39;Promise.any only accepts iterable value.&#39;)
+    if (!Array.isArray(values)) throw new TypeError('Promise.any only accepts iterable value.')
     const resolvedReasons = [], len = values.length
-    if (len === 0) return reject(new AggregateError(resolvedReasons, &#39;All promises were rejected&#39;))
+    if (len === 0) return reject(new AggregateError(resolvedReasons, 'All promises were rejected'))
     for (let i = 0; i &lt; len; i++) {
       Promise.resolve(values[i]).then(val =&gt; {
         resolve(val)
       }, err =&gt; {
         resolvedReasons[i] = err
         if (i === len - 1) {
-          reject(new AggregateError(resolvedReasons, &#39;All promises were rejected&#39;))
+          reject(new AggregateError(resolvedReasons, 'All promises were rejected'))
         }
       })
     }
