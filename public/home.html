@@ -159,7 +159,7 @@
       evt.preventDefault()
       const value = evt.target.search.value
       if (!value) return
-      e.target.search.value = ''
+      evt.target.search.value = ''
       if (value.startsWith('bd ')) {
         window.open('https://www.baidu.com/s?wd=' + value)
       } else if (value.startsWith('bi ')) {
