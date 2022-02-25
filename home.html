@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主页</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    .container {
+      padding: 50px;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    @media screen and (max-width: 450px) {
+      .container {
+        padding: 20px;
+      }
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .search-input {
+      margin-top: 100px;
+      padding: 12px 20px;
+      border-radius: 1000px;
+      font-size: 20px;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid var(--text-color);
+    }
+
+    .site-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .site {
+      text-align: center;
+      margin: 18px 32px;
+    }
+
+    .site p {
+      text-transform: capitalize;
+      font-size: 18px;
+      margin: 12px 0;
+    }
+
+    .site a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .site img {
+      width: 40px;
+    }
+
+    .site a:hover {
+      text-decoration: underline;
+    }
+
+    .theme {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      cursor: pointer;
+    }
+
+    #darklight~.theme:after {
+      content: '☀️';
+    }
+
+    #darklight:checked~.theme:after {
+      content: '🌒';
+    }
+
+    #darklight~.container {
+      --bg-color: snow;
+      --text-color: #555;
+    }
+
+    #darklight:checked~.container {
+      --bg-color: #222;
+      --text-color: white;
+    }
+
+    .container {
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" hidden id="darklight">
+  <label class="theme" for="darklight"></label>
+  <div class="container">
+    <section class="center">
+      <form id="searchForm">
+        <input type="text" autocomplete="off" placeholder="搜索" name="search" autofocus class="search-input">
+      </form>
+    </section>
+    <section style="margin: 60px 0">
+      <ul class="site-list">
+        <li class="site">
+          <a href="https://github.com" target="_blank" rel="noreferer noopener">
+            <img src="https://github.githubassets.com/favicons/favicon.png" alt="github">
+            <p>github</p>
+          </a>
+        </li>
+        <li class="site">
+          <a href="https://bilibili.com" target="_blank" rel="noreferer noopener">
+            <img src="https://www.bilibili.com/favicon.ico?v=1" alt="bilibili">
+            <p>bilibili</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <script>
+    const form = document.getElementById('searchForm')
+    form.addEventListener('submit', evt => {
+      evt.preventDefault()
+      const value = evt.target.search.value
+      if (value.startsWith('bd ')) {
+        window.open('https://www.baidu.com/s?wd=' + value)
+      } else if (value.startsWith('bi ')) {
+        window.open('https://www.bing.com/search?q=' + value.slice(3))
+      } else {
+        window.open('https://www.google.com/search?q=' + value)
+      }
+    })
+  </script>
+</body>
+
+</html>
