@@ -15,7 +15,7 @@
 
     .container {
       padding: 50px;
-      height: 100%;
+      min-height: 100%;
       box-sizing: border-box;
     }
 
@@ -77,6 +77,7 @@
       top: 12px;
       right: 12px;
       cursor: pointer;
+      font-size: 18px;
     }
 
     #darklight~.theme:after {
@@ -94,12 +95,23 @@
 
     #darklight:checked~.container {
       --bg-color: #222;
-      --text-color: white;
+      --text-color: snow;
     }
 
     .container {
       color: var(--text-color);
       background-color: var(--bg-color);
+    }
+
+    footer {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      text-align: right;
+      padding: 20px;
+      box-sizing: border-box;
+      user-select: none;
     }
 
   </style>
@@ -117,25 +129,37 @@
     <section style="margin: 60px 0">
       <ul class="site-list">
         <li class="site">
-          <a href="https://github.com" target="_blank" rel="noreferer noopener">
+          <a href="https://github.com" target="_blank" rel="noreferrer noopener">
             <img src="https://github.githubassets.com/favicons/favicon.png" alt="github">
             <p>github</p>
           </a>
         </li>
         <li class="site">
-          <a href="https://bilibili.com" target="_blank" rel="noreferer noopener">
+          <a rel="noreferrer noopener" target="_blank"
+            href="https://leetcode-cn.com/problemset/all/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D">
+            <img src="https://leetcode-cn.com/favicon.ico" alt="leetcode">
+            <p>leetcode</p>
+          </a>
+        </li>
+        <li class="site">
+          <a href="https://bilibili.com" target="_blank" rel="noreferrer noopener">
             <img src="https://www.bilibili.com/favicon.ico?v=1" alt="bilibili">
             <p>bilibili</p>
           </a>
         </li>
       </ul>
     </section>
+    <footer>
+      💖❄️
+    </footer>
   </div>
   <script>
     const form = document.getElementById('searchForm')
     form.addEventListener('submit', evt => {
       evt.preventDefault()
       const value = evt.target.search.value
+      if (!value) return
+      e.target.search.value = ''
       if (value.startsWith('bd ')) {
         window.open('https://www.baidu.com/s?wd=' + value)
       } else if (value.startsWith('bi ')) {
