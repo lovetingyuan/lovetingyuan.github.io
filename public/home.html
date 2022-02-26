@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>主页</title>
   <style>
@@ -11,6 +10,13 @@
     body {
       margin: 0;
       height: 100%;
+    }
+
+    .home-page {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      font-size: 18px;
     }
 
     .container {
@@ -74,8 +80,8 @@
 
     .theme {
       position: fixed;
-      top: 12px;
-      right: 12px;
+      top: 16px;
+      right: 16px;
       cursor: pointer;
       font-size: 18px;
     }
@@ -125,7 +131,7 @@
         const client = document.createElement('script')
         client.type = 'module'
         client.textContent = code + `
-        socket.addEventListener('message', evt => {
+        typeof socket === 'object' && socket.addEventListener('message', evt => {
           try { JSON.parse(evt.data).type === 'full-reload' && location.reload() } catch (e) { }
         })
         `
@@ -136,6 +142,9 @@
 </head>
 
 <body>
+  <span class="home-page">
+    <a href="https://tingyuan.me">🏠</a>
+  </span>
   <input type="checkbox" hidden id="darklight">
   <label class="theme" for="darklight"></label>
   <div class="container">
@@ -154,7 +163,7 @@
         </li>
         <li class="site">
           <a rel="noreferrer noopener" target="_blank"
-            href="https://leetcode-cn.com/problemset/all/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D">
+            href="https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D">
             <img src="https://leetcode-cn.com/favicon.ico" alt="leetcode">
             <p>leetcode</p>
           </a>
