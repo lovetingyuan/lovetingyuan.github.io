@@ -94,8 +94,12 @@
     }
 
     #darklight:checked~.container {
-      --bg-color: #222;
+      --bg-color: #181818;
       --text-color: snow;
+    }
+
+    #darklight:checked~.container img.filter-invert {
+      filter: invert(.8);
     }
 
     .container {
@@ -130,7 +134,7 @@
       <ul class="site-list">
         <li class="site">
           <a href="https://github.com" target="_blank" rel="noreferrer noopener">
-            <img src="https://github.githubassets.com/favicons/favicon.png" alt="github">
+            <img class="filter-invert" src="https://github.githubassets.com/favicons/favicon.png" alt="github">
             <p>github</p>
           </a>
         </li>
