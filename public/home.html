@@ -119,6 +119,20 @@
     }
 
   </style>
+  <script>
+    if (location.hostname === 'localhost') {
+      fetch('/@vite/client').then(r => r.text()).then(code => {
+        const client = document.createElement('script')
+        client.type = 'module'
+        client.textContent = code + `
+        socket.addEventListener('message', evt => {
+          try { JSON.parse(evt.data).type === 'full-reload' && location.reload() } catch (e) { }
+        })
+        `
+        document.head.append(client)
+      })
+    }
+  </script>
 </head>
 
 <body>
