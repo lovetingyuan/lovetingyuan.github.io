@@ -207,6 +207,16 @@
         window.open('https://www.google.com/search?q=' + value)
       }
     })
+    document.addEventListener('keydown', e => {
+      console.log(e, document.activeElement)
+      if (e.key === 's') {
+        setTimeout(() => {
+          form.search.focus()
+        });
+      } else if (e.key === 'l') {
+        document.querySelector('li a').focus()
+      }
+    })
   </script>
 </body>
 
