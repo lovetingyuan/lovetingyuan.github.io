@@ -209,12 +209,14 @@
     })
     document.addEventListener('keydown', e => {
       console.log(e, document.activeElement)
-      if (e.key === 's') {
-        setTimeout(() => {
-          form.search.focus()
-        });
-      } else if (e.key === 'l') {
-        document.querySelector('li a').focus()
+      if (document.activeElement !== form.search) {
+        if (e.key === 's') {
+          setTimeout(() => {
+            form.search.focus()
+          });
+        } else if (e.key === 'l') {
+          document.querySelector('li a').focus()
+        }
       }
     })
   </script>
