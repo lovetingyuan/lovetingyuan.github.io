@@ -125,25 +125,12 @@
     }
 
   </style>
-  <script>
-    if (location.hostname === 'localhost') {
-      fetch('/@vite/client').then(r => r.text()).then(code => {
-        const client = document.createElement('script')
-        client.type = 'module'
-        client.textContent = code + `
-        typeof socket === 'object' && socket.addEventListener('message', evt => {
-          try { JSON.parse(evt.data).type === 'full-reload' && location.reload() } catch (e) { }
-        })
-        `
-        document.head.append(client)
-      })
-    }
-  </script>
+  <script src="reload.js" async></script>
 </head>
 
 <body>
   <span class="home-page">
-    <a href="https://tingyuan.me">🏠</a>
+    <a href="https://lovetingyuan.github.io">🏠</a>
   </span>
   <input type="checkbox" hidden id="darklight">
   <label class="theme" for="darklight"></label>
