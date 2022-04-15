@@ -2,9 +2,14 @@
   <section>
     <span class="catename">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
+      <a
+        class="edit"
+        title="编辑"
+        target="_blank"
+        rel="noopener noreferrer"
         :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
-      >✍️</a>
+        >✍️</a
+      >
     </span>
     <article v-html="blogContent" ref="article" class="markdown-body"></article>
   </section>
@@ -13,14 +18,14 @@
 <script lang="ts">
 import 'github-markdown-css/github-markdown.css'
 import * as Prism from 'prismjs'
+// eslint-disable-next-line
 // @ts-ignore
 import('prismjs/components/prism-typescript')
+// eslint-disable-next-line
 // @ts-ignore
-// import('prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard')
 import 'prismjs/themes/prism-tomorrow.css'
 
 window.Prism = Prism
-
 </script>
 
 <script lang="ts" setup>
@@ -39,15 +44,22 @@ watchEffect(() => {
     })
   }
 })
-
 </script>
 
 <style>
 /* markdown */
-.markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre, .markdown-body details {
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body details {
   font-size: 15px;
 }
-.markdown-body p, .markdown-body li {
+.markdown-body p,
+.markdown-body li {
   line-height: 30px;
 }
 .markdown-body code:not([class]) {
@@ -63,7 +75,6 @@ article.markdown-body {
 </style>
 
 <style scoped>
-
 .catename {
   position: absolute;
   right: 0;

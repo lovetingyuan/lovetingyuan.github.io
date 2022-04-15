@@ -6,23 +6,27 @@ const md = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
-});
-
-export default () => {
+})
+export default (): Plugin => {
   return {
     name: 'md-plugin',
     load(id) {
       if (id.endsWith('.md')) {
         const code = readFileSync(id, 'utf-8')
         const src = JSON.stringify(md.render(code))
-        return `export default ${src};\n` + `
-        if (import.meta.hot && window._hotUpdateBlog) {
+        return (
+          `export default ${src};\n` +
+          `
+        if (import.meta.hot) {
           import.meta.hot.accept((m) => {
-             window._hotUpdateBlog(import.meta, m)
+            window.dispatchEvent(new CustomEvent('__hotUpdateBlog', {
+              detail: [import.meta, m],
+            }));
           })
         }
-        `.replace(/\s/g, '')
+        `
+        )
       }
     },
-  } as Plugin
+  }
 }

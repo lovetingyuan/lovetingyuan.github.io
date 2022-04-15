@@ -1,21 +1,27 @@
 <template>
-<div class="item">
-  <img class="cover" width="120" style="min-height: 120px" :src="image" alt="封面">
-  <p class="info-list" v-for="(info, i) of infoList">
-    <a :href="link" target="_blank" rel="noreferrer noopener" v-if="!i">{{info}}</a>
-    <span class="info-item" v-else>{{info}}</span>
-  </p>
-</div>
+  <div class="item">
+    <img
+      class="cover"
+      width="120"
+      style="min-height: 120px"
+      :src="image"
+      alt="封面"
+    />
+    <p class="info-list" v-for="(info, i) of infoList" :key="info">
+      <a :href="link" target="_blank" rel="noreferrer noopener" v-if="!i">{{
+        info
+      }}</a>
+      <span class="info-item" v-else>{{ info }}</span>
+    </p>
+  </div>
 </template>
 <script lang="ts" setup>
-
 defineProps<{
-  infoList: any[],
+  infoList: any[]
   image: string
   song?: string
   link?: string
 }>()
-
 </script>
 
 <style scoped>

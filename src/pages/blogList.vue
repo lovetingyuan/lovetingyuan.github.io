@@ -2,16 +2,20 @@
   <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
-        <router-link :to="`/blog/${c}`">{{c}}</router-link>
+        <router-link :to="`/blog/${c}`">{{ c }}</router-link>
         <a
           v-if="cate"
           :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
-          class="add" target="_blank" rel="noopener noreferrer" title="新增">➕
+          class="add"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="新增"
+          >➕
         </a>
       </h3>
       <ul>
         <li v-for="name of list" :key="name">
-          <router-link :to="`/blog/${c}/${name}`">{{name}}</router-link>
+          <router-link :to="`/blog/${c}/${name}`">{{ name }}</router-link>
         </li>
       </ul>
     </li>
@@ -35,9 +39,8 @@ const displayBlogList = computed(() => {
 })
 
 const columns = computed(() => {
-  return cate.value ? 1 : 2;
+  return cate.value ? 1 : 2
 })
-
 </script>
 
 <style scoped>
