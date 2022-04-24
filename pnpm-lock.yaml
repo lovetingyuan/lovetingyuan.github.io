@@ -5,6 +5,8 @@ specifiers:
   '@actions/exec': ^1.1.1
   '@actions/io': ^1.1.2
   '@types/markdown-it': ^12.2.3
+  '@types/markdown-it-container': ^2.0.5
+  '@types/markdown-it-link-attributes': ^3.0.1
   '@types/marked': ^4.0.3
   '@types/node': ^16.11.10
   '@types/prismjs': ^1.26.0
@@ -17,6 +19,8 @@ specifiers:
   eslint-plugin-vue: ^8.6.0
   github-markdown-css: ^5.1.0
   markdown-it: ^12.3.2
+  markdown-it-container: ^3.0.0
+  markdown-it-link-attributes: ^4.0.0
   prettier: ^2.6.2
   prismjs: ^1.27.0
   typescript: ^4.6.3
@@ -36,6 +40,8 @@ devDependencies:
   '@actions/exec': 1.1.1
   '@actions/io': 1.1.2
   '@types/markdown-it': 12.2.3
+  '@types/markdown-it-container': 2.0.5
+  '@types/markdown-it-link-attributes': 3.0.1
   '@types/marked': 4.0.3
   '@types/node': 16.11.10
   '@types/prismjs': 1.26.0
@@ -47,6 +53,8 @@ devDependencies:
   eslint: 8.13.0
   eslint-plugin-vue: 8.6.0_eslint@8.13.0
   markdown-it: 12.3.2
+  markdown-it-container: 3.0.0
+  markdown-it-link-attributes: 4.0.0
   prettier: 2.6.2
   typescript: 4.6.3
   vite: 2.9.4
@@ -140,6 +148,18 @@ packages:
 
   /@types/linkify-it/3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
+  /@types/markdown-it-container/2.0.5:
+    resolution: {integrity: sha512-8v5jIC5gcCUv+JcD0DExwNBkoKC0kLB4acensF0NoNlTIcXmQxF3RDjzAdIW82sXSoR+n772ePguxIWlq2ELvA==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
+    dev: true
+
+  /@types/markdown-it-link-attributes/3.0.1:
+    resolution: {integrity: sha512-K8RnNb1q8j7rDOJbMF7AnlhCC/45BjrQ8z3WZWOrvkBIl8u9RXvmBdG/hfpnmK1JhhEZcmFEKWt+ilW1Mly+2Q==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
     dev: true
 
   /@types/markdown-it/12.2.3:
@@ -1280,6 +1300,14 @@ packages:
     resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
     dependencies:
       sourcemap-codec: 1.4.8
+
+  /markdown-it-container/3.0.0:
+    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
+    dev: true
+
+  /markdown-it-link-attributes/4.0.0:
+    resolution: {integrity: sha512-ssjxSLlLfQBkX6BvAx1rCPrx7ZoK91llQQvS3P7KXvlbnVD34OUkfXwWecN7su/7mrI/HOW0RI5szdJOIqYC3w==}
+    dev: true
 
   /markdown-it/12.3.2:
     resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}

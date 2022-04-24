@@ -78,7 +78,7 @@ article.markdown-body {
 .catename {
   position: absolute;
   right: 0;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 .edit {
   margin-left: 1em;

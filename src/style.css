@@ -4,6 +4,7 @@ html {
   --theme-color: rgb(0, 87, 128);
   --theme-color2: rgb(0, 41, 59);
   --text-color: #2c3e50;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 #app {
   max-width: 800px;
@@ -38,15 +40,20 @@ body {
 /*滚动条整体部分,必须要设置*/
 ::-webkit-scrollbar {
   width: 10px;
+  height: 12px;
 }
 /*滚动条的轨道*/
 ::-webkit-scrollbar-track {
   background-color: snow;
 }
+
 /*滚动条的滑块按钮*/
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgb(214, 214, 214);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(197, 197, 197);
 }
 
 /* responsive */
@@ -102,4 +109,21 @@ a:hover {
 .slide-leave-to {
   transform: translateX(24px);
   opacity: 0;
+}
+
+
+.markdown-body :not(pre) > code[class*="language-"], .markdown-body pre[class*="language-"] {
+  background-color: #181818;
+}
+.markdown-body pre[class*="language-"] {
+  padding: 20px 24px;
+  margin: 0.5em 0;
+  overflow: auto;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+.details-content {
+  padding: 20px;
 }

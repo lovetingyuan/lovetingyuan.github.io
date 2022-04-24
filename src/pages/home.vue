@@ -5,9 +5,7 @@
     </p>
     <ul>
       <li v-for="a of links" :key="a.url" class="link-item">
-        <a :href="a.url" target="_blank" rel="noopener noreferrer">{{
-          a.title
-        }}</a>
+        <a :href="a.url" target="_blank" rel="noopener noreferrer">{{ a.title }}</a>
       </li>
     </ul>
   </div>
@@ -26,6 +24,10 @@ const links = [
   {
     title: '一些LeetCode题目',
     url: 'https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md',
+  },
+  {
+    title: 'CodeTop',
+    url: 'https://codetop.cc/home',
   },
 ]
 </script>

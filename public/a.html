@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a</title>
+  <script src="./reload.js"></script>
+</head>
+
+<body>
+  <div>
+    <label for="tab1">tab 1</label>
+    <label for="tab2">tab 2</label>
+    <input type="radio" name="tab-content" id="tab1" checked hidden>
+    <section hidden style="background-color: pink;">content 1</section>
+    <input type="radio" name="tab-content" id="tab2" hidden>
+    <section hidden style="background-color: lightgreen;">content 2</section>
+    <style>
+      input[type=radio]:checked+section {
+        display: block;
+      }
+
+    </style>
+  </div>
+</body>
+
+</html>
