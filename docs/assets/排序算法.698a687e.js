@@ -1,6 +1,6 @@
 var n=`<h2>\u5FEB\u6392\uFF0C\u5806\u6392\uFF0C\u5F52\u5E76\u6392\u5E8F</h2>
 <blockquote>
-<p>\u5173\u4E8E\u7B97\u6CD5\u7684js\u5B9E\u73B0\u53EF\u4EE5\u53C2\u8003<a href="https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md">javascript-algorithms</a>\uFF0C\u8FD9\u91CC\u9762\u6709\u76F8\u5F53\u4E30\u5BCC\u7684\u57FA\u4E8EJavaScript\u7684\u6570\u636E\u7ED3\u6784\u548C\u7B97\u6CD5\u5B9E\u73B0\u3002</p>
+<p>\u5173\u4E8E\u7B97\u6CD5\u7684js\u5B9E\u73B0\u53EF\u4EE5\u53C2\u8003<a href="https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md" target="_blank" rel="noopener noreferrer">javascript-algorithms</a>\uFF0C\u8FD9\u91CC\u9762\u6709\u76F8\u5F53\u4E30\u5BCC\u7684\u57FA\u4E8EJavaScript\u7684\u6570\u636E\u7ED3\u6784\u548C\u7B97\u6CD5\u5B9E\u73B0\u3002</p>
 </blockquote>
 <table>
 <thead>

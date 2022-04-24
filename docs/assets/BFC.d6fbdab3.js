@@ -1,5 +1,5 @@
-var t=`<h2>BFC\u5757\u7EA7\u683C\u5F0F\u4E0A\u4E0B\u6587</h2>
-<p>\u5728<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context">MDN</a>\u4E0A\u67E5\u770B</p>
+var e=`<h2>BFC\u5757\u7EA7\u683C\u5F0F\u4E0A\u4E0B\u6587</h2>
+<p>\u5728<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener noreferrer">MDN</a>\u4E0A\u67E5\u770B</p>
 <p>BFC\u662FWeb\u9875\u9762\u7684\u53EF\u89C6CSS\u6E32\u67D3\u7684\u4E00\u90E8\u5206\uFF0C\u662F\u5757\u76D2\u5B50\u7684\u5E03\u5C40\u8FC7\u7A0B\u53D1\u751F\u7684\u533A\u57DF\uFF0C\u4E5F\u662F\u6D6E\u52A8\u5143\u7D20\u4E0E\u5176\u4ED6\u5143\u7D20\u4EA4\u4E92\u7684\u533A\u57DF\u3002</p>
 <p>\u4F7F\u4E00\u4E2A\u5143\u7D20\u5F62\u6210BFC\u7684\u65B9\u5F0F\u6709\uFF1A</p>
 <ul>
@@ -21,9 +21,9 @@ var t=`<h2>BFC\u5757\u7EA7\u683C\u5F0F\u4E0A\u4E0B\u6587</h2>
 <hr>
 <p><strong>Advertisement :)</strong></p>
 <ul>
-<li><strong><a href="https://nodeca.github.io/pica/demo/">pica</a></strong> - high quality and fast image
+<li><strong><a href="https://nodeca.github.io/pica/demo/" target="_blank" rel="noopener noreferrer">pica</a></strong> - high quality and fast image
 resize in browser.</li>
-<li><strong><a href="https://github.com/nodeca/babelfish/">babelfish</a></strong> - developer friendly
+<li><strong><a href="https://github.com/nodeca/babelfish/" target="_blank" rel="noopener noreferrer">babelfish</a></strong> - developer friendly
 i18n with plurals support and easy syntax.</li>
 </ul>
 <p>You will like those projects!</p>
@@ -169,9 +169,9 @@ console.log(foo(5));
 </tbody>
 </table>
 <h2>Links</h2>
-<p><a href="http://dev.nodeca.com">link text</a></p>
-<p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
-<p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
+<p><a href="http://dev.nodeca.com" target="_blank" rel="noopener noreferrer">link text</a></p>
+<p><a href="http://nodeca.github.io/pica/demo/" title="title text!" target="_blank" rel="noopener noreferrer">link with title</a></p>
+<p>Autoconverted link <a href="https://github.com/nodeca/pica" target="_blank" rel="noopener noreferrer">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
 <h2>Images</h2>
 <p><img src="https://octodex.github.com/images/minion.png" alt="Minion">
 <img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Stormtroopocat" title="The Stormtroopocat"></p>
@@ -180,23 +180,23 @@ console.log(foo(5));
 <p>With a reference later in the document defining the URL location:</p>
 <h2>Plugins</h2>
 <p>The killer feature of <code>markdown-it</code> is very effective support of
-<a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin">syntax plugins</a>.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-emoji">Emojies</a></h3>
+<a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin" target="_blank" rel="noopener noreferrer">syntax plugins</a>.</p>
+<h3><a href="https://github.com/markdown-it/markdown-it-emoji" target="_blank" rel="noopener noreferrer">Emojies</a></h3>
 <blockquote>
 <p>Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:</p>
 <p>Shortcuts (emoticons): :-) :-( 8-) ;)</p>
 </blockquote>
-<p>see <a href="https://github.com/markdown-it/markdown-it-emoji#change-output">how to change output</a> with twemoji.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-sub">Subscript</a> / <a href="https://github.com/markdown-it/markdown-it-sup">Superscript</a></h3>
+<p>see <a href="https://github.com/markdown-it/markdown-it-emoji#change-output" target="_blank" rel="noopener noreferrer">how to change output</a> with twemoji.</p>
+<h3><a href="https://github.com/markdown-it/markdown-it-sub" target="_blank" rel="noopener noreferrer">Subscript</a> / <a href="https://github.com/markdown-it/markdown-it-sup" target="_blank" rel="noopener noreferrer">Superscript</a></h3>
 <ul>
 <li>19^th^</li>
 <li>H~2~O</li>
 </ul>
-<h3><a href="https://github.com/markdown-it/markdown-it-ins">&lt;ins&gt;</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-ins" target="_blank" rel="noopener noreferrer">&lt;ins&gt;</a></h3>
 <p>++Inserted text++</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-mark">&lt;mark&gt;</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-mark" target="_blank" rel="noopener noreferrer">&lt;mark&gt;</a></h3>
 <p>==Marked text==</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-footnote">Footnotes</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-footnote" target="_blank" rel="noopener noreferrer">Footnotes</a></h3>
 <p>Footnote 1 link[^first].</p>
 <p>Footnote 2 link[^second].</p>
 <p>Inline footnote^[Text of inline footnote] definition.</p>
@@ -205,7 +205,7 @@ console.log(foo(5));
 <pre><code>and multiple paragraphs.
 </code></pre>
 <p>[^second]: Footnote text.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-deflist">Definition lists</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-deflist" target="_blank" rel="noopener noreferrer">Definition lists</a></h3>
 <p>Term 1</p>
 <p>:   Definition 1
 with lazy continuation.</p>
@@ -221,12 +221,12 @@ Third paragraph of definition 2.
 <p>Term 2
 ~ Definition 2a
 ~ Definition 2b</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-abbr">Abbreviations</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-abbr" target="_blank" rel="noopener noreferrer">Abbreviations</a></h3>
 <p>This is HTML abbreviation example.</p>
 <p>It converts \u201CHTML\u201D, but keep intact partial entries like \u201CxxxHTMLyyy\u201D and so on.</p>
 <p>*[HTML]: Hyper Text Markup Language</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-container">Custom containers</a></h3>
+<h3><a href="https://github.com/markdown-it/markdown-it-container" target="_blank" rel="noopener noreferrer">Custom containers</a></h3>
 <p>::: warning
 <em>here be dragons</em>
 :::</p>
-`;export{t as default};
+`;export{e as default};

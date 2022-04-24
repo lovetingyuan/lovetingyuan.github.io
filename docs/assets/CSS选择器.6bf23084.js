@@ -38,12 +38,12 @@ html h1 {
 <p>h1\u662F\u7D2B\u8272\uFF0C\u4F18\u5148\u7EA7\u76F8\u540C\u5C31\u6309\u7167\u987A\u5E8F\u8986\u76D6</p>
 <hr>
 <p>\u4E0B\u9762\u5217\u4E3E\u4E00\u4E9B\u5E38\u7528\u7684\u4F2A\u7C7B\u548C\u4F2A\u5143\u7D20:</p>
-<h3>\u4F2A\u5143\u7D20(<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements">mdn</a>)</h3>
+<h3>\u4F2A\u5143\u7D20(<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements" target="_blank" rel="noopener noreferrer">mdn</a>)</h3>
 <p>\u4F2A\u5143\u7D20\u8868\u793A\u53EF\u4EE5\u6E32\u67D3\u5230\u754C\u9762\u4F46\u65E0\u6CD5\u5728html\u4E2D\u63CF\u8FF0\u7684\u201C\u5143\u7D20\u201D\uFF0C\u901A\u5E38\u4F5C\u4E3A\u73B0\u6709\u5143\u7D20\u7684\u7279\u5B9A\u90E8\u5206</p>
 <ul>
 <li><code>::after</code>, <code>::before</code>, <code>::first-line</code>, <code>::first-letter</code>, <code>::selection</code>, <code>::placeholder</code></li>
 </ul>
-<h3>\u4F2A\u7C7B(<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes">mdn</a>)</h3>
+<h3>\u4F2A\u7C7B(<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes" target="_blank" rel="noopener noreferrer">mdn</a>)</h3>
 <p>\u4F2A\u7C7B\u63CF\u8FF0\u4E00\u4E9B\u5177\u6709\u7279\u5B9A\u7ED3\u6784\u3001\u72B6\u6001\u6216\u8005\u884C\u4E3A\u7684\u5143\u7D20</p>
 <ul>
 <li><code>:root</code> \u4EE3\u8868html\u5143\u7D20\uFF0C\u4F46\u6BD4html\u6807\u7B7E\u9009\u62E9\u5668\u7684\u4F18\u5148\u7EA7\u9AD8\u4E00\u4E9B</li>
@@ -67,10 +67,10 @@ html h1 {
 <li><code>:focus-within</code>\uFF0C\u5339\u914D\u5305\u542B\u7126\u70B9\u5143\u7D20\u7684\u5143\u7D20</li>
 </ul>
 </li>
-<li><code>:is()</code>\uFF0C\u53C2\u6570\u4E3A\u4E00\u7EC4\u9009\u62E9\u5668\uFF0C\u7136\u540E\u4F1A\u904D\u5386\u8FD9\u4E9B\u9009\u62E9\u5668\u8BA9\u5176\u6BCF\u4E00\u4E2A\u90FD\u751F\u6548\uFF0C\u4E0E\u6B64\u7C7B\u4F3C\u7684\u662F<code>:where()</code>.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is">mdn</a></li>
+<li><code>:is()</code>\uFF0C\u53C2\u6570\u4E3A\u4E00\u7EC4\u9009\u62E9\u5668\uFF0C\u7136\u540E\u4F1A\u904D\u5386\u8FD9\u4E9B\u9009\u62E9\u5668\u8BA9\u5176\u6BCF\u4E00\u4E2A\u90FD\u751F\u6548\uFF0C\u4E0E\u6B64\u7C7B\u4F3C\u7684\u662F<code>:where()</code>.<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:is" target="_blank" rel="noopener noreferrer">mdn</a></li>
 <li><code>:target</code> \u5339\u914D\u548C\u5F53\u524D\u8DEF\u7531\u54C8\u5E0C\uFF08#\uFF09\u5BF9\u7684\u4E0A\u7684\u90A3\u4E2A\u5143\u7D20</li>
-<li><code>:not()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not">mdn</a>\uFF0C\u53CD\u5411\u5339\u914D\uFF0C\u5339\u914D\u4E0D\u662F\u67D0\u9009\u62E9\u5668\u7684\u5143\u7D20</li>
-<li><code>:scope</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:scope">mdn</a> \u8868\u793A\u5F53\u524D\u5143\u7D20\uFF0C\u5728css\u91CC\u76F8\u5F53\u4E8E<code>:root</code>\uFF0C\u5728js\u91CC\u6307\u4EE3\u5F53\u524D\u5143\u7D20\uFF0C\u5982<code>someElement.querySelectorAll(':scope &gt; div');</code></li>
-<li><code>:has()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has">mdn</a> \u8868\u793A\u5339\u914D\u5F53\u524D\u5143\u7D20\u5E76\u4E14\u6EE1\u8DB3\u7ED9\u5B9A\u7684\u9009\u62E9\u5668\uFF0C\u5982<code>a:has(&gt; img)</code>\u8868\u793A\u53EA\u4F1A\u5339\u914D\u76F4\u63A5\u5305\u542B &lt;img&gt; \u5B50\u5143\u7D20\u7684 &lt;a&gt; \u5143\u7D20</li>
+<li><code>:not()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:not" target="_blank" rel="noopener noreferrer">mdn</a>\uFF0C\u53CD\u5411\u5339\u914D\uFF0C\u5339\u914D\u4E0D\u662F\u67D0\u9009\u62E9\u5668\u7684\u5143\u7D20</li>
+<li><code>:scope</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:scope" target="_blank" rel="noopener noreferrer">mdn</a> \u8868\u793A\u5F53\u524D\u5143\u7D20\uFF0C\u5728css\u91CC\u76F8\u5F53\u4E8E<code>:root</code>\uFF0C\u5728js\u91CC\u6307\u4EE3\u5F53\u524D\u5143\u7D20\uFF0C\u5982<code>someElement.querySelectorAll(':scope &gt; div');</code></li>
+<li><code>:has()</code> <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:has" target="_blank" rel="noopener noreferrer">mdn</a> \u8868\u793A\u5339\u914D\u5F53\u524D\u5143\u7D20\u5E76\u4E14\u6EE1\u8DB3\u7ED9\u5B9A\u7684\u9009\u62E9\u5668\uFF0C\u5982<code>a:has(&gt; img)</code>\u8868\u793A\u53EA\u4F1A\u5339\u914D\u76F4\u63A5\u5305\u542B &lt;img&gt; \u5B50\u5143\u7D20\u7684 &lt;a&gt; \u5143\u7D20</li>
 </ul>
 `;export{e as default};

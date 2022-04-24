@@ -92,7 +92,7 @@ var n=`<h3>\u7B97\u6CD5\u9898</h3>
 </li>
 <li><details>
 <summary><a href="https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/">\u4E8C\u53C9\u6811\u6700\u8FD1\u516C\u5171\u7956\u5148</a></summary>
-<p><a href="https://leetcode-cn.com/submissions/detail/262989314/">\u9898\u89E3</a></p>
+<p><a href="https://leetcode-cn.com/submissions/detail/262989314/" target="_blank" rel="noopener noreferrer">\u9898\u89E3</a></p>
 <ol>
 <li>\u5982\u679Cp\u548Cq\u5728\u4E00\u4E2A\u8282\u70B9\u7684\u5DE6\u53F3\u5B50\u6811\u5185\uFF0C\u90A3\u8FD9\u4E2A\u8282\u70B9\u4E00\u5B9A\u662F\u6700\u8FD1\u516C\u5171\u7956\u5148</li>
 <li>\u5426\u5219\u6700\u8FD1\u516C\u5171\u7956\u5148\u4E00\u5B9A\u662Fp(q)\uFF0C\u800Cq\xA7\u5728p(q)\u7684\u5B50\u6811\u5185</li>

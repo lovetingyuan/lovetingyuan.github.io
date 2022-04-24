@@ -41,11 +41,7 @@
       alert('当前环境不支持')
     }
 
-    window.onerror = () => {
-      alert('页面出错')
-    }
-
-    window.addEventListener('unhandledrejection', () => {
+    window.addEventListener('unhandledrejection', window.onerror = () => {
       alert('页面出错')
     })
     async function en(str) {
@@ -75,7 +71,7 @@
       const p = await en(val)
       await navigator.clipboard.writeText(p.substr(0, button.len))
       button.style.color = 'green'
-      document.getElementById('result').textContent = p
+      document.getElementById('result').textContent = p.length
     })
 
   </script>

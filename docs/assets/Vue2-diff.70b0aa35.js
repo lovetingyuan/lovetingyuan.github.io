@@ -68,5 +68,5 @@ var n=`<h2>Vue\u4E2Dvnode\u7684diff\u8FC7\u7A0B</h2>
 </ul>
 </li>
 </ul>
-<p>diff-patch\u7684\u8FC7\u7A0B\u662F\u53C2\u8003\u4E86<a href="https://github.com/snabbdom/snabbdom"><code>Snabbdom</code></a>\u7684\u5B9E\u73B0\u3002</p>
+<p>diff-patch\u7684\u8FC7\u7A0B\u662F\u53C2\u8003\u4E86<a href="https://github.com/snabbdom/snabbdom" target="_blank" rel="noopener noreferrer"><code>Snabbdom</code></a>\u7684\u5B9E\u73B0\u3002</p>
 `;export{n as default};
