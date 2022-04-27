@@ -53,10 +53,25 @@
 
 3. 如何取消一个 fetch 请求？
 
-   使用[`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+使用[`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
+
+4. 添加一行代码，让下面的语句先输出 11 再输出 10（不能更改现有代码）
+
+   ```js
+   setTimeout(() => {
+     console.log(11)
+   }, 11)
+   setTimeout(() => {
+     console.log(10)
+   }, 10)
+   ```
 
 ## http
 
 1. 当前网站 A 向第三方网站 C（可信但是不同域名）请求一个接口并且希望带上二者的 cookie，请问需要满足什么条件或者做什么设置？
 
    withCredential: true and same-site cookie
+
+## git
+
+1. 如何合并多个 commit 为一个 commit

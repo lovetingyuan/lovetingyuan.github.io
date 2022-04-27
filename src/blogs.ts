@@ -46,13 +46,10 @@ export default function useBlogs() {
 }
 
 if (typeof window === 'object' && import.meta.hot) {
-  window.addEventListener(
-    '__hotUpdateBlog',
-    (evt: CustomEventInit<[ImportMeta, { default: string }]>) => {
-      if (!evt.detail) return
-      const [meta, module] = evt.detail
-      const { pathname } = new URL(meta.url)
-      blogsMap[decodeURIComponent(pathname)] = async () => module
-    }
-  )
+  window.addEventListener('__hotUpdateBlog', (evt: CustomEventInit<[ImportMeta, { default: string }]>) => {
+    if (!evt.detail) return
+    const [meta, module] = evt.detail
+    const { pathname } = new URL(meta.url)
+    blogsMap[decodeURIComponent(pathname)] = async () => module
+  })
 }

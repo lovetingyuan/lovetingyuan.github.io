@@ -25,6 +25,7 @@
   <footer>
     <i>{{ time }}</i>
     <span style="margin-left: 8px">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
+    <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
     <a
       class="github-link"
       title="github"

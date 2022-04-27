@@ -1,0 +1,42 @@
+{
+  "commonLinks": [
+    {
+      "title": "github",
+      "url": "https://github.com"
+    },
+    {
+      "title": "leetcode",
+      "url": "https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D"
+    },
+    {
+      "title": "bilibili",
+      "url": "https://bilibili.com"
+    },
+    {
+      "title": "twitter",
+      "url": "https://twitter.com/home"
+    },
+    {
+      "title": "cctv",
+      "url": "https://tv.cctv.com/live/"
+    }
+  ],
+  "homeLinks": [
+    {
+      "title": "代码随想录",
+      "url": "https://programmercarl.com/"
+    },
+    {
+      "title": "labuladong算法小抄",
+      "url": "https://labuladong.gitee.io/algo/"
+    },
+    {
+      "title": "一些LeetCode题目",
+      "url": "https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md"
+    },
+    {
+      "title": "CodeTop",
+      "url": "https://codetop.cc/home"
+    }
+  ]
+}

@@ -26,6 +26,17 @@ import('prismjs/components/prism-typescript')
 import 'prismjs/themes/prism-tomorrow.css'
 
 window.Prism = Prism
+
+if (import.meta.env.DEV) {
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      const details = document.getElementsByTagName('details')
+      Array.from(details).forEach((detail) => {
+        detail.setAttribute('open', '')
+      })
+    }
+  })
+}
 </script>
 
 <script lang="ts" setup>

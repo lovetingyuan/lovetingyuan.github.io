@@ -21,8 +21,7 @@ const NotFound = {
 
 export default function () {
   const originTitle = document.title
-  const historyMethod =
-    typeof document === 'object' ? createWebHistory : createMemoryHistory
+  const historyMethod = typeof document === 'object' ? createWebHistory : createMemoryHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
     scrollBehavior: () => ({ top: 0 }),

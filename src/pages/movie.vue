@@ -25,8 +25,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E5%8D%83%E4%B8%8E%E5%8D%83%E5%AF%BB/389041',
   },
   {
-    cover:
-      'https://img31.mtime.cn/mt/2014/02/22/230130.33587497_1280X720X2.jpg',
+    cover: 'https://img31.mtime.cn/mt/2014/02/22/230130.33587497_1280X720X2.jpg',
     name: '天空之城 / 天空の城ラピュタ',
     director: '宫崎骏',
     studio: '吉卜力',
@@ -44,8 +43,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E9%BE%99%E7%8C%AB/12015836',
   },
   {
-    cover:
-      'https://img31.mtime.cn/mt/2014/02/22/224224.35649043_1280X720X2.jpg',
+    cover: 'https://img31.mtime.cn/mt/2014/02/22/224224.35649043_1280X720X2.jpg',
     name: '楚门的世界 / The Truman Show',
     actor: '金·凯瑞',
     studio: '派拉蒙',
@@ -55,8 +53,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E6%A5%9A%E9%97%A8%E7%9A%84%E4%B8%96%E7%95%8C/2027215',
   },
   {
-    cover:
-      'https://img5.mtime.cn/img2x/mt/2011/01/02/002740.33762853_1280X720X2.jpg',
+    cover: 'https://img5.mtime.cn/img2x/mt/2011/01/02/002740.33762853_1280X720X2.jpg',
     name: '怦然心动 / Flipped',
     studio: '华纳兄弟',
     director: '罗伯·莱纳',
@@ -65,8 +62,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E6%80%A6%E7%84%B6%E5%BF%83%E5%8A%A8/413',
   },
   {
-    cover:
-      'https://img31.mtime.cn/mt/2013/11/20/172527.42989246_1280X720X2.jpg',
+    cover: 'https://img31.mtime.cn/mt/2013/11/20/172527.42989246_1280X720X2.jpg',
     name: '机器人总动员 / WALL·E',
     studio: '迪士尼',
     director: '安德鲁·斯坦顿',
@@ -75,8 +71,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%80%BB%E5%8A%A8%E5%91%98/27212',
   },
   {
-    cover:
-      'https://img31.mtime.cn/mt/2014/03/16/170353.61991681_1280X720X2.jpg',
+    cover: 'https://img31.mtime.cn/mt/2014/03/16/170353.61991681_1280X720X2.jpg',
     name: '飞屋环游记 / Up',
     studio: '迪士尼',
     director: '彼特·道格特, 鲍勃·彼德森',
@@ -103,8 +98,7 @@ const movies = [
     link: 'https://baike.baidu.com/item/%E8%82%96%E7%94%B3%E5%85%8B%E7%9A%84%E6%95%91%E8%B5%8E/312883',
   },
   {
-    cover:
-      'https://img31.mtime.cn/mt/2014/02/23/040522.39376765_1280X720X2.jpg',
+    cover: 'https://img31.mtime.cn/mt/2014/02/23/040522.39376765_1280X720X2.jpg',
     name: '了不起的狐狸爸爸 / Fantastic Mr. Fox',
     studio: '二十世纪福克斯',
     director: '韦斯·安德森',
