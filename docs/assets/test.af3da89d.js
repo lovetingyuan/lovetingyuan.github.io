@@ -51,7 +51,19 @@ console.log(foo())
 </li>
 <li>
 <p>\u5982\u4F55\u53D6\u6D88\u4E00\u4E2A fetch \u8BF7\u6C42\uFF1F</p>
+</li>
+</ol>
 <p>\u4F7F\u7528<a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener noreferrer"><code>AbortController</code></a></p>
+<ol start="4">
+<li>
+<p>\u6DFB\u52A0\u4E00\u884C\u4EE3\u7801\uFF0C\u8BA9\u4E0B\u9762\u7684\u8BED\u53E5\u5148\u8F93\u51FA 11 \u518D\u8F93\u51FA 10\uFF08\u4E0D\u80FD\u66F4\u6539\u73B0\u6709\u4EE3\u7801\uFF09</p>
+<pre><code class="language-js">setTimeout(() =&gt; {
+  console.log(11)
+}, 11)
+setTimeout(() =&gt; {
+  console.log(10)
+}, 10)
+</code></pre>
 </li>
 </ol>
 <h2>http</h2>
@@ -60,5 +72,9 @@ console.log(foo())
 <p>\u5F53\u524D\u7F51\u7AD9 A \u5411\u7B2C\u4E09\u65B9\u7F51\u7AD9 C\uFF08\u53EF\u4FE1\u4F46\u662F\u4E0D\u540C\u57DF\u540D\uFF09\u8BF7\u6C42\u4E00\u4E2A\u63A5\u53E3\u5E76\u4E14\u5E0C\u671B\u5E26\u4E0A\u4E8C\u8005\u7684 cookie\uFF0C\u8BF7\u95EE\u9700\u8981\u6EE1\u8DB3\u4EC0\u4E48\u6761\u4EF6\u6216\u8005\u505A\u4EC0\u4E48\u8BBE\u7F6E\uFF1F</p>
 <p>withCredential: true and same-site cookie</p>
 </li>
+</ol>
+<h2>git</h2>
+<ol>
+<li>\u5982\u4F55\u5408\u5E76\u591A\u4E2A commit \u4E3A\u4E00\u4E2A commit</li>
 </ol>
 `;export{n as default};

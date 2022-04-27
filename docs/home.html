@@ -194,7 +194,7 @@
       if (!value) return
       evt.target.search.value = ''
       if (value.startsWith('bd ')) {
-        window.open('https://www.baidu.com/s?wd=' + value)
+        window.open('https://www.baidu.com/s?wd=' + value.slice(3))
       } else if (value.startsWith('bi ')) {
         window.open('https://www.bing.com/search?q=' + value.slice(3))
       } else {
