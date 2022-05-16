@@ -6,9 +6,16 @@ TypeScript 的一个强大之处在于它支持通过泛型以及一些关键字
 
 TypeScript 语言本身就内置的一些高阶类型，利用它们可以方便的实现类型编程：
 
-借助于下面要介绍的工具类型，可以实现一些其他常用的工具类型，例如[`type-fest`](https://github.com/sindresorhus/type-fest), [`utility-types`](https://github.com/piotrwitek/utility-types), [`ts-toolbelt`](https://github.com/millsp/ts-toolbelt), [`SimplyTyped`](https://github.com/andnp/SimplyTyped) 都是一些不错的实现，值得学习参考。
+借助于下面要介绍的工具类型，可以实现一些其他常用的工具类型，例如
+
+- [`type-fest`](https://github.com/sindresorhus/type-fest)
+- [`utility-types`](https://github.com/piotrwitek/utility-types)
+- [`ts-toolbelt`](https://github.com/millsp/ts-toolbelt)
+- [`SimplyTyped`](https://github.com/andnp/SimplyTyped)
 
 另外 github 上有个类型体操的题目挑战列表[`type-challenges`](https://github.com/type-challenges/type-challenges)，里面有不同难度的题目可以解答
+
+#### 一些内置工具类型的实现
 
 ```typescript
 // 类型T的所有属性都变为可选的

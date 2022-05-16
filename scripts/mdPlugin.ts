@@ -27,7 +27,13 @@ md.use(container, 'detail', {
     if (!info) {
       return '</div></details>\n'
     }
-    const [, title, link] = info.split(' ')
+    let title
+    let link
+    if (info.includes('[')) {
+      ;[, title, link] = info.match(/detail \[(.*)\] (.*)$/) || []
+    } else {
+      ;[, title, link] = info.split(' ')
+    }
     return `\n</div></details>\n<details><summary>${title}${
       link ? `<a href="${link}" target="_blank" style="margin-left: 20px">leetcode</a>` : ''
     }</summary><div class="details-content">\n`

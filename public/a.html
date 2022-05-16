@@ -11,18 +11,49 @@
 
 <body>
   <div>
-    <label for="tab1">tab 1</label>
-    <label for="tab2">tab 2</label>
-    <input type="radio" name="tab-content" id="tab1" checked hidden>
-    <section hidden style="background-color: pink;">content 1</section>
-    <input type="radio" name="tab-content" id="tab2" hidden>
-    <section hidden style="background-color: lightgreen;">content 2</section>
+    <div class="tabs">
+      <input type="radio" name="tab-content" id="tab1" checked>
+      <label for="tab1">tab 1</label>
+      <input type="radio" name="tab-content" id="tab2">
+      <label for="tab2">tab 2</label>
+      <input type="radio" name="tab-content" id="tab3">
+      <label for="tab3">tab 3</label>
+      <section>content 1</section>
+      <section>content 2</section>
+      <section>content 3</section>
+    </div>
     <style>
-      input[type=radio]:checked+section {
+      input[type=radio] {
+        display: none;
+      }
+
+      input[type=radio]:checked+label {
+        background-color: lightseagreen;
+      }
+
+      /* input[type=radio]:checked+label+section {
+        display: block;
+      } */
+
+      section {
+        display: none;
+        background-color: lightseagreen;
+      }
+
+      input[type=radio]:nth-of-type(1):checked~section:nth-of-type(1) {
+        display: block;
+      }
+
+      input[type=radio]:nth-of-type(2):checked~section:nth-of-type(2) {
         display: block;
       }
 
     </style>
+    <div style="overflow: visible;">
+      <div style="margin: 20px; float: left;">a</div>
+      <div style="margin: 20px">b</div>
+
+    </div>
   </div>
 </body>
 

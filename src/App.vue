@@ -5,13 +5,13 @@
     </h4>
     <ul class="links">
       <li>
-        <router-link to="/blog" style="color: #007896">博客 📟</router-link>
+        <router-link to="/blog" style="color: #007896" data-icon="📟">博客</router-link>
       </li>
       <li>
-        <router-link to="/music" style="color: #007419">音乐 🎵</router-link>
+        <router-link to="/music" style="color: #007419" data-icon="🎵">音乐</router-link>
       </li>
       <li>
-        <router-link to="/movie" style="color: #7b00ac">电影 🎬</router-link>
+        <router-link to="/movie" style="color: #7b00ac" data-icon="🎬">电影</router-link>
       </li>
     </ul>
   </header>
@@ -36,10 +36,14 @@
     >
     </a>
   </footer>
+  <div>
+    <go-top />
+  </div>
 </template>
 
 <script lang="ts" setup>
 import github from './assets/github.svg?raw'
+import GoTop from './components/GoTop.vue'
 const time = (window as any)._buildTime || new Date().toLocaleDateString()
 </script>
 
@@ -47,11 +51,17 @@ const time = (window as any)._buildTime || new Date().toLocaleDateString()
 header {
   display: flex;
 }
+header a {
+  text-decoration: none;
+}
 .title {
   margin: 0;
   font-size: 22px;
   filter: blur(0.4px);
   user-select: none;
+}
+.title:hover {
+  filter: blur(0px);
 }
 
 .links {
@@ -89,8 +99,7 @@ main {
 footer {
   position: absolute;
   bottom: 0;
-  height: 38px;
-  line-height: 38px;
+  height: 24px;
   width: 100%;
   text-align: center;
   font-size: 12px;
@@ -104,5 +113,10 @@ footer {
   width: 14px;
   height: 14px;
   margin-left: 12px;
+}
+[data-icon]:after {
+  content: attr(data-icon);
+  margin-left: 10px;
+  font-size: .8em;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <span class="catename">
+    <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
       <a
         class="edit"
@@ -26,17 +26,6 @@ import('prismjs/components/prism-typescript')
 import 'prismjs/themes/prism-tomorrow.css'
 
 window.Prism = Prism
-
-if (import.meta.env.DEV) {
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-      const details = document.getElementsByTagName('details')
-      Array.from(details).forEach((detail) => {
-        detail.setAttribute('open', '')
-      })
-    }
-  })
-}
 </script>
 
 <script lang="ts" setup>
@@ -86,9 +75,10 @@ article.markdown-body {
 </style>
 
 <style scoped>
-.catename {
+.cate-name {
   position: absolute;
   right: 0;
+  top: 0;
   text-transform: uppercase;
 }
 .edit {

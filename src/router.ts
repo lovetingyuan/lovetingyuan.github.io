@@ -47,7 +47,10 @@ export default function () {
         name: 'BlogList',
         path: '/blog/:cate?',
         component: BlogList,
-        meta: { title: ({ cate }: any) => `博客${cate ? ' - ' + cate : ''}` },
+        meta: {
+          title: ({ cate }: any) => `博客${cate ? ' - ' + cate : ''}`,
+          animation: 'slide',
+        },
       },
       {
         name: 'BlogContent',

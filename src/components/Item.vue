@@ -21,9 +21,6 @@ defineProps<{
   overflow: hidden;
   font-size: 14px;
 }
-.item a:hover {
-  text-decoration: underline;
-}
 .cover {
   object-fit: cover;
   float: left;
