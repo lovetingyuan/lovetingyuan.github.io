@@ -4,7 +4,7 @@
       <figcaption>常用站点</figcaption>
       <ul class="common-sites">
         <li v-for="a of commonLinks" :key="a.url" class="common-site-item">
-          <link-item :a="a" :size="36" class="common-site-link" />
+          <link-item :a="a" :size="32" class="common-site-link" />
         </li>
       </ul>
     </figure>
@@ -19,8 +19,8 @@
             target="_blank"
             title="添加"
             href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/config.json"
-            >➕</a
-          >
+            >➕
+          </a>
         </li>
       </ul>
     </figure>
@@ -33,6 +33,9 @@ import LinkItem from '@/components/LinkItem.vue'
 </script>
 
 <style scoped>
+figure {
+  margin: 20px;
+}
 figcaption {
   margin-bottom: 10px;
 }

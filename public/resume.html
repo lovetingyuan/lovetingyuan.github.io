@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>resume</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css"
-    integrity="sha256-oQhE1gzQ/RLRlHgKfVUhrAe03FJbQLmTjY5ngEJPhdg=" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize-css@2.3.1/normalize.css"
+    integrity="sha256-oQhE1gzQ/RLRlHgKfVUhrAe03FJbQLmTjY5ngEJPhdg=" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
   <script src="reload.js" async></script>
   <style>
     body {
@@ -97,17 +98,17 @@
       details: {
         '美团优选零售系统': [
           '负责区域规划项目从 React + Redux 向 Vue + Vuex 重构，优化了地图渲染性能',
-          '参与中心仓储物流部分业务开发，包括建立协同仓，自动化仓改造，月台建设，出库作业看板等',
-          '负责开发PDA设计预览项目，实现了设计稿一键上传、预览和权限校验功能'
+          '参与中心仓储物流部分业务开发，包括建立协同仓、自动化仓改造，月台建设，出库作业管理等',
+          '负责开发 PDA 设计预览项目，实现了设计稿一键上传、预览功能，并支持权限校验'
         ],
         '页面配置化开发': [
-          '参与低代码平台建设，采用了 monorepo，对于相似页面进行配置化抽象，通过编写配置渲染页面，提升了开发效率',
-          '实现了公共业务组件库和相似页面抽离成 npm 包分发，提升了代码复用率'
+          '参与低代码平台建设，采用 monorepo，对于相似页面进行配置化抽象，通过编写配置渲染页面，提升了开发效率',
+          '实现了公共业务组件库和相似页面抽离成 npm 包分发，提升了代码复用率和开发效率'
         ],
         '技术建设': [
-          '本地开发 API 代理优化，支持了 mock 响应和 proxy 的热更新',
-          '推动项目开发工具由 webpack 迁移到 vite，开发了新的脚手架，一键迁移脚本以及配套插件，改善了本地开发服务和热更新性能，大幅提升开发效率',
-          '参与新版打印组件的开发和重构，采用 Web Worker 以及批处理的方式提升了打印作业性能'
+          '本地开发 API 代理优化，支持了 mock 响应数据以及 proxy 配置的热更新',
+          '推动项目研发工具由 webpack 迁移到 vite，配套开发了新的脚手架和迁移脚本，支持旧项目一键迁移并大幅提升了本地开发效率和热更新性能',
+          '参与浏览器打印组件的开发，采用 Web Worker 以及批处理的方式提升了打印作业性能和用户体验'
         ]
       }
     }, {
@@ -119,8 +120,8 @@
           '基于微前端框架 single-spa 重构了系统架构，完成了部分子应用拆分和接入',
           '基于 Koa 开发了新的部署平台，支持了子应用独立部署，简化并缩短了系统部署流程和时间'
         ],
-        'Vue通用组件库开发': [
-          '完成了组件库基础架构搭建，建立了完整的组件开发，自动化测试、文档生成以及交互式发版流程',
+        'Vue 通用组件库开发': [
+          '完成了组件库基础架构搭建，建立了完整的组件开发、自动化测试、文档生成以及交互式发版流程',
           '共同参与完善了组件开发准则和设计规范，并参与了部分组件的开发',
         ],
         '公司招聘网站重构': [
@@ -135,14 +136,14 @@
           '开发 Webpack 插件支持项目业务需求分环境差异化部署',
           '使用 Service Worker 改善了 API 代理性能',
           '实现了一个简单的视图层框架并落地到活动页脚手架',
-          '开发了 ESLint 插件检验规范全局副作用，Postcss 插件隔离样式'
+          '开发了 ESLint 插件检验规范全局副作用，PostCSS 插件隔离样式'
         ]
       }
     }, {
       company: '深圳左邻科技有限公司（园区运营，2015.11 - 2016.12）',
       details: {
         '园区管理后台系统开发': [
-          '使用 AngularJS 和 Material-UI 组件库开发园区后台管理系统，为项目接入了 Browser-Sync + Gulp，重写了开发、构建脚本，支持了一键开发和部署。'
+          '使用 AngularJS 和 Material-UI 组件库开发园区后台管理系统，① 为项目接入了 Browser-Sync + Gulp，② 重写了开发、构建脚本，支持了一键开发和部署。'
         ],
         '左邻线上点餐应用开发': [
           '基于 Hybrid 模式和 React 开发手机端订餐系统，① 为项目接入了 Redux 和热更新；② 对业务模块进行拆分，优化了项目结构，抽离了公共组件和业务组件；③ 为应用热更新设计并实现了离线包差量更新机制。'

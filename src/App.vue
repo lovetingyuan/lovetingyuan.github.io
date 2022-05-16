@@ -36,20 +36,19 @@
     >
     </a>
   </footer>
-  <div>
-    <go-top />
-  </div>
+  <go-top />
 </template>
 
 <script lang="ts" setup>
 import github from './assets/github.svg?raw'
 import GoTop from './components/GoTop.vue'
-const time = (window as any)._buildTime || new Date().toLocaleDateString()
+const time = Object(window)._buildTime || new Date().toLocaleDateString()
 </script>
 
 <style scoped>
 header {
   display: flex;
+  align-items: center;
 }
 header a {
   text-decoration: none;
@@ -75,23 +74,25 @@ header a {
 }
 .links li {
   float: left;
-  margin: 0 15px 10px 15px;
+  margin: 10px 20px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .links {
-    font-size: 18px;
-  }
-  .title {
-    font-size: 20px;
-  }
-  .links {
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .links li {
-    margin: 0 10px 10px 10px;
+    margin: 10px;
+  }
+  header {
+    justify-content: space-between;
   }
 }
 
+@media screen and (max-width: 450px) {
+  .links {
+    margin-left: 10px;
+  }
+}
 main {
   margin-top: 40px;
   position: relative;
@@ -117,6 +118,6 @@ footer {
 [data-icon]:after {
   content: attr(data-icon);
   margin-left: 10px;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 </style>
