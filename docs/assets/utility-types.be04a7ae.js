@@ -1,8 +1,15 @@
 var t=`<h3>TypeScript \u9AD8\u9636\u7C7B\u578B</h3>
 <p>TypeScript \u7684\u4E00\u4E2A\u5F3A\u5927\u4E4B\u5904\u5728\u4E8E\u5B83\u652F\u6301\u901A\u8FC7\u6CDB\u578B\u4EE5\u53CA\u4E00\u4E9B\u5173\u952E\u5B57\u548C\u64CD\u4F5C\u7B26\u5BF9\u7C7B\u578B\u672C\u8EAB\u8FDB\u884C\u7F16\u7A0B\u3002</p>
 <p>TypeScript \u8BED\u8A00\u672C\u8EAB\u5C31\u5185\u7F6E\u7684\u4E00\u4E9B\u9AD8\u9636\u7C7B\u578B\uFF0C\u5229\u7528\u5B83\u4EEC\u53EF\u4EE5\u65B9\u4FBF\u7684\u5B9E\u73B0\u7C7B\u578B\u7F16\u7A0B\uFF1A</p>
-<p>\u501F\u52A9\u4E8E\u4E0B\u9762\u8981\u4ECB\u7ECD\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u53EF\u4EE5\u5B9E\u73B0\u4E00\u4E9B\u5176\u4ED6\u5E38\u7528\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u4F8B\u5982<a href="https://github.com/sindresorhus/type-fest" target="_blank" rel="noopener noreferrer"><code>type-fest</code></a>, <a href="https://github.com/piotrwitek/utility-types" target="_blank" rel="noopener noreferrer"><code>utility-types</code></a>, <a href="https://github.com/millsp/ts-toolbelt" target="_blank" rel="noopener noreferrer"><code>ts-toolbelt</code></a>, <a href="https://github.com/andnp/SimplyTyped" target="_blank" rel="noopener noreferrer"><code>SimplyTyped</code></a> \u90FD\u662F\u4E00\u4E9B\u4E0D\u9519\u7684\u5B9E\u73B0\uFF0C\u503C\u5F97\u5B66\u4E60\u53C2\u8003\u3002</p>
+<p>\u501F\u52A9\u4E8E\u4E0B\u9762\u8981\u4ECB\u7ECD\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u53EF\u4EE5\u5B9E\u73B0\u4E00\u4E9B\u5176\u4ED6\u5E38\u7528\u7684\u5DE5\u5177\u7C7B\u578B\uFF0C\u4F8B\u5982</p>
+<ul>
+<li><a href="https://github.com/sindresorhus/type-fest" target="_blank" rel="noopener noreferrer"><code>type-fest</code></a></li>
+<li><a href="https://github.com/piotrwitek/utility-types" target="_blank" rel="noopener noreferrer"><code>utility-types</code></a></li>
+<li><a href="https://github.com/millsp/ts-toolbelt" target="_blank" rel="noopener noreferrer"><code>ts-toolbelt</code></a></li>
+<li><a href="https://github.com/andnp/SimplyTyped" target="_blank" rel="noopener noreferrer"><code>SimplyTyped</code></a></li>
+</ul>
 <p>\u53E6\u5916 github \u4E0A\u6709\u4E2A\u7C7B\u578B\u4F53\u64CD\u7684\u9898\u76EE\u6311\u6218\u5217\u8868<a href="https://github.com/type-challenges/type-challenges" target="_blank" rel="noopener noreferrer"><code>type-challenges</code></a>\uFF0C\u91CC\u9762\u6709\u4E0D\u540C\u96BE\u5EA6\u7684\u9898\u76EE\u53EF\u4EE5\u89E3\u7B54</p>
+<h4>\u4E00\u4E9B\u5185\u7F6E\u5DE5\u5177\u7C7B\u578B\u7684\u5B9E\u73B0</h4>
 <pre><code class="language-typescript">// \u7C7B\u578BT\u7684\u6240\u6709\u5C5E\u6027\u90FD\u53D8\u4E3A\u53EF\u9009\u7684
 type Partial&lt;T&gt; = {
   [P in keyof T]?: T[P]

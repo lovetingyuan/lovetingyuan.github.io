@@ -40,7 +40,7 @@ i18n with plurals support and easy syntax.</li>
 <hr>
 <h2>Typographic replacements</h2>
 <p>Enable typographer option to see result.</p>
-<p>\xA9 \xA9 \xAE \xAE \u2122 \u2122 \xA7 \xA7 \xB1</p>
+<p>\xA9 \xA9 \xAE \xAE \u2122 \u2122 (p) (P) \xB1</p>
 <p>test\u2026 test\u2026 test\u2026 test?.. test!..</p>
 <p>!!! ??? ,  \u2013 \u2014</p>
 <p>\u201CSmartypants, double quotes\u201D and \u2018single quotes\u2019</p>
