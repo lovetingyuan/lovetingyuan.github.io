@@ -61,6 +61,10 @@ watchEffect(() => {
 .markdown-body p,
 .markdown-body li {
   line-height: 30px;
+  letter-spacing: 1px;
+}
+.markdown-body code {
+  letter-spacing: initial;
 }
 .markdown-body code:not([class]) {
   font-weight: bold;
@@ -76,14 +80,12 @@ article.markdown-body {
 
 <style scoped>
 .cate-name {
-  position: absolute;
-  right: 0;
-  top: 0;
+  float: right;
+  margin-left: 10px;
   text-transform: uppercase;
+  font-size: 14px;
 }
 .edit {
-  margin-left: 1em;
-  color: #00b722;
-  font-size: 18px;
+  margin-left: 10px;
 }
 </style>

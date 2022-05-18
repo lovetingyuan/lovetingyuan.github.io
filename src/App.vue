@@ -49,23 +49,21 @@ const time = Object(window)._buildTime || new Date().toLocaleDateString()
 header {
   display: flex;
   align-items: center;
+  padding: 0 10px;
+  padding-top: 25px;
 }
 header a {
   text-decoration: none;
 }
 .title {
   margin: 0;
-  font-size: 22px;
-  filter: blur(0.4px);
+  font-size: 20px;
   user-select: none;
-}
-.title:hover {
-  filter: blur(0px);
 }
 
 .links {
   list-style: none;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -76,26 +74,12 @@ header a {
   float: left;
   margin: 10px 20px;
 }
-@media screen and (max-width: 700px) {
-  .links {
-    margin-left: 20px;
-  }
-  .links li {
-    margin: 10px;
-  }
-  header {
-    justify-content: space-between;
-  }
-}
 
-@media screen and (max-width: 450px) {
-  .links {
-    margin-left: 10px;
-  }
-}
 main {
   margin-top: 40px;
   position: relative;
+  padding: 0 20px;
+  padding-bottom: 100px;
 }
 footer {
   position: absolute;
@@ -108,6 +92,37 @@ footer {
   color: #999;
   left: 0;
 }
+@media screen and (max-width: 600px) {
+  .links {
+    margin-left: 20px;
+  }
+  .links li {
+    margin: 10px;
+  }
+  header {
+    justify-content: space-between;
+  }
+  main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .links {
+    margin-left: 10px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .links {
+    font-size: 16px;
+  }
+  .links li {
+    margin: 5px;
+  }
+}
+
 .github-link {
   vertical-align: sub;
   display: inline-block;
@@ -117,7 +132,7 @@ footer {
 }
 [data-icon]:after {
   content: attr(data-icon);
-  margin-left: 10px;
+  margin-left: 5px;
   font-size: 0.8em;
 }
 </style>

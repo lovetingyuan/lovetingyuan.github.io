@@ -34,21 +34,10 @@ code {
   min-width: 320px;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 25px 10px 100px 20px;
+  /* padding: 25px 10px 100px 20px; */
   position: relative;
   box-sizing: border-box;
 }
-@media screen and (max-width: 900px) {
-  #app {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 700px) {
-  #app {
-    width: 100%;
-  }
-}
-
 /* 深色模式 */
 @media (prefers-color-scheme: dark) {
   body { background: #333; color: white; }
@@ -72,28 +61,6 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(197, 197, 197);
 }
-
-/* responsive */
-/* @media screen and (min-width: 1500px) {
-  #app {
-    max-width: 1000px;
-  }
-}
-@media screen and (max-width: 1000px) {
-  #app {
-    margin: 0 100px;
-  }
-}
-@media screen and (max-width: 750px) {
-  #app {
-    margin: 0 50px;
-  }
-}
-@media screen and (max-width: 560px) {
-  #app {
-    margin: 0 auto;
-  }
-} */
 
 .router-link-active {
   font-weight: bold;
