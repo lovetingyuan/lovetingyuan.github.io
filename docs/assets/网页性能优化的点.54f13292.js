@@ -12,7 +12,7 @@ var e=`<ul>
 <p>\u5C3D\u53EF\u80FD\u5C06\u8F83\u5C0F\u7684\u8D44\u6E90\u5185\u8054</p>
 </li>
 <li>
-<p>\u6CE8\u610F\u8BF7\u6C42\u6570\u91CF\uFF0C\u5C3D\u53EF\u80FD\u5728\u8BF7\u6C42\u6570\u91CF\u548C\u8D44\u6E90\u5927\u5C0F\u5BFB\u6C42\u5E73\u8861\uFF0C\u5982\u5C3D\u91CF\u51CF\u5C11\u8BF7\u6C42\u6570\u4F46\u662F\u4E5F\u8981<strong>\u7EDD\u5BF9\u907F\u514D\u5355\u4E00 js \u8FC7\u5927</strong></p>
+<p>\u6CE8\u610F\u8BF7\u6C42\u6570\u91CF\uFF0C\u5C3D\u53EF\u80FD\u5728\u8BF7\u6C42\u6570\u91CF\u548C\u8D44\u6E90\u5927\u5C0F\u5BFB\u6C42\u5E73\u8861\uFF0C\u5982\u5C3D\u91CF\u51CF\u5C11\u8BF7\u6C42\u6570\u4F46\u662F\u4E5F\u8981<strong>\u907F\u514D\u5355\u4E00 js \u8FC7\u5927</strong></p>
 </li>
 <li>
 <p>\u57DF\u540D\u5206\u7247\uFF0C\u56E0\u4E3A\u4E00\u4E2A\u57DF\u540D\u4E00\u822C\u6700\u591A\u53EA\u80FD\u6709 6 \u4E2A tcp \u8FDE\u63A5</p>
@@ -72,7 +72,7 @@ var e=`<ul>
 <p><code>prerender</code>(\u5EFA\u8BAE\u53EA\u5BF9\u91CD\u8981\u9AD8\u9891\u7684\u7AD9\u70B9\u4F7F\u7528)</p>
 </li>
 <li>
-<p>\u57FA\u4E8E\u7528\u6237\u884C\u4E3A\u548C\u4F7F\u7528\u4E60\u60EF\u8FDB\u884C\u4E2A\u6027\u5316\u7684\u9884\u52A0\u8F7D\uFF0C\u53EF\u4EE5\u53C2\u8003 (quicklink)[<a href="https://github.com/GoogleChromeLabs/quicklink" target="_blank" rel="noopener noreferrer">https://github.com/GoogleChromeLabs/quicklink</a>],<a href="https://github.com/guess-js/guess" target="_blank" rel="noopener noreferrer">guessjs</a></p>
+<p>\u57FA\u4E8E\u7528\u6237\u884C\u4E3A\u548C\u4F7F\u7528\u4E60\u60EF\u8FDB\u884C\u4E2A\u6027\u5316\u7684\u9884\u52A0\u8F7D\uFF0C\u53EF\u4EE5\u53C2\u8003 <a href="https://github.com/GoogleChromeLabs/quicklink" target="_blank" rel="noopener noreferrer">quicklink</a>,<a href="https://github.com/guess-js/guess" target="_blank" rel="noopener noreferrer">guessjs</a></p>
 </li>
 </ul>
 </li>
@@ -82,8 +82,8 @@ var e=`<ul>
 <li>\u538B\u7F29</li>
 <li>\u53BB\u9664\u6389\u672A\u4F7F\u7528\u7684\u89C4\u5219\uFF08\u8FD9\u5728\u5B9E\u9645\u9879\u76EE\u4E2D\u53EF\u80FD\u9700\u8981\u4ED8\u51FA\u4E00\u4E9B\u989D\u5916\u6210\u672C\u548C\u627F\u62C5\u4E00\u5B9A\u7684\u98CE\u9669\uFF09</li>
 <li>\u5185\u8054\uFF0C\u5305\u62EC\u80CC\u666F\u56FE\u7B49\u7684\u5185\u8054</li>
-<li>\u63D0\u53D6 critical css \u5E76\u5185\u8054\uFF0C\u5982 (critical)[<a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener noreferrer">https://github.com/addyosmani/critical</a>]</li>
-<li>\u5EF6\u8FDF\u52A0\u8F7D\uFF0C\u5982 (loadCSS)[<a href="https://github.com/filamentgroup/loadCSS" target="_blank" rel="noopener noreferrer">https://github.com/filamentgroup/loadCSS</a>]</li>
+<li>\u63D0\u53D6 critical css \u5E76\u5185\u8054\uFF0C\u5982 <a href="https://github.com/addyosmani/critical" target="_blank" rel="noopener noreferrer">critical</a></li>
+<li>\u5EF6\u8FDF\u52A0\u8F7D\uFF0C\u5982 <a href="https://github.com/filamentgroup/loadCSS" target="_blank" rel="noopener noreferrer">loadCSS</a></li>
 </ul>
 </li>
 <li>
@@ -108,7 +108,7 @@ var e=`<ul>
 <p>\u8FD0\u884C</p>
 <ul>
 <li>\u4F7F\u7528\u6761\u4EF6 polyfill\uFF0C\u501F\u52A9\u4E8E <code>document.write</code>\u7B49\u6280\u672F</li>
-<li>\u4F7F\u7528\u73B0\u4EE3\u683C\u5F0F\u7684\u4EE3\u7801\uFF0C\u501F\u52A9\u4E8E <code>type=&quot;module&quot;</code>\uFF0C \u53EF\u4EE5\u53C2\u8003\u8FD9\u7BC7(\u6587\u7AE0)[<a href="https://jasonformat.com/modern-script-loading/" target="_blank" rel="noopener noreferrer">https://jasonformat.com/modern-script-loading/</a>]</li>
+<li>\u4F7F\u7528\u73B0\u4EE3\u683C\u5F0F\u7684\u4EE3\u7801\uFF0C\u501F\u52A9\u4E8E <code>type=&quot;module&quot;</code>\uFF0C \u53EF\u4EE5\u53C2\u8003\u8FD9\u7BC7<a href="https://jasonformat.com/modern-script-loading/" target="_blank" rel="noopener noreferrer">\u6587\u7AE0</a></li>
 <li>\u4F7F\u7528\u73B0\u4EE3\u8BED\u6CD5\u548C API\uFF0C\u4EE5\u5B9E\u73B0\u6447\u6811\u4F18\u5316\u4EE5\u53CA\u79FB\u9664\u4E0D\u5FC5\u8981\u7684 polyfill\uFF08\u5C3D\u5728\u5FC5\u8981\u7684\u65F6\u5019\u8FDB\u884C\u4F18\u96C5\u964D\u7EA7\uFF09</li>
 <li>\u957F\u4EFB\u52A1\uFF08\u8017\u65F6\u8D85\u8FC7 50ms\uFF09\u8003\u8651\u4F7F\u7528<code>WebWorker</code>\u6216\u8005\u5229\u7528<code>rAF</code>\u505A\u65F6\u95F4\u5206\u7247\u6765\u4F18\u5316</li>
 <li>\u6CE8\u610F\u8FD0\u7528\u8282\u6D41\u548C\u9632\u6296</li>
