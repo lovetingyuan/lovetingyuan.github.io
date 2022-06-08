@@ -16,6 +16,24 @@ var n=`<h3>\u4E8C\u53C9\u6811\u4E09\u79CD\u904D\u5386\u7684\u8FED\u4EE3\u5199\u6
   return result
 }
 </code></pre>
+<p>\u53E6\u4E00\u79CD\u524D\u5E8F\u904D\u5386\u65B9\u6CD5\uFF1A</p>
+<pre><code class="language-js">var preorderTraversal = function (root) {
+  if (!root) return []
+  const list = []
+  const nodeList = [root]
+  while (nodeList.length) {
+    const node = nodeList.pop()
+    list.push(node.val)
+    if (node.right) {
+      nodeList.push(node.right)
+    }
+    if (node.left) {
+      nodeList.push(node.left)
+    }
+  }
+  return list
+}
+</code></pre>
 <h4>\u4E2D\u5E8F\u904D\u5386</h4>
 <pre><code class="language-js">var inorderTraversal = function (root) {
   let node = root

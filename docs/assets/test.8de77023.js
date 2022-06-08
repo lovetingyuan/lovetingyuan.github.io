@@ -85,6 +85,38 @@ hidden display visibility opacity content-visibility \u7EDD\u5BF9\u5B9A\u4F4D si
 <p>withCredential: true and same-site cookie</p>
 </li>
 </ol>
+<h2>vue</h2>
+<ol>
+<li>\u8BF7\u8BF4\u51FA
+\u53BB\u6389 one: (2 1 0 \\n 1 1 0)<br>
+\u6216\u53BB\u6389 two (2 1 0 \\n 1 1 1)<br>
+\u6216\u8005\u4FDD\u7559\u4E8C\u8005 (2 2 0 \\n 1 2 2)<br>
+\u4E09\u79CD\u60C5\u51B5\u4E0B\u70B9\u51FB add \u7684\u8F93\u51FA</li>
+</ol>
+<pre><code class="language-html">&lt;template&gt;
+  &lt;p&gt;
+    &lt;span ref=&quot;count&quot;&gt;{{count}}&lt;/span&gt;
+    &lt;button @click=&quot;handleAdd&quot;&gt;add&lt;/button&gt;
+  &lt;/p&gt;
+&lt;/template&gt;
+&lt;script&gt;
+  export default {
+    data() {
+      return { count: 0 }
+    },
+    methods: {
+      handleAdd() {
+        one: this.count++
+        this.$nextTick(() =&gt; {
+          console.log(1, this.count, this.$refs.count.textContent)
+        })
+        two: this.count++
+        console.log(2, this.count, this.$refs.count.textContent)
+      },
+    },
+  }
+&lt;/script&gt;
+</code></pre>
 <h2>git</h2>
 <ol>
 <li>\u5982\u4F55\u5408\u5E76\u591A\u4E2A commit \u4E3A\u4E00\u4E2A commit</li>
@@ -96,6 +128,12 @@ hidden display visibility opacity content-visibility \u7EDD\u5BF9\u5B9A\u4F4D si
 </li>
 <li>
 <p>\u4F7F\u7528\u9012\u5F52\u548C\u8FED\u4EE3\u4E24\u79CD\u65B9\u5F0F\u53CD\u8F6C\u4E00\u4E2A\u94FE\u8868 <a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreferrer">leetcode</a></p>
+</li>
+<li>
+<p>\u6709\u4E00\u4E2A\u6570\u7EC4\uFF0C\u4ECE\u5176\u4E2D\u627E\u5230\u4E24\u4E2A\u6570\u7684\u6700\u5927\u5DEE\u503C(\u8981\u6C42\u8FD9\u4E24\u4E2A\u6570\u9012\u589E)\uFF0C\u8FD4\u56DE\u5BF9\u5E94\u7684\u5DEE\u503C</p>
+</li>
+<li>
+<p>\u4F7F\u7528\u4E24\u79CD\u65B9\u6CD5\u5B9E\u73B0 N \u53C9\u6811\u7684\u5C42\u6B21\u904D\u5386 <a href="https://leetcode.cn/problems/n-ary-tree-level-order-traversal/" target="_blank" rel="noopener noreferrer">leetcode</a></p>
 </li>
 </ol>
 `;export{n as default};

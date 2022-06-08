@@ -172,10 +172,22 @@ Promise.reject = function reject(reason) {
 </code></pre>
 </li>
 <li>
-<p><code>Promise.allSettled</code></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled" target="_blank" rel="noopener noreferrer"><code>Promise.allSettled</code></a>\uFF0C\u7B49\u5F85\u6240\u6709 promise \u7ED3\u675F\uFF0C\u8FD4\u56DE\u4E00\u4E2A\u7ED3\u679C\u6570\u7EC4</p>
+<pre><code class="language-js">;[
+  {
+    status: 'fulfilled',
+    value: any,
+  },
+  {
+    status: 'rejected',
+    reason: any,
+  },
+  // ...
+]
+</code></pre>
 </li>
 <li>
-<p><code>Promise.race</code>\uFF0C\u8C01\u5148\u7ED3\u675F\u5C31\u8FD4\u56DE\u8C01</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race" target="_blank" rel="noopener noreferrer"><code>Promise.race</code></a>\uFF0C\u8C01\u5148\u7ED3\u675F\u5C31\u8FD4\u56DE\u8C01</p>
 </li>
 <li>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/any" target="_blank" rel="noopener noreferrer"><code>Promise.any</code></a>\uFF0C\u548C<code>Promise.all</code>\u5728\u529F\u80FD\u4E0A\u662F\u76F8\u53CD\u7684\uFF0C\u4F1A\u5C1D\u8BD5\u8FD4\u56DE\u7B2C\u4E00\u4E2A\u6210\u529F\u7684 promise\uFF0C\u5982\u679C\u90FD\u5931\u8D25\u90A3\u5C31\u4EE5<code>AggregateError</code>\u6765 reject</p>
