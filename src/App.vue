@@ -40,9 +40,19 @@
 </template>
 
 <script lang="ts" setup>
+import { watch, ref } from 'vue'
 import github from './assets/github.svg?raw'
 import GoTop from './components/GoTop.vue'
 const time = Object(window)._buildTime || new Date().toLocaleDateString()
+const a = ref(0)
+watch(a, () => {
+  console.log(a.value)
+})
+a.value++
+a.value++
+a.value++
+a.value++
+a.value++
 </script>
 
 <style scoped>

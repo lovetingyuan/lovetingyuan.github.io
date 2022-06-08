@@ -45,6 +45,9 @@
   },
   "eslintConfig": {
     "root": true,
+    "globals": {
+      "ty": "readonly"
+    },
     "extends": [
       "plugin:vue/vue3-essential",
       "eslint:recommended",

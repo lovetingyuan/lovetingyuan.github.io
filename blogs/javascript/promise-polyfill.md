@@ -173,8 +173,22 @@ Promise.prototype.then = function then(onResolve, onReject) {
     })
   }
   ```
-- `Promise.allSettled`
+- [`Promise.allSettled`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)，等待所有 promise 结束，返回一个结果数组
 
-- `Promise.race`，谁先结束就返回谁
+  ```js
+  ;[
+    {
+      status: 'fulfilled',
+      value: any,
+    },
+    {
+      status: 'rejected',
+      reason: any,
+    },
+    // ...
+  ]
+  ```
+
+- [`Promise.race`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)，谁先结束就返回谁
 
 - [`Promise.any`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)，和`Promise.all`在功能上是相反的，会尝试返回第一个成功的 promise，如果都失败那就以`AggregateError`来 reject

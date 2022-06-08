@@ -30,7 +30,7 @@ code {
 }
 #app {
   min-height: 100vh;
-  max-width: 800px;
+  max-width: 1000px;
   min-width: 320px;
   box-sizing: border-box;
   margin: 0 auto;

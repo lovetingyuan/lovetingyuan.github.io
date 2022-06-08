@@ -79,6 +79,40 @@
 
    withCredential: true and same-site cookie
 
+## vue
+
+1. 请说出
+   去掉 one: (2 1 0 \n 1 1 0)<br>
+   或去掉 two (2 1 0 \n 1 1 1)<br>
+   或者保留二者 (2 2 0 \n 1 2 2)<br>
+   三种情况下点击 add 的输出
+
+```html
+<template>
+  <p>
+    <span ref="count">{{count}}</span>
+    <button @click="handleAdd">add</button>
+  </p>
+</template>
+<script>
+  export default {
+    data() {
+      return { count: 0 }
+    },
+    methods: {
+      handleAdd() {
+        one: this.count++
+        this.$nextTick(() => {
+          console.log(1, this.count, this.$refs.count.textContent)
+        })
+        two: this.count++
+        console.log(2, this.count, this.$refs.count.textContent)
+      },
+    },
+  }
+</script>
+```
+
 ## git
 
 1. 如何合并多个 commit 为一个 commit
@@ -88,3 +122,5 @@
 1. 判断一个二叉树是否是另一个二叉树的**子结构** [leetcode](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/)
 
 2. 使用递归和迭代两种方式反转一个链表 [leetcode](https://leetcode-cn.com/problems/reverse-linked-list/)
+3. 有一个数组，从其中找到两个数的最大差值(要求这两个数递增)，返回对应的差值
+4. 使用两种方法实现 N 叉树的层次遍历 [leetcode](https://leetcode.cn/problems/n-ary-tree-level-order-traversal/)

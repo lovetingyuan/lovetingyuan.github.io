@@ -19,7 +19,7 @@ const goTop = () => {
   text-decoration: none;
   display: block;
   padding: 12px;
-  font-size: 20px;
+  font-size: 18px;
   transform: rotate(-45deg);
   z-index: 9;
   user-select: none;
