@@ -78,6 +78,57 @@ hidden display visibility opacity content-visibility \u7EDD\u5BF9\u5B9A\u4F4D si
 <p>\u5B9E\u73B0<code>Promise.all</code>\u548C<code>Promise.finally</code></p>
 </li>
 </ol>
+<pre><code class="language-js">const obj = { a: 'one', b: 'two', a: 'three' }
+console.log(obj)
+// --------------
+async function getData() {
+  return Promise.resolve('I made it!')
+}
+function getData2() {
+  return Promise.resolve('I made it!')
+}
+console.log(getData()) // Promise {&lt;pending&gt;}
+console.log(getData2()) // Promise\xA0{&lt;fulfilled&gt;: 'I made it!'}
+
+async function* range(start, end) {
+  for (let i = start; i &lt;= end; i++) {
+    yield Promise.resolve(i)
+  }
+}
+
+;(async () =&gt; {
+  const gen = range(1, 3)
+  for await (const item of gen) {
+    console.log(item)
+  }
+})()
+
+const name = 'Lydia Hallie'
+const age = 21
+
+console.log(Number.isNaN(name))
+console.log(Number.isNaN(age))
+
+console.log(isNaN(name))
+console.log(isNaN(age))
+
+const myPromise = Promise.resolve(Promise.resolve('Promise!'))
+
+function funcOne() {
+  myPromise.then((res) =&gt; res).then((res) =&gt; console.log(11, res))
+}
+
+async function funcTwo() {
+  const res = await myPromise
+  console.log(22, res) //  console.log(22, await res)
+}
+funcOne()
+funcTwo()
+</code></pre>
+<pre><code class="language-html">&lt;div onclick=&quot;console.log('div')&quot;&gt;
+  &lt;p onclick=&quot;console.log('p')&quot;&gt;Click here!&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
 <h2>http</h2>
 <ol>
 <li>
