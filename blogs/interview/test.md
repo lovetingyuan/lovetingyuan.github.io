@@ -73,6 +73,61 @@
 
 3. 实现`Promise.all`和`Promise.finally`
 
+```js
+const obj = { a: 'one', b: 'two', a: 'three' }
+console.log(obj)
+// --------------
+async function getData() {
+  return Promise.resolve('I made it!')
+}
+function getData2() {
+  return Promise.resolve('I made it!')
+}
+console.log(getData()) // Promise {<pending>}
+console.log(getData2()) // Promise {<fulfilled>: 'I made it!'}
+
+async function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i)
+  }
+}
+
+;(async () => {
+  const gen = range(1, 3)
+  for await (const item of gen) {
+    console.log(item)
+  }
+})()
+
+const name = 'Lydia Hallie'
+const age = 21
+
+console.log(Number.isNaN(name))
+console.log(Number.isNaN(age))
+
+console.log(isNaN(name))
+console.log(isNaN(age))
+
+const myPromise = Promise.resolve(Promise.resolve('Promise!'))
+
+function funcOne() {
+  myPromise.then((res) => res).then((res) => console.log(11, res))
+}
+
+async function funcTwo() {
+  const res = await myPromise
+  console.log(22, res) //  console.log(22, await res)
+}
+funcOne()
+funcTwo()
+```
+
+```html
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">Click here!</p>
+</div>
+```
+
 ## http
 
 1. 当前网站 A 向第三方网站 C（可信但是不同域名）请求一个接口并且希望带上二者的 cookie，请问需要满足什么条件或者做什么设置？
