@@ -118,6 +118,14 @@
       margin: 0 auto;
     }
 
+    #setting input {
+      padding: 5px 10px;
+    }
+
+    [center] {
+      text-align: center;
+    }
+
   </style>
 </head>
 
@@ -134,30 +142,38 @@
     </li>
     <li>
       <label>场地名称</label>
-      <input type="text" placeholder="场地名称" value="北校门" id="areaName">
+      <input type="text" value="北校门" id="areaName">
     </li>
     <li>
       <label>二维码颜色</label>
       <input type="radio" id="color" value="#068006" checked name="color">绿色
       <input type="radio" name="color" value="#880086">紫色
     </li>
-    <p>
+    <li>
+      <label>姓名</label>
+      <input type="text" id="name">
+    </li>
+    <li>
+      <label>学号</label>
+      <input type="text" id="no" inputmode="numeric">
+    </li>
+    <p center>
       <br>
-      <button onclick="start()">打 开</button>
+      <button onclick="start()"> 打 开 </button>
     </p>
   </ul>
 
-  <div class="container" hidden>
+  <div class="container" id="mainPage" hidden>
     <img class="bg-image" src="/images/bg.png" alt="">
     <div class="card">
       <div style="padding: 12px 30px 10px 30px">
-        <p class="title">进出场地监控卡</p>
-        <p class="info">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：马映雪</p>
-        <p class="info">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：190009071001</p>
+        <p class="title"><span id="titleText"></span></p>
+        <p class="info">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<span id="nameText"></span></p>
+        <p class="info">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：<span id="noText"></span></p>
         <p class="info">所属学院：化学与生命科学学院</p>
-        <p class="info">场地名称：<span id="areaname"></span></p>
-        <p class="info">进出类型：<span id="outin"></span></p>
-        <p class="info">扫描时间：<span id="date"></span></p>
+        <p class="info">场地名称：<span id="areaText"></span></p>
+        <p class="info">进出类型：<span id="outinText"></span></p>
+        <p class="info">扫描时间：<span id="dateText"></span></p>
       </div>
       <p class="line"></p>
       <div style="padding: 30px;">
@@ -168,25 +184,26 @@
       <div class="menu-line"></div>
       <div class="menu-line"></div>
       <div class="menu-line"></div>
-
     </div>
   </div>
   <script>
+    Object.defineProperty(String.prototype, 'dom', {
+      get() {
+        return document.getElementById(this)
+      }
+    })
     function start() {
-      var isComeIn = document.getElementById('comein').checked
-      document.getElementById('outin').textContent = isComeIn ? '进' : '出'
-      var isGreen = document.getElementById('color').checked
-      var title = document.getElementById('title').value
-      document.querySelector('.title').textContent = title
-      var qrcode = new QRCode(document.getElementById("qrcode"), {
+      'outinText'.dom.textContent = 'comein'.dom.checked ? '进' : '出'
+      'titleText'.dom.textContent = 'title'.dom.value
+      new QRCode("qrcode".dom, {
         text: 'http://xg.cdnu.edu.cn/SPCP/Web/PersonActivity/PersonInfo?MDJ73_E3CeHJursW3HrExUWGsc7P4HMEzoFvvg-kVXMQp5nWlXx2_K-ZPRR-R_ws.shtml=',
         width: 140,
         height: 140,
-        colorDark: isGreen ? '#068006' : "#880086",
+        colorDark: 'color'.dom.checked ? '#068006' : "#880086",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.L
       });
-      var dateTime = new Intl.DateTimeFormat('zh', {
+      'dateText'.dom.textContent = new Intl.DateTimeFormat('zh', {
         year: 'numeric',
         month: '2-digit',
         day: '2-digit',
@@ -195,11 +212,11 @@
         hour12: false,
         timeZone: 'Asia/Shanghai',
       }).format(new Date()).replace(/\//g, '.')
-      document.getElementById('date').textContent = dateTime
-      document.getElementById('setting').style.display = 'none'
-      document.querySelector('.container').style.display = 'block'
-      const areaName = document.getElementById('areaName').value
-      document.getElementById('areaname').textContent = areaName
+      'setting'.dom.style.display = 'none'
+      'mainPage'.dom.style.display = 'block'
+      'areaText'.dom.textContent = 'areaName'.dom.value
+      'nameText'.dom.textContent = 'name'.dom.value || '马映雪'
+      'noText'.dom.textContent = 'no'.dom.value || '190009071001'
     }
   </script>
 </body>

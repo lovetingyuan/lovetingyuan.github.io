@@ -129,6 +129,12 @@ funcTwo()
   &lt;p onclick=&quot;console.log('p')&quot;&gt;Click here!&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
+<ol start="4">
+<li>\u5B9E\u73B0\u4EE5\u4E0B\u529F\u80FD</li>
+</ol>
+<pre><code class="language-js">'#foo'.html = '&lt;b&gt;foo&lt;/b&gt;'
+console.assert(document.getElementById('foo').innerHTML === '#foo'.html)
+</code></pre>
 <h2>http</h2>
 <ol>
 <li>
