@@ -128,6 +128,13 @@ funcTwo()
 </div>
 ```
 
+4. 实现以下功能
+
+```js
+'#foo'.html = '<b>foo</b>'
+console.assert(document.getElementById('foo').innerHTML === '#foo'.html)
+```
+
 ## http
 
 1. 当前网站 A 向第三方网站 C（可信但是不同域名）请求一个接口并且希望带上二者的 cookie，请问需要满足什么条件或者做什么设置？
