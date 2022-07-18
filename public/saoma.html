@@ -151,15 +151,15 @@
     </li>
     <li>
       <label>姓名</label>
-      <input type="text" id="name">
+      <input type="text" autofocus id="name" placeholder="请输入姓名">
     </li>
     <li>
       <label>学号</label>
-      <input type="text" id="no" inputmode="numeric">
+      <input type="text" id="no" inputmode="numeric" placeholder="请输入学号">
     </li>
     <p center>
       <br>
-      <button onclick="start()"> 打 开 </button>
+      <button onclick="start()" style="padding: 5px 15px"> 打 开 </button>
     </p>
   </ul>
 
@@ -215,8 +215,8 @@
       'setting'.dom.style.display = 'none'
       'mainPage'.dom.style.display = 'block'
       'areaText'.dom.textContent = 'areaName'.dom.value
-      'nameText'.dom.textContent = 'name'.dom.value || '马映雪'
-      'noText'.dom.textContent = 'no'.dom.value || '190009071001'
+      'nameText'.dom.textContent = 'name'.dom.value
+      'noText'.dom.textContent = 'no'.dom.value
     }
   </script>
 </body>
