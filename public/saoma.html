@@ -192,6 +192,12 @@
         return document.getElementById(this)
       }
     })
+    if (localStorage.getItem('__name')) {
+      'name'.dom.value = localStorage.getItem('__name')
+    }
+    if (localStorage.getItem('__no')) {
+      'no'.dom.value = localStorage.getItem('__no')
+    }
     function start() {
       'outinText'.dom.textContent = 'comein'.dom.checked ? '进' : '出'
       'titleText'.dom.textContent = 'title'.dom.value
@@ -212,11 +218,17 @@
         hour12: false,
         timeZone: 'Asia/Shanghai',
       }).format(new Date()).replace(/\//g, '.')
-      'setting'.dom.style.display = 'none'
-      'mainPage'.dom.style.display = 'block'
       'areaText'.dom.textContent = 'areaName'.dom.value
       'nameText'.dom.textContent = 'name'.dom.value
       'noText'.dom.textContent = 'no'.dom.value
+      if ('name'.dom.value) {
+        localStorage.setItem('__name', 'name'.dom.value)
+      }
+      if ('no'.dom.value) {
+        localStorage.setItem('__no', 'no'.dom.value)
+      }
+      'setting'.dom.style.display = 'none'
+      'mainPage'.dom.style.display = 'block'
     }
   </script>
 </body>
