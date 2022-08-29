@@ -1,1 +1,1 @@
-个人网站 https://tingyuan.me
+个人网站 https://lovetingyuan.github.io
