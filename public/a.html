@@ -7,55 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>a</title>
   <script src="./js/reload.js"></script>
-  <script></script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+  </style>
 </head>
 
 <body>
   <div>
-    <div class="tabs">
-      <input type="radio" name="tab-content" id="tab1" checked>
-      <label for="tab1">tab 1</label>
-      <input type="radio" name="tab-content" id="tab2">
-      <label for="tab2">tab 2</label>
-      <input type="radio" name="tab-content" id="tab3">
-      <label for="tab3">tab 3</label>
-      <section>content 1</section>
-      <section>content 2</section>
-      <section>content 3</section>
-    </div>
+    <iframe src="//player.bilibili.com/player.html?aid=899458592&bvid=BV1BN4y1G7tx&cid=802365081&page=1" scrolling="no"
+      border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+    </iframe>
     <style>
-      input[type=radio] {
-        display: none;
-      }
-
-      input[type=radio]:checked+label {
-        background-color: lightseagreen;
-      }
-
-      /* input[type=radio]:checked+label+section {
+      iframe {
         display: block;
-      } */
-
-      section {
-        display: none;
-        background-color: lightseagreen;
-      }
-
-      input[type=radio]:nth-of-type(1):checked~section:nth-of-type(1) {
-        display: block;
-      }
-
-      input[type=radio]:nth-of-type(2):checked~section:nth-of-type(2) {
-        display: block;
+        width: 100%;
+        height: 600px;
       }
 
     </style>
-    <div style="overflow: visible;">
-      <div style="margin: 20px; float: left;">a</div>
-      <div style="margin: 20px">b</div>
-
-    </div>
-
   </div>
 </body>
 
