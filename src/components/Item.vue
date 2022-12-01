@@ -21,18 +21,23 @@ defineProps<{
   overflow: hidden;
   font-size: 14px;
 }
+
 .cover {
   object-fit: cover;
   float: left;
   margin-right: 20px;
+  border-radius: 3px;
 }
+
 .info-list {
   margin: 8px 0;
 }
+
 .info-list:first-of-type {
   font-size: 16px;
   margin-bottom: 20px;
 }
+
 .info-item {
   line-height: 1.6;
   margin: 0;
