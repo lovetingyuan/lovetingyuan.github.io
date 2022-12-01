@@ -12,12 +12,13 @@
 <link rel="stylesheet" href="../common/nav.css" />
 <link rel="stylesheet" href="../common/g-icon.css" />
 <script src="../common/base.js"></script>
+<script src="../../js/reload.js" async></script>
 
-<div class="nav">
+<div class="nav" style="padding-top: 30px">
   <span class="title">四川天府健康通</span>
   <div></div>
 </div>
-<div class="capsule" onclick="navigateHome();">
+<div class="capsule" style="margin-top: 30px" onclick="navigateHome();">
   <svg class="capsule-menu-icon" viewBox="0 0 64 28" xmlns="http://www.w3.org/2000/svg">
     <circle cx="32" cy="14" r="9.5" />
     <circle cx="54" cy="14" r="6" />
@@ -135,8 +136,8 @@
               ">
               <text class="type-gsd-h5-react:Text" id="_name" selectable="false" style="
                   color: rgb(29, 31, 36);
-                  font-size: 6.4vw;
-                  line-height: 6.933vw;
+                  font-size: 7vw;
+                  line-height: 7.2vw;
                   font-family: PingFangSC-Medium;
                   letter-spacing: 0vw;
                 "></text>
@@ -149,9 +150,9 @@
               </view> -->
             </view>
             <text class="type-gsd-h5-react:Text" id="_idcard" selectable="false" style="
-                margin-top: 0.667vw;
+                margin-top: 0.8vw;
                 color: rgb(145, 158, 171);
-                font-size: 4.267vw;
+                font-size: 5vw;
                 line-height: 5.867vw;
                 font-family: PingFangSC-Regular;
                 letter-spacing: 0vw;
@@ -290,7 +291,7 @@
                           line-height: 4.8vw;
                         ">
                         <text class="code_explain" id="id31" selectable="false"
-                          style="font-size: 3.733vw; line-height: 4.8vw; color: #57ac6c">绿码：健康状态为低风险</text>
+                          style="font-size: 4.2vw; line-height: 5.2vw; color: #57ac6c">绿码：健康状态为低风险</text>
                       </view>
                     </view>
                   </view>
@@ -311,12 +312,13 @@
                         flex-direction: row;
                         border-radius: 10.667vw;
                         background: rgb(56, 88, 230);
-                      " onclick="window.location.href='./checkin.html';">
+                      " onclick="scanCode()">
                       <image alt="[图片]" id="uuid_24969d97" mode="scaleToFill" src="./static/scan.png"
                         style="width: 4vw; height: 4vw"></image>
                       <text id="uuid_09a68e97" selectable="false" style="
                           padding: 0vw 8.267vw;
                           display: inline-block;
+                          font-size: 5vw;
                           color: rgb(255, 255, 255);
                         ">扫场所码</text>
                       <text id="uuid_a9d1d597" style="color: rgb(255, 255, 255); font-size: 3.467vw" type="arrow-right"
@@ -365,7 +367,7 @@
                 ">
                 <text class="type-gsd-h5-react:Text" id="uuid_9d310d93" style="
                     color: white;
-                    font-size: 3.467vw;
+                    font-size: 3.8vw;
                     font-weight: 600;
                     font-family: 'PingFang SC';
                     font-style: normal;
@@ -375,7 +377,7 @@
                   ">省内24小时核酸：阴性</text>
                 <text class="type-gsd-h5-react:Text" id="covid-test-datetime" style="
                     display: block;
-                    font-size: 2.667vw;
+                    font-size: 3vw;
                     font-weight: 400;
                     font-family: 'PingFang SC';
                     font-style: normal;
@@ -384,15 +386,15 @@
                 </text>
                 <text class="type-gsd-h5-react:Text" id="uuid_28198393" style="
                     color: rgb(0, 0, 0);
-                    font-size: 8.533vw;
-                    font-weight: 600;
+                    font-size: 10vw;
+                    font-weight: 400;
                     opacity: 0.2;
                     position: absolute;
                     right: 1.067vw;
-                    top: 2.667vw;
+                    top: 3vw;
                     font-family: 'PingFang SC';
                     font-style: normal;
-                    top: 10px;
+                    top: 15px;
                     right: 4px;
                   ">24</text>
                 <view class="type-gsd-h5-react:Container" id="uuid_a7c25c93" style="
@@ -418,8 +420,8 @@
                     bottom: 1.6vw;
                   ">
                   <text class="type-gsd-h5-react:Text" id="tap-to-update" style="
-                      font-size: 3.2vw;
-                      font-weight: 600;
+                      font-size: 3.6vw;
+                      font-weight: 400;
                       font-family: 'PingFang SC';
                       font-style: normal;
                       color: #00a870;
@@ -438,7 +440,7 @@
                   background-color: #00a870;
                 ">
                 <text class="type-gsd-h5-react:Text" id="uuid_60c3fd94" style="
-                    font-size: 3.467vw;
+                    font-size: 3.8vw;
                     font-weight: 600;
                     font-family: 'PingFang SC';
                     font-style: normal;
@@ -446,7 +448,7 @@
                   " text="风险城市旅居史">风险城市旅居史</text>
                 <text class="type-gsd-h5-react:Text" id="trace-update-datetime" selectable="false" style="
                     display: block;
-                    font-size: 2.667vw;
+                    font-size: 3vw;
                     font-weight: 400;
                     font-family: 'PingFang SC';
                     font-style: normal;
@@ -657,9 +659,7 @@
       countdown = 60;
     }
   });
-  window.fullscreen = () => {
-    document.body.requestFullscreen({
-      navigationUI: 'hide'
-    });
-  }
+  // window.scanCode = () => {
+  //   window.location.href = './checkin.html';
+  // }
 </script>
