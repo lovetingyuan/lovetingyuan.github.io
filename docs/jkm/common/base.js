@@ -1,4 +1,4 @@
-const root_path = "";
+const root_path = "/jkm";
 const time_update_list = [];
 let time_updater_init = false;
 
@@ -60,7 +60,7 @@ const presetFilters = {
 
 const fields = {};
 
-function addStorageField(id, selector, name, placeholder, filter = (x) => x, callback = () => {}) {
+function addStorageField(id, selector, name, placeholder, filter = (x) => x, callback = () => { }) {
   const elements = document.querySelectorAll(selector);
   const item = {
     selector: selector,
@@ -101,7 +101,7 @@ function initServiceWorker(app) {
         scope: root_path + "/"
       }).then((e) => {
         if (app) {
-          if (typeof(app) == "string") app = [app];
+          if (typeof (app) == "string") app = [app];
           let sw_timer = window.setInterval(() => {
             if (navigator.serviceWorker.controller) {
               window.clearInterval(sw_timer);

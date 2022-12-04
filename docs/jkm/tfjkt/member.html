@@ -15,7 +15,7 @@
 <script src="../common/base.js"></script>
 <script src="../../js/reload.js" async></script>
 
-<div class="nav" style="padding-top: 30px">
+<div class="nav" style="padding-top: 30px; display: none">
   <span class="title">四川天府健康通</span>
   <div></div>
 </div>
@@ -31,8 +31,20 @@
     <circle cx="30" cy="30" r="23" stroke-width="6" fill="transparent" />
   </svg>
 </div>
+<div class="nav makemargin" style="margin-top: 30px;  top: 0; justify-content: space-around;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+    style="position: absolute; left: 10px" onclick="window.location.href='./index.html'">
+    <path fill="none" d="M0 0h24v24H0V0z" opacity=".87"></path>
+    <path
+      d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"
+      id="nav-back-icon" fill="white"></path>
+  </svg>
+  <span class="title">成员信息</span>
+  <div></div>
+  <div></div>
+</div>
 <view class="type-gsd-h5-react:Container" id="id69"
-  style="padding-bottom: 41.6vw; position: relative; min-height: 100vh">
+  style="padding-bottom: 41.6vw; position: relative; min-height: 100vh; margin-top: 10vh; top: 20px">
   <view class="type-gsd-h5-react:Container" id="id61" style="
       width: 100%;
       height: 74.133vw;
@@ -43,6 +55,7 @@
       top: 0vw;
       background-size: 100% auto;
       background-repeat: no-repeat;
+      display: none;
     ">
   </view>
   <!-- <view class=" type-gsd-h5-react:Container" id="id57"
@@ -50,7 +63,7 @@
     <text class=" type-gsd-h5-react:Text" id="id58" selectable="false"
       style="font-size: 4.533vw; line-height: 6.933vw; text-align: center; font-family: PingFangSC-Medium; letter-spacing: 0vw;">四川天府健康通</text>
   </view> -->
-  <view class="type-gsd-h5-react:Container" id="id68" style="margin-top: -27.867vw">
+  <view class="type-gsd-h5-react:Container" id="id68" style="margin-top: 10.867vw">
     <view class="type-gsd-h5-react:Container" id="id3" style="
         width: 89.067vw;
         height: 11.733vw;
@@ -65,6 +78,7 @@
         background: rgb(255, 255, 255);
         position: relative;
         overflow: hidden;
+        display: none;
       ">
       <view class="type-gsd-h5-react:Container" id="id23"
         style="width: 0.933vw; height: 11.733vw; position: absolute; left: 0vw; top: 0vw"></view>
@@ -160,52 +174,8 @@
               "></text>
           </view>
           <view class="type-gsd-h5-react:Container" id="id30"
-            style="display: flex; justify-content: flex-end; align-items: center">
-            <view bindtap="onuuid_ad3ae034$tap" class="type-gsd-h5-react:Container" id="uuid_ad3ae034" style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-              ">
-              <view onclick="fullscreen()" class="type-gsd-h5-react:Container" id="uuid_ce465063"
-                style="display: flex; align-items: flex-end">
-                <image alt="[图片]" class="type-gsd-h5-react:Image" id="uuid_ff3b3219" mode="scaleToFill"
-                  src="./static/userInfo.png" style="width: 5.067vw; height: 6vw"></image>
-              </view>
-              <text class="type-gsd-h5-react:Text" id="uuid_88c0d208" selectable="false" style="
-                  color: rgb(145, 158, 171);
-                  font-size: 2.933vw;
-                  line-height: 5.867vw;
-                  text-align: right;
-                  font-weight: 400;
-                  letter-spacing: 0vw;
-                  font-family: 'PingFang SC';
-                  font-style: normal;
-                " text="个人信息">个人信息</text>
-            </view>
-            <view bindtap="onuuid_127ae402$tap" class="type-gsd-h5-react:Container" id="uuid_127ae402" style="
-                margin-left: 4vw;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-              ">
-              <view class="type-gsd-h5-react:Container" id="uuid_2f0a8b78" style="display: flex; align-items: flex-end">
-                <image alt="[图片]" class="type-gsd-h5-react:Image" id="uuid_5136a597" mode="scaleToFill"
-                  src="./static/familyCode.png" style="width: 6.533vw; height: 5.6vw"></image>
-              </view>
-              <text class="type-gsd-h5-react:Text" onclick="window.location='./member.html'" id="id31"
-                selectable="false" style="
-                  color: rgb(145, 158, 171);
-                  font-size: 2.933vw;
-                  line-height: 5.867vw;
-                  text-align: right;
-                  font-weight: 400;
-                  letter-spacing: 0vw;
-                  font-family: 'PingFang SC';
-                  font-style: normal;
-                " text="家庭码">家庭码</text>
-            </view>
+            style="display: flex; color: #909fa9; justify-content: flex-end; align-items: center">
+            解绑
           </view>
         </view>
         <view class="type-gsd-h5-react:Container" id="id35" style="
@@ -257,10 +227,10 @@
                     font-weight: bolder;
                   ">
                   <view id="uuid_33995b78">
-                    <text id="_min" selectable="false">19:21:</text><text id="_sec" selectable="false"
+                    <text id="_min" selectable="false"></text><text id="_sec" selectable="false"
                       style="color: #3f59e5; font-size: 6.667vw"></text>
                   </view>
-                  <text id="_date" selectable="false">2022-11-30</text>
+                  <text id="_date" selectable="false"></text>
                 </view>
                 <view class="wa-comp-tf-jkt-ShowCode4Sichuan" id="id4" style="display: block ;">
                   <view id="id20" style="text-align: center">
@@ -302,30 +272,17 @@
                       justify-content: center;
                       align-items: center;
                       flex-direction: row;
+                      margin-top: 20px;
                     " wx:if="true">
-                    <view id="uuid_5ecc9016" style="
-                        width: auto;
-                        height: 10.533vw;
-                        margin-top: 3.2vw;
-                        padding: 0vw 9.333vw;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        flex-direction: row;
-                        border-radius: 10.667vw;
-                        background: rgb(56, 88, 230);
-                      " onclick="scanCode()">
-                      <image alt="[图片]" id="uuid_24969d97" mode="scaleToFill" src="./static/scan.png"
-                        style="width: 4vw; height: 4vw"></image>
-                      <text id="uuid_09a68e97" selectable="false" style="
-                          padding: 0vw 8.267vw;
-                          display: inline-block;
-                          font-size: 5vw;
-                          color: rgb(255, 255, 255);
-                        ">扫场所码</text>
-                      <text id="uuid_a9d1d597" style="color: rgb(255, 255, 255); font-size: 3.467vw" type="arrow-right"
-                        class="g-icon type-WeApps_STD_COMP:Icon"></text>
-                    </view>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                      aria-hidden="true" role="img" id="footer-sample-full" width="26px" height="26px"
+                      preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--material-symbols">
+                      <path fill="#909fa9"
+                        d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11Zm-8 4v-5h2v3h12v-3h2v5Z">
+                      </path>
+                    </svg>
+
+                    <text style="font-weight: bold; font-size: 18px; color: #909fa9">&nbsp;下载离线码</text>
                   </view>
                   <view class="refresh_download" id="id28" style="
                       padding-right: 11.867vw;
@@ -345,7 +302,7 @@
       </view>
       <!-- Begin xingchengka -->
       <view class="wa-comp-tf-jkt-XingChengKa type-gsd-h5-react:Container" id="uuid_3febf311"
-        style="position: relative; width: 100%">
+        style="position: relative; width: 100%; display: none;">
         <view class="type-gsd-h5-react:Container" id="uuid_bd243074">
           <view class="type-gsd-h5-react:Container" id="uuid_fe40e190"
             style="width: 90%; margin: 0vw auto; overflow: hidden; box-sizing: border-box">
@@ -506,42 +463,23 @@
         border-radius: 2.133vw;
         background: rgb(255, 255, 255);
       ">
+      <view class="wrapper" onclick="navigateToTripCard();">
+        <image src="./static/shenbao.png" class="icon"></image>
+        <text class="title">重新申报</text>
+        <text class="subtitle"></text>
+      </view>
       <view class="wrapper">
         <image src="./static/antibody_result_query@2x.png" class="icon"></image>
         <text class="title">核酸检测</text>
         <text class="subtitle">结果查询</text>
       </view>
-      <view class="wrapper">
-        <image src="./static/medical_institution_query@2x.png" class="icon"></image>
-        <text class="title">医疗防疫</text>
-        <text class="subtitle">机构查询</text>
-      </view>
-      <view class="wrapper" onclick="navigateToTripCard();">
-        <image src="./static/txxck_server.png" class="icon"></image>
-        <text class="title">通信行程卡</text>
-        <text class="subtitle"></text>
-      </view>
-      <view class="wrapper">
-        <image src="./static/consulting@2x.png" class="icon"></image>
-        <text class="title">我要咨询</text>
-        <text class="subtitle"></text>
-      </view>
-      <view class="wrapper">
-        <image src="./static/sqbb2.png" class="icon"></image>
-        <text class="title">社区报备</text>
-        <text class="subtitle"></text>
-      </view>
-      <view class="wrapper" onclick="navigateHome();">
-        <image src="./static/other_server.png" class="icon"></image>
-        <text class="title">其他服务</text>
-        <text class="subtitle"></text>
-      </view>
     </view>
     <view bindtap="onid299$tap" class="type-gsd-h5-react:Container" id="id299" style="
         width: 89.333vw;
+        display: none;
         height: 12.8vw;
         margin: 3.6vw auto 0vw;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         flex-flow: row wrap;
@@ -561,15 +499,15 @@
         " text="切换至关怀模式">切换至关怀模式</text>
     </view>
     <view class="type-gsd-h5-react:Container" id="id67" style="
-        margin-top: 6.8vw;
+        margin-top: 15vw;
         padding-bottom: 0.133vw;
         position: absolute;
         left: 0vw;
         right: 0vw;
-        bottom: 0vw;
+        /* bottom: 0vw; */
       ">
       <view bindtap="onid75$tap" class="type-gsd-h5-react:Container" id="id75" style="
-          display: flex;
+          display: none;
           justify-content: center;
           align-items: center;
           flex-direction: row;
@@ -613,8 +551,8 @@
   setStaticTime('#covid-test-datetime', 5, 13, 6, 5, x => x.replace('-', '/') + '时');
   setStaticTime('#trace-update-datetime', 5, 13, 2, 1, x => x.replace('-', '/') + '时');
 
-  setDynamicTime('#_date', 0, 10);
-  setDynamicTime('#_min', 11, 17);
+  // setDynamicTime('#_date', 0, 10);
+  // setDynamicTime('#_min', 11, 17);
   setDynamicTime('#_sec', 17, 19);
 
   addStorageField('_name', '#_name', '名字', '习近平', presetFilters.name_keepfirstname);
