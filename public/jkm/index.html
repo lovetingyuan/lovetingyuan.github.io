@@ -5,6 +5,7 @@
 <meta name="theme-color" content="#FCFCFC">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.json">
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/jpeg" href="common/logo.jpg">
 <link rel="apple-touch-icon" sizes="512x512" href="common/logo.jpg">
 <link rel="stylesheet" href="app.css">
@@ -21,8 +22,10 @@
   <p>添加至主屏幕后，网页将可以全屏显示。</p>
   <p>在 iOS Safari 中，先点击下方分享按钮，再点击“添加至主屏幕”。</p>
   <p>注意：若正在使用全面屏 iOS 设备，在部分带有白色背景导航栏的页面中，可能会出现设备状态栏文字变白“消失”的情况。此时可以
-    <span style="text-decoration: underline;" onclick="document.querySelector('meta[name=apple-mobile-web-app-status-bar-style]').content = 'default'; alert('状态栏模式已切换，请点击分享菜单中的“添加至主屏幕”安装。');">点击这里切换状态栏样式</span>
-  后再安装。此后，所有页面的状态栏颜色将会正确显示，但网页背景无法再延伸至状态栏。</p>
+    <span style="text-decoration: underline;"
+      onclick="document.querySelector('meta[name=apple-mobile-web-app-status-bar-style]').content = 'default'; alert('状态栏模式已切换，请点击分享菜单中的“添加至主屏幕”安装。');">点击这里切换状态栏样式</span>
+    后再安装。此后，所有页面的状态栏颜色将会正确显示，但网页背景无法再延伸至状态栏。
+  </p>
   <p>在 Android Chrome 中，先点击右上角菜单按钮，再点击“添加至主屏幕”。</p>
   <p>在 Android Firefox 中，先点击右上角菜单按钮，再点击“安装”。</p>
 </div>
@@ -38,18 +41,14 @@
 </div>
 <footer>
   <div class="links-list">
-    <div
-      class="link-wrapper"
-      onclick='window.location.href="https://codeberg.org/ilovexjp/health-code-simulator"'>
+    <div class="link-wrapper" onclick='window.location.href="https://codeberg.org/ilovexjp/health-code-simulator"'>
       <img src="common/codeberg-logo.svg" /> <span>@ilovexjp</span>
     </div>
-    <div
-      class="link-wrapper"
-      onclick='window.location.href="https://t.me/gh_ilovexjp"'>
+    <div class="link-wrapper" onclick='window.location.href="https://t.me/gh_ilovexjp"'>
       <img src="common/telegram-logo.svg" /> <span>@gh_ilovexjp</span>
     </div>
   </div>
-  
+
   <div class="links-list links-list-help">
     <div class="link-wrapper" id="sw-help-text" style="display: none;">
       标有
@@ -72,7 +71,8 @@
 
   <div class="links-list links-list-help">
     <div class="link-wrapper">
-      <span id="last-update" onclick="updateServiceWorker(this);">上次更新：2022-11-17<span id="last-update-version"></span></span>
+      <span id="last-update" onclick="updateServiceWorker(this);">上次更新：2022-11-17<span
+          id="last-update-version"></span></span>
     </div>
   </div>
 </footer>
