@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
 import { fileURLToPath } from 'url'
-import vue from '@vitejs/plugin-vue'
-
-import mdPlugin from './scripts/mdPlugin'
+import Vue from '@vitejs/plugin-vue'
 import buildInfo from './scripts/buildInfo'
+import Markdown from 'vite-plugin-vue-markdown'
+import Shiki from 'markdown-it-shiki'
+import container from 'markdown-it-container'
+import Icons from 'unplugin-icons/vite'
+import mdDetail from './scripts/markdown-detail'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,5 +15,22 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  plugins: [vue(), mdPlugin(), buildInfo()],
+  plugins: [
+    Vue({
+      include: [/\.vue$/, /\.md$/], // <--
+    }),
+    Icons({
+      compiler: 'vue3',
+    }),
+    Markdown({
+      wrapperClasses: 'markdown-body',
+      markdownItSetup(md) {
+        md.use(container, 'detail', mdDetail)
+        md.use(Shiki, {
+          theme: 'dark-plus',
+        })
+      },
+    }),
+    buildInfo(),
+  ],
 })

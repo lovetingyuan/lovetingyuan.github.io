@@ -38,9 +38,7 @@ const displayBlogList = computed(() => {
   }, {} as Record<string, string[]>)
 })
 
-const columns = computed(() => {
-  return cate.value ? 1 : 2
-})
+const columns = computed(() => (cate.value ? 1 : 2))
 </script>
 
 <style scoped>

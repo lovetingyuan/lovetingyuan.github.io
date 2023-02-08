@@ -1,6 +1,6 @@
 ## typescript
 
-1. 实现高级类型 PromiseType<T>
+1. 实现高级类型 `PromiseType<T>`
 
    ```ts
    PromiseType<Promise<string>> // string
@@ -73,67 +73,67 @@
 
 3. 实现`Promise.all`和`Promise.finally`
 
-```js
-const obj = { a: 'one', b: 'two', a: 'three' }
-console.log(obj)
-// --------------
-async function getData() {
-  return Promise.resolve('I made it!')
-}
-function getData2() {
-  return Promise.resolve('I made it!')
-}
-console.log(getData()) // Promise {<pending>}
-console.log(getData2()) // Promise {<fulfilled>: 'I made it!'}
+   ```js
+   const obj = { a: 'one', b: 'two', a: 'three' }
+   console.log(obj)
+   // --------------
+   async function getData() {
+     return Promise.resolve('I made it!')
+   }
+   function getData2() {
+     return Promise.resolve('I made it!')
+   }
+   console.log(getData()) // Promise {<pending>}
+   console.log(getData2()) // Promise {<fulfilled>: 'I made it!'}
 
-async function* range(start, end) {
-  for (let i = start; i <= end; i++) {
-    yield Promise.resolve(i)
-  }
-}
+   async function* range(start, end) {
+     for (let i = start; i <= end; i++) {
+       yield Promise.resolve(i)
+     }
+   }
 
-;(async () => {
-  const gen = range(1, 3)
-  for await (const item of gen) {
-    console.log(item)
-  }
-})()
+   ;(async () => {
+     const gen = range(1, 3)
+     for await (const item of gen) {
+       console.log(item)
+     }
+   })()
 
-const name = 'Lydia Hallie'
-const age = 21
+   const name = 'Lydia Hallie'
+   const age = 21
 
-console.log(Number.isNaN(name))
-console.log(Number.isNaN(age))
+   console.log(Number.isNaN(name))
+   console.log(Number.isNaN(age))
 
-console.log(isNaN(name))
-console.log(isNaN(age))
+   console.log(isNaN(name))
+   console.log(isNaN(age))
 
-const myPromise = Promise.resolve(Promise.resolve('Promise!'))
+   const myPromise = Promise.resolve(Promise.resolve('Promise!'))
 
-function funcOne() {
-  myPromise.then((res) => res).then((res) => console.log(11, res))
-}
+   function funcOne() {
+     myPromise.then((res) => res).then((res) => console.log(11, res))
+   }
 
-async function funcTwo() {
-  const res = await myPromise
-  console.log(22, res) //  console.log(22, await res)
-}
-funcOne()
-funcTwo()
-```
+   async function funcTwo() {
+     const res = await myPromise
+     console.log(22, res) //  console.log(22, await res)
+   }
+   funcOne()
+   funcTwo()
+   ```
 
-```html
-<div onclick="console.log('div')">
-  <p onclick="console.log('p')">Click here!</p>
-</div>
-```
+   ```html
+   <div onclick="console.log('div')">
+     <p onclick="console.log('p')">Click here!</p>
+   </div>
+   ```
 
 4. 实现以下功能
 
-```js
-'#foo'.html = '<b>foo</b>'
-console.assert(document.getElementById('foo').innerHTML === '#foo'.html)
-```
+   ```js
+   '#foo'.html = '<b>foo</b>'
+   console.assert(document.getElementById('foo').innerHTML === '#foo'.html)
+   ```
 
 ## http
 
@@ -149,31 +149,31 @@ console.assert(document.getElementById('foo').innerHTML === '#foo'.html)
    或者保留二者 (2 2 0 \n 1 2 2)<br>
    三种情况下点击 add 的输出
 
-```html
-<template>
-  <p>
-    <span ref="count">{{count}}</span>
-    <button @click="handleAdd">add</button>
-  </p>
-</template>
-<script>
-  export default {
-    data() {
-      return { count: 0 }
-    },
-    methods: {
-      handleAdd() {
-        one: this.count++
-        this.$nextTick(() => {
-          console.log(1, this.count, this.$refs.count.textContent)
-        })
-        two: this.count++
-        console.log(2, this.count, this.$refs.count.textContent)
-      },
-    },
-  }
-</script>
-```
+   ```html
+   <template>
+     <p>
+       <span ref="count">{{count}}</span>
+       <button @click="handleAdd">add</button>
+     </p>
+   </template>
+   <script>
+     export default {
+       data() {
+         return { count: 0 }
+       },
+       methods: {
+         handleAdd() {
+           one: this.count++
+           this.$nextTick(() => {
+             console.log(1, this.count, this.$refs.count.textContent)
+           })
+           two: this.count++
+           console.log(2, this.count, this.$refs.count.textContent)
+         },
+       },
+     }
+   </script>
+   ```
 
 ## git
 

@@ -27,10 +27,6 @@ body {
 
 }
 
-code {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
 #app {
   min-height: 100vh;
   max-width: 1000px;
@@ -105,20 +101,6 @@ a:hover {
 .slide-leave-to {
   transform: translateX(24px);
   opacity: 0;
-}
-
-
-.markdown-body :not(pre)>code[class*="language-"],
-.markdown-body pre[class*="language-"] {
-  background-color: #181818;
-}
-
-.markdown-body pre[class*="language-"] {
-  padding: 20px 24px;
-  margin: 0.5em 0;
-  overflow: auto;
-  /* font-size: 14px; */
-  /* line-height: 1.6; */
 }
 
 .details-content {

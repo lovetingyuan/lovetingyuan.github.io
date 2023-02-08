@@ -5,13 +5,22 @@
     </h4>
     <ul class="links">
       <li>
-        <router-link to="/blog" style="color: #007896" data-icon="📟">博客</router-link>
+        <router-link to="/blog" style="color: #007896"
+          >博客
+          <ArticleIcon></ArticleIcon>
+        </router-link>
       </li>
       <li>
-        <router-link to="/music" style="color: #007419" data-icon="🎵">音乐</router-link>
+        <router-link to="/music" style="color: #007419"
+          >音乐
+          <MusicIcon></MusicIcon>
+        </router-link>
       </li>
       <li>
-        <router-link to="/movie" style="color: #7b00ac" data-icon="🎬">电影</router-link>
+        <router-link to="/movie" style="color: #7b00ac"
+          >电影
+          <MovieIcon></MovieIcon>
+        </router-link>
       </li>
     </ul>
   </header>
@@ -29,19 +38,23 @@
     <a
       class="github-link"
       title="github"
-      v-html="github"
       href="https://github.com/lovetingyuan/lovetingyuan.github.io"
       target="_blank"
       rel="noopener noreferrer"
     >
+      <GithubIcon />
     </a>
   </footer>
   <go-top />
 </template>
 
 <script lang="ts" setup>
-import github from './assets/github.svg?raw'
 import GoTop from './components/GoTop.vue'
+import GithubIcon from '~icons/mdi/github'
+import ArticleIcon from '~icons/material-symbols/article'
+import MusicIcon from '~icons/material-symbols/library-music'
+import MovieIcon from '~icons/material-symbols/movie'
+
 const time = Object(window)._buildTime || new Date().toLocaleDateString()
 </script>
 
@@ -128,11 +141,9 @@ footer {
   display: inline-block;
   width: 14px;
   height: 14px;
-  margin-left: 12px;
+  margin-left: 8px;
 }
-[data-icon]:after {
-  content: attr(data-icon);
-  margin-left: 5px;
-  font-size: 0.8em;
+svg {
+  vertical-align: text-bottom;
 }
 </style>

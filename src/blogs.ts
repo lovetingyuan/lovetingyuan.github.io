@@ -1,14 +1,14 @@
 import { useRoute } from 'vue-router'
-import { ref, computed, watchEffect, reactive } from 'vue'
+import { ref, computed, watchEffect, reactive, type Component, shallowRef } from 'vue'
 import { RouteName } from './constants'
 
-type BlogGlob = Record<string, () => Promise<{ default: string }>>
+type BlogGlob = Record<string, () => Promise<{ default: Component }>>
 
 const blogsMap = reactive(import.meta.glob('/blogs/**/*.md') as BlogGlob)
 
 export default function useBlogs() {
   const route = useRoute()
-  const blogContent = ref('')
+  const articleCmp = shallowRef<Component | null>(null)
   const blogStatus = ref<'loading' | 'loaded' | 'failed' | 'notFound'>('loading')
   const cate = computed(() => route.params.cate)
   const name = computed(() => route.params.name)
@@ -25,19 +25,16 @@ export default function useBlogs() {
       const blog = blogsMap[`/blogs/${cate.value}/${name.value}.md`]
       if (!blog) {
         blogStatus.value = 'notFound'
-        blogContent.value = '当前博客不存在'
         return
       }
       blogStatus.value = 'loading'
-      blogContent.value = '加载中，请稍候...'
       blog().then(
         (r) => {
           blogStatus.value = 'loaded'
-          blogContent.value = r.default
+          articleCmp.value = r.default
         },
         () => {
           blogStatus.value = 'failed'
-          blogContent.value = '加载失败，请重试'
         }
       )
     }
@@ -46,17 +43,8 @@ export default function useBlogs() {
   return {
     blogList,
     blogStatus,
-    blogContent,
+    articleCmp,
     cate,
     name,
   }
-}
-
-if (typeof window === 'object' && import.meta.hot) {
-  window.addEventListener('__hotUpdateBlog', (evt: CustomEventInit<[ImportMeta, { default: string }]>) => {
-    if (!evt.detail) return
-    const [meta, module] = evt.detail
-    const { pathname } = new URL(meta.url)
-    blogsMap[decodeURIComponent(pathname)] = async () => module
-  })
 }
