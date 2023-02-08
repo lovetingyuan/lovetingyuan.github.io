@@ -48,7 +48,7 @@ export default (): Plugin => {
         const code = readFileSync(id, 'utf-8')
         const src = JSON.stringify(md.render(code))
         return (
-          `export default ${src};\n` +
+          `export default ${src};` +
           `
         if (import.meta.hot) {
           import.meta.hot.accept((m) => {

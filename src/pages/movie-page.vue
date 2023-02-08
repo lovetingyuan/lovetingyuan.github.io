@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import MovieItem from '../components/Item.vue'
+import MovieItem from '../components/MediaItem.vue'
 
 const movies = [
   {
@@ -115,7 +115,7 @@ const movies = [
       `${item.director} ${item.studio ? `(${item.studio})` : ''}`,
       item.actor,
       `${item.area} ${item.time}`,
-    ].filter(Boolean),
+    ].filter(Boolean) as string[],
   }
 })
 </script>

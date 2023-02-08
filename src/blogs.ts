@@ -1,5 +1,6 @@
 import { useRoute } from 'vue-router'
 import { ref, computed, watchEffect, reactive } from 'vue'
+import { RouteName } from './constants'
 
 type BlogGlob = Record<string, () => Promise<{ default: string }>>
 
@@ -8,10 +9,11 @@ const blogsMap = reactive(import.meta.glob('/blogs/**/*.md') as BlogGlob)
 export default function useBlogs() {
   const route = useRoute()
   const blogContent = ref('')
+  const blogStatus = ref<'loading' | 'loaded' | 'failed' | 'notFound'>('loading')
   const cate = computed(() => route.params.cate)
   const name = computed(() => route.params.name)
   const blogList = computed(() => {
-    if (route.name !== 'BlogList') {
+    if (route.name !== RouteName.BlogList) {
       return []
     }
     return Object.keys(blogsMap)
@@ -19,18 +21,22 @@ export default function useBlogs() {
       .filter((v) => (cate.value ? v.startsWith(cate.value + '/') : true))
   })
   watchEffect(() => {
-    if (route.name === 'BlogContent') {
+    if (route.name === RouteName.BlogContent) {
       const blog = blogsMap[`/blogs/${cate.value}/${name.value}.md`]
       if (!blog) {
+        blogStatus.value = 'notFound'
         blogContent.value = '当前博客不存在'
         return
       }
+      blogStatus.value = 'loading'
       blogContent.value = '加载中，请稍候...'
       blog().then(
         (r) => {
+          blogStatus.value = 'loaded'
           blogContent.value = r.default
         },
         () => {
+          blogStatus.value = 'failed'
           blogContent.value = '加载失败，请重试'
         }
       )
@@ -39,6 +45,7 @@ export default function useBlogs() {
 
   return {
     blogList,
+    blogStatus,
     blogContent,
     cate,
     name,

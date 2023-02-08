@@ -1,23 +1,10 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import Home from './pages/home.vue'
-import BlogList from './pages/blogList.vue'
-import Music from './pages/music.vue'
-import Movie from './pages/movie.vue'
-
-import { h } from 'vue'
-
-const NotFound = {
-  name: 'NotFound',
-  render() {
-    return h(
-      'h3',
-      {
-        style: 'margin: 20vh 0; text-align: center',
-      },
-      ['页面找不到，请检查地址']
-    )
-  },
-}
+import Home from './pages/home-page.vue'
+import BlogList from './pages/blog-list.vue'
+import Music from './pages/music-page.vue'
+import Movie from './pages/movie-page.vue'
+import NotFound from './pages/not-found.vue'
+import { RouteName } from './constants'
 
 export default function () {
   const originTitle = document.title
@@ -26,10 +13,11 @@ export default function () {
     history: historyMethod(import.meta.env.BASE_URL),
     scrollBehavior: () => ({ top: 0 }),
     routes: [
-      { path: '/:anyPath(.*)*', name: 'NotFound', component: NotFound },
+      { path: '/:anyPath(.*)*', name: RouteName.NotFound, component: NotFound },
       {
         path: '/',
         component: Home,
+        name: RouteName.Home,
         beforeEnter(to) {
           if (to.query.redirect) {
             return {
@@ -44,19 +32,19 @@ export default function () {
         redirect: '/',
       },
       {
-        name: 'BlogList',
+        name: RouteName.BlogList,
         path: '/blog/:cate?',
         component: BlogList,
         meta: {
-          title: ({ cate }: any) => `博客${cate ? ' - ' + cate : ''}`,
+          title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
           animation: 'slide',
         },
       },
       {
-        name: 'BlogContent',
+        name: RouteName.BlogContent,
         path: '/blog/:cate/:name',
-        component: () => import('./pages/blogContent.vue'),
-        meta: { title: ({ cate, name }: any) => `博客 - ${cate + '/' + name}` },
+        component: () => import('./pages/blog-content.vue'),
+        meta: { title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}` },
       },
       {
         path: '/music',

@@ -17,7 +17,7 @@
   </header>
   <main>
     <router-view v-slot="{ Component, route }">
-      <transition :name="route.meta.animation || 'fade'" mode="out-in">
+      <transition :name="(route.meta.animation as string) || 'fade'" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>

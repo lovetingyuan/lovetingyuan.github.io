@@ -11,7 +11,10 @@
         >✍️</a
       >
     </span>
-    <article v-html="blogContent" ref="article" class="markdown-body"></article>
+    <p v-if="blogStatus === 'loading'">加载中，请稍候...</p>
+    <p v-if="blogStatus === 'failed'">加载失败，请重试...</p>
+    <p v-if="blogStatus === 'notFound'">文章不存在</p>
+    <article v-if="blogStatus === 'loaded'" v-html="blogContent" ref="article" class="markdown-body"></article>
   </section>
 </template>
 
@@ -30,13 +33,28 @@ window.Prism = Prism
 
 <script lang="ts" setup>
 import { ref, nextTick, watchEffect } from 'vue'
-import useBlogs from '../blogs'
-
-const { blogContent, cate, name } = useBlogs()
+import useBlogs from '@/blogs'
+import { getHighlighter } from 'shiki'
+const { blogContent, blogStatus, cate, name } = useBlogs()
 const article = ref<HTMLElement | null>(null)
-
+// console.log(shiki)
 watchEffect(() => {
-  if (blogContent.value) {
+  if (blogContent.value && blogStatus.value === 'loaded') {
+    // getHighlighter({
+    //   themes: ['github-light', 'nord'],
+    //   langs: ['javascript', 'python'],
+    // }).then((highlighter) => {
+    //   if (article.value) {
+    //     article.value.querySelectorAll('code').forEach((code) => {
+    //       const lang =
+    //         Array.from(code.classList)
+    //           .find((v) => v.startsWith('language-'))
+    //           ?.split('-')[0] || 'ts'
+    //       code.innerHTML = highlighter.codeToHtml(code.textContent as string, { lang })
+    //     })
+    //     // Prism.highlightAllUnder(article.value as HTMLElement)
+    //   }
+    // })
     nextTick(() => {
       if (article.value) {
         Prism.highlightAllUnder(article.value as HTMLElement)

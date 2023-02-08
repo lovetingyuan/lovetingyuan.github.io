@@ -20,7 +20,7 @@
       </ul>
     </li>
   </ul>
-  <p v-else>暂无博客</p>
+  <p v-else>暂无文章</p>
 </template>
 
 <script lang="ts" setup>

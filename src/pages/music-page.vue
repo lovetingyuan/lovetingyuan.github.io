@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import MusicItem from '../components/Item.vue'
+import MusicItem from '../components/MediaItem.vue'
 
 const musics = [
   {

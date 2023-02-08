@@ -12,6 +12,7 @@ html {
   src: local("Apple Color Emojiji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
   unicode-range: U+1F000-1F644, U+203C-3299;
 }
+
 body {
   margin: 0;
   font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica, Arial, sans-serif;
@@ -25,9 +26,11 @@ body {
   scrollbar-gutter: stable;
 
 }
+
 code {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
 #app {
   min-height: 100vh;
   max-width: 1000px;
@@ -38,16 +41,21 @@ code {
   position: relative;
   box-sizing: border-box;
 }
+
 /* 深色模式 */
 @media (prefers-color-scheme: dark) {
-  body { background: #333; color: white; }
+  body {
+    background: #333;
+    color: white;
+  }
 }
 
 /*滚动条整体部分,必须要设置*/
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 12px;
+  width: 8px;
+  height: 8px;
 }
+
 /*滚动条的轨道*/
 ::-webkit-scrollbar-track {
   background-color: snow;
@@ -58,6 +66,7 @@ code {
   border-radius: 5px;
   background-color: rgb(214, 214, 214);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(197, 197, 197);
 }
@@ -65,10 +74,12 @@ code {
 .router-link-active {
   font-weight: bold;
 }
+
 a {
   text-decoration: none;
   color: var(--theme-color);
 }
+
 a:hover {
   color: var(--theme-color2);
   text-decoration: underline;
@@ -97,15 +108,17 @@ a:hover {
 }
 
 
-.markdown-body :not(pre) > code[class*="language-"], .markdown-body pre[class*="language-"] {
+.markdown-body :not(pre)>code[class*="language-"],
+.markdown-body pre[class*="language-"] {
   background-color: #181818;
 }
+
 .markdown-body pre[class*="language-"] {
   padding: 20px 24px;
   margin: 0.5em 0;
   overflow: auto;
-  font-size: 17px;
-  line-height: 1.7;
+  /* font-size: 14px; */
+  /* line-height: 1.6; */
 }
 
 .details-content {
