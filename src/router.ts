@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import Home from './pages/home-page.vue'
 import BlogList from './pages/blog-list.vue'
+import BlogContent from './pages/blog-content.vue'
 import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'
@@ -43,8 +44,10 @@ export default function () {
       {
         name: RouteName.BlogContent,
         path: '/blog/:cate/:name',
-        component: () => import('./pages/blog-content.vue'),
-        meta: { title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}` },
+        component: BlogContent,
+        meta: {
+          title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`,
+        },
       },
       {
         path: '/music',

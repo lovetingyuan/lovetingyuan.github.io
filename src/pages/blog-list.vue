@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import useBlogs from '../blogs'
+import useBlogs from '@/blogs'
 
 const { blogList, cate } = useBlogs()
 
@@ -46,6 +46,7 @@ const columns = computed(() => (cate.value ? 1 : 2))
   column-count: v-bind(columns);
   column-gap: 20px;
   list-style: none;
+  padding-left: 10px;
 }
 .blog-list .add {
   margin-left: 12px;
@@ -70,9 +71,6 @@ const columns = computed(() => (cate.value ? 1 : 2))
   margin-top: 0;
 }
 
-.blog-list {
-  padding-left: 10px;
-}
 .blog-list ul {
   padding-left: 16px;
   list-style-position: inside;
