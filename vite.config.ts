@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
-import buildInfo from './scripts/buildInfo'
+// import VueJsx from '@vitejs/plugin-vue-jsx'
 import Markdown from 'vite-plugin-vue-markdown'
 import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
 import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
-import VueJsx from '@vitejs/plugin-vue-jsx'
+import buildInfo from './scripts/buildInfo'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +20,7 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
     }),
-    VueJsx(),
+    // VueJsx(),
     Icons({
       compiler: 'vue3',
     }),
