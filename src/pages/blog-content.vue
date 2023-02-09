@@ -8,8 +8,9 @@
         target="_blank"
         rel="noopener noreferrer"
         :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
-        >✍️</a
       >
+        <icon-material-symbols-edit-document-rounded />
+      </a>
     </span>
     <p v-if="blogStatus === 'loading'">加载中，请稍候...</p>
     <p v-if="blogStatus === 'failed'">加载失败，请重试...</p>
@@ -57,5 +58,8 @@ const { articleCmp, blogStatus, cate, name } = useBlogs()
 }
 .edit {
   margin-left: 10px;
+}
+svg {
+  vertical-align: text-top;
 }
 </style>

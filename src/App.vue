@@ -5,18 +5,21 @@
     </h4>
     <ul class="links">
       <li>
-        <router-link to="/blog" style="color: #007896">博客
-          <ArticleIcon></ArticleIcon>
+        <router-link to="/blog" style="color: #007896">
+          博客
+          <icon-material-symbols-article />
         </router-link>
       </li>
       <li>
-        <router-link to="/music" style="color: #007419">音乐
-          <MusicIcon></MusicIcon>
+        <router-link to="/music" style="color: #007419">
+          音乐
+          <icon-material-symbols-library-music />
         </router-link>
       </li>
       <li>
-        <router-link to="/movie" style="color: #7b00ac">电影
-          <MovieIcon></MovieIcon>
+        <router-link to="/movie" style="color: #7b00ac">
+          电影
+          <icon-material-symbols-movie />
         </router-link>
       </li>
     </ul>
@@ -32,9 +35,14 @@
     <i>{{ time }}</i>
     <span style="margin-left: 8px">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
-    <a class="github-link" title="github" href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank"
-      rel="noopener noreferrer">
-      <GithubIcon />
+    <a
+      class="github-link"
+      title="github"
+      href="https://github.com/lovetingyuan/lovetingyuan.github.io"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <icon-mdi-github />
     </a>
   </footer>
   <go-top />
@@ -42,12 +50,7 @@
 
 <script lang="ts" setup>
 import GoTop from './components/GoTop.vue'
-import GithubIcon from '~icons/mdi/github'
-import ArticleIcon from '~icons/material-symbols/article'
-import MusicIcon from '~icons/material-symbols/library-music'
-import MovieIcon from '~icons/material-symbols/movie'
-
-const time = Object(window)._buildTime || new Date().toLocaleDateString()
+const time = (globalThis as any)._buildTime || new Date().toLocaleDateString()
 </script>
 
 <style scoped>
@@ -140,7 +143,6 @@ footer {
 }
 
 .github-link {
-  vertical-align: sub;
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -148,6 +150,6 @@ footer {
 }
 
 svg {
-  vertical-align: text-bottom;
+  vertical-align: text-top;
 }
 </style>

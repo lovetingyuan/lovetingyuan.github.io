@@ -1,4 +1,4 @@
-(function () {
+;(function () {
   function waitFor(condition, callback, timeout) {
     const timerCallback = () => {
       const ready = condition()

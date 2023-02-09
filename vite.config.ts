@@ -8,6 +8,8 @@ import container from 'markdown-it-container'
 import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
 import buildInfo from './scripts/buildInfo'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,6 +21,13 @@ export default defineConfig({
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
+    }),
+    Components({
+      resolvers: [
+        IconsResolver({
+          prefix: 'icon', // <--
+        }),
+      ],
     }),
     // VueJsx(),
     Icons({

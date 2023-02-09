@@ -2,7 +2,7 @@
   <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
-        <router-link :to="`/blog/${c}`">{{ c }}</router-link>
+        <span>{{ c }}</span>
         <a
           v-if="cate"
           :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"

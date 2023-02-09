@@ -1,11 +1,10 @@
 <template>
   <span class="go-top" title="返回顶部" @click="goTop">
-    <UpIcon></UpIcon>
+    <icon-material-symbols-arrow-circle-up />
   </span>
 </template>
 
 <script setup lang="ts">
-import UpIcon from '~icons/material-symbols/arrow-circle-up'
 const goTop = () => {
   document.documentElement.scrollTo({
     top: 0,
@@ -17,7 +16,7 @@ const goTop = () => {
 <style scoped>
 .go-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   right: 10px;
   display: block;
   padding: 12px;
