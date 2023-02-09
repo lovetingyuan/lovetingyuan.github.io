@@ -1,0 +1,14 @@
+{
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "files.autoSave": "onFocusChange",
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+}

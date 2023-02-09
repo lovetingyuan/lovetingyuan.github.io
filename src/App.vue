@@ -5,20 +5,17 @@
     </h4>
     <ul class="links">
       <li>
-        <router-link to="/blog" style="color: #007896"
-          >博客
+        <router-link to="/blog" style="color: #007896">博客
           <ArticleIcon></ArticleIcon>
         </router-link>
       </li>
       <li>
-        <router-link to="/music" style="color: #007419"
-          >音乐
+        <router-link to="/music" style="color: #007419">音乐
           <MusicIcon></MusicIcon>
         </router-link>
       </li>
       <li>
-        <router-link to="/movie" style="color: #7b00ac"
-          >电影
+        <router-link to="/movie" style="color: #7b00ac">电影
           <MovieIcon></MovieIcon>
         </router-link>
       </li>
@@ -35,13 +32,8 @@
     <i>{{ time }}</i>
     <span style="margin-left: 8px">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
-    <a
-      class="github-link"
-      title="github"
-      href="https://github.com/lovetingyuan/lovetingyuan.github.io"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="github-link" title="github" href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank"
+      rel="noopener noreferrer">
       <GithubIcon />
     </a>
   </footer>
@@ -65,9 +57,11 @@ header {
   padding: 0 10px;
   padding-top: 25px;
 }
+
 header a {
   text-decoration: none;
 }
+
 .title {
   margin: 0;
   font-size: 20px;
@@ -83,6 +77,7 @@ header a {
   margin-left: 50px;
   user-select: none;
 }
+
 .links li {
   float: left;
   margin: 10px 20px;
@@ -94,6 +89,7 @@ main {
   padding: 0 20px;
   padding-bottom: 100px;
 }
+
 footer {
   position: absolute;
   bottom: 0;
@@ -105,16 +101,20 @@ footer {
   color: #999;
   left: 0;
 }
+
 @media screen and (max-width: 600px) {
   .links {
     margin-left: 20px;
   }
+
   .links li {
     margin: 10px;
   }
+
   header {
     justify-content: space-between;
   }
+
   main {
     padding-left: 10px;
     padding-right: 10px;
@@ -125,12 +125,15 @@ footer {
   .links {
     margin-left: 10px;
   }
+
   .title {
     font-size: 18px;
   }
+
   .links {
     font-size: 16px;
   }
+
   .links li {
     margin: 5px;
   }
@@ -143,6 +146,7 @@ footer {
   height: 14px;
   margin-left: 8px;
 }
+
 svg {
   vertical-align: text-bottom;
 }

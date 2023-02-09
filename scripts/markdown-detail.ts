@@ -11,12 +11,12 @@ export default {
     let title
     let link
     if (info.includes('[')) {
-      ;[, title, link] = info.match(/detail \[(.*)\] (.*)$/) || []
+      [, title, link] = info.match(/detail \[(.*)\]\((.*)\)$/) || []
     } else {
-      ;[, title, link] = info.split(' ')
+      [, title, link] = info.split(' ')
     }
     return `\n<details><summary>${
-      link ? `<a href="${link}" target="_blank" style="margin-left: 20px">${title}</a>` : title
-    }</summary><div class="details-content">\n`
+      link ? `<a href="${link}" target="_blank" style="margin-left: 10px">${title}</a>` : title
+    }</summary><div style="padding-top: 10px;">\n`
   },
 }

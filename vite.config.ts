@@ -7,6 +7,7 @@ import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
 import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
     }),
+    VueJsx(),
     Icons({
       compiler: 'vue3',
     }),
