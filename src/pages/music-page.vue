@@ -6,7 +6,7 @@
       :image="music.image"
       :link="music.link"
       :info-list="music.infos"
-      style="margin-top: 60px"
+      style="margin-top: 45px"
     />
   </div>
 </template>

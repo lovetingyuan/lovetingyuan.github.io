@@ -57,7 +57,7 @@ const time = (globalThis as any)._buildTime || new Date().toLocaleDateString()
 header {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 15px;
   padding-top: 25px;
 }
 
@@ -87,7 +87,7 @@ header a {
 }
 
 main {
-  margin-top: 40px;
+  margin-top: 35px;
   position: relative;
   padding: 0 20px;
   padding-bottom: 100px;
@@ -105,7 +105,7 @@ footer {
   left: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
   .links {
     margin-left: 20px;
   }
@@ -119,8 +119,8 @@ footer {
   }
 
   main {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 

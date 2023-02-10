@@ -71,15 +71,7 @@ body {
   font-weight: bold;
 }
 
-a {
-  text-decoration: none;
-  color: var(--theme-color);
-}
 
-a:hover {
-  color: var(--theme-color2);
-  text-decoration: underline;
-}
 
 /* transition */
 .fade-enter-active,
@@ -101,4 +93,52 @@ a:hover {
 .slide-leave-to {
   transform: translateX(24px);
   opacity: 0;
+}
+
+a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: -2px;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #0087ca;
+  transition: width 0.25s ease 0s, left 0.25s ease 0s;
+  width: 0;
+}
+
+a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: var(--theme-color);
+}
+
+/*
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+} */
+
+a:hover {
+  color: var(--theme-color2);
 }

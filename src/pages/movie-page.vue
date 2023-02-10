@@ -6,7 +6,7 @@
       :image="movie.image"
       :link="movie.link"
       :info-list="movie.infos"
-      style="margin-top: 60px"
+      style="margin-top: 45px"
     />
   </div>
 </template>

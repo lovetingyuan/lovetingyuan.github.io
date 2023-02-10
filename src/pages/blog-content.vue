@@ -47,6 +47,9 @@ const { articleCmp, blogStatus, cate, name } = useBlogs()
 .markdown-body {
   background-color: transparent;
 }
+.markdown-body summary:hover {
+  font-weight: bold;
+}
 </style>
 
 <style scoped>
