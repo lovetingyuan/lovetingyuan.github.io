@@ -51,7 +51,17 @@
 <script lang="ts" setup>
 import GoTop from './components/GoTop.vue'
 import { RouteName } from './constants'
-const time = (globalThis as any)._buildTime || new Date().toLocaleDateString()
+import { useSSRContext } from 'vue'
+
+let time = new Date().toLocaleDateString()
+
+if (import.meta.env.SSR) {
+  const ctx = useSSRContext()
+  if (ctx?.buildTime) {
+    time = ctx?.buildTime
+    console.log(`%c Build: ${time} `, 'background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px')
+  }
+}
 </script>
 
 <style scoped>

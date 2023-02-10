@@ -7,7 +7,6 @@ import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
 import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
-import buildInfo from './scripts/buildInfo'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
@@ -44,7 +43,6 @@ export default defineConfig((env) => {
           })
         },
       }),
-      buildInfo(),
       env.ssrBuild &&
         preRender({
           routes: ['/', 'blog', 'music', 'movie'],
