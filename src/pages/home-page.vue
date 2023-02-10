@@ -19,7 +19,8 @@
             target="_blank"
             title="添加"
             href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/config.json"
-            >➕
+          >
+            <icon-material-symbols-add />
           </a>
         </li>
       </ul>
@@ -74,5 +75,10 @@ figcaption {
 }
 .tech-site-item :deep(span) {
   vertical-align: middle;
+}
+.tech-site-item:last-child {
+  font-size: 20px;
+  position: relative;
+  top: 8px;
 }
 </style>

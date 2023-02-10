@@ -10,7 +10,8 @@
           target="_blank"
           rel="noopener noreferrer"
           title="新增"
-          >➕
+        >
+          <icon-material-symbols-add />
         </a>
       </h3>
       <ul>
@@ -50,8 +51,9 @@ const columns = computed(() => (cate.value ? 1 : 2))
 }
 .blog-list .add {
   margin-left: 12px;
-  font-size: 15px;
+  font-size: 20px;
   user-select: none;
+  vertical-align: text-top;
 }
 .blog-list li {
   text-transform: capitalize;

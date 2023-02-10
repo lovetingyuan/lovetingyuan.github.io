@@ -3,7 +3,7 @@ html {
   --theme-color: rgb(0, 56, 82);
   --theme-color2: rgb(0, 41, 59);
   --text-color: #2c3e50;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
   scrollbar-gutter: stable;
 }
 
@@ -22,7 +22,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
   scrollbar-gutter: stable;
 
 }
@@ -116,28 +115,9 @@ a:hover:after {
 a {
   display: inline-block;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
   color: var(--theme-color);
 }
-
-/*
-a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: #0087ca;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-} */
 
 a:hover {
   color: var(--theme-color2);

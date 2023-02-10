@@ -12,7 +12,9 @@
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
-    <p v-if="blogStatus === 'loading'">加载中，请稍候...</p>
+    <p v-if="blogStatus === 'loading'" style="padding-top: 15vh">
+      <CircleLoading></CircleLoading>
+    </p>
     <p v-if="blogStatus === 'failed'">加载失败，请重试...</p>
     <p v-if="blogStatus === 'notFound'">文章不存在</p>
     <article v-if="blogStatus === 'loaded'">
@@ -23,6 +25,7 @@
 
 <script lang="ts" setup>
 import useBlogs from '@/blogs'
+import CircleLoading from '@/components/CircleLoading.vue'
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 </script>
 
