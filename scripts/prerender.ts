@@ -34,7 +34,7 @@ export default (options?: {
       }
       const clean = options?.clean ?? true
       clean && fs.rmSync(ssrDist, { recursive: true })
-      console.log('Pre-rendered done!')
+      console.log('Pre-rendered done!', routesToPrerender)
     },
   }
 }

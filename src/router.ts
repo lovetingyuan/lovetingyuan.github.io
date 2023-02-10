@@ -34,7 +34,7 @@ export default function () {
       },
       {
         name: RouteName.BlogList,
-        path: '/blog.html/:cate?',
+        path: '/blog/:cate?',
         component: BlogList,
         meta: {
           title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
@@ -43,7 +43,7 @@ export default function () {
       },
       {
         name: RouteName.BlogContent,
-        path: '/blog.html/:cate/:name',
+        path: '/blog/:cate/:name',
         component: BlogContent,
         meta: {
           title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`,
@@ -51,13 +51,13 @@ export default function () {
       },
       {
         name: RouteName.Music,
-        path: '/music.html',
+        path: '/music',
         component: Music,
         meta: { title: '歌曲', animation: 'slide' },
       },
       {
         name: RouteName.Movie,
-        path: '/movie.html',
+        path: '/movie',
         component: Movie,
         meta: { title: '电影', animation: 'slide' },
       },

@@ -47,7 +47,7 @@ export default defineConfig((env) => {
       buildInfo(),
       env.ssrBuild &&
         preRender({
-          routes: ['index.html', 'blog.html', 'music.html', 'movie.html'],
+          routes: ['/', 'blog', 'music', 'movie'],
         }),
     ],
   }
