@@ -10,41 +10,45 @@ import mdDetail from './scripts/markdown-detail'
 import buildInfo from './scripts/buildInfo'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
+import preRender from './scripts/prerender'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
-  // build: {
-  //   outDir: 'docs',
-  // },
-  plugins: [
-    Vue({
-      include: [/\.vue$/, /\.md$/], // <--
-    }),
-    Components({
-      resolvers: [
-        IconsResolver({
-          prefix: 'icon', // <--
-        }),
-      ],
-    }),
-    // VueJsx(),
-    Icons({
-      compiler: 'vue3',
-    }),
-    Markdown({
-      wrapperClasses: 'markdown-body',
-      markdownItSetup(md) {
-        md.use(container, 'detail', mdDetail)
-        md.use(Shiki, {
-          theme: 'dark-plus',
-        })
+export default defineConfig((env) => {
+  return {
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
-    }),
-    buildInfo(),
-  ],
+    },
+    plugins: [
+      Vue({
+        include: [/\.vue$/, /\.md$/], // <--
+      }),
+      Components({
+        resolvers: [
+          IconsResolver({
+            prefix: 'icon', // <--
+          }),
+        ],
+      }),
+      // VueJsx(),
+      Icons({
+        compiler: 'vue3',
+      }),
+      Markdown({
+        wrapperClasses: 'markdown-body',
+        markdownItSetup(md) {
+          md.use(container, 'detail', mdDetail)
+          md.use(Shiki, {
+            theme: 'dark-plus',
+          })
+        },
+      }),
+      buildInfo(),
+      env.ssrBuild &&
+        preRender({
+          routes: ['index.html', 'blog.html', 'music.html', 'movie.html'],
+        }),
+    ],
+  }
 })

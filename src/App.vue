@@ -5,19 +5,19 @@
     </h4>
     <ul class="links">
       <li>
-        <router-link to="/blog" style="color: #007896">
+        <router-link :to="{ name: RouteName.BlogList }" style="color: #007896">
           博客
           <icon-material-symbols-article />
         </router-link>
       </li>
       <li>
-        <router-link to="/music" style="color: #007419">
+        <router-link :to="{ name: RouteName.Music }" style="color: #007419">
           音乐
           <icon-material-symbols-library-music />
         </router-link>
       </li>
       <li>
-        <router-link to="/movie" style="color: #7b00ac">
+        <router-link :to="{ name: RouteName.Movie }" style="color: #7b00ac">
           电影
           <icon-material-symbols-movie />
         </router-link>
@@ -50,6 +50,7 @@
 
 <script lang="ts" setup>
 import GoTop from './components/GoTop.vue'
+import { RouteName } from './constants'
 const time = (globalThis as any)._buildTime || new Date().toLocaleDateString()
 </script>
 
@@ -101,7 +102,7 @@ footer {
   text-align: center;
   font-size: 12px;
   user-select: none;
-  color: #999;
+  color: #555;
   left: 0;
 }
 

@@ -3,4 +3,6 @@ export enum RouteName {
   BlogList = 'BlogList',
   NotFound = 'NotFound',
   Home = 'Home',
+  Music = 'Music',
+  Movie = 'Movie',
 }

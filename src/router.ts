@@ -8,7 +8,7 @@ import NotFound from './pages/not-found.vue'
 import { RouteName } from './constants'
 
 export default function () {
-  const originTitle = document.title
+  const originTitle = import.meta.env.SSR ? '' : document.title
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
@@ -34,7 +34,7 @@ export default function () {
       },
       {
         name: RouteName.BlogList,
-        path: '/blog/:cate?',
+        path: '/blog.html/:cate?',
         component: BlogList,
         meta: {
           title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
@@ -43,19 +43,21 @@ export default function () {
       },
       {
         name: RouteName.BlogContent,
-        path: '/blog/:cate/:name',
+        path: '/blog.html/:cate/:name',
         component: BlogContent,
         meta: {
           title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`,
         },
       },
       {
-        path: '/music',
+        name: RouteName.Music,
+        path: '/music.html',
         component: Music,
         meta: { title: '歌曲', animation: 'slide' },
       },
       {
-        path: '/movie',
+        name: RouteName.Movie,
+        path: '/movie.html',
         component: Movie,
         meta: { title: '电影', animation: 'slide' },
       },
@@ -70,7 +72,9 @@ export default function () {
         title = ' ' + to.meta.title
       }
     }
-    document.title = originTitle + title
+    if (!import.meta.env.SSR) {
+      document.title = originTitle + title
+    }
   })
   return router
 }

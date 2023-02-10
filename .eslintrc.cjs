@@ -1,5 +1,5 @@
 /* eslint-env node */
-require("@rushstack/eslint-patch/modern-module-resolution")
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
@@ -7,20 +7,21 @@ module.exports = {
     es2022: true,
   },
   extends: [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-typescript",
-    "@vue/eslint-config-prettier",
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript',
+    '@vue/eslint-config-prettier',
   ],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 'latest',
   },
   rules: {
-    semi: [2, "never"],
+    semi: [2, 'never'],
+    quotes: [2, 'single'],
   },
   overrides: [
     {
-      files: ["scripts/**/*.js"],
+      files: ['scripts/**/*.{js,mjs,cjs}'],
       env: {
         node: true,
         commonjs: true,
