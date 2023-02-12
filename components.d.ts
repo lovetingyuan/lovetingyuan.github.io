@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CircleLoading: typeof import('./src/components/CircleLoading.vue')['default']
+    CollectionSites: typeof import('./src/components/CollectionSites.vue')['default']
     GoTop: typeof import('./src/components/GoTop.vue')['default']
     IconMaterialSymbolsAdd: typeof import('~icons/material-symbols/add')['default']
     IconMaterialSymbolsArrowCircleUp: typeof import('~icons/material-symbols/arrow-circle-up')['default']

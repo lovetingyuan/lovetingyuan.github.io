@@ -1,7 +1,7 @@
 <template>
-  <a :href="a.url" target="_blank" rel="noopener noreferrer">
-    <img :width="imageSize" :height="imageSize" :src="getIcon(a.url)" alt="favicon" />
-    <span>{{ a.title }}</span>
+  <a :href="a.url" target="_blank" rel="noopener noreferrer" class="link">
+    <img :width="imageSize" :height="imageSize" :src="getIcon(a.url)" alt="favicon" class="site-icon" />
+    <span class="site-name">{{ a.title }}</span>
   </a>
 </template>
 
@@ -19,3 +19,20 @@ const getIcon = (url: string) => {
 }
 const imageSize = props.size || 40
 </script>
+
+<style scoped>
+.link {
+  display: inline-block;
+  /* margin: 10px 20px; */
+}
+
+.site-icon {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.site-name {
+  vertical-align: middle;
+  text-transform: capitalize;
+}
+</style>

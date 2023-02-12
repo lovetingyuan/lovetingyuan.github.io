@@ -2,15 +2,10 @@
   <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
-        <span>{{ c }}</span>
-        <a
-          v-if="cate"
-          :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
-          class="add"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="新增"
-        >
+        <span v-if="cate">{{ c }}</span>
+        <router-link v-else :to="`/blog/${c}`">{{ c }}</router-link>
+        <a v-if="cate" :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
+          class="add" target="_blank" rel="noopener noreferrer" title="新增">
           <icon-material-symbols-add />
         </a>
       </h3>
@@ -49,27 +44,33 @@ const columns = computed(() => (cate.value ? 1 : 2))
   list-style: none;
   padding-left: 10px;
 }
+
 .blog-list .add {
   margin-left: 12px;
   font-size: 20px;
   user-select: none;
   vertical-align: text-top;
 }
+
 .blog-list li {
   text-transform: capitalize;
 }
+
 .blog-list ul li {
   margin: 12px 0;
   font-size: 15px;
 }
-.blog-list > li {
+
+.blog-list>li {
   margin-top: 32px;
   font-size: 16px;
 }
-.blog-list > li:first-child {
+
+.blog-list>li:first-child {
   margin-top: 0;
 }
-.blog-list > li:first-child h3 {
+
+.blog-list>li:first-child h3 {
   margin-top: 0;
 }
 
