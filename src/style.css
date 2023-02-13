@@ -94,33 +94,46 @@ body {
   opacity: 0;
 }
 
-a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: -2px;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #0087ca;
-  transition: width 0.25s ease 0s, left 0.25s ease 0s;
-  width: 0;
+@media (any-hover: hover) {
+
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #0087ca;
+    transition: width 0.25s ease 0s, left 0.25s ease 0s;
+    width: 0;
+  }
+
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none !important;
+    color: var(--theme-color);
+  }
+
+  a:hover {
+    color: var(--theme-color2);
+  }
 }
 
-a:hover:after {
-  width: 100%;
-  left: 0;
+@media (prefers-reduced-motion: reduce) {
+  a:after {
+    transition: none;
+  }
 }
 
 a {
-  display: inline-block;
-  position: relative;
-  text-decoration: none !important;
-  color: var(--theme-color);
-}
-
-a:hover {
-  color: var(--theme-color2);
+  text-decoration: none;
 }
 
 summary {

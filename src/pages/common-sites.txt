@@ -1,0 +1,5 @@
+github: https://github.com
+leetcode: https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D
+bilibili: https://bilibili.com
+twitter: https://twitter.com/home
+CCTV: https://tv.cctv.com/live/

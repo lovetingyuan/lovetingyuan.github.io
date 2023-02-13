@@ -31,3 +31,4 @@ coverage
 
 *.tsbuildinfo
 test.js
+.cache

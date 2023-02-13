@@ -26,9 +26,10 @@
   </header>
   <main>
     <router-view v-slot="{ Component, route }">
-      <transition :name="(route.meta.animation as string) || 'fade'" mode="out-in">
+      <transition v-if="reduceAnimation" :name="(route.meta.animation as string) || 'fade'" mode="out-in">
         <component :is="Component" />
       </transition>
+      <component v-else :is="Component" />
     </router-view>
   </main>
   <footer>
@@ -53,6 +54,10 @@ import GoTop from './components/GoTop.vue'
 import { RouteName } from './constants'
 
 let time = new Date().toLocaleDateString()
+let reduceAnimation = false
+if (!import.meta.env.SSR) {
+  reduceAnimation = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
 </script>
 
 <style scoped>

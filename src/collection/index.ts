@@ -1,0 +1,27 @@
+const collection = import.meta.glob('./*.txt', { eager: true, as: 'raw' })
+
+const result: Record<string, { title: string; url: string; description?: string }[]> = {}
+
+Object.keys(collection).forEach((cate) => {
+  const cate2 = cate.slice(2, -4)
+  result[cate2] = collection[cate]
+    .trim()
+    .split('\n')
+    .map((v) => {
+      let [title, url] = v.split(': ').map((v) => v.trim())
+      let description = ''
+      if (title.includes('(')) {
+        const [, title2, description2] = title.match(/(.+)\((.+)\)/) || []
+        if (title2 && description2) {
+          ;[title, description] = [title2, description2]
+        }
+      }
+      return {
+        title,
+        url,
+        description,
+      }
+    })
+})
+
+export default result

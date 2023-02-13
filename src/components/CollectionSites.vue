@@ -2,7 +2,17 @@
   <ul class="cate-list">
     <li v-for="(list, cate) in collections" :key="cate" class="cate-item">
       <details open>
-        <summary>{{ cate }}</summary>
+        <summary>
+          {{ cate }}
+          <a
+            target="_blank"
+            title="添加"
+            style="vertical-align: sub"
+            :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/collection/${cate}.txt`"
+          >
+            <icon-material-symbols-add />
+          </a>
+        </summary>
         <ul class="site-list">
           <li v-for="site of list" :key="site.url" class="site-item">
             <link-item :a="site" :size="25" />
@@ -11,12 +21,11 @@
       </details>
     </li>
   </ul>
-
 </template>
 
 <script setup lang="ts">
-import collections from '@/collection.json'
-import LinkItem from './LinkItem.vue';
+import collections from '@/collection'
+import LinkItem from './LinkItem.vue'
 </script>
 
 <style scoped>
@@ -31,6 +40,7 @@ import LinkItem from './LinkItem.vue';
 
 summary {
   cursor: pointer;
+  transition: letter-spacing 0.2s, font-weight 0.2s;
 }
 
 summary:hover {

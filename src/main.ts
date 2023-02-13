@@ -3,7 +3,6 @@ import App from './App.vue'
 import createRouter from './router'
 import './style.css'
 import { useWebNotification } from '@vueuse/core'
-
 const app = createApp(App)
 const router = createRouter()
 app.use(router)
