@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
 import './style.css'
+import 'balloon-css'
 import { useWebNotification } from '@vueuse/core'
 const app = createApp(App)
 const router = createRouter()
@@ -9,16 +10,11 @@ app.use(router)
 app.mount('#app')
 
 async function checkUpdate() {
-  if (import.meta.env.SSR) return
-  const commits = (
-    await fetch('https://api.github.com/repos/lovetingyuan/lovetingyuan.github.io/commits', {
-      headers: {
-        Accept: 'application/vnd.github+json',
-      },
-    }).then((r) => r.json())
-  ).catch(() => {
-    /*noop*/
-  }) as {
+  const commits = (await fetch('https://api.github.com/repos/lovetingyuan/lovetingyuan.github.io/commits', {
+    headers: {
+      Accept: 'application/vnd.github+json',
+    },
+  }).then((r) => r.json())) as {
     commit: { message: string }
     sha: string
     url: string
@@ -35,4 +31,7 @@ async function checkUpdate() {
   }
 }
 
-setInterval(checkUpdate, 10 * 60 * 1000)
+if (!import.meta.env.SSR) {
+  setInterval(checkUpdate, 10 * 60 * 1000)
+  import('./pwa')
+}

@@ -1,15 +1,27 @@
 <template>
   <a :href="a.url" target="_blank" rel="noopener noreferrer" class="link">
-    <img :width="imageSize" :height="imageSize" :src="getIcon(a.url)" alt="favicon" class="site-icon" />
-    <span class="site-name">{{ a.title }}</span>
+    <span :aria-label="desc" data-balloon-pos="up" :data-balloon-blunt="reduceAnimation || undefined">
+      <img
+        :width="imageSize"
+        loading="lazy"
+        :height="imageSize"
+        :src="getIcon(a.url)"
+        alt="favicon"
+        class="site-icon"
+      />
+      <span class="site-name">{{ a.title }}</span>
+    </span>
   </a>
 </template>
 
 <script lang="ts" setup>
+import { useMediaQuery } from '@vueuse/core'
+
 const props = defineProps<{
   a: {
     url: string
     title: string
+    description?: string
   }
   size?: number
 }>()
@@ -18,6 +30,8 @@ const getIcon = (url: string) => {
   return `https://api.faviconkit.com/${host}/32`
 }
 const imageSize = props.size || 40
+const desc = props.a.description || undefined
+const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
 
 <style scoped>

@@ -13,8 +13,14 @@
         "./src/*"
       ]
     },
+    "lib": [
+      "ESNext",
+      "DOM",
+      "WebWorker"
+    ],
     "types": [
       "unplugin-icons/types/vue",
+      "vite-plugin-pwa/client"
     ]
   },
   "references": [

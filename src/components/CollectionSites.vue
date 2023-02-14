@@ -40,12 +40,13 @@ import LinkItem from './LinkItem.vue'
 
 summary {
   cursor: pointer;
-  transition: letter-spacing 0.2s, font-weight 0.2s;
+  transition: font-weight 0.2s;
+  letter-spacing: 2px;
 }
 
 summary:hover {
   font-weight: bold;
-  letter-spacing: 3px;
+  /* letter-spacing: 3px; */
 }
 
 .site-list {

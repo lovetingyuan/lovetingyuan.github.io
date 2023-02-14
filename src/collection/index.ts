@@ -8,6 +8,7 @@ Object.keys(collection).forEach((cate) => {
     .trim()
     .split('\n')
     .map((v) => {
+      // eslint-disable-next-line prefer-const
       let [title, url] = v.split(': ').map((v) => v.trim())
       let description = ''
       if (title.includes('(')) {

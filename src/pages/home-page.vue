@@ -60,6 +60,7 @@ figure {
 figcaption {
   margin-bottom: 10px;
   font-size: 17px;
+  letter-spacing: 1px;
 }
 
 .common-sites {

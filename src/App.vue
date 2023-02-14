@@ -50,14 +50,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useMediaQuery } from '@vueuse/core'
 import GoTop from './components/GoTop.vue'
 import { RouteName } from './constants'
 
 let time = new Date().toLocaleDateString()
-let reduceAnimation = false
-if (!import.meta.env.SSR) {
-  reduceAnimation = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
+const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
 
 <style scoped>

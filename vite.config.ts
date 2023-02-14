@@ -12,6 +12,8 @@ import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
 import injectBuildInfo from './scripts/inject-build-info'
 
+import { VitePWA } from 'vite-plugin-pwa'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
@@ -20,6 +22,56 @@ export default defineConfig({
     },
   },
   plugins: [
+    VitePWA({
+      registerType: 'autoUpdate',
+      // strategies: 'injectManifest',
+      // srcDir: 'src',
+      // filename: 'sw.ts',
+      // injectManifest: {
+      //   globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+      // },
+      devOptions: {
+        enabled: true,
+        type: 'module',
+        navigateFallback: 'index.html',
+        /* other options */
+      },
+      includeAssets: ['*.ico'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request, url }) => {
+              if (request.url.includes('api.faviconkit.com')) {
+                return true
+              }
+              if (['.png', '.jpg', '.svg'].some((v) => url.pathname.endsWith(v))) return true
+              return false
+            },
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'icon-cover-image',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+              },
+            },
+          },
+          {
+            urlPattern: ({ request, url }) => {
+              return url.pathname.endsWith('.html')
+            },
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'html-page',
+            },
+          },
+        ],
+      },
+    }),
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
     }),
