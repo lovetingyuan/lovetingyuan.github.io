@@ -14,12 +14,17 @@ declare module '@vue/runtime-core' {
     IconMaterialSymbolsArrowCircleUp: typeof import('~icons/material-symbols/arrow-circle-up')['default']
     IconMaterialSymbolsArticle: typeof import('~icons/material-symbols/article')['default']
     IconMaterialSymbolsEditDocumentRounded: typeof import('~icons/material-symbols/edit-document-rounded')['default']
+    IconMaterialSymbolsFrameReload: typeof import('~icons/material-symbols/frame-reload')['default']
     IconMaterialSymbolsLibraryMusic: typeof import('~icons/material-symbols/library-music')['default']
     IconMaterialSymbolsMovie: typeof import('~icons/material-symbols/movie')['default']
+    IconMaterialSymbolsRefresh: typeof import('~icons/material-symbols/refresh')['default']
     IconMdiGithub: typeof import('~icons/mdi/github')['default']
+    IconMdiReload: typeof import('~icons/mdi/reload')['default']
+    IconMidReload: typeof import('~icons/mi/d-reload')['default']
     LinkItem: typeof import('./src/components/LinkItem.vue')['default']
     MediaItem: typeof import('./src/components/MediaItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UpdateButton: typeof import('./src/components/UpdateButton.vue')['default']
   }
 }

@@ -23,7 +23,7 @@ export default defineConfig({
   },
   plugins: [
     VitePWA({
-      registerType: 'autoUpdate',
+      // registerType: 'autoUpdate',
       // strategies: 'injectManifest',
       // srcDir: 'src',
       // filename: 'sw.ts',
@@ -45,12 +45,11 @@ export default defineConfig({
               if (request.url.includes('api.faviconkit.com')) {
                 return true
               }
-              if (['.png', '.jpg', '.svg'].some((v) => url.pathname.endsWith(v))) return true
-              return false
+              return request.destination === 'image'
             },
             handler: 'CacheFirst',
             options: {
-              cacheName: 'icon-cover-image',
+              cacheName: 'images',
               cacheableResponse: {
                 statuses: [0, 200],
               },
@@ -62,11 +61,11 @@ export default defineConfig({
           },
           {
             urlPattern: ({ request, url }) => {
-              return url.pathname.endsWith('.html')
+              return request.destination === 'document'
             },
             handler: 'NetworkFirst',
             options: {
-              cacheName: 'html-page',
+              cacheName: 'html',
             },
           },
         ],
