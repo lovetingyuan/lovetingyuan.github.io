@@ -1,0 +1,1 @@
+import{u as e}from"./index-2bb4c3da.js";function o(t={}){return(n=!0)=>{}}const i=o({onOfflineReady(){console.log("offline enabled...")},onNeedRefresh(){e({title:"站点有更新",body:"点击右下角更新"}),console.log("update")}});export{i as default};
