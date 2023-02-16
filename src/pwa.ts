@@ -4,6 +4,7 @@ import { useWebNotification } from '@vueuse/core'
 const updateSW = registerSW({
   onOfflineReady() {
     // alert('offline')
+    console.log('offline enabled...')
   },
   onNeedRefresh() {
     useWebNotification({

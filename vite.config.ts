@@ -25,6 +25,7 @@ export default defineConfig((env) => ({
   },
   plugins: [
     VitePWA({
+      disable: true,
       // registerType: 'autoUpdate',
       // strategies: 'injectManifest',
       // srcDir: 'src',
