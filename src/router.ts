@@ -6,9 +6,10 @@ import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'
 import { RouteName } from './constants'
+import type { ArgumentsType } from '@vueuse/core'
 
-export default function () {
-  const originTitle = import.meta.env.SSR ? '' : document.title
+export default function ({ setTitle }: ArgumentsType<ServerRender>[1]) {
+  const originTitle = import.meta.env.SSR ? 'tingyuan' : document.title
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
@@ -64,16 +65,18 @@ export default function () {
     ],
   })
   router.afterEach((to) => {
-    let title = ''
+    let title = originTitle
     if (to.meta?.title) {
       if (typeof to.meta.title === 'function') {
-        title = ' ' + to.meta.title(to.params)
+        title = title + ' ' + to.meta.title(to.params)
       } else if (typeof to.meta.title === 'string') {
-        title = ' ' + to.meta.title
+        title = title + ' ' + to.meta.title
       }
     }
-    if (!import.meta.env.SSR) {
-      document.title = originTitle + title
+    if (import.meta.env.SSR) {
+      setTitle?.(title)
+    } else {
+      document.title = title
     }
   })
   return router

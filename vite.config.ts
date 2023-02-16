@@ -11,15 +11,17 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
 import injectBuildInfo from './scripts/inject-build-info'
-
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig((env) => ({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  build: {
+    copyPublicDir: !env.ssrBuild,
   },
   plugins: [
     VitePWA({
@@ -31,14 +33,18 @@ export default defineConfig({
       //   globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
       // },
       devOptions: {
-        enabled: true,
+        enabled: false,
         type: 'module',
         navigateFallback: 'index.html',
         /* other options */
       },
-      includeAssets: ['*.ico'],
+      // includeAssets: ['*.ico', '!js/*.js'],
+      // injectManifest: {},
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
+        globIgnores: ['js/*.js', 'p.html', 'resume.html', 'saoma.html'],
+        // importScripts: ['./a.js'],
+        // navigateFallback: 'index.html',
         runtimeCaching: [
           {
             urlPattern: ({ request, url }) => {
@@ -49,7 +55,7 @@ export default defineConfig({
             },
             handler: 'CacheFirst',
             options: {
-              cacheName: 'images',
+              cacheName: 'images-cache',
               cacheableResponse: {
                 statuses: [0, 200],
               },
@@ -65,7 +71,14 @@ export default defineConfig({
             },
             handler: 'NetworkFirst',
             options: {
-              cacheName: 'html',
+              cacheName: 'html-cache',
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+              // expiration: {
+              //   maxEntries: 10,
+              //   maxAgeSeconds: 7 * 24 * 60 * 60,
+              // },
             },
           },
         ],
@@ -95,8 +108,8 @@ export default defineConfig({
       },
     }),
     preRender({
-      routes: ['/', 'blog', 'music', 'movie'],
+      routes: ['/', '/blog', '/music', '/movie'],
     }),
     injectBuildInfo(),
   ],
-})
+}))

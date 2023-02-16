@@ -8,9 +8,9 @@ const updateSW = registerSW({
   onNeedRefresh() {
     useWebNotification({
       title: '站点有更新',
-      body: '点击右下角更新'
+      body: '点击右下角更新',
     })
-    console.log('update');
+    console.log('update')
   },
   // immediate: true,
 })

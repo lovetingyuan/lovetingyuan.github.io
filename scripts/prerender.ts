@@ -2,16 +2,20 @@ import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
 
+const defaultReplaceMark = /<!--ssr-start-->([\s\S]+)<!--ssr-end-->/
+
 /**
  * https://cn.vitejs.dev/guide/ssr.html#pre-rendering--ssg
+ * 注意：先进行ssr构建，再进行普通构建
  */
 export default (options?: {
   routes?: string[]
-  clean?: boolean
-  clientDist?: string
+  ssrDist?: string
+  ssrEntry?: string
   replaceMark?: RegExp | string
 }): Plugin => {
   let config: ResolvedConfig
+
   return {
     name: 'prerender-plugin',
     enforce: 'post',
@@ -19,25 +23,39 @@ export default (options?: {
     configResolved(c) {
       config = c
     },
-    async writeBundle() {
-      const routesToPrerender = options?.routes || ['/']
-      const ssrDist = config.build.outDir
-      const ssrEntry = path.resolve(ssrDist, 'server.mjs')
-      if (!fs.existsSync(ssrEntry)) return
-      const { render } = await import(ssrEntry)
-      const clientDist = options?.clientDist || path.resolve(config.root, 'dist')
-      const template = fs.readFileSync(path.resolve(clientDist, 'index.html'), 'utf-8')
-      const defaultReplaceMark = /<!--ssr-start-->([\s\S]+)<!--ssr-end-->/
-      for (const url of routesToPrerender) {
-        const html = await render(url)
-        const replaceMark = options?.replaceMark || defaultReplaceMark
-        const renderedHtml = template.replace(replaceMark, html)
-        const filePath = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
-        fs.writeFileSync(path.resolve(clientDist, filePath), renderedHtml)
-      }
-      const clean = options?.clean ?? true
-      clean && fs.rmSync(ssrDist, { recursive: true })
-      console.log('Pre-rendered done!', routesToPrerender)
+    async generateBundle(_, bundle) {
+      if (config.build.ssr) return
+      const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
+      const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
+      type Asset = Extract<(typeof bundle)[string], { type: 'asset' }>
+      const routesToPrerender = options?.routes || []
+      const indexBundle = bundle['index.html'] as Asset
+      if (!indexBundle || !fs.existsSync(ssrEntry)) return
+      const indexHtml = indexBundle.source.toString()
+      const { render } = (await import(ssrEntry)) as { render: ServerRender }
+      await Promise.all(
+        routesToPrerender.map(async (url) => {
+          let fileName = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
+          if (fileName[0] === '/') {
+            fileName = fileName.slice(1)
+          }
+          if (fileName !== 'index.html' && fileName in bundle) return
+          let title = ''
+          const setTitle = (t: string) => (title = t)
+          const html = await render(url, { setTitle })
+          const replaceMark = options?.replaceMark || defaultReplaceMark
+          const prerenderedHtml = indexHtml
+            .replace(/<title>([\s\S]*)<\/title>/, (_, t) => `<title>${title || t}</title>`)
+            .replace(replaceMark, html)
+          bundle[fileName] = {
+            type: 'asset',
+            name: undefined,
+            source: prerenderedHtml,
+            fileName,
+            needsCodeReference: false,
+          }
+        })
+      )
     },
   }
 }

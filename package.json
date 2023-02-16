@@ -5,10 +5,10 @@
   "version": "0.0.0",
   "homepage": "https://lovetingyuan.github.io",
   "scripts": {
-    "dev": "npx cross-env NODE_ENV=development vite",
+    "dev": "cross-env NODE_ENV=development vite",
     "type-check": "vue-tsc --noEmit && vue-tsc -p scripts --noEmit --composite false",
-    "build": "npx cross-env NODE_ENV=production vite build && npm run build:ssr",
-    "build:ssr": "npx cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist/ssr",
+    "build": "cross-env NODE_ENV=production && npm run build:ssr && vite build",
+    "build:ssr": "cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist-ssr",
     "serve": "vite preview",
     "deploy": "node ./scripts/deploy",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
