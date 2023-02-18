@@ -1,12 +1,15 @@
 <template>
-  <div class="button">
+  <div class="button" @click="update">
     <icon-material-symbols-refresh />
   </div>
 </template>
 
 <script setup lang="ts">
-const reload = () => {
-  location.reload()
+import { hasUpdate } from '@/global';
+
+const update = () => {
+  hasUpdate.value?.();
+  hasUpdate.value = false;
 }
 </script>
 

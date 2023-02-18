@@ -36,17 +36,12 @@
     <i>{{ time }}</i>
     <span style="margin-left: 8px">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
-    <a
-      class="github-link"
-      title="github"
-      href="https://github.com/lovetingyuan/lovetingyuan.github.io"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="github-link" title="github" href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank"
+      rel="noopener noreferrer">
       <icon-mdi-github />
     </a>
   </footer>
-  <UpdateButton></UpdateButton>
+  <UpdateButton v-if="hasUpdate"></UpdateButton>
   <GoTop></GoTop>
 </template>
 
@@ -55,8 +50,9 @@ import { useMediaQuery } from '@vueuse/core'
 import GoTop from './components/GoTop.vue'
 import UpdateButton from './components/UpdateButton.vue'
 import { RouteName } from './constants'
+import { hasUpdate } from './global'
 
-let time = new Date().toLocaleDateString()
+let time = window._buildTime || new Date().toLocaleDateString()
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
 

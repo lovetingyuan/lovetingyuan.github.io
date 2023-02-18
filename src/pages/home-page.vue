@@ -3,12 +3,8 @@
     <figure>
       <figcaption>
         常用站点
-        <a
-          target="_blank"
-          title="添加"
-          style="vertical-align: sub"
-          href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/common-sites.txt"
-        >
+        <a target="_blank" title="添加" style="vertical-align: sub"
+          href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/common-sites.txt">
           <icon-material-symbols-add />
         </a>
       </figcaption>
@@ -21,12 +17,8 @@
     <figure>
       <figcaption>
         集锦
-        <a
-          target="_blank"
-          title="添加"
-          style="vertical-align: sub"
-          href="https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/src/collection"
-        >
+        <a target="_blank" title="添加" style="vertical-align: sub"
+          href="https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/src/collection">
           <icon-material-symbols-add />
         </a>
       </figcaption>
@@ -53,8 +45,7 @@ const commonLinks2 = commonLinks
 
 <style scoped>
 figure {
-  margin: 20px;
-  margin-bottom: 30px;
+  margin: 20px 0;
 }
 
 figcaption {

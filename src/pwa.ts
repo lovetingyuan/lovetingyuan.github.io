@@ -1,17 +1,15 @@
 import { registerSW } from 'virtual:pwa-register'
-import { useWebNotification } from '@vueuse/core'
+// import { useWebNotification } from '@vueuse/core'
+import { hasUpdate } from './global'
 
 const updateSW = registerSW({
   onOfflineReady() {
     // alert('offline')
-    console.log('offline enabled...')
+    console.log('sw offline enabled...')
   },
   onNeedRefresh() {
-    useWebNotification({
-      title: '站点有更新',
-      body: '点击右下角更新',
-    })
-    console.log('update')
+    hasUpdate.value = updateSW
+    console.log('sw update')
   },
   // immediate: true,
 })
