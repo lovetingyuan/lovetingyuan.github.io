@@ -8,8 +8,8 @@ import NotFound from './pages/not-found.vue'
 import { RouteName } from './constants'
 import type { ArgumentsType } from '@vueuse/core'
 
+const originTitle = 'tingyuan'
 export default function ({ setTitle }: ArgumentsType<ServerRender>[1]) {
-  const originTitle = import.meta.env.SSR ? 'tingyuan' : document.title
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),

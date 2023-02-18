@@ -17,7 +17,7 @@ const musics = [
     year: 2002,
     link: 'https://baike.baidu.com/item/breeze/18612901',
     song: 'https://mp3.haoge500.com/new/2008/05-24/117452.mp3',
-    playLink: 'https://www.bilibili.com/video/BV13s4y1a7v5/'
+    playLink: 'https://player.bilibili.com/player.html?aid=949308637&bvid=BV13s4y1a7v5&cid=1005088800&page=1'
   },
   {
     name: '500 miles',
@@ -26,7 +26,7 @@ const musics = [
     album: 'The Journeymen',
     year: '1961',
     link: 'https://baike.baidu.com/item/500%20miles',
-    playLink: 'https://www.bilibili.com/video/BV1FA411s7df/'
+    playLink: 'https://player.bilibili.com/player.html?aid=330624190&bvid=BV1FA411s7df&cid=262875402&page=1'
   },
   {
     name: "Arrietty's Song",
@@ -35,7 +35,7 @@ const musics = [
     album: '《借东西的小人阿莉埃蒂》片尾曲',
     year: 2010,
     link: 'https://baike.baidu.com/item/arrietty%27s%20song/6510590',
-    playLink: 'https://www.bilibili.com/video/BV1S34y127fZ/'
+    playLink: 'https://player.bilibili.com/player.html?aid=808682273&bvid=BV1S34y127fZ&cid=499250353&page=1'
   },
   {
     name: '白鸽',
@@ -44,7 +44,7 @@ const musics = [
     album: '白鸽',
     year: 1999,
     link: 'https://baike.baidu.com/item/%E7%99%BD%E9%B8%BD/3366',
-    playLink: 'https://www.bilibili.com/video/BV1iq4y1W7M3/'
+    playLink: 'https://player.bilibili.com/player.html?aid=546753572&bvid=BV1iq4y1W7M3&cid=372949126&page=1'
   },
   {
     name: 'Let Her Go',
@@ -53,7 +53,7 @@ const musics = [
     cover: 'https://pic.xiami.net/images/album/img81/27081/4966281390373517.jpg',
     year: 2013,
     link: 'https://baike.baidu.com/item/let%20her%20go',
-    playLink: 'https://www.bilibili.com/video/BV1HG4y1g7G8/'
+    playLink: 'https://player.bilibili.com/player.html?aid=818843810&bvid=BV1HG4y1g7G8&cid=925286793&page=1'
   },
   {
     name: 'Safe And Sound',
@@ -62,7 +62,7 @@ const musics = [
     cover: 'https://pic.xiami.net/images/album/img8/105/582d60c28e4d8_5267808_1479368898.jpg',
     year: 2011,
     link: 'https://baike.baidu.com/item/Safe%20%26%20Sound/15439451',
-    playLink: 'https://www.bilibili.com/video/BV17W411t7yi/'
+    playLink: 'https://player.bilibili.com/player.html?aid=20167734&bvid=BV17W411t7yi&cid=32923619&page=1'
   },
   {
     name: '庭院',
@@ -80,7 +80,7 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M0000017IzR53A8UQO_2.jpg',
     year: 2010,
     link: 'https://baike.baidu.com/item/No%20One%20But%20You/23545457',
-    playLink: 'https://www.bilibili.com/video/BV13U4y1J7aG/'
+    playLink: 'https://player.bilibili.com/player.html?aid=674536765&bvid=BV13U4y1J7aG&cid=460629633&page=1'
   },
 ].map((item) => {
   return {
