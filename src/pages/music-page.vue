@@ -1,13 +1,7 @@
 <template>
   <div>
-    <music-item
-      v-for="music of musics"
-      :key="music.link"
-      :image="music.image"
-      :link="music.link"
-      :info-list="music.infos"
-      style="margin-top: 45px"
-    />
+    <music-item v-for="music of musics" :key="music.link" :image="music.image" :link="music.link"
+      :info-list="music.infos" :play-link="music.playLink" style="margin-top: 45px" />
   </div>
 </template>
 
@@ -23,6 +17,7 @@ const musics = [
     year: 2002,
     link: 'https://baike.baidu.com/item/breeze/18612901',
     song: 'https://mp3.haoge500.com/new/2008/05-24/117452.mp3',
+    playLink: 'https://www.bilibili.com/video/BV13s4y1a7v5/'
   },
   {
     name: '500 miles',
@@ -31,6 +26,7 @@ const musics = [
     album: 'The Journeymen',
     year: '1961',
     link: 'https://baike.baidu.com/item/500%20miles',
+    playLink: 'https://www.bilibili.com/video/BV1FA411s7df/'
   },
   {
     name: "Arrietty's Song",
@@ -39,6 +35,7 @@ const musics = [
     album: '《借东西的小人阿莉埃蒂》片尾曲',
     year: 2010,
     link: 'https://baike.baidu.com/item/arrietty%27s%20song/6510590',
+    playLink: 'https://www.bilibili.com/video/BV1S34y127fZ/'
   },
   {
     name: '白鸽',
@@ -47,6 +44,7 @@ const musics = [
     album: '白鸽',
     year: 1999,
     link: 'https://baike.baidu.com/item/%E7%99%BD%E9%B8%BD/3366',
+    playLink: 'https://www.bilibili.com/video/BV1iq4y1W7M3/'
   },
   {
     name: 'Let Her Go',
@@ -55,6 +53,7 @@ const musics = [
     cover: 'https://pic.xiami.net/images/album/img81/27081/4966281390373517.jpg',
     year: 2013,
     link: 'https://baike.baidu.com/item/let%20her%20go',
+    playLink: 'https://www.bilibili.com/video/BV1HG4y1g7G8/'
   },
   {
     name: 'Safe And Sound',
@@ -63,6 +62,7 @@ const musics = [
     cover: 'https://pic.xiami.net/images/album/img8/105/582d60c28e4d8_5267808_1479368898.jpg',
     year: 2011,
     link: 'https://baike.baidu.com/item/Safe%20%26%20Sound/15439451',
+    playLink: 'https://www.bilibili.com/video/BV17W411t7yi/'
   },
   {
     name: '庭院',
@@ -71,12 +71,23 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M000001G2cRu0aj1lK_2.jpg',
     year: 2007,
     link: 'https://baike.baidu.com/item/%E5%BA%AD%E9%99%A2/18634073',
+    playLink: 'https://www.youtube.com/watch?v=ou6TnENM6IY'
+  },
+  {
+    name: 'No One But You',
+    singer: 'Doug Paisley',
+    album: 'Constant Companion',
+    cover: 'https://y.qq.com/music/photo_new/T002R300x300M0000017IzR53A8UQO_2.jpg',
+    year: 2010,
+    link: 'https://baike.baidu.com/item/No%20One%20But%20You/23545457',
+    playLink: 'https://www.bilibili.com/video/BV13U4y1J7aG/'
   },
 ].map((item) => {
   return {
     image: item.cover,
     link: item.link,
     infos: [item.name, item.singer, `${item.album} - ${item.year}`],
+    playLink: item.playLink
   }
 })
 </script>
