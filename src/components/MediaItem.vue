@@ -28,9 +28,6 @@ const props = defineProps<{
   playLink?: string
 }>()
 
-const playMusic = () => {
-  console.log(props.playLink);
-}
 </script>
 
 <style scoped>

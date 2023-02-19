@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <music-item v-for="music of musics" :key="music.link" :image="music.image" :link="music.link"
-      :info-list="music.infos" :play-link="music.playLink" style="margin-top: 45px" />
+      :info-list="music.infos" :play-link="music.playLink" />
   </div>
 </template>
 
@@ -91,3 +91,18 @@ const musics = [
   }
 })
 </script>
+
+<style scoped>
+.container {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+  grid-row-gap: 40px;
+  grid-column-gap: 10px;
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    grid-template-columns: 100%;
+  }
+}
+</style>
