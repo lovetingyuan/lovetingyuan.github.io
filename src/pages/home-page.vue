@@ -4,7 +4,7 @@
       <figcaption>
         常用站点
         <a target="_blank" title="添加" style="vertical-align: sub"
-          href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/common-sites.txt">
+          href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/pages/common-sites.txt">
           <icon-material-symbols-add />
         </a>
       </figcaption>
