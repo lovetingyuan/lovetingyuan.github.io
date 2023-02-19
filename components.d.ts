@@ -16,6 +16,7 @@ declare module '@vue/runtime-core' {
     IconMaterialSymbolsEditDocumentRounded: typeof import('~icons/material-symbols/edit-document-rounded')['default']
     IconMaterialSymbolsLibraryMusic: typeof import('~icons/material-symbols/library-music')['default']
     IconMaterialSymbolsMovie: typeof import('~icons/material-symbols/movie')['default']
+    IconMaterialSymbolsPlayCircleOutlineRounded: typeof import('~icons/material-symbols/play-circle-outline-rounded')['default']
     IconMaterialSymbolsRefresh: typeof import('~icons/material-symbols/refresh')['default']
     IconMdiGithub: typeof import('~icons/mdi/github')['default']
     LinkItem: typeof import('./src/components/LinkItem.vue')['default']
