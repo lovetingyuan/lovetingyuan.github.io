@@ -5,11 +5,13 @@
 </template>
 
 <script setup lang="ts">
-import { hasUpdate } from '@/global';
+import { hasUpdate } from '@/global'
 
 const update = () => {
-  hasUpdate.value?.();
-  hasUpdate.value = false;
+  if (typeof hasUpdate.value === 'function') {
+    hasUpdate.value?.()
+  }
+  hasUpdate.value = false
 }
 </script>
 
@@ -26,6 +28,6 @@ const update = () => {
 }
 
 .button:hover {
-  color: green
+  color: green;
 }
 </style>

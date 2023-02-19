@@ -52,7 +52,7 @@ import UpdateButton from './components/UpdateButton.vue'
 import { RouteName } from './constants'
 import { hasUpdate } from './global'
 
-let time = window._buildTime || new Date().toLocaleDateString()
+let time = globalThis._buildTime || new Date().toLocaleDateString()
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
 
