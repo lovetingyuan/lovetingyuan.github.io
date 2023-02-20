@@ -1,6 +1,7 @@
 import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const defaultReplaceMark = /<!--ssr-start-->([\s\S]+)<!--ssr-end-->/
 
@@ -32,7 +33,7 @@ export default (options?: {
       const indexBundle = bundle['index.html'] as Asset
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
-      const { render } = (await import(ssrEntry)) as { render: ServerRender }
+      const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
       await Promise.all(
         routesToPrerender.map(async (url) => {
           let fileName = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
