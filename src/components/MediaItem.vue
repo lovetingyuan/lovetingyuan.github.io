@@ -27,7 +27,6 @@ const props = defineProps<{
   link?: string
   playLink?: string
 }>()
-
 </script>
 
 <style scoped>

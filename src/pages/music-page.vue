@@ -1,7 +1,13 @@
 <template>
   <div class="container">
-    <music-item v-for="music of musics" :key="music.link" :image="music.image" :link="music.link" :info-list="music.infos"
-      :play-link="music.playLink" />
+    <music-item
+      v-for="music of musics"
+      :key="music.link"
+      :image="music.image"
+      :link="music.link"
+      :info-list="music.infos"
+      :play-link="music.playLink"
+    />
   </div>
 </template>
 

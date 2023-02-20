@@ -4,8 +4,14 @@
       <h3>
         <span v-if="cate">{{ c }}</span>
         <router-link v-else :to="`/blog/${c}`">{{ c }}</router-link>
-        <a v-if="cate" :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
-          class="add" target="_blank" rel="noopener noreferrer" title="新增">
+        <a
+          v-if="cate"
+          :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
+          class="add"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="新增"
+        >
           <icon-material-symbols-add />
         </a>
       </h3>
@@ -61,16 +67,16 @@ const columns = computed(() => (cate.value ? 1 : 2))
   font-size: 15px;
 }
 
-.blog-list>li {
+.blog-list > li {
   margin-top: 32px;
   font-size: 16px;
 }
 
-.blog-list>li:first-child {
+.blog-list > li:first-child {
   margin-top: 0;
 }
 
-.blog-list>li:first-child h3 {
+.blog-list > li:first-child h3 {
   margin-top: 0;
 }
 

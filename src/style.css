@@ -9,13 +9,15 @@ html {
 
 @font-face {
   font-family: Emoji;
-  src: local("Apple Color Emojiji"), local("Segoe UI Emoji"), local("Segoe UI Symbol"), local("Noto Color Emoji");
+  src: local('Apple Color Emojiji'), local('Segoe UI Emoji'),
+    local('Segoe UI Symbol'), local('Noto Color Emoji');
   unicode-range: U+1F000-1F644, U+203C-3299;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica, Arial, sans-serif;
+  font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica,
+    Arial, sans-serif;
   font-size: 15px;
   background-color: snow;
   color: var(--text-color);
@@ -23,7 +25,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable;
-
 }
 
 #app {
@@ -70,12 +71,10 @@ body {
   font-weight: bold;
 }
 
-
-
 /* transition */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .fade-enter-from,
@@ -85,7 +84,7 @@ body {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: transform .2s ease, opacity .2s ease;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .slide-enter-from,
@@ -95,11 +94,10 @@ body {
 }
 
 @media (any-hover: hover) {
-
   a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: -2px;
-    content: "";
+    content: '';
     display: block;
     height: 2px;
     left: 50%;

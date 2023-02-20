@@ -1,14 +1,9 @@
 {
   "extends": "@vue/tsconfig/tsconfig.node.json",
-  "include": [
-    "*.ts",
-    "../env.d.ts"
-  ],
+  "include": ["*.ts", "../env.d.ts"],
   "compilerOptions": {
     "composite": true,
     "noEmitOnError": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   }
 }
