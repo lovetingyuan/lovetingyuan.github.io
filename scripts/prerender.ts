@@ -30,6 +30,7 @@ export default (options?: {
       const indexBundle = bundle['index.html'] as Asset
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
+      console.log('index html', indexHtml)
       const pool = workerpool.pool(ssrEntry)
       // const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
       await Promise.all(
@@ -44,7 +45,7 @@ export default (options?: {
           bundle[fileName] = {
             type: 'asset',
             name: undefined,
-            source: await pool.exec('getHtml', []),
+            source: await pool.exec('getHtml', null),
             fileName,
             needsCodeReference: false,
           }
