@@ -30,8 +30,8 @@ export const render = async function (url: string) {
 workerpool.worker({
   render,
   setHtml(html: string) {
+    console.log('before write', document.documentElement.outerHTML)
     document.write(html.replace(DocType, ''))
-    console.log('write', html)
     console.log('current html', document.documentElement.outerHTML)
   },
   getHtml() {
