@@ -20,10 +20,13 @@ const goTop = () => {
   right: 10px;
   display: block;
   padding: 12px;
-  font-size: 28px;
+  font-size: 0;
   z-index: 9;
   cursor: pointer;
   opacity: 0.8;
+}
+.go-top svg {
+  font-size: 28px;
 }
 .go-top:hover {
   color: blueviolet;

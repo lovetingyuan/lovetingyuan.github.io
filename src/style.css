@@ -106,6 +106,7 @@ body {
     transition: width 0.25s ease 0s, left 0.25s ease 0s;
     width: 0;
   }
+
   a.no-underline:after {
     display: none;
   }
