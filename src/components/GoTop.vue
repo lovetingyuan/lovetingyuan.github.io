@@ -16,10 +16,9 @@ const goTop = () => {
 <style scoped>
 .go-top {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: 24px;
+  right: 15px;
   display: block;
-  padding: 12px;
   font-size: 0;
   z-index: 9;
   cursor: pointer;
