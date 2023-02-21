@@ -31,7 +31,6 @@ export default (options?: {
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
       console.log('index html', indexHtml)
-      const pool = workerpool.pool(ssrEntry)
       // const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
       await Promise.all(
         routesToPrerender.map(async (url) => {
@@ -40,6 +39,7 @@ export default (options?: {
             fileName = fileName.slice(1)
           }
           if (fileName !== 'index.html' && fileName in bundle) return
+          const pool = workerpool.pool(ssrEntry)
           await pool.exec('setHtml', [indexHtml])
           await pool.exec('render', [url])
           bundle[fileName] = {
@@ -49,9 +49,9 @@ export default (options?: {
             fileName,
             needsCodeReference: false,
           }
+          pool.terminate() // terminate all workers when done
         })
       )
-      pool.terminate() // terminate all workers when done
     },
   }
 }
