@@ -30,7 +30,6 @@ export default (options?: {
       const indexBundle = bundle['index.html'] as Asset
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
-      console.log('index html', indexHtml)
       // const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
       await Promise.all(
         routesToPrerender.map(async (url) => {
