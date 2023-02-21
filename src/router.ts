@@ -71,7 +71,7 @@ export default function () {
         title = title + ' ' + to.meta.title
       }
     }
-    document.querySelector('title')!.innerHTML = title
+    // document.querySelector('title')!.innerHTML = title
   })
   return router
 }
