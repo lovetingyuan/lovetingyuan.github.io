@@ -4,6 +4,7 @@ import { renderToString } from 'vue/server-renderer'
 import App from './App.vue'
 import createRouter from './router'
 import workerpool from 'workerpool'
+import { GlobalRegistrator } from '@happy-dom/global-registrator'
 
 const DocType = '<!DOCTYPE html>'
 
@@ -30,12 +31,21 @@ export const render = async function (url: string) {
 workerpool.worker({
   render,
   setHtml(html: string) {
+    GlobalRegistrator.register()
+
+    window.happyDOM.settings.disableJavaScriptFileLoading = true
+    window.happyDOM.settings.disableJavaScriptEvaluation = true
+    window.happyDOM.settings.disableCSSFileLoading = true
+    window.happyDOM.settings.enableFileSystemHttpRequests = false
+    window.happyDOM.setURL('https://localhost:3000')
     console.log('before write', document.documentElement.outerHTML)
     document.write(html.replace(DocType, ''))
     console.log('current html', document.documentElement.outerHTML)
   },
   getHtml() {
-    console.log('rendered html', document.documentElement.outerHTML)
-    return DocType + '\n' + document.documentElement.outerHTML
+    const html = DocType + '\n' + document.documentElement.outerHTML
+    console.log('rendered html', html)
+    GlobalRegistrator.unregister()
+    return html
   },
 })
