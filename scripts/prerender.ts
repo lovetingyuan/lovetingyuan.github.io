@@ -30,6 +30,7 @@ export default (options?: {
       const indexBundle = bundle['index.html'] as Asset
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
+      console.log('start prerender...')
       // const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
       await Promise.all(
         routesToPrerender.map(async (url) => {
@@ -38,6 +39,7 @@ export default (options?: {
             fileName = fileName.slice(1)
           }
           if (fileName !== 'index.html' && fileName in bundle) return
+          console.log('prerender: ' + fileName)
           const pool = workerpool.pool(ssrEntry)
           await pool.exec('setHtml', [indexHtml])
           await pool.exec('render', [url])
@@ -51,6 +53,7 @@ export default (options?: {
           pool.terminate() // terminate all workers when done
         })
       )
+      console.log('prerender done.')
     },
   }
 }
