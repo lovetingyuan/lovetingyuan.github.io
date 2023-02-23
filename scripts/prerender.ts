@@ -1,8 +1,6 @@
 import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
-// import workerpool from 'workerpool'
-
 import Piscina from 'piscina'
 import { pathToFileURL } from 'node:url'
 
@@ -47,9 +45,6 @@ export default (options?: {
           }
           if (fileName !== 'index.html' && fileName in bundle) return
           console.log('prerender: ' + fileName)
-          // const pool = workerpool.pool(ssrEntry)
-          // await pool.exec('setHtml', [indexHtml])
-          // await pool.exec('render', [url])
           // const piscina = new Piscina({
           //   filename: pathToFileURL(ssrEntry).toString(),
           // })

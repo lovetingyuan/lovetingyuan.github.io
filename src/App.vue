@@ -48,25 +48,17 @@
   </footer>
   <UpdateButton v-if="hasUpdate"></UpdateButton>
   <GoTop></GoTop>
-  <div data-caksda>{{ count }}</div>
 </template>
 
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
-import { useRoute } from 'vue-router'
 import GoTop from './components/GoTop.vue'
 import UpdateButton from './components/UpdateButton.vue'
 import { RouteName } from './constants'
 import { hasUpdate } from './global'
 
-let time = globalThis._buildTime || new Date().toLocaleDateString()
+let time = window._buildTime || new Date().toLocaleDateString()
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
-const style = document.createElement('style')
-const route = useRoute()
-style.textContent = 'div{color: red}/*' + route.fullPath + '*/'
-document.head.appendChild(style)
-document.count ??= 0
-const count = document.count++
 </script>
 
 <style scoped>
