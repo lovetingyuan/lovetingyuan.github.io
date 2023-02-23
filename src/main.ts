@@ -10,5 +10,10 @@ const router = createRouter()
 app.use(router)
 app.mount('#app')
 
-const a = [1,2,3, null]
-const v = a.filter(Boolean)
+// export default function start() {
+//   const app = createApp(App)
+//   const router = createRouter()
+//   app.use(router)
+//   app.mount('#app')
+//   return app
+// }

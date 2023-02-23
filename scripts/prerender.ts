@@ -1,7 +1,11 @@
 import type { Plugin, ResolvedConfig } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
-import workerpool from 'workerpool'
+// import workerpool from 'workerpool'
+
+import Piscina from 'piscina'
+import { pathToFileURL } from 'node:url'
+
 /**
  * https://cn.vitejs.dev/guide/ssr.html#pre-rendering--ssg
  * 注意：先进行ssr构建，再进行普通构建
@@ -30,8 +34,11 @@ export default (options?: {
       const indexBundle = bundle['index.html'] as Asset
       if (!indexBundle || !fs.existsSync(ssrEntry)) return
       const indexHtml = indexBundle.source.toString()
+      console.log()
       console.log('start prerender...')
-      // const { render } = (await import(pathToFileURL(ssrEntry).toString())) as { render: ServerRender }
+      const piscina = new Piscina({
+        filename: pathToFileURL(ssrEntry).toString(),
+      })
       await Promise.all(
         routesToPrerender.map(async (url) => {
           let fileName = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
@@ -40,19 +47,25 @@ export default (options?: {
           }
           if (fileName !== 'index.html' && fileName in bundle) return
           console.log('prerender: ' + fileName)
-          const pool = workerpool.pool(ssrEntry)
-          await pool.exec('setHtml', [indexHtml])
-          await pool.exec('render', [url])
+          // const pool = workerpool.pool(ssrEntry)
+          // await pool.exec('setHtml', [indexHtml])
+          // await pool.exec('render', [url])
+
+          const source = await piscina.run({ url, html: indexHtml })
+          // await piscina.run(url, { name: 'render' })
+          // const source = await piscina.run(null, { name: 'getHtml' })
           bundle[fileName] = {
             type: 'asset',
             name: undefined,
-            source: await pool.exec('getHtml', null),
+            source, // await pool.exec('getHtml', null),
             fileName,
             needsCodeReference: false,
           }
-          pool.terminate() // terminate all workers when done
+          // piscina.destroy()
+          // pool.terminate() // terminate all workers when done
         })
       )
+      await piscina.destroy()
       console.log('prerender done.')
     },
   }

@@ -52,6 +52,7 @@
 
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
+import { useRoute } from 'vue-router'
 import GoTop from './components/GoTop.vue'
 import UpdateButton from './components/UpdateButton.vue'
 import { RouteName } from './constants'
@@ -59,6 +60,10 @@ import { hasUpdate } from './global'
 
 let time = globalThis._buildTime || new Date().toLocaleDateString()
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
+const style = document.createElement('style')
+const route = useRoute()
+style.textContent = 'div{color: red}/*' + route.fullPath + '*/'
+document.head.appendChild(style)
 </script>
 
 <style scoped>
