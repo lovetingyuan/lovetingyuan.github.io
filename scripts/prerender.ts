@@ -45,9 +45,6 @@ export default (options?: {
           }
           if (fileName !== 'index.html' && fileName in bundle) return
           console.log('prerender: ' + fileName)
-          // const piscina = new Piscina({
-          //   filename: pathToFileURL(ssrEntry).toString(),
-          // })
           const source = await piscina.run([url, indexHtml])
           bundle[fileName] = {
             type: 'asset',
@@ -56,7 +53,6 @@ export default (options?: {
             fileName,
             needsCodeReference: false,
           }
-          // await piscina.destroy()
         })
       )
       await piscina.destroy()
