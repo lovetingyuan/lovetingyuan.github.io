@@ -8,6 +8,7 @@ specifiers:
   '@iconify-json/material-symbols': ^1.1.28
   '@iconify-json/mdi': ^1.1.46
   '@rushstack/eslint-patch': ^1.2.0
+  '@total-typescript/ts-reset': ^0.3.7
   '@types/markdown-it': ^12.2.3
   '@types/markdown-it-container': ^2.0.5
   '@types/markdown-it-link-attributes': ^3.0.1
@@ -62,6 +63,7 @@ devDependencies:
   '@iconify-json/material-symbols': 1.1.31
   '@iconify-json/mdi': 1.1.47
   '@rushstack/eslint-patch': 1.2.0
+  '@total-typescript/ts-reset': 0.3.7
   '@types/markdown-it': 12.2.3
   '@types/markdown-it-container': 2.0.5
   '@types/markdown-it-link-attributes': 3.0.1
@@ -1857,6 +1859,10 @@ packages:
       json5: 2.2.3
       magic-string: 0.25.9
       string.prototype.matchall: 4.0.8
+    dev: true
+
+  /@total-typescript/ts-reset/0.3.7:
+    resolution: {integrity: sha512-yXt2BRRVCJVvzWaxac5n0nCXzIrQEBE/MeYlNQ8/Iq7UeelNmm/AdnUAu18ilSS893mbEQ4u6whPt/HvOPc4rw==}
     dev: true
 
   /@types/estree/0.0.39:

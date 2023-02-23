@@ -29,6 +29,7 @@
     "@iconify-json/material-symbols": "^1.1.28",
     "@iconify-json/mdi": "^1.1.46",
     "@rushstack/eslint-patch": "^1.2.0",
+    "@total-typescript/ts-reset": "^0.3.7",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-container": "^2.0.5",
     "@types/markdown-it-link-attributes": "^3.0.1",
