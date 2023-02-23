@@ -99,11 +99,12 @@ export default defineConfig((env) => ({
           },
         ],
       },
+      includeManifestIcons: false,
       // includeAssets: ['*.ico', '!js/*.js'],
       // injectManifest: {},
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
-        globIgnores: ['js/*.js', 'p.html', 'resume.html', 'saoma.html'],
+        globIgnores: ['js/*', 'p.html', 'resume.html', 'saoma.html'],
         // importScripts: ['./a.js'],
         // navigateFallback: 'index.html',
         runtimeCaching: [
