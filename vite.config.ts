@@ -5,6 +5,7 @@ import Vue from '@vitejs/plugin-vue'
 import Markdown from 'vite-plugin-vue-markdown'
 import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
+import LinkAttributes from 'markdown-it-link-attributes'
 import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -153,6 +154,7 @@ export default defineConfig((env) => ({
           prefix: 'icon', // <--
         }),
       ],
+      dts: false,
     }),
     // VueJsx(),
     Icons({
@@ -164,6 +166,13 @@ export default defineConfig((env) => ({
         md.use(container, 'detail', mdDetail)
         md.use(Shiki, {
           theme: 'dark-plus',
+        })
+        md.use(LinkAttributes, {
+          matcher: (link: string) => /^https?:\/\//.test(link),
+          attrs: {
+            target: '_blank',
+            rel: 'noopener',
+          },
         })
       },
     }),
