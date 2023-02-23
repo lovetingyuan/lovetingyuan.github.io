@@ -48,6 +48,7 @@
   </footer>
   <UpdateButton v-if="hasUpdate"></UpdateButton>
   <GoTop></GoTop>
+  <div data-caksda>{{ count }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -64,6 +65,8 @@ const style = document.createElement('style')
 const route = useRoute()
 style.textContent = 'div{color: red}/*' + route.fullPath + '*/'
 document.head.appendChild(style)
+document.count ??= 0
+const count = document.count++
 </script>
 
 <style scoped>
