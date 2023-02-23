@@ -36,9 +36,9 @@ export default (options?: {
       const indexHtml = indexBundle.source.toString()
       console.log()
       console.log('start prerender...')
-      const piscina = new Piscina({
-        filename: pathToFileURL(ssrEntry).toString(),
-      })
+      // const piscina = new Piscina({
+      //   filename: pathToFileURL(ssrEntry).toString(),
+      // })
       await Promise.all(
         routesToPrerender.map(async (url) => {
           let fileName = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
@@ -50,8 +50,10 @@ export default (options?: {
           // const pool = workerpool.pool(ssrEntry)
           // await pool.exec('setHtml', [indexHtml])
           // await pool.exec('render', [url])
-
-          const source = await piscina.run({ url, html: indexHtml })
+          const piscina = new Piscina({
+            filename: pathToFileURL(ssrEntry).toString(),
+          })
+          const source = await piscina.run([url, indexHtml])
           // await piscina.run(url, { name: 'render' })
           // const source = await piscina.run(null, { name: 'getHtml' })
           bundle[fileName] = {
@@ -65,7 +67,7 @@ export default (options?: {
           // pool.terminate() // terminate all workers when done
         })
       )
-      await piscina.destroy()
+      // await piscina.destroy()
       console.log('prerender done.')
     },
   }

@@ -14,7 +14,7 @@ window.happyDOM.settings.disableCSSFileLoading = true
 window.happyDOM.settings.enableFileSystemHttpRequests = false
 window.happyDOM.setURL('https://localhost:3000')
 
-export default async function render({ url, html }: { url: string; html: string }) {
+export default async function render([url, html]: string[]) {
   document.write(html.replace(DocType, ''))
   // await import('./main')
   const [{ default: App }, { default: createRouter }] = await Promise.all([import('./App.vue'), import('./router')])
