@@ -31,7 +31,7 @@ const goTop = () => {
 }
 
 .go-top:hover {
-  color: blueviolet;
+  color: rgb(90, 137, 203);
   opacity: 1;
 }
 </style>

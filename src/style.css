@@ -1,10 +1,29 @@
 /* global */
-html {
+html,
+html.light {
   --theme-color: rgb(0, 56, 82);
   --theme-color2: rgb(0, 41, 59);
-  --text-color: #2c3e50;
+  --text-color: #333;
+  --bg-color: snow;
+  --link-color: #1e2a78;
+  --link-color-hover: #080b1f;
+  --link-underline-color: #0087ca;
+  --blog-header-color: #007896;
+  --music-header-color: #007419;
+  --movie-header-color: #7b00ac;
   /* scroll-behavior: smooth; */
   scrollbar-gutter: stable;
+}
+
+html.dark {
+  --text-color: white;
+  --bg-color: #222;
+  --link-color: #d2d8fe;
+  --link-color-hover: white;
+  --link-underline-color: #a2dbf8;
+  --blog-header-color: #6be1ff;
+  --music-header-color: #74f590;
+  --movie-header-color: #e195ff;
 }
 
 @font-face {
@@ -19,7 +38,7 @@ body {
   font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica,
     Arial, sans-serif;
   font-size: 15px;
-  background-color: snow;
+  background-color: var(--bg-color);
   color: var(--text-color);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -36,14 +55,6 @@ body {
   /* padding: 25px 10px 100px 20px; */
   position: relative;
   box-sizing: border-box;
-}
-
-/* 深色模式 */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #333;
-    color: white;
-  }
 }
 
 /*滚动条整体部分,必须要设置*/
@@ -102,13 +113,9 @@ body {
     height: 2px;
     left: 50%;
     position: absolute;
-    background: #0087ca;
+    background: var(--link-underline-color);
     transition: width 0.25s ease 0s, left 0.25s ease 0s;
     width: 0;
-  }
-
-  a.no-underline:after {
-    display: none;
   }
 
   a:hover:after {
@@ -116,15 +123,9 @@ body {
     left: 0;
   }
 
-  a {
-    display: inline-block;
-    position: relative;
-    text-decoration: none !important;
-    color: var(--theme-color);
-  }
 
   a:hover {
-    color: var(--theme-color2);
+    color: var(--link-color-hover);
   }
 }
 
@@ -134,8 +135,14 @@ body {
   }
 }
 
+a.no-underline:after {
+  display: none;
+}
+
 a {
   text-decoration: none;
+  text-decoration: none !important;
+  color: var(--link-color);
 }
 
 summary {

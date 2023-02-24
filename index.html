@@ -54,7 +54,22 @@
     <p>请开启JavaScript</p>
   </noscript>
   <div id="app">
-    <h2 style="margin: 30vh 20vw; font-size: 32px">
+    <style>
+      .loading {
+        padding: 30vh 20vw;
+        font-size: 32px;
+        margin: 0;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: var(--bg-color, #333);
+          color: var(--text-color, white);
+        }
+      }
+
+    </style>
+    <h2 class="loading">
       ❄️ Loading<span class="dot">...</span>
     </h2>
   </div>

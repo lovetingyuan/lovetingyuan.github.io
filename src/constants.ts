@@ -6,3 +6,11 @@ export enum RouteName {
   Music = 'Music',
   Movie = 'Movie',
 }
+
+export const StorageKeys: Record<string, string> = {
+  ColorScheme: 'ColorScheme',
+}
+
+Object.keys(StorageKeys).forEach((k) => {
+  StorageKeys[k] = 'lovetingyuan:' + k
+})

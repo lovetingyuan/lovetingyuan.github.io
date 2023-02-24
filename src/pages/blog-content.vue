@@ -2,13 +2,8 @@
   <section>
     <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a
-        class="edit"
-        title="编辑"
-        target="_blank"
-        rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
-      >
+      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`">
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
@@ -25,32 +20,54 @@
 
 <script lang="ts" setup>
 import useBlogs from '@/blogs'
+import { useColorMode, useStyleTag } from '@vueuse/core'
 import CircleLoading from '@/components/CircleLoading.vue'
+import { watchEffect } from 'vue'
+
 const { articleCmp, blogStatus, cate, name } = useBlogs()
+const colorMode = useColorMode()
+watchEffect(() => {
+  const githubMdCss =
+    colorMode.value === 'dark'
+      ? import('github-markdown-css/github-markdown-dark.css?inline')
+      : import('github-markdown-css/github-markdown-light.css?inline')
+  githubMdCss.then(({ default: css }) => {
+    useStyleTag(css, { id: 'github-markdown-css' })
+  })
+})
 </script>
 
-<style src="github-markdown-css/github-markdown.css"></style>
 <style>
-.markdown-body :is(p, blockquote, ul, ol, dl, table, pre, details) {
+article .markdown-body {
+  background-color: transparent;
+}
+
+article .markdown-body :is(p, blockquote, ul, ol, dl, table, pre, details) {
   font-size: 15px;
 }
-.markdown-body :is(p, li) {
+
+article .markdown-body :is(p, li) {
   line-height: 1.7;
 }
-.markdown-body li {
+
+article .markdown-body li {
   margin: 10px 0;
 }
-.markdown-body ul {
+
+article .markdown-body ul {
   padding-left: 16px;
 }
-.markdown-body code:not([class]) {
+
+article .markdown-body code:not([class]) {
   font-weight: bold;
   margin: 0 5px;
 }
-.markdown-body {
+
+article .markdown-body {
   background-color: transparent;
 }
-.markdown-body summary:hover {
+
+article .markdown-body summary:hover {
   font-weight: bold;
 }
 </style>
@@ -62,9 +79,11 @@ const { articleCmp, blogStatus, cate, name } = useBlogs()
   text-transform: uppercase;
   font-size: 14px;
 }
+
 .edit {
   margin-left: 10px;
 }
+
 svg {
   vertical-align: text-top;
 }

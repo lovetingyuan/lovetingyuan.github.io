@@ -1,23 +1,23 @@
 <template>
   <header>
     <h4 class="title">
-      <router-link to="/" style="color: #555">庭院 Ⴆʅσɠ</router-link>
+      <router-link to="/">庭院 Ⴆʅσɠ</router-link>
     </h4>
     <ul class="links">
       <li>
-        <router-link :to="{ name: RouteName.BlogList }" style="color: #007896">
+        <router-link :to="{ name: RouteName.BlogList }" style="color: var(--blog-header-color)">
           博客
           <icon-material-symbols-article />
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: RouteName.Music }" style="color: #007419">
+        <router-link :to="{ name: RouteName.Music }" style="color: var(--music-header-color)">
           音乐
           <icon-material-symbols-library-music />
         </router-link>
       </li>
       <li>
-        <router-link :to="{ name: RouteName.Movie }" style="color: #7b00ac">
+        <router-link :to="{ name: RouteName.Movie }" style="color: var(--movie-header-color)">
           电影
           <icon-material-symbols-movie />
         </router-link>
@@ -36,18 +36,14 @@
     <i>{{ time }}</i>
     <span style="margin-left: 8px">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
-    <a
-      class="github-link"
-      title="github"
-      href="https://github.com/lovetingyuan/lovetingyuan.github.io"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a class="github-link" title="github" href="https://github.com/lovetingyuan/lovetingyuan.github.io" target="_blank"
+      rel="noopener noreferrer">
       <icon-mdi-github />
     </a>
   </footer>
   <UpdateButton v-if="hasUpdate"></UpdateButton>
   <GoTop></GoTop>
+  <ColorSwitch />
 </template>
 
 <script lang="ts" setup>
@@ -56,6 +52,7 @@ import GoTop from './components/GoTop.vue'
 import UpdateButton from './components/UpdateButton.vue'
 import { RouteName } from './constants'
 import { hasUpdate } from './global'
+import ColorSwitch from '@/components/ColorSwitch.vue'
 
 let time = window._buildTime || new Date().toLocaleDateString()
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
@@ -77,6 +74,10 @@ header a {
   margin: 0;
   font-size: 20px;
   user-select: none;
+}
+
+.title a {
+  color: var(--text-color);
 }
 
 .links {
@@ -109,7 +110,8 @@ footer {
   text-align: center;
   font-size: 12px;
   user-select: none;
-  color: #555;
+  color: var(--text-color);
+  opacity: 0.8;
   left: 0;
 }
 
