@@ -1,5 +1,5 @@
 <template>
-  <div class="color-switch" @click="switchColor">
+  <div class="color-switch" @click="switchColor" title="切换亮/暗色">
     <icon-material-symbols-light-mode v-if="colorMode === 'dark'" />
     <icon-material-symbols-dark-mode v-else />
   </div>
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { useColorMode, usePreferredColorScheme } from '@vueuse/core'
-import { watchEffect } from 'vue'
+import { watch, watchEffect } from 'vue'
 const colorMode = useColorMode()
 const switchColor = () => {
   colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'
@@ -18,7 +18,7 @@ watchEffect(() => {
   document.documentElement.classList.add(colorMode.value)
 })
 const cp = usePreferredColorScheme()
-watchEffect(() => {
+watch(cp, () => {
   colorMode.value = cp.value === 'dark' ? 'dark' : 'light'
 })
 </script>

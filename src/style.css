@@ -1,6 +1,6 @@
 /* global */
-html,
-html.light {
+:root,
+:root.light {
   --theme-color: rgb(0, 56, 82);
   --theme-color2: rgb(0, 41, 59);
   --text-color: #333;
@@ -12,10 +12,10 @@ html.light {
   --music-header-color: #007419;
   --movie-header-color: #7b00ac;
   /* scroll-behavior: smooth; */
-  scrollbar-gutter: stable;
+  /* scrollbar-gutter: stable; */
 }
 
-html.dark {
+:root.dark {
   --text-color: white;
   --bg-color: #222;
   --link-color: #d2d8fe;
@@ -44,6 +44,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable;
+  /* scrollbar-color: #e01515 #ddd;
+  scrollbar-width: thin; */
 }
 
 #app {
@@ -52,23 +54,19 @@ body {
   min-width: 320px;
   box-sizing: border-box;
   margin: 0 auto;
-  /* padding: 25px 10px 100px 20px; */
   position: relative;
   box-sizing: border-box;
 }
 
-/*滚动条整体部分,必须要设置*/
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-/*滚动条的轨道*/
 ::-webkit-scrollbar-track {
   background-color: snow;
 }
 
-/*滚动条的滑块按钮*/
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgb(214, 214, 214);
@@ -76,7 +74,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(197, 197, 197);
-}
+} */
 
 .router-link-active {
   font-weight: bold;
@@ -140,9 +138,9 @@ a.no-underline:after {
 }
 
 a {
-  text-decoration: none;
   text-decoration: none !important;
   color: var(--link-color);
+  position: relative;
 }
 
 summary {

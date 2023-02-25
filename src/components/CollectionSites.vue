@@ -15,7 +15,7 @@
         </summary>
         <ul class="site-list">
           <li v-for="site of list" :key="site.url" class="site-item">
-            <link-item :a="site" :size="25" />
+            <link-item :a="site" :size="24" />
           </li>
         </ul>
       </details>

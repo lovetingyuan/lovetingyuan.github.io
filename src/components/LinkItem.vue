@@ -25,11 +25,12 @@ const props = defineProps<{
   }
   size?: number
 }>()
+const imageSize = props.size || 32
+
 const getIcon = (url: string) => {
   const { host } = new URL(url)
-  return `https://api.faviconkit.com/${host}/32`
+  return `https://api.faviconkit.com/${host}/${imageSize}`
 }
-const imageSize = props.size || 40
 const desc = props.a.description || undefined
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
@@ -43,10 +44,19 @@ const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 .site-icon {
   vertical-align: middle;
   margin-right: 10px;
+  object-fit: contain;
 }
 
 .site-name {
   vertical-align: middle;
   text-transform: capitalize;
+}
+
+:root.dark img[src*='github.com'] {
+  filter: brightness(8);
+}
+
+:root.dark img[src*='iconfinder'] {
+  filter: brightness(500);
 }
 </style>
