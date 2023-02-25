@@ -24,7 +24,7 @@
     "@actions/core": "^1.6.0",
     "@actions/exec": "^1.1.1",
     "@actions/io": "^1.1.2",
-    "@happy-dom/global-registrator": "^8.6.0",
+    "@happy-dom/global-registrator": "^8.9.0",
     "@iconify-json/material-symbols": "^1.1.28",
     "@iconify-json/mdi": "^1.1.46",
     "@rushstack/eslint-patch": "^1.2.0",

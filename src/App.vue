@@ -26,7 +26,7 @@
   </header>
   <main>
     <router-view v-slot="{ Component, route }">
-      <transition v-if="reduceAnimation" :name="(route.meta.animation as string) || 'fade'" mode="out-in">
+      <transition v-if="!reduceAnimation" :name="(route.meta.animation as string) || 'fade'" mode="out-in">
         <component :is="Component" />
       </transition>
       <component v-else :is="Component" />
@@ -83,6 +83,10 @@ header a {
 
 .title a {
   color: var(--text-color);
+  background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .links {

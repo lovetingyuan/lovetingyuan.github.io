@@ -1,5 +1,5 @@
 <template>
-  <ul v-if="Object.keys(displayBlogList).length" class="blog-list">
+  <ul class="blog-list">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
         <span v-if="cate">{{ c }}</span>
@@ -22,7 +22,6 @@
       </ul>
     </li>
   </ul>
-  <p v-else>暂无文章</p>
 </template>
 
 <script lang="ts" setup>
@@ -34,8 +33,7 @@ const { blogList, cate } = useBlogs()
 const displayBlogList = computed(() => {
   return blogList.value.reduce((blogs, k) => {
     const [cate, name] = k.split('/')
-    blogs[cate] ??= []
-    blogs[cate].push(name)
+    ;(blogs[cate] ??= []).push(name)
     return blogs
   }, {} as Record<string, string[]>)
 })

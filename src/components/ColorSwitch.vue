@@ -1,7 +1,7 @@
 <template>
   <div class="color-switch" @click="switchColor" title="切换亮/暗色">
-    <icon-material-symbols-light-mode v-if="colorMode === 'dark'" />
-    <icon-material-symbols-dark-mode v-else />
+    <icon-material-symbols-dark-mode v-if="colorMode === 'dark'" />
+    <icon-material-symbols-light-mode v-else />
   </div>
 </template>
 
@@ -14,9 +14,13 @@ const switchColor = () => {
 }
 
 watchEffect(() => {
-  document.documentElement.classList.remove('dark', 'light')
-  document.documentElement.classList.add(colorMode.value)
+  if (colorMode.value === 'dark') {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
 })
+
 const cp = usePreferredColorScheme()
 watch(cp, () => {
   colorMode.value = cp.value === 'dark' ? 'dark' : 'light'
@@ -27,7 +31,7 @@ watch(cp, () => {
 .color-switch {
   position: fixed;
   top: 10px;
-  right: 15px;
+  right: 16px;
   font-size: 0;
   cursor: pointer;
 }

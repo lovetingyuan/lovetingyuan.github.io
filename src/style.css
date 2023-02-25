@@ -1,6 +1,5 @@
 /* global */
-:root,
-:root.light {
+:root {
   --theme-color: rgb(0, 56, 82);
   --theme-color2: rgb(0, 41, 59);
   --text-color: #333;
@@ -11,8 +10,6 @@
   --blog-header-color: #007896;
   --music-header-color: #007419;
   --movie-header-color: #7b00ac;
-  /* scroll-behavior: smooth; */
-  /* scrollbar-gutter: stable; */
 }
 
 :root.dark {
