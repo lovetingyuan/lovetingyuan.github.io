@@ -22,7 +22,7 @@ export default (): Plugin => {
           {
             tag: 'script',
             injectTo: 'body',
-            children: `window._buildTime="${buildTime}";window._gitHash="${gitHash}";console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")`,
+            children: `window._buildTime="${buildTime}";window._gitHash="${gitHash}";typeof console==='object'&&console.log("%c Build: ${buildTime} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")`,
           },
         ],
       }

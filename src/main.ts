@@ -9,11 +9,3 @@ const app = createApp(App)
 const router = createRouter()
 app.use(router)
 app.mount('#app')
-
-// export default function start() {
-//   const app = createApp(App)
-//   const router = createRouter()
-//   app.use(router)
-//   app.mount('#app')
-//   return app
-// }

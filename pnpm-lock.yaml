@@ -28,6 +28,7 @@ specifiers:
   markdown-it-container: ^3.0.0
   markdown-it-link-attributes: ^4.0.1
   markdown-it-shiki: ^0.7.2
+  normalize.css: ^8.0.1
   piscina: ^3.2.0
   prettier: ^2.7.1
   typescript: ^4.6.3
@@ -50,6 +51,7 @@ dependencies:
   '@vueuse/core': 9.13.0_vue@3.2.47
   balloon-css: 1.2.0
   github-markdown-css: 5.2.0
+  normalize.css: 8.0.1
   vue: 3.2.47
   vue-router: 4.1.6_vue@3.2.47
 
@@ -4057,6 +4059,10 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
 
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
