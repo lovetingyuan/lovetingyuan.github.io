@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    tingyuan -- https://twitter.com/tingyuandoremi
+
+# THANKS
+
+    github, vue, Anthony Fu
+
+# TECHNOLOGY COLOPHON
+
+    Vue3, Vite, pnpm
