@@ -11,7 +11,6 @@ import mdDetail from './scripts/markdown-detail'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
-import injectBuildInfo from './scripts/inject-build-info'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
@@ -23,6 +22,11 @@ export default defineConfig((env) => ({
   },
   build: {
     copyPublicDir: !env.ssrBuild,
+    // minify: false,
+    // rollupOptions: {
+    //   external: ['vue'],
+    //   // https://rollupjs.org/configuration-options/
+    // },
   },
   plugins: [
     VitePWA({
@@ -104,16 +108,16 @@ export default defineConfig((env) => ({
       // injectManifest: {},
       workbox: {
         // additionalManifestEntries: ['humans.txt'],
-        manifestTransforms: [
-          (v) => {
-            return {
-              manifest: v,
-            }
-          },
-        ],
-        modifyURLPrefix: {
-          '': '',
-        },
+        // manifestTransforms: [
+        //   (v) => {
+        //     return {
+        //       manifest: v,
+        //     }
+        //   },
+        // ],
+        // modifyURLPrefix: {
+        //   '': '',
+        // },
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
         globIgnores: ['js/*', 'resume.html'],
         navigateFallbackDenylist: [/.+\.txt$/],
@@ -194,6 +198,5 @@ export default defineConfig((env) => ({
     preRender({
       routes: ['/', '/blog', '/music', '/movie'],
     }),
-    injectBuildInfo(),
   ],
 }))

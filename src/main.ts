@@ -9,10 +9,10 @@ export default function start() {
   // const app = createSSRApp(App)
   const router = createRouter()
   app.use(router)
-  // app.config.warnHandler = (msg, instance, trace) => {
-  //   // `trace` is the component hierarchy trace
-  //   console.log(msg, instance, trace)
-  // }
+  app.config.warnHandler = (msg, instance, trace) => {
+    // `trace` is the component hierarchy trace
+    console.log('[Vue warn]:', msg, instance, trace)
+  }
   return {
     app,
     router,
