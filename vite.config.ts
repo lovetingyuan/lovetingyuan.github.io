@@ -100,11 +100,24 @@ export default defineConfig((env) => ({
         ],
       },
       includeManifestIcons: false,
-      // includeAssets: ['*.ico', '!js/*.js'],
+      // includeAssets: ['humans.txt'],
       // injectManifest: {},
       workbox: {
+        // additionalManifestEntries: ['humans.txt'],
+        manifestTransforms: [
+          (v) => {
+            return {
+              manifest: v,
+            }
+          },
+        ],
+        modifyURLPrefix: {
+          '': '',
+        },
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
-        globIgnores: ['js/*', 'p.html', 'resume.html', 'saoma.html'],
+        globIgnores: ['js/*', 'resume.html'],
+        navigateFallbackDenylist: [/.+\.txt$/],
+        disableDevLogs: true,
         // importScripts: ['./a.js'],
         // navigateFallback: 'index.html',
         runtimeCaching: [
@@ -115,6 +128,7 @@ export default defineConfig((env) => ({
               }
               return request.destination === 'image'
             },
+            // 'CacheFirst' | 'CacheOnly' | 'NetworkFirst' | 'NetworkOnly' | 'StaleWhileRevalidate';
             handler: 'CacheFirst',
             options: {
               cacheName: 'images-cache',

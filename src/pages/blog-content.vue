@@ -2,8 +2,13 @@
   <section>
     <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`">
+      <a
+        class="edit"
+        title="编辑"
+        target="_blank"
+        rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
+      >
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
@@ -60,7 +65,13 @@ article .markdown-body ul {
 
 article .markdown-body code:not([class]) {
   font-weight: bold;
-  margin: 0 5px;
+  margin: 0 4px;
+  font-size: 14px;
+  padding: 0.15em 0.4em;
+}
+
+article .markdown-body pre.shiki code {
+  font-weight: 400;
 }
 
 article .markdown-body {
@@ -69,6 +80,12 @@ article .markdown-body {
 
 article .markdown-body summary:hover {
   font-weight: bold;
+}
+article .markdown-body .shiki {
+  border: 1px solid #c9d1d9;
+}
+article .markdown-body .shiki .line:last-child:empty {
+  display: none;
 }
 </style>
 

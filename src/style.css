@@ -1,7 +1,7 @@
 /* global */
 :root {
-  --theme-color: rgb(0, 56, 82);
-  --theme-color2: rgb(0, 41, 59);
+  --theme-color: snow;
+
   --text-color: #333;
   --bg-color: snow;
   --link-color: #1e2a78;
