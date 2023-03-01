@@ -49,7 +49,6 @@
   <UpdateButton v-if="hasUpdate"></UpdateButton>
   <GoTop></GoTop>
   <ColorSwitch />
-  <div id="test"></div>
 </template>
 
 <script lang="ts" setup>

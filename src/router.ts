@@ -63,12 +63,12 @@ export default function () {
     ],
   })
   router.afterEach((to) => {
-    let title = 'tingyuan'
+    let title = (document as any)._title
     if (to.meta?.title) {
       if (typeof to.meta.title === 'function') {
-        title = title + ' ' + to.meta.title(to.params)
+        title += ' ' + to.meta.title(to.params)
       } else if (typeof to.meta.title === 'string') {
-        title = title + ' ' + to.meta.title
+        title += ' ' + to.meta.title
       }
     }
     document.title = title
