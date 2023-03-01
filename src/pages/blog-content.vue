@@ -2,13 +2,8 @@
   <section>
     <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a
-        class="edit"
-        title="编辑"
-        target="_blank"
-        rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
-      >
+      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`">
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
@@ -17,7 +12,7 @@
     </p>
     <p v-if="blogStatus === 'failed'">加载失败，请重试...</p>
     <p v-if="blogStatus === 'notFound'">文章不存在</p>
-    <article v-if="blogStatus === 'loaded'">
+    <article v-if="blogStatus === 'loaded'" @dblclick="codeFullScreen">
       <component :is="articleCmp"></component>
     </article>
   </section>
@@ -40,6 +35,11 @@ watchEffect(() => {
     useStyleTag(css, { id: 'github-markdown-css' })
   })
 })
+const codeFullScreen = (evt: any) => {
+  // if (evt.target.matches('pre.shiki')) {
+  //   evt.target.classList.toggle('g-fullscreen')
+  // }
+}
 </script>
 
 <style>
@@ -81,9 +81,11 @@ article .markdown-body {
 article .markdown-body summary:hover {
   font-weight: bold;
 }
+
 article .markdown-body .shiki {
   border: 1px solid #c9d1d9;
 }
+
 article .markdown-body .shiki .line:last-child:empty {
   display: none;
 }

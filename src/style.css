@@ -143,3 +143,15 @@ a {
 summary {
   font-size: 16px;
 }
+
+.g-fullscreen {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+body:has(.g-fullscreen) {
+  position: fixed;
+  overflow: hidden;
+}
