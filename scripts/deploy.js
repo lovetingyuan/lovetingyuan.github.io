@@ -27,7 +27,7 @@ async function main() {
     hour: '2-digit',
     minute: '2-digit',
     hour12: false,
-    timeZone: 'Asia/Shanghai',
+    timeZone: 'Asia/Shanghai'
   }).format(new Date())
   await exec('git', ['config', 'user.email', '1932294867@qq.com'])
   await exec('git', ['config', 'user.name', 'tingyuan'])

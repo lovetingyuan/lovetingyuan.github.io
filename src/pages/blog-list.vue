@@ -31,11 +31,11 @@ import useBlogs from '@/blogs'
 const { blogList, cate } = useBlogs()
 
 const displayBlogList = computed(() => {
-  return blogList.value.reduce((blogs, k) => {
+  return blogList.value.reduce<Record<string, string[]>>((blogs, k) => {
     const [cate, name] = k.split('/')
     ;(blogs[cate] ??= []).push(name)
     return blogs
-  }, {} as Record<string, string[]>)
+  }, {})
 })
 
 const columns = computed(() => (cate.value ? 1 : 2))

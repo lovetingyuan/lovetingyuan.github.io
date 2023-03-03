@@ -34,7 +34,7 @@ export default async function render([url, html]: string[]) {
   document.getElementById('app')!.innerHTML = await renderToString(app)
   const script = document.createElement('script')
   script.textContent = `
-  window._buildTime="${buildTime}";typeof console==='object'&&console.log("%c Build: ${buildTime} ${gitHash}","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
+  window._buildTime="${buildTime}";typeof console==='object'&&console.log("%c Build: ${buildTime} ${gitHash} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
   `.trim()
   document.body.appendChild(script)
   const renderedHtml = DocType + '\n' + document.documentElement.outerHTML

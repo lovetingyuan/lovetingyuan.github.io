@@ -4,7 +4,7 @@ import { RouteName } from './constants'
 
 type BlogGlob = Record<string, () => Promise<{ default: Component }>>
 
-const blogsMap = reactive(import.meta.glob('/blogs/**/*.md') as BlogGlob)
+const blogsMap = reactive(import.meta.glob<BlogGlob>('/blogs/**/*.md'))
 
 export default function useBlogs() {
   const route = useRoute()

@@ -55,7 +55,11 @@ article .markdown-body {
 article .markdown-body :is(p, blockquote, ul, ol, dl, table, pre, details) {
   font-size: 15px;
 }
-
+article .markdown-body:empty:after {
+  content: '⌛️ Todo...';
+  margin: 20px;
+  font-style: italic;
+}
 article .markdown-body :is(p, li) {
   line-height: 1.7;
 }

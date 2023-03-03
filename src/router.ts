@@ -21,7 +21,7 @@ export default function () {
         beforeEnter(to) {
           if (to.query.redirect) {
             return {
-              path: to.query.redirect as string,
+              path: to.query.redirect,
               replace: true
             }
           }

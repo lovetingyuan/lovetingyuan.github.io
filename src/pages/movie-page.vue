@@ -115,7 +115,7 @@ const movies = [
       `${item.director} ${item.studio ? `(${item.studio})` : ''}`,
       item.actor,
       `${item.area} ${item.time}`
-    ].filter(Boolean) as string[]
+    ].filter(Boolean)
   }
 })
 </script>
