@@ -7,7 +7,7 @@
 <script setup lang="ts">
 const goTop = () => {
   document.documentElement.scrollTo({
-    top: 0,
+    top: 0
     // behavior: 'smooth',
   })
 }

@@ -1,8 +1,8 @@
+import './assets/style.css'
+
 import { createApp, createSSRApp } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
-import './style.css'
-import 'balloon-css'
 
 export default function start() {
   const app = (import.meta.env.PROD ? createSSRApp : createApp)(App)
@@ -15,7 +15,7 @@ export default function start() {
   }
   return {
     app,
-    router,
+    router
   }
 }
 

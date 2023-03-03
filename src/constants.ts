@@ -4,11 +4,11 @@ export enum RouteName {
   NotFound = 'NotFound',
   Home = 'Home',
   Music = 'Music',
-  Movie = 'Movie',
+  Movie = 'Movie'
 }
 
 export const StorageKeys: Record<string, string> = {
-  ColorScheme: 'ColorScheme',
+  ColorScheme: 'ColorScheme'
 }
 
 Object.keys(StorageKeys).forEach((k) => {

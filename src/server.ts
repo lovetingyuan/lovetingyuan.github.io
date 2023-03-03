@@ -10,7 +10,7 @@ export default async function render([url, html]: string[]) {
     disableJavaScriptFileLoading: true,
     disableJavaScriptEvaluation: true,
     disableCSSFileLoading: true,
-    enableFileSystemHttpRequests: false,
+    enableFileSystemHttpRequests: false
   })
   window.happyDOM.setURL('https://localhost:3000')
   document.write(html.replace(DocType, ''))
@@ -21,7 +21,7 @@ export default async function render([url, html]: string[]) {
     hour: '2-digit',
     minute: '2-digit',
     hour12: false,
-    timeZone: 'Asia/Shanghai',
+    timeZone: 'Asia/Shanghai'
   }).format(new Date())
   const gitHash = cp.execSync('git rev-parse HEAD').toString('utf-8').trim().slice(0, 8)
   window._buildTime = buildTime

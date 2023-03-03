@@ -20,7 +20,7 @@ Object.keys(collection).forEach((cate) => {
       return {
         title,
         url,
-        description,
+        description
       }
     })
 })

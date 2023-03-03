@@ -1,8 +1,21 @@
 <template>
   <div class="item">
     <div class="cover-container">
-      <img class="cover" loading="lazy" width="120" style="min-height: 120px" :src="image" alt="封面" />
-      <a v-if="playLink" :href="playLink" target="_blank" rel="noreferrer noopener" class="no-underline play-icon">
+      <img
+        class="cover"
+        loading="lazy"
+        width="120"
+        style="min-height: 120px"
+        :src="image"
+        alt="封面"
+      />
+      <a
+        v-if="playLink"
+        :href="playLink"
+        target="_blank"
+        rel="noreferrer noopener"
+        class="no-underline play-icon"
+      >
         <icon-material-symbols-play-circle-outline-rounded />
       </a>
     </div>

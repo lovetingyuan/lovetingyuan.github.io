@@ -1,0 +1,96 @@
+@import './base.css';
+@import 'balloon-css';
+
+#app {
+  min-height: 100vh;
+  max-width: 1000px;
+  min-width: 320px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.router-link-active {
+  font-weight: bold;
+}
+
+/* transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(24px);
+  opacity: 0;
+}
+
+/* a link style */
+
+a {
+  text-decoration: none !important;
+  color: var(--link-color);
+  position: relative;
+}
+
+@media (any-hover: hover) {
+  a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -2px;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--link-underline-color);
+    transition: width 0.25s ease 0s, left 0.25s ease 0s;
+    width: 0;
+  }
+
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  a:hover {
+    color: var(--link-color-hover);
+  }
+}
+
+a.no-underline:after {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a:after {
+    transition: none;
+  }
+}
+
+summary {
+  font-size: 16px;
+}
+
+.g-fullscreen {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+body:has(.g-fullscreen) {
+  position: fixed;
+  overflow: hidden;
+}

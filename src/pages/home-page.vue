@@ -46,7 +46,7 @@ const commonLinks2 = commonLinks
     const [title, url] = v.split(': ').map((v) => v.trim())
     return {
       title,
-      url,
+      url
     }
   })
 </script>

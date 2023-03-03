@@ -1,6 +1,10 @@
 <template>
   <a :href="a.url" target="_blank" rel="noopener noreferrer" class="link">
-    <span :aria-label="desc" data-balloon-pos="up" :data-balloon-blunt="reduceAnimation || undefined">
+    <span
+      :aria-label="desc"
+      data-balloon-pos="up"
+      :data-balloon-blunt="reduceAnimation || undefined"
+    >
       <img
         :width="imageSize"
         loading="lazy"

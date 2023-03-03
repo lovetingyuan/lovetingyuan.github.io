@@ -45,6 +45,6 @@ export default function useBlogs() {
     blogStatus,
     articleCmp,
     cate,
-    name,
+    name
   }
 }

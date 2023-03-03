@@ -22,14 +22,14 @@ export default function () {
           if (to.query.redirect) {
             return {
               path: to.query.redirect as string,
-              replace: true,
+              replace: true
             }
           }
-        },
+        }
       },
       {
         path: '/index.html',
-        redirect: '/',
+        redirect: '/'
       },
       {
         name: RouteName.BlogList,
@@ -37,30 +37,30 @@ export default function () {
         component: BlogList,
         meta: {
           title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
-          animation: 'slide',
-        },
+          animation: 'slide'
+        }
       },
       {
         name: RouteName.BlogContent,
         path: '/blog/:cate/:name',
         component: BlogContent,
         meta: {
-          title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`,
-        },
+          title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`
+        }
       },
       {
         name: RouteName.Music,
         path: '/music',
         component: Music,
-        meta: { title: '歌曲', animation: 'slide' },
+        meta: { title: '歌曲', animation: 'slide' }
       },
       {
         name: RouteName.Movie,
         path: '/movie',
         component: Movie,
-        meta: { title: '电影', animation: 'slide' },
-      },
-    ],
+        meta: { title: '电影', animation: 'slide' }
+      }
+    ]
   })
   router.afterEach((to) => {
     let title = 'tingyuan'

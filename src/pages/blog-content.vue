@@ -2,8 +2,13 @@
   <section>
     <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`">
+      <a
+        class="edit"
+        title="编辑"
+        target="_blank"
+        rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
+      >
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>

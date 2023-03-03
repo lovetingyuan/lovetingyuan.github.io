@@ -10,7 +10,7 @@ const updateSW = registerSW({
   onNeedRefresh() {
     hasUpdate.value = updateSW
     // console.log('sw update')
-  },
+  }
   // immediate: true,
 })
 
