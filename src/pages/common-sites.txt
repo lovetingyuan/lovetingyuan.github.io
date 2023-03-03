@@ -5,3 +5,4 @@ twitter: https://twitter.com/home
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 npm: https://www.npmjs.com/
+ChatGPT: https://freegpt.one/
