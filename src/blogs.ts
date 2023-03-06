@@ -2,9 +2,11 @@ import { useRoute } from 'vue-router'
 import { ref, computed, watchEffect, reactive, type Component, shallowRef } from 'vue'
 import { RouteName } from './constants'
 
-type BlogGlob = Record<string, () => Promise<{ default: Component }>>
-
-const blogsMap = reactive(import.meta.glob<BlogGlob>('/blogs/**/*.md'))
+const blogsMap = reactive(
+  import.meta.glob<Component>('/blogs/**/*.md', {
+    import: 'default'
+  })
+)
 
 export default function useBlogs() {
   const route = useRoute()
@@ -31,7 +33,7 @@ export default function useBlogs() {
       blog().then(
         (r) => {
           blogStatus.value = 'loaded'
-          articleCmp.value = r.default
+          articleCmp.value = r
         },
         () => {
           blogStatus.value = 'failed'
