@@ -7,3 +7,4 @@ WebDev: https://web.dev/
 npm: https://www.npmjs.com/
 ChatGPT(51buygpt): https://chat.51buygpt.com/
 ChatGPT(ddiu): https://chatgpt.ddiu.me/
+ChatGPT(cydiar): https://chat.cydiar.com/chat
