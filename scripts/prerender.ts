@@ -27,7 +27,6 @@ export default (options?: {
       if (config.build.ssr) return
       const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
       const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
-      // type Asset = Extract<(typeof bundle)[string], { type: 'asset' }>
       const routesToPrerender = options?.routes || []
       const indexBundle = bundle['index.html']
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return

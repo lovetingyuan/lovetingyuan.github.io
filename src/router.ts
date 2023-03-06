@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import Home from './pages/home-page.vue'
 import BlogList from './pages/blog-list.vue'
-// import BlogContent from './pages/blog-content.vue'
 import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'

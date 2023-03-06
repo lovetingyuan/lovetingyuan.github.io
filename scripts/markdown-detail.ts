@@ -16,7 +16,9 @@ export default {
       ;[, title, link] = info.split(' ')
     }
     return `\n<details><summary>${
-      link ? `<a href="${link}" target="_blank" style="margin-left: 8px">${title}</a>` : title
+      link
+        ? `<a href="${link}" target="_blank" rel="noopener" style="margin-left: 8px">${title}</a>`
+        : title
     }</summary><div style="padding-top: 10px;">\n`
   }
 }
