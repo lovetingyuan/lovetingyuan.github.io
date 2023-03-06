@@ -2,9 +2,8 @@ import { renderToString } from 'vue/server-renderer'
 import { GlobalRegistrator } from '@happy-dom/global-registrator'
 import cp from 'node:child_process'
 
-const DocType = '<!DOCTYPE html>'
-
-export default async function render([url, html]: string[]) {
+const useDocument = (url: string, html: string) => {
+  const DocType = '<!DOCTYPE html>'
   GlobalRegistrator.register()
   Object.assign(window.happyDOM.settings, {
     disableJavaScriptFileLoading: true,
@@ -12,8 +11,17 @@ export default async function render([url, html]: string[]) {
     disableCSSFileLoading: true,
     enableFileSystemHttpRequests: false
   })
-  window.happyDOM.setURL('https://localhost:3000')
+  window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))
+  return () => {
+    const html = DocType + '\n' + document.documentElement.outerHTML
+    GlobalRegistrator.unregister()
+    return html
+  }
+}
+
+export default async function render([url, html]: string[]) {
+  const getHtml = useDocument(url, html)
   const buildTime = new Intl.DateTimeFormat('zh', {
     year: 'numeric',
     month: '2-digit',
@@ -37,7 +45,5 @@ export default async function render([url, html]: string[]) {
   window._buildTime="${buildTime}";typeof console==='object'&&console.log("%c Build: ${buildTime} ${gitHash} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
   `.trim()
   document.body.appendChild(script)
-  const renderedHtml = DocType + '\n' + document.documentElement.outerHTML
-  GlobalRegistrator.unregister()
-  return renderedHtml
+  return getHtml()
 }
