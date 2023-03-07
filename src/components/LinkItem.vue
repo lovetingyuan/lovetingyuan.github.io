@@ -49,6 +49,7 @@ const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
   vertical-align: middle;
   margin-right: 10px;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .site-name {

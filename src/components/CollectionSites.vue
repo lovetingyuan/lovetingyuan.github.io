@@ -31,7 +31,7 @@ import LinkItem from './LinkItem.vue'
 <style scoped>
 .cate-list {
   list-style: none;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 .cate-item {

@@ -75,12 +75,14 @@ article .markdown-body ul {
 article .markdown-body code:not([class]) {
   font-weight: bold;
   margin: 0 4px;
-  font-size: 14px;
+  font-size: 90%;
   padding: 0.15em 0.4em;
 }
 
 article .markdown-body pre.shiki code {
   font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
 article .markdown-body {

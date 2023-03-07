@@ -46,7 +46,7 @@ const columns = computed(() => (cate.value ? 1 : 2))
   column-count: v-bind(columns);
   column-gap: 20px;
   list-style: none;
-  padding-left: 10px;
+  padding-left: 0;
 }
 
 .blog-list .add {
@@ -79,7 +79,7 @@ const columns = computed(() => (cate.value ? 1 : 2))
 }
 
 .blog-list ul {
-  padding-left: 16px;
+  padding-left: 10px;
   list-style-position: inside;
 }
 </style>

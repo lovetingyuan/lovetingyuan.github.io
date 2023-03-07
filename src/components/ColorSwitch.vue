@@ -34,6 +34,7 @@ watch(cp, () => {
   right: 16px;
   font-size: 0;
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .color-switch svg {

@@ -14,7 +14,7 @@
       </figcaption>
       <ul class="common-sites">
         <li v-for="a of commonLinks2" :key="a.url" class="common-site-item">
-          <link-item :a="a" :size="30" />
+          <link-item :a="a" :size="28" />
         </li>
       </ul>
     </figure>
