@@ -21,9 +21,11 @@ watchEffect(() => {
   }
 })
 
+// 响应系统设置
 const cp = usePreferredColorScheme()
 watch(cp, () => {
-  colorMode.value = cp.value === 'dark' ? 'dark' : 'light'
+  if (cp.value === 'no-preference') return
+  colorMode.value = cp.value
 })
 </script>
 
