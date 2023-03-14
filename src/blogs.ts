@@ -1,12 +1,10 @@
 import { useRoute } from 'vue-router'
-import { ref, computed, watchEffect, reactive, type Component, shallowRef } from 'vue'
+import { ref, computed, watchEffect, type Component, shallowRef } from 'vue'
 import { RouteName } from './constants'
 
-const blogsMap = reactive(
-  import.meta.glob<Component>('/blogs/**/*.md', {
-    import: 'default'
-  })
-)
+const blogsMap = import.meta.glob<Component>('/blogs/**/*.md', {
+  import: 'default'
+})
 
 export default function useBlogs() {
   const route = useRoute()

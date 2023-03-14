@@ -7,11 +7,3 @@ export enum RouteName {
   Movie = 'Movie',
   Loading = 'Loading'
 }
-
-export const StorageKeys: Record<string, string> = {
-  ColorScheme: 'ColorScheme'
-}
-
-Object.keys(StorageKeys).forEach((k) => {
-  StorageKeys[k] = 'lovetingyuan:' + k
-})
