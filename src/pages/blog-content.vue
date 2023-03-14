@@ -12,11 +12,11 @@
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
-    <p v-if="blogStatus === 'loading'" style="padding-top: 15vh">
+    <div v-if="blogStatus === 'loading'" style="padding-top: 15vh">
       <CircleLoading></CircleLoading>
-    </p>
-    <p v-if="blogStatus === 'failed'">加载失败，请重试...</p>
-    <p v-if="blogStatus === 'notFound'">文章不存在</p>
+    </div>
+    <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
+    <div v-if="blogStatus === 'notFound'">文章不存在</div>
     <article v-if="blogStatus === 'loaded'" @dblclick="codeFullScreen">
       <component :is="articleCmp"></component>
     </article>

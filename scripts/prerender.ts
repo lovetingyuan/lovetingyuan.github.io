@@ -9,7 +9,7 @@ import { pathToFileURL } from 'node:url'
  * 注意：先进行ssr构建，再进行普通构建
  */
 export default (options?: {
-  routes?: string[]
+  routes?: Record<string, string>
   ssrDist?: string
   ssrEntry?: string
   replaceMark?: RegExp | string
@@ -27,36 +27,25 @@ export default (options?: {
       if (config.build.ssr) return
       const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
       const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
-      const routesToPrerender = options?.routes || []
+      const routesToPrerender = options?.routes || {}
       const indexBundle = bundle['index.html']
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return
       const indexHtml = indexBundle.source.toString()
-      bundle['index.htm'] = {
-        type: 'asset',
-        name: undefined,
-        source: indexHtml,
-        fileName: 'index.htm',
-        needsCodeReference: false
-      }
       console.log()
       console.log('start prerender...')
       const piscina = new Piscina({
         filename: pathToFileURL(ssrEntry).toString()
       })
       await Promise.all(
-        routesToPrerender.map(async (url) => {
-          let fileName = url === '/' ? 'index.html' : url.endsWith('.html') ? url : url + '.html'
-          if (fileName[0] === '/') {
-            fileName = fileName.slice(1)
-          }
-          if (fileName !== 'index.html' && fileName in bundle) return
-          console.log('prerender: ' + fileName)
-          const source = await piscina.run([url, indexHtml])
-          bundle[fileName] = {
+        Object.entries(routesToPrerender).map(async ([route, file]) => {
+          if (file !== 'index.html' && file in bundle) return
+          console.log('prerender: ' + file)
+          const renderedHtml = await piscina.run([route, indexHtml])
+          bundle[file] = {
             type: 'asset',
             name: undefined,
-            source,
-            fileName,
+            source: renderedHtml,
+            fileName: file,
             needsCodeReference: false
           }
         })

@@ -198,7 +198,13 @@ export default defineConfig((env) => ({
       }
     }),
     preRender({
-      routes: ['/', '/blog', '/music', '/movie']
+      routes: {
+        '/': 'index.html',
+        '/loading': 'index.htm', // for 404 fallback
+        '/blog': 'blog.html',
+        '/music': 'music.html',
+        '/movie': 'movie.html'
+      }
     })
   ]
 }))

@@ -4,7 +4,8 @@ export enum RouteName {
   NotFound = 'NotFound',
   Home = 'Home',
   Music = 'Music',
-  Movie = 'Movie'
+  Movie = 'Movie',
+  Loading = 'Loading'
 }
 
 export const StorageKeys: Record<string, string> = {

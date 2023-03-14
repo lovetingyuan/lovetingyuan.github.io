@@ -1,7 +1,7 @@
 <template>
   <div style="text-align: center">
     <div class="circle"></div>
-    <span class="text">加载中<span class="dot">...</span></span>
+    <span class="text">❄️ 加载中<span class="dot">...</span></span>
   </div>
 </template>
 

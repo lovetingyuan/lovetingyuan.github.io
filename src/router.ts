@@ -4,6 +4,7 @@ import BlogList from './pages/blog-list.vue'
 import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'
+import Loading from './pages/loading-page.vue'
 import { RouteName } from './constants'
 
 export default function () {
@@ -33,6 +34,11 @@ export default function () {
       {
         path: '/index.htm',
         redirect: '/'
+      },
+      {
+        name: RouteName.Loading,
+        path: '/loading',
+        component: Loading
       },
       {
         name: RouteName.BlogList,
