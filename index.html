@@ -45,20 +45,19 @@
         }
       }
     </style>
-    <style id="hide-app"></style>
+    <!-- <style id="hide-app"></style>
     <script>
       if (location.search.includes('redirect=')) {
         document.getElementById('hide-app').textContent = '#app {display: none}'
       }
-    </script>
+    </script> -->
   </head>
 
   <body>
     <noscript>
       <p>请开启JavaScript</p>
     </noscript>
-    <div id="app"></div>
-    <template id="loading">
+    <div id="app">
       <style>
         @media (prefers-color-scheme: dark) {
           body {
@@ -71,15 +70,30 @@
         ❄️ Loading
         <span class="dot">...</span>
       </h2>
-    </template>
+    </div>
+    <!-- <template id="loading">
+      <style>
+        @media (prefers-color-scheme: dark) {
+          body {
+            background-color: var(--bg-color, #333);
+            color: var(--text-color, white);
+          }
+        }
+      </style>
+      <h2 style="padding: 30vh 20vw; font-size: 32px; margin: 0">
+        ❄️ Loading
+        <span class="dot">...</span>
+      </h2>
+    </template> -->
 
-    <script>
+    <!-- <script>
       document.getElementById('hide-app').remove()
       if (location.search.includes('redirect=')) {
         const loading = document.importNode(document.getElementById('loading').content, true)
+        document.getElementById('app').innerHTML = ''
         document.getElementById('app').appendChild(loading)
       }
-    </script>
+    </script> -->
     <script nomodule>
       window.alert('请使用最新的chrome,edge,firefox浏览器访问')
     </script>

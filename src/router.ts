@@ -31,6 +31,10 @@ export default function () {
         redirect: '/'
       },
       {
+        path: '/index.htm',
+        redirect: '/'
+      },
+      {
         name: RouteName.BlogList,
         path: '/blog/:cate?',
         component: BlogList,

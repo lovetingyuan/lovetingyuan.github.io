@@ -31,6 +31,13 @@ export default (options?: {
       const indexBundle = bundle['index.html']
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return
       const indexHtml = indexBundle.source.toString()
+      bundle['index.htm'] = {
+        type: 'asset',
+        name: undefined,
+        source: indexHtml,
+        fileName: 'index.htm',
+        needsCodeReference: false
+      }
       console.log()
       console.log('start prerender...')
       const piscina = new Piscina({
