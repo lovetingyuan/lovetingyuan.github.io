@@ -32,14 +32,15 @@ export default function () {
         redirect: '/'
       },
       {
-        path: '/index.htm',
-        redirect: '/'
-      },
-      {
+        path: '/404',
         name: RouteName.Loading,
-        path: '/loading',
         component: Loading
       },
+      // {
+      //   name: RouteName.Loading,
+      //   path: '/loading',
+      //   component: Loading
+      // },
       {
         name: RouteName.BlogList,
         path: '/blog/:cate?',

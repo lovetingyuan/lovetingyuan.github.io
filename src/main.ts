@@ -5,7 +5,7 @@ import App from './App.vue'
 import createRouter from './router'
 
 export default function start() {
-  const redirect = location.pathname === '/index.htm'
+  const redirect = location.pathname === '/404.html'
   const app = (import.meta.env.PROD && !redirect ? createSSRApp : createApp)(App)
   // const app = createSSRApp(App)
   const router = createRouter()

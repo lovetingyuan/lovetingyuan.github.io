@@ -125,7 +125,7 @@ export default defineConfig((env) => ({
         navigateFallbackDenylist: [/.+\.txt$/],
         disableDevLogs: true,
         // importScripts: ['./a.js'],
-        navigateFallback: 'index.htm',
+        navigateFallback: '404.html',
         runtimeCaching: [
           {
             urlPattern: ({ request, url }) => {
@@ -200,7 +200,7 @@ export default defineConfig((env) => ({
     preRender({
       routes: {
         '/': 'index.html',
-        '/loading': 'index.htm', // for 404 fallback
+        '/404': '404.html', // for 404 fallback
         '/blog': 'blog.html',
         '/music': 'music.html',
         '/movie': 'movie.html'
