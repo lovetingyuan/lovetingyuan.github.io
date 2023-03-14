@@ -51,14 +51,12 @@
     <noscript>
       <p>请开启JavaScript</p>
     </noscript>
-    <div id="app">
+    <div id="app"></div>
+    <script nomodule>
+      window.alert('请使用最新的chrome,edge,firefox浏览器访问')
+    </script>
+    <template id="loading">
       <style>
-        .loading {
-          padding: 30vh 20vw;
-          font-size: 32px;
-          margin: 0;
-        }
-
         @media (prefers-color-scheme: dark) {
           body {
             background-color: var(--bg-color, #333);
@@ -66,10 +64,19 @@
           }
         }
       </style>
-      <h2 class="loading">❄️ Loading<span class="dot">...</span></h2>
-    </div>
-    <script nomodule>
-      window.alert('请使用最新的chrome,edge,firefox浏览器访问')
+      <h2 style="padding: 30vh 20vw; font-size: 32px; margin: 0">
+        ❄️ Loading
+        <span class="dot">...</span>
+      </h2>
+    </template>
+    <script>
+      if (
+        location.search.includes('redirect=') ||
+        document.getElementById('app').childElementCount === 0
+      ) {
+        const loading = document.importNode(document.getElementById('loading').content, true)
+        document.getElementById('app').appendChild(loading)
+      }
     </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
