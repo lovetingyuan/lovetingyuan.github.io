@@ -125,7 +125,7 @@ export default defineConfig((env) => ({
         navigateFallbackDenylist: [/.+\.txt$/],
         disableDevLogs: true,
         // importScripts: ['./a.js'],
-        // navigateFallback: 'index.html',
+        navigateFallback: 'index.htm',
         runtimeCaching: [
           {
             urlPattern: ({ request, url }) => {
