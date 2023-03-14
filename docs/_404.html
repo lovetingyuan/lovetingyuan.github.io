@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>请稍候...</title>
+    <meta name="description" content="地址不存在，请稍候..." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      html {
+        color: #888;
+        display: table;
+        font-family: sans-serif;
+        height: 100%;
+        text-align: center;
+        width: 100%;
+      }
+
+      body {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 2em auto;
+      }
+
+      h1 {
+        color: #555;
+        font-size: 2em;
+        font-weight: 400;
+      }
+
+      p {
+        margin: 0 auto;
+        width: 280px;
+      }
+
+      @media only screen and (max-width: 280px) {
+        body,
+        p {
+          width: 95%;
+        }
+
+        h1 {
+          font-size: 1.5em;
+          margin: 0 0 0.3em;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2 style="margin: 30vh 20vw; font-size: 40px">❄️ Loading...</h2>
+    <script>
+      // hack to 404 page for SPA website
+      location.href = '/index.htm?redirect=' + encodeURIComponent(location.pathname)
+    </script>
+  </body>
+</html>
