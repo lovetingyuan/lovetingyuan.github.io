@@ -45,6 +45,12 @@
         }
       }
     </style>
+    <style id="hide-app"></style>
+    <script>
+      if (location.search.includes('redirect=')) {
+        document.getElementById('hide-app').textContent = '#app {display: none}'
+      }
+    </script>
   </head>
 
   <body>
@@ -52,9 +58,6 @@
       <p>请开启JavaScript</p>
     </noscript>
     <div id="app"></div>
-    <script nomodule>
-      window.alert('请使用最新的chrome,edge,firefox浏览器访问')
-    </script>
     <template id="loading">
       <style>
         @media (prefers-color-scheme: dark) {
@@ -69,14 +72,16 @@
         <span class="dot">...</span>
       </h2>
     </template>
+
     <script>
-      if (
-        location.search.includes('redirect=') ||
-        document.getElementById('app').childElementCount === 0
-      ) {
+      document.getElementById('hide-app').remove()
+      if (location.search.includes('redirect=')) {
         const loading = document.importNode(document.getElementById('loading').content, true)
         document.getElementById('app').appendChild(loading)
       }
+    </script>
+    <script nomodule>
+      window.alert('请使用最新的chrome,edge,firefox浏览器访问')
     </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
