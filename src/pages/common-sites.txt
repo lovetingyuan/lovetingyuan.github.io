@@ -6,6 +6,7 @@ CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 npm: https://www.npmjs.com/
 ChatGPT(51buygpt): https://chat.51buygpt.com/
-ChatGPT(ddiu): https://chatgpt.ddiu.me/
-ChatGPT(cydiar): https://chat.cydiar.com/chat
 ChatGPT(okmiku): https://ai.okmiku.com/
+ChatGPT(freechatgpt): https://freechatgpt.chat/
+ChatGPT汇总: https://chatgpts.ninvfeng.xyz/
+ChatGPT汇总: https://github.com/LiLittleCat/awesome-free-chatgpt
