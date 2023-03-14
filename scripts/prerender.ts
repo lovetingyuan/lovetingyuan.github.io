@@ -38,7 +38,10 @@ export default (options?: {
       })
       await Promise.all(
         Object.entries(routesToPrerender).map(async ([route, file]) => {
-          if (file !== 'index.html' && file in bundle) return
+          if (file !== 'index.html' && file in bundle) {
+            console.warn(`${file} has been in output assets.`)
+            return
+          }
           console.log('prerender: ' + file)
           const renderedHtml = await piscina.run([route, indexHtml])
           bundle[file] = {
