@@ -45,5 +45,10 @@ export default async function render([url, html]: string[]) {
   window._buildTime="${buildTime}";typeof console==='object'&&console.log("%c Build: ${buildTime} ${gitHash} ","background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
   `.trim()
   document.body.appendChild(script)
+  if (url !== '/404') {
+    const script = document.createElement('script')
+    script.textContent = 'window._ssrPage=true'
+    document.head.appendChild(script)
+  }
   return getHtml()
 }

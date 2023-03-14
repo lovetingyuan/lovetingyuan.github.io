@@ -5,9 +5,9 @@ import App from './App.vue'
 import createRouter from './router'
 
 export default function start() {
-  const redirect = location.pathname === '/404.html'
-  const app = (import.meta.env.PROD && !redirect ? createSSRApp : createApp)(App)
-  // const app = createSSRApp(App)
+  // _ssrPage 表示是ssr预渲染的页面
+  const createVueApp = import.meta.env.SSR || window._ssrPage ? createSSRApp : createApp
+  const app = createVueApp(App)
   const router = createRouter()
   app.use(router)
   app.config.warnHandler = (msg, instance, trace) => {
