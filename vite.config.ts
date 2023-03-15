@@ -11,6 +11,7 @@ import mdDetail from './scripts/markdown-detail'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
+import injectBuildInfo from './scripts/build-info'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
@@ -197,6 +198,7 @@ export default defineConfig((env) => ({
         })
       }
     }),
+    injectBuildInfo(),
     preRender({
       routes: {
         '/': 'index.html',
