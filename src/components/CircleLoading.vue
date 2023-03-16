@@ -11,7 +11,7 @@ import { onUnmounted, ref } from 'vue'
 const props = defineProps<{
   defer?: number
 }>()
-const show = ref(false)
+const show = ref(props.defer ? false : true)
 
 const timer = setTimeout(() => {
   show.value = true
