@@ -6,7 +6,7 @@ const useDocument = (url: string, html: string) => {
   GlobalRegistrator.register()
   Object.assign(window.happyDOM.settings, {
     disableJavaScriptFileLoading: true,
-    disableJavaScriptEvaluation: false,
+    disableJavaScriptEvaluation: true,
     disableCSSFileLoading: true,
     enableFileSystemHttpRequests: false
   })
