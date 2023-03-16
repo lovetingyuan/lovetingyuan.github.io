@@ -5,6 +5,7 @@ twitter: https://twitter.com/home
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 npm: https://www.npmjs.com/
+看电影: https://www.4kvm.com/
 ChatGPT(51buygpt): https://chat.51buygpt.com/
 ChatGPT(okmiku): https://ai.okmiku.com/
 ChatGPT(freechatgpt): https://freechatgpt.chat/
