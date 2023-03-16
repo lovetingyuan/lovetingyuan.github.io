@@ -17,30 +17,17 @@ export default function () {
       {
         path: '/',
         component: Home,
-        name: RouteName.Home,
-        beforeEnter(to) {
-          if (to.query.redirect) {
-            return {
-              path: to.query.redirect,
-              replace: true
-            }
-          }
-        }
+        name: RouteName.Home
       },
       {
         path: '/index.html',
         redirect: '/'
       },
       {
-        path: '/404',
+        path: '/404', // just for SSG to 404.html
         name: RouteName.Loading,
         component: Loading
       },
-      // {
-      //   name: RouteName.Loading,
-      //   path: '/loading',
-      //   component: Loading
-      // },
       {
         name: RouteName.BlogList,
         path: '/blog/:cate?',

@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 15vh">
-    <CircleLoading></CircleLoading>
+    <CircleLoading />
   </div>
 </template>
 

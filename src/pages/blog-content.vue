@@ -2,13 +2,18 @@
   <section>
     <span class="cate-name">
       <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
-      <a class="edit" title="编辑" target="_blank" rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`">
+      <a
+        class="edit"
+        title="编辑"
+        target="_blank"
+        rel="noopener noreferrer"
+        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
+      >
         <icon-material-symbols-edit-document-rounded />
       </a>
     </span>
     <div v-if="blogStatus === 'loading'" style="padding-top: 15vh">
-      <CircleLoading></CircleLoading>
+      <CircleLoading :defer="300" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
     <div v-if="blogStatus === 'notFound'">文章不存在</div>
