@@ -9,10 +9,9 @@ import { pathToFileURL } from 'node:url'
  * 注意：先进行ssr构建，再进行普通构建
  */
 export default (options?: {
-  routes?: Record<string, string>
+  routes?: Record<string, string> | string[]
   ssrDist?: string
   ssrEntry?: string
-  replaceMark?: RegExp | string
 }): Plugin => {
   let config: ResolvedConfig
 
@@ -27,7 +26,14 @@ export default (options?: {
       if (config.build.ssr) return
       const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
       const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
-      const routesToPrerender = options?.routes || {}
+      let routesToPrerender = options?.routes || {}
+      if (Array.isArray(routesToPrerender)) {
+        routesToPrerender = routesToPrerender.reduce((a, b) => {
+          a[b] = b === '/' ? 'index.html' : (b[0] === '/' ? b.slice(1) : b) + '.html'
+          return a
+        }, {} as Record<string, string>)
+      }
+      console.log(routesToPrerender)
       const indexBundle = bundle['index.html']
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return
       const indexHtml = indexBundle.source.toString()
