@@ -11,3 +11,4 @@ ChatGPT(okmiku): https://ai.okmiku.com/
 ChatGPT(freechatgpt): https://freechatgpt.chat/
 ChatGPT汇总: https://chatgpts.ninvfeng.xyz/
 ChatGPT汇总: https://github.com/LiLittleCat/awesome-free-chatgpt
+ChatGPT汇总: https://github.com/xx025/carrot
