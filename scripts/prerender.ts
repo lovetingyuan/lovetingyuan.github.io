@@ -33,7 +33,6 @@ export default (options?: {
           return a
         }, {} as Record<string, string>)
       }
-      console.log(routesToPrerender)
       const indexBundle = bundle['index.html']
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return
       const indexHtml = indexBundle.source.toString()
