@@ -5,6 +5,7 @@ import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'
 import Loading from './pages/loading-page.vue'
+import PPP from './pages/ppp.vue'
 import { RouteName } from './constants'
 
 export default function () {
@@ -56,6 +57,12 @@ export default function () {
         path: '/movie',
         component: Movie,
         meta: { title: '电影', animation: 'slide' }
+      },
+      {
+        name: RouteName.PPP,
+        path: '/ppp',
+        component: PPP,
+        meta: { title: '-' }
       }
     ]
   })

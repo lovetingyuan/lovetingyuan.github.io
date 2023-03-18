@@ -200,7 +200,7 @@ export default defineConfig((env) => ({
     }),
     injectBuildInfo(),
     preRender({
-      routes: ['/', '/404', '/blog', '/music', '/movie']
+      routes: ['/', '/404', '/blog', '/music', '/movie', '/ppp']
     })
   ]
 }))

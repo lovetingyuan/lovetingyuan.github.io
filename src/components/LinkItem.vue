@@ -1,24 +1,14 @@
 <template>
   <a :href="a.url" target="_blank" rel="noopener noreferrer" class="link">
-    <span
-      :aria-label="desc"
-      data-balloon-pos="up"
-      :data-balloon-blunt="reduceAnimation || undefined"
-    >
-      <img
-        :width="imageSize"
-        loading="lazy"
-        :height="imageSize"
-        :src="getIcon(a.url)"
-        alt="favicon"
-        class="site-icon"
-      />
+    <span :aria-label="desc" data-balloon-pos="up" :data-balloon-blunt="reduceAnimation || undefined">
+      <img :width="imageSize" loading="lazy" :height="imageSize" :src="getIcon(a.url)" alt="favicon" class="site-icon" />
       <span class="site-name">{{ a.title }}</span>
     </span>
   </a>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 
 const props = defineProps<{
@@ -27,10 +17,13 @@ const props = defineProps<{
     title: string
     description?: string
   }
-  size?: number
+  size?: number,
+  capitalize?: boolean
 }>()
 const imageSize = props.size || 32
-
+const capitalizeCss = computed(() => {
+  return (props.capitalize ?? true) ? 'capitalize' : 'none'
+})
 const getIcon = (url: string) => {
   const { host } = new URL(url)
   return `https://api.faviconkit.com/${host}/${imageSize}`
@@ -54,7 +47,7 @@ const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 
 .site-name {
   vertical-align: middle;
-  text-transform: capitalize;
+  text-transform: v-bind(capitalizeCss);
 }
 
 :root.dark img[src*='github.com'] {
