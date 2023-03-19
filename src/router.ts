@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import Home from './pages/home-page.vue'
+import SitesList from './pages/sites-list.vue'
+import Home from './pages/home.vue'
 import BlogList from './pages/blog-list.vue'
 import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
@@ -18,51 +19,58 @@ export default function () {
       {
         path: '/',
         component: Home,
-        name: RouteName.Home
+        name: RouteName.Home,
+        children: [
+          {
+            path: '/',
+            component: SitesList,
+            name: RouteName.SitesList
+          },
+          {
+            path: '/404', // just for SSG to 404.html
+            name: RouteName.Loading,
+            component: Loading
+          },
+          {
+            name: RouteName.BlogList,
+            path: '/blog/:cate?',
+            component: BlogList,
+            meta: {
+              title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
+              animation: 'slide'
+            }
+          },
+          {
+            name: RouteName.BlogContent,
+            path: '/blog/:cate/:name',
+            component: () => import('@/pages/blog-content.vue'),
+            meta: {
+              title: ({ cate, name }: { cate: string; name: string }) =>
+                `博客 - ${cate + '/' + name}`
+            }
+          },
+          {
+            name: RouteName.Music,
+            path: '/music',
+            component: Music,
+            meta: { title: '歌曲', animation: 'slide' }
+          },
+          {
+            name: RouteName.Movie,
+            path: '/movie',
+            component: Movie,
+            meta: { title: '电影', animation: 'slide' }
+          }
+        ]
       },
       {
         path: '/index.html',
         redirect: '/'
       },
       {
-        path: '/404', // just for SSG to 404.html
-        name: RouteName.Loading,
-        component: Loading
-      },
-      {
-        name: RouteName.BlogList,
-        path: '/blog/:cate?',
-        component: BlogList,
-        meta: {
-          title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
-          animation: 'slide'
-        }
-      },
-      {
-        name: RouteName.BlogContent,
-        path: '/blog/:cate/:name',
-        component: () => import('@/pages/blog-content.vue'),
-        meta: {
-          title: ({ cate, name }: { cate: string; name: string }) => `博客 - ${cate + '/' + name}`
-        }
-      },
-      {
-        name: RouteName.Music,
-        path: '/music',
-        component: Music,
-        meta: { title: '歌曲', animation: 'slide' }
-      },
-      {
-        name: RouteName.Movie,
-        path: '/movie',
-        component: Movie,
-        meta: { title: '电影', animation: 'slide' }
-      },
-      {
         name: RouteName.PPP,
         path: '/ppp',
-        component: PPP,
-        meta: { title: '-' }
+        component: PPP
       }
     ]
   })

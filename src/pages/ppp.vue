@@ -1,10 +1,14 @@
 <template>
   <div style="padding: 100px 20px">
-    <div class="form-container">
-      <input type="text" name="username" required autocomplete="off" placeholder="用户名" autofocus v-model="username" />
-      <input type="password" name="password" required autocomplete="off" placeholder="密 码" v-model="password" />
-      <button type="submit" :disabled="disabled" @click="copy">登 录</button>
-    </div>
+    <!-- <p>{{ result }} ❀ {{ result.length }}</p> -->
+    <form @submit.prevent="copy">
+      <input type="text" id="username" name="username" required autofocus v-model="username">
+      <input type="password" id="password" name="password" required v-model="password">
+      <select v-model="length" name="length">
+        <option v-for="len of lengthList" :value="len" :key="len">{{ len }}</option>
+      </select>
+      <button type="submit">随着海风吹，吹向来时庭院</button>
+    </form>
   </div>
 </template>
 
@@ -15,6 +19,8 @@ const username = ref('')
 const password = ref('')
 const result = ref('')
 const disabled = ref(false)
+const length = ref(16)
+const lengthList = [8, 16, 20, 32, 64, 128]
 
 async function sha512(message: string) {
   const messageBuffer = new TextEncoder().encode(message);
@@ -56,7 +62,7 @@ function sha512ToPassword(hash: string, length = 32) {
     var charIndex = Math.floor(generator() * charSet.length);
     password += charSet.charAt(charIndex);
   }
-  return password.substring(0, length);
+  return password // substring(0, length);
 }
 
 function hexToBinary(hexString: string) {
@@ -74,7 +80,7 @@ function hexToBinary(hexString: string) {
 
 const copy = () => {
   window.navigator.clipboard.writeText(result.value).catch(err => {
-    window.alert('复制失败')
+    window.alert('失败')
   })
 }
 
@@ -87,9 +93,12 @@ watchEffect(() => {
   }
   const input = username.value + '@' + password.value
   disabled.value = true;
+  const len = length.value
   sha512(input).then(r => {
-    result.value = sha512ToPassword(r)
+    result.value = sha512ToPassword(r, len)
     disabled.value = false
+  }).catch(err => {
+    window.alert('失败')
   })
 })
 
@@ -103,85 +112,74 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 input[type="text"],
-input[type="password"] {
-  background-color: #F2F2F2;
-  border: none;
-  padding: 10px;
+input[type="password"],
+select {
+  display: block;
   width: 100%;
-  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #8d8d8d;
   border-radius: 5px;
-  box-shadow: none;
-  transition: box-shadow 0.2s ease-in-out;
   margin-bottom: 20px;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  outline: none;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 10px rgba(81, 203, 238, 0.5);
-  border: 1px solid rgba(81, 203, 238, 1);
-}
-
-button {
-  background-color: rgba(81, 203, 238, 1);
-  border: none;
-  color: #fff;
-  padding: 10px;
-  width: 100%;
+  box-sizing: border-box;
   font-size: 16px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
   border-radius: 5px;
-  box-shadow: none;
-  transition: background-color 0.2s ease-in-out;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: rgba(81, 203, 238, 0.8);
+button[type="submit"]:hover {
+  background-color: #0069d9;
 }
 
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-@media screen and (min-width: 480px) {
-
-  input[type="text"],
-  input[type="password"],
-  button {
-    max-width: 400px;
-    /* 屏幕宽度大于等于480px时，限制表格宽度 */
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .form-container {
-    flex-direction: row;
-    /* 屏幕宽度大于等于768px时，在一行显示两个输入框和一个按钮 */
-    justify-content: space-around;
-  }
-
-  input[type="text"],
-  input[type="password"] {
-    width: auto;
-    /* 屏幕宽度大于等于768px时，输入框的最大宽度设置为自动 */
-    margin-right: 20px;
-    margin-bottom: 0;
-  }
-
-  button {
-    max-width: none;
-    /* 屏幕宽度大于等于768px时，取消表格宽度的限制 */
-    width: 200px;
-    /* 屏幕宽度大于等于768px时，按钮的宽度设置为200px */
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 90%;
   }
 }
 </style>

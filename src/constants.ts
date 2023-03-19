@@ -7,5 +7,6 @@ export enum RouteName {
   Movie = 'Movie',
   Loading = 'Loading',
   ChatGPTList = 'ChatGPTList',
-  PPP = 'PPP'
+  PPP = 'PPP',
+  SitesList = 'SitesList'
 }

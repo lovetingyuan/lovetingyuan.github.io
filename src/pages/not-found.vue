@@ -2,8 +2,7 @@
   <div>
     <div title="404" class="not-found">404</div>
     <p style="text-align: center">
-      😅 当前页面(<code>{{ path }}</code
-      >)找不到，请检查地址或刷新重试
+      😅 当前页面( <code>{{ path }}</code> )找不到，请检查地址或刷新重试（<RouterLink to="/">🏠 返回首页</RouterLink>）
     </p>
   </div>
 </template>
@@ -21,14 +20,17 @@ const path = location.pathname
 }
 
 @keyframes glitch {
+
   2%,
   64% {
     transform: translate(2px, 0) skew(0deg);
   }
+
   4%,
   60% {
     transform: translate(-2px, 0) skew(0deg);
   }
+
   62% {
     transform: translate(0, 0) skew(5deg);
   }
@@ -48,14 +50,17 @@ div:before {
 }
 
 @keyframes glitchTop {
+
   2%,
   64% {
     transform: translate(2px, -2px);
   }
+
   4%,
   60% {
     transform: translate(-2px, 2px);
   }
+
   62% {
     transform: translate(13px, -1px) skew(-13deg);
   }
@@ -68,14 +73,17 @@ div:before {
 }
 
 @keyframes glitchBotom {
+
   2%,
   64% {
     transform: translate(-2px, 0);
   }
+
   4%,
   60% {
     transform: translate(-2px, 0);
   }
+
   62% {
     transform: translate(-22px, 5px) skew(21deg);
   }
