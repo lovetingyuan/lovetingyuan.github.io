@@ -16,6 +16,7 @@
       </select>
       <button type="submit">随着海风吹，吹向来时庭院</button>
     </form>
+    <p class="statement">使用ChatGPT制作</p>
   </div>
 </template>
 
@@ -171,5 +172,12 @@ button[type='submit']:hover {
   .container {
     max-width: 85%;
   }
+}
+.statement {
+  font-size: 12px;
+  color: #555;
+  text-align: right;
+  margin-top: 50px;
+  user-select: none;
 }
 </style>
