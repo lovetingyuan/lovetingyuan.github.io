@@ -14,17 +14,11 @@ export default (): Plugin => {
   const gitHash = cp.execSync('git rev-parse HEAD').toString('utf-8').trim().slice(0, 8)
   return {
     name: 'inject-build-info-plugin',
-    apply: 'build',
     transformIndexHtml() {
       return [
         {
           tag: 'script',
-          children: `
-          window._buildTime="${buildTime}";
-          if (typeof console === 'object') {
-            console.log("%c Build: ${buildTime} ${gitHash} ", "background-color:#4DBA87;color:#fff;padding:1px 2px;border-radius:2px")
-          }
-          `.replace(/\s{2,}/g, ' '),
+          children: `window._buildTime="${buildTime}";window._buildHash="${gitHash}";`,
           injectTo: 'body'
         }
       ]
