@@ -6,7 +6,7 @@ import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
 import NotFound from './pages/not-found.vue'
 import Loading from './pages/loading-page.vue'
-import PPP from './pages/ppp.vue'
+import PPP from './pages/p-p-p.vue'
 import { RouteName } from './constants'
 
 export default function () {

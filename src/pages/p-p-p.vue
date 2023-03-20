@@ -1,9 +1,16 @@
 <template>
-  <div style="padding: 100px 20px">
-    <!-- <p>{{ result }} ❀ {{ result.length }}</p> -->
+  <div class="container">
     <form @submit.prevent="copy">
-      <input type="text" id="username" name="username" required autofocus v-model="username">
-      <input type="password" id="password" name="password" required v-model="password">
+      <input
+        type="text"
+        id="username"
+        name="username"
+        autocomplete="off"
+        required
+        autofocus
+        v-model="username"
+      />
+      <input type="password" id="password" name="password" required v-model="password" />
       <select v-model="length" name="length">
         <option v-for="len of lengthList" :value="len" :key="len">{{ len }}</option>
       </select>
@@ -13,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue'
 
 const username = ref('')
 const password = ref('')
@@ -23,63 +30,63 @@ const length = ref(16)
 const lengthList = [8, 16, 20, 32, 64, 128]
 
 async function sha512(message: string) {
-  const messageBuffer = new TextEncoder().encode(message);
-  const hashBuffer = await crypto.subtle.digest("SHA-512", messageBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  const messageBuffer = new TextEncoder().encode(message)
+  const hashBuffer = await crypto.subtle.digest('SHA-512', messageBuffer)
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
 }
 
 function deterministicRandomGenerator(seed: string) {
   var a = 1664525,
     b = 1013904223,
     seed_ = parseInt(seed),
-    x = seed_;
+    x = seed_
   return function () {
-    x = (a * x + b) & 0x7fffffff;
-    return x / 0x7fffffff;
-  };
+    x = (a * x + b) & 0x7fffffff
+    return x / 0x7fffffff
+  }
 }
 
 function sha512ToPassword(hash: string, length = 32) {
   var charTypes = [
-    "abcdefghijklmnopqrstuvwxyz",
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    "12345678901234567890",
-    "!@#$%^&*()-_=+[{]}\\|;:'\",<.>/?"
-  ];
+    'abcdefghijklmnopqrstuvwxyz',
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    '12345678901234567890',
+    '!@#$%^&*()-_=+[{]}\\|;:\'",<.>/?'
+  ]
   var charSet = charTypes.join('')
-  var binaryArray = hexToBinary(hash);
-  var hashInt = 0;
+  var binaryArray = hexToBinary(hash)
+  var hashInt = 0
   for (var i = 0; i < binaryArray.length; i++) {
-    var bit = binaryArray[i] ? 1 : 0;
-    hashInt = (hashInt << 1) | bit;
+    var bit = binaryArray[i] ? 1 : 0
+    hashInt = (hashInt << 1) | bit
   }
-  var baseIndex = Math.abs(hashInt % charSet.length);
-  var baseChar = charSet.charAt(baseIndex);
-  var generator = deterministicRandomGenerator(hashInt.toString());
-  var password = baseChar;
+  var baseIndex = Math.abs(hashInt % charSet.length)
+  var baseChar = charSet.charAt(baseIndex)
+  var generator = deterministicRandomGenerator(hashInt.toString())
+  var password = baseChar
   while (password.length < length) {
-    var charIndex = Math.floor(generator() * charSet.length);
-    password += charSet.charAt(charIndex);
+    var charIndex = Math.floor(generator() * charSet.length)
+    password += charSet.charAt(charIndex)
   }
   return password // substring(0, length);
 }
 
 function hexToBinary(hexString: string) {
-  var binaryArray = [];
+  var binaryArray = []
   for (var i = 0; i < hexString.length; i += 2) {
-    var byteHex = hexString.substr(i, 2);
-    var byte = parseInt(byteHex, 16);
+    var byteHex = hexString.substr(i, 2)
+    var byte = parseInt(byteHex, 16)
     for (var j = 7; j >= 0; j--) {
-      var bit = (byte >> j) & 1;
-      binaryArray.push(bit);
+      var bit = (byte >> j) & 1
+      binaryArray.push(bit)
     }
   }
-  return binaryArray;
+  return binaryArray
 }
 
 const copy = () => {
-  window.navigator.clipboard.writeText(result.value).catch(err => {
+  window.navigator.clipboard.writeText(result.value).catch((err) => {
     window.alert('失败')
   })
 }
@@ -87,19 +94,21 @@ const copy = () => {
 watchEffect(() => {
   if (import.meta.env.SSR) return
   if (!username.value || !password.value) {
-    disabled.value = true;
+    disabled.value = true
     result.value = ''
     return
   }
   const input = username.value + '@' + password.value
-  disabled.value = true;
+  disabled.value = true
   const len = length.value
-  sha512(input).then(r => {
-    result.value = sha512ToPassword(r, len)
-    disabled.value = false
-  }).catch(err => {
-    window.alert('失败')
-  })
+  sha512(input)
+    .then((r) => {
+      result.value = sha512ToPassword(r, len)
+      disabled.value = false
+    })
+    .catch(() => {
+      window.alert('失败')
+    })
 })
 
 onMounted(() => {
@@ -112,33 +121,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-
 .container {
   max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin: 120px auto;
 }
 
-h1 {
-  text-align: center;
-  margin-top: 0;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"],
+input[type='text'],
+input[type='password'],
 select {
   display: block;
   width: 100%;
@@ -160,7 +149,7 @@ select {
   background-position: right 10px center;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   display: block;
   width: 100%;
   padding: 10px;
@@ -171,15 +160,16 @@ button[type="submit"] {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  user-select: none;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background-color: #0069d9;
 }
 
 @media screen and (max-width: 600px) {
   .container {
-    max-width: 90%;
+    max-width: 85%;
   }
 }
 </style>
