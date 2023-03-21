@@ -1,5 +1,5 @@
 <template>
-  <ul class="blog-list" v-if="displayBlogList.length">
+  <ul class="blog-list" v-if="Object.keys(displayBlogList).length">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
         <span v-if="cate">{{ c }}</span>
