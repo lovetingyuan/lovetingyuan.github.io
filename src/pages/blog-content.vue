@@ -13,7 +13,7 @@
       </a>
     </span>
     <div v-if="blogStatus === 'loading'" style="padding-top: 15vh">
-      <CircleLoading :defer="300" />
+      <CircleLoading :defer="600" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
     <div v-if="blogStatus === 'notFound'">文章不存在</div>

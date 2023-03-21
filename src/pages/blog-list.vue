@@ -1,5 +1,5 @@
 <template>
-  <ul class="blog-list">
+  <ul class="blog-list" v-if="displayBlogList.length">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3>
         <span v-if="cate">{{ c }}</span>
@@ -22,6 +22,7 @@
       </ul>
     </li>
   </ul>
+  <p v-else>当前文章分类不存在</p>
 </template>
 
 <script lang="ts" setup>

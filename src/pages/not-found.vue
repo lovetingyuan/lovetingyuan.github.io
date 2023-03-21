@@ -2,13 +2,19 @@
   <div>
     <div title="404" class="not-found">404</div>
     <p style="text-align: center">
-      😅 当前页面( <code>{{ path }}</code> )找不到，请检查地址或刷新重试（<RouterLink to="/">🏠 返回首页</RouterLink>）
+      😅 当前页面( <code>{{ path }}</code> )找不到，请检查地址或刷新重试（<RouterLink :to="home"
+        >🏠 返回首页</RouterLink
+      >）
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
 const path = location.pathname
+const home = {
+  path: '/',
+  replace: true
+}
 </script>
 
 <style scoped>
@@ -20,7 +26,6 @@ const path = location.pathname
 }
 
 @keyframes glitch {
-
   2%,
   64% {
     transform: translate(2px, 0) skew(0deg);
@@ -50,7 +55,6 @@ div:before {
 }
 
 @keyframes glitchTop {
-
   2%,
   64% {
     transform: translate(2px, -2px);
@@ -73,7 +77,6 @@ div:before {
 }
 
 @keyframes glitchBotom {
-
   2%,
   64% {
     transform: translate(-2px, 0);
