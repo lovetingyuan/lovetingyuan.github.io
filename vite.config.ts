@@ -123,7 +123,7 @@ export default defineConfig((env) => ({
         // },
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
         globIgnores: ['js/*', 'resume.html'],
-        navigateFallbackDenylist: [/.+\.txt$/, /\/resume(\.html)?$/],
+        navigateFallbackDenylist: [/.+\.txt$/, /\/resume(\.html)?$/, /\/minibili\//],
         disableDevLogs: true,
         // importScripts: ['./a.js'],
         navigateFallback: '404.html',
