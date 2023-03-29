@@ -66,7 +66,7 @@ export default function ProfilePage({ userId }) {
 }
 ```
 
-这代表了一类场景，当组件用来渲染某个实体时用 id 作为 key 是完全有必要的
+这代表了一类场景，当组件用来渲染某个实体时用 id 作为 key 是完全合理的
 
 但是如果只是想让某一部分的状态响应 props 的变化呢？如：
 
@@ -106,7 +106,8 @@ function List({ items }) {
 
 `setSelection`是直接在组件渲染时调用的，这会让 react 放弃后续的 diff 而立即再次运行当前组件。
 
-上面也给出了如何使用[`usePrevious`](https://github.com/streamich/react-use/blob/master/src/usePrevious.ts)来简化这种模式
+上面也给出了如何使用[`usePrevious`](https://github.com/streamich/react-use/blob/master/src/usePrevious.ts)来简化这种模式。
+**不过要特别注意条件的设置，避免出现无限渲染的问题**
 
 ---
 
