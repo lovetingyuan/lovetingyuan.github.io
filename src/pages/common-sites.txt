@@ -14,4 +14,5 @@ ChatGPT汇总: https://github.com/LiLittleCat/awesome-free-chatgpt
 ChatGPT汇总: https://github.com/xx025/carrot
 ChatGPT(theb): https://theb.ai/
 ChatGPT: https://chat-gpt-next-web.vercel.app/
+ChatGPT(chatkit): https://chatkit.app/
 魔戒: https://mojie.best/
