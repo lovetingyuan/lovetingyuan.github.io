@@ -1,7 +1,6 @@
 {
   "extends": [
-    "@tsconfig/node18/tsconfig.json",
-    "@vue/tsconfig/tsconfig.json"
+    "@tsconfig/node18/tsconfig.json"
   ],
   "include": [
     "scripts/*.ts",
@@ -10,6 +9,7 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "module": "ESNext",
     "noEmitOnError": true,
     "types": [
       "node"

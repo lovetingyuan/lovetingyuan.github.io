@@ -87,7 +87,7 @@ function hexToBinary(hexString: string) {
 }
 
 const copy = () => {
-  window.navigator.clipboard.writeText(result.value).catch((err) => {
+  window.navigator.clipboard.writeText(result.value).catch(() => {
     window.alert('失败')
   })
 }

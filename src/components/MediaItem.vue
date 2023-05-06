@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
+defineProps<{
   infoList: string[]
   image: string
   song?: string

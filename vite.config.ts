@@ -129,7 +129,7 @@ export default defineConfig((env) => ({
         navigateFallback: '404.html',
         runtimeCaching: [
           {
-            urlPattern: ({ request, url }) => {
+            urlPattern: ({ request }) => {
               if (request.url.includes('api.faviconkit.com')) {
                 return true
               }
@@ -149,7 +149,7 @@ export default defineConfig((env) => ({
             }
           },
           {
-            urlPattern: ({ request, url }) => {
+            urlPattern: ({ request }) => {
               return request.destination === 'document'
             },
             handler: 'NetworkFirst',

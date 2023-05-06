@@ -1,31 +1,11 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": [
-    "*.d.ts",
-    "src/**/*",
-    "src/**/*.vue"
-  ],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "noEmitOnError": true,
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "lib": [
-      "ESNext",
-      "DOM",
-      "WebWorker"
-    ],
-    "types": [
-      "unplugin-icons/types/vue",
-      "vite-plugin-pwa/client"
-    ]
-  },
+  "files": [],
   "references": [
     {
       "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import SitesList from './pages/sites-list.vue'
-import Home from './pages/home.vue'
+import Home from './pages/home-page.vue'
 import BlogList from './pages/blog-list.vue'
 import Music from './pages/music-page.vue'
 import Movie from './pages/movie-page.vue'
