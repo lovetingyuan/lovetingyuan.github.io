@@ -1,17 +1,9 @@
 <template>
   <div class="container">
     <form @submit.prevent="copy">
-      <input
-        type="text"
-        id="username"
-        name="username"
-        autocomplete="off"
-        required
-        autofocus
-        v-model="username"
-      />
+      <input type="text" id="username" name="username" autocomplete="off" required autofocus v-model="username" />
       <input type="password" id="password" name="password" required v-model="password" />
-      <select v-model="length" name="length">
+      <select v-model="length" name="count">
         <option v-for="len of lengthList" :value="len" :key="len">{{ len }}</option>
       </select>
       <button type="submit">随着海风吹，吹向来时庭院</button>
@@ -173,6 +165,7 @@ button[type='submit']:hover {
     max-width: 85%;
   }
 }
+
 .statement {
   font-size: 12px;
   color: #555;

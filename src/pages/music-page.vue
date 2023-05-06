@@ -90,11 +90,21 @@ const musics = [
     name: 'No One But You',
     singer: 'Doug Paisley',
     album: 'Constant Companion',
-    cover: 'https://y.qq.com/music/photo_new/T002R300x300M0000017IzR53A8UQO_2.jpg',
+    cover: 'https://i.kfs.io/album/global/98914,2v1/fit/500x500.jpg',
     year: 2010,
     link: 'https://baike.baidu.com/item/No%20One%20But%20You/23545457',
     playLink:
       'https://player.bilibili.com/player.html?aid=674536765&bvid=BV13U4y1J7aG&cid=460629633&page=1'
+  },
+  {
+    name: '无与伦比的美丽',
+    singer: '苏打绿',
+    album: '无与伦比的美丽',
+    cover: 'https://y.qq.com/music/photo_new/T002R300x300M0000017IzR53A8UQO_2.jpg',
+    year: 2007,
+    link: 'https://baike.baidu.com/item/%E6%97%A0%E4%B8%8E%E4%BC%A6%E6%AF%94%E7%9A%84%E7%BE%8E%E4%B8%BD/16767707',
+    playLink:
+      'https://player.bilibili.com/player.html?aid=69169384&bvid=BV1UJ411T728&cid=119877561&page=1'
   }
 ].map((item) => {
   return {

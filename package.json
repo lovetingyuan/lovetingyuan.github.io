@@ -6,7 +6,7 @@
   "homepage": "https://lovetingyuan.github.io",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
-    "type-check": "vue-tsc --noEmit",
+    "type-check": "vue-tsc --noEmit --composite false",
     "build": "cross-env NODE_ENV=production && npm run build:ssr && npm run build:client",
     "build:client": "cross-env NODE_ENV=production && vite build",
     "build:ssr": "cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist-ssr",
