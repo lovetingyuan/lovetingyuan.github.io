@@ -7,11 +7,10 @@ WebDev: https://web.dev/
 npm: https://www.npmjs.com/
 看电影: https://www.4kvm.com/
 Poe: https://poe.com/ChatGPT
+Bard: https://bard.google.com/
+Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
 ForeFrond: https://chat.forefront.ai/
 copilothub: https://app.copilothub.ai/home
-Chat68686: https://chat.68686.ltd/
-chatbot: https://chat.chatbot.sex/
-VercelAI: https://play.vercel.ai/
 waixingyun: https://chat.waixingyun.cn/
 ChatGPT汇总: https://chatgpts.ninvfeng.xyz/
 ChatGPT汇总: https://github.com/LiLittleCat/awesome-free-chatgpt
