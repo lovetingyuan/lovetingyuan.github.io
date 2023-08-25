@@ -13,9 +13,4 @@ Claude: https://claude.ai/chat/
 claudeai: https://chat.claudeai.ai/
 ForeFrond: https://chat.forefront.ai/
 copilothub: https://app.copilothub.ai/home
-waixingyun: https://chat.waixingyun.cn/
-ChatGPT汇总: https://chatgpts.ninvfeng.xyz/
-ChatGPT汇总: https://github.com/LiLittleCat/awesome-free-chatgpt
-ChatGPT汇总: https://github.com/xx025/carrot
-ChatGPT网站: https://github.com/lzwme/chatgpt-sites
-魔戒: https://mojie.best/
+魔戒: https://mojie.me/
