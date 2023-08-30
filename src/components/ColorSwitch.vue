@@ -1,5 +1,9 @@
 <template>
-  <div class="color-switch" @click="switchColor" title="切换亮/暗色">
+  <div
+    class="fixed top-2 right-3 cursor-pointer opacity-80 hover:opacity-100"
+    @click="switchColor"
+    title="切换亮/暗色"
+  >
     <icon-material-symbols-dark-mode v-if="colorMode === 'dark'" />
     <icon-material-symbols-light-mode v-else />
   </div>
@@ -28,18 +32,3 @@ watch(cp, () => {
   colorMode.value = cp.value
 })
 </script>
-
-<style scoped>
-.color-switch {
-  position: fixed;
-  top: 10px;
-  right: 16px;
-  font-size: 0;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.color-switch svg {
-  font-size: 18px;
-}
-</style>

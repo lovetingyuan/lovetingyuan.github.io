@@ -1,5 +1,6 @@
 @import './base.css';
 @import 'balloon-css';
+@import './tailwind.css';
 
 #app {
   min-height: 100vh;
@@ -88,6 +89,10 @@ summary {
   inset: 0;
   margin: auto;
   z-index: 1;
+}
+
+.g-un-icons {
+  display: inline-block;
 }
 
 body:has(.g-fullscreen) {

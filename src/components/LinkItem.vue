@@ -1,9 +1,22 @@
 <template>
-  <a :href="a.url" target="_blank" rel="noopener noreferrer" class="link">
-    <span :aria-label="desc" data-balloon-pos="up" :data-balloon-blunt="reduceAnimation || undefined">
-      <img :width="imageSize" loading="lazy" :height="imageSize" :src="getIcon(a.url)" alt="favicon" class="site-icon" />
-      <span class="site-name">{{ a.title }}</span>
-    </span>
+  <a
+    :href="a.url"
+    target="_blank"
+    rel="noopener noreferrer"
+    :aria-label="desc"
+    data-balloon-pos="up"
+    class="text-center flex justify-center flex-col"
+    :data-balloon-blunt="reduceAnimation || undefined"
+  >
+    <img
+      :width="imageSize"
+      loading="lazy"
+      :height="imageSize"
+      :src="getIcon(a.url)"
+      alt="favicon"
+      class="my-0 mx-auto"
+    />
+    <span class="mt-2">{{ a.title }}</span>
   </a>
 </template>
 
@@ -17,12 +30,12 @@ const props = defineProps<{
     title: string
     description?: string
   }
-  size?: number,
+  size?: number
   capitalize?: boolean
 }>()
 const imageSize = props.size || 32
 const capitalizeCss = computed(() => {
-  return (props.capitalize ?? true) ? 'capitalize' : 'none'
+  return props.capitalize ?? true ? 'capitalize' : 'none'
 })
 const getIcon = (url: string) => {
   const { host } = new URL(url)
@@ -33,23 +46,6 @@ const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
 
 <style scoped>
-.link {
-  display: inline-block;
-  /* margin: 10px 20px; */
-}
-
-.site-icon {
-  vertical-align: middle;
-  margin-right: 10px;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-.site-name {
-  vertical-align: middle;
-  text-transform: v-bind(capitalizeCss);
-}
-
 :root.dark img[src*='github.com'] {
   filter: brightness(8);
 }

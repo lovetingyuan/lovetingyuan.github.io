@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-top: 15vh">
+  <div class="pt-15vh">
     <CircleLoading />
   </div>
 </template>

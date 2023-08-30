@@ -6,14 +6,13 @@
         <a
           target="_blank"
           title="添加"
-          style="vertical-align: sub"
           href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/pages/common-sites.txt"
         >
           <icon-material-symbols-add />
         </a>
       </figcaption>
       <ul class="common-sites">
-        <li v-for="a of commonLinks2" :key="a.url" class="common-site-item">
+        <li v-for="a of commonLinks2" :key="a.url" class="common-site-item text-center">
           <link-item :a="a" :size="28" />
         </li>
       </ul>
@@ -24,7 +23,6 @@
         <a
           target="_blank"
           title="添加"
-          style="vertical-align: sub"
           href="https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/src/collection"
         >
           <icon-material-symbols-add />

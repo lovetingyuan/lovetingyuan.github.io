@@ -1,7 +1,11 @@
 <template>
-  <span class="go-top" title="返回顶部" @click="goTop">
-    <icon-material-symbols-arrow-circle-up />
-  </span>
+  <div
+    class="go-top fixed bottom-5 right-3 z-9 cursor-pointer opacity-80 hover:opacity-100"
+    title="返回顶部"
+    @click="goTop"
+  >
+    <icon-material-symbols-arrow-circle-up class="text-3xl hover:text-cyan-600" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,26 +16,3 @@ const goTop = () => {
   })
 }
 </script>
-
-<style scoped>
-.go-top {
-  position: fixed;
-  bottom: 24px;
-  right: 15px;
-  display: block;
-  /* padding: 12px; */
-  font-size: 0;
-  z-index: 9;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.go-top svg {
-  font-size: 28px;
-}
-
-.go-top:hover {
-  color: rgb(90, 137, 203);
-  opacity: 1;
-}
-</style>

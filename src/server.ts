@@ -8,7 +8,9 @@ const useDocument = (url: string, html: string) => {
     disableJavaScriptFileLoading: true,
     disableJavaScriptEvaluation: true,
     disableCSSFileLoading: true,
-    enableFileSystemHttpRequests: false
+    enableFileSystemHttpRequests: false,
+    disableIframePageLoading: true,
+    disableComputedStyleRendering: true,
   })
   window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))

@@ -20,7 +20,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['scripts/**/*.{js,mjs,cjs}'],
+      files: ['scripts/**/*.{js,mjs,cjs}', '*.js'],
       env: {
         node: true,
         commonjs: true

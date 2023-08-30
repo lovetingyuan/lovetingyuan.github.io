@@ -1,7 +1,7 @@
 <template>
-  <div style="text-align: center" v-show="show">
-    <div class="circle"></div>
-    <span class="text">❄️ 加载中<span class="dot">...</span></span>
+  <div class="text-center" v-show="show">
+    <div class="circle my-0 mx-auto w-20 h-20 border-10"></div>
+    <span class="leading-8">❄️ 加载中<span class="dot">...</span></span>
   </div>
 </template>
 
@@ -33,9 +33,7 @@ onUnmounted(() => {
   border-top-color: #2291cf;
   animation: spin 1s infinite linear;
 }
-.text {
-  line-height: 4;
-}
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);
