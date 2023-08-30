@@ -5,7 +5,7 @@
     rel="noopener noreferrer"
     :aria-label="desc"
     data-balloon-pos="up"
-    class="text-center flex justify-center flex-col"
+    class="flex flex-col justify-center text-center"
     :data-balloon-blunt="reduceAnimation || undefined"
   >
     <img
@@ -14,7 +14,7 @@
       :height="imageSize"
       :src="getIcon(a.url)"
       alt="favicon"
-      class="my-0 mx-auto"
+      class="mx-auto my-0"
     />
     <span class="mt-2">{{ a.title }}</span>
   </a>

@@ -13,7 +13,7 @@
           </a>
         </summary>
         <ul class="my-6">
-          <li v-for="site of list" :key="site.url" class="inline-block mx-4 my-2.5">
+          <li v-for="site of list" :key="site.url" class="mx-4 my-2.5 inline-block">
             <link-item :a="site" :size="24" />
           </li>
         </ul>

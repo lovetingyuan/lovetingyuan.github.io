@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-2 right-3 cursor-pointer opacity-80 hover:opacity-100"
+    class="fixed right-3 top-2 cursor-pointer opacity-80 hover:opacity-100"
     @click="switchColor"
     title="切换亮/暗色"
   >
