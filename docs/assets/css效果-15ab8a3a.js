@@ -1,1 +1,0 @@
-import{o as t,c as o,a as e}from"./index-c021caf7.js";const c={class:"markdown-body"},a=e("h2",null,"css 实现轮播图",-1),n=e("p",null,[e("a",{href:"../../demo/css-slider.html"},"demo")],-1),r=[a,n],i={__name:"css效果",setup(_,{expose:s}){return s({frontmatter:{}}),(l,m)=>(t(),o("div",c,r))}};export{i as default};
