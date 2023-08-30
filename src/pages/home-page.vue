@@ -1,22 +1,22 @@
 <template>
-  <header class="flex items-center px-8 pt-6 justify-between">
+  <header class="flex items-center justify-between px-8 pt-6">
     <h4 class="m-0 select-none text-xl">
       <router-link to="/">庭院 Ⴆʅσɠ</router-link>
     </h4>
-    <ul class="list-none text-lg p-0 m-0 overflow-hidden ml-13 select-none">
-      <li class="float-left my-2 mx-5">
+    <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
+      <li class="float-left mx-5 my-2">
         <router-link :to="{ name: RouteName.BlogList }" class="text-sky-700 hover:text-sky-900">
           博客
           <icon-material-symbols-article />
         </router-link>
       </li>
-      <li class="float-left my-2 mx-5">
+      <li class="float-left mx-5 my-2">
         <router-link :to="{ name: RouteName.Music }" class="text-lime-700 hover:text-lime-900">
           音乐
           <icon-material-symbols-library-music />
         </router-link>
       </li>
-      <li class="float-left my-2 mx-5">
+      <li class="float-left mx-5 my-2">
         <router-link :to="{ name: RouteName.Movie }" class="text-amber-700 hover:text-amber-900">
           电影
           <icon-material-symbols-movie />
@@ -24,7 +24,7 @@
       </li>
     </ul>
   </header>
-  <main class="px-8 pt-5 pb-8">
+  <main class="px-8 pb-8 pt-5">
     <router-view v-slot="{ Component, route }">
       <transition
         v-if="!reduceAnimation"
@@ -36,7 +36,7 @@
       <component v-else :is="Component" />
     </router-view>
   </main>
-  <footer class="absolute bottom-0 h-6 w-full text-center text-xs select-none text-zinc-500 left-0">
+  <footer class="absolute bottom-0 left-0 h-6 w-full select-none text-center text-xs text-zinc-500">
     <i>{{ time }}</i>
     <span class="mr-2">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
