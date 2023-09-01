@@ -1,11 +1,11 @@
 <template>
-  <div class="item">
-    <div class="cover-container">
+  <div class="flex text-sm">
+    <div class="mr-5 flex items-center justify-center">
       <img
-        class="cover"
+        class="inline-block rounded-md object-cover"
         loading="lazy"
         width="120"
-        style="min-height: 120px"
+        height="120"
         :src="image"
         alt="封面"
       />
@@ -14,19 +14,19 @@
         :href="playLink"
         target="_blank"
         rel="noreferrer noopener"
-        class="no-underline play-icon"
+        class="absolute text-5xl text-white no-underline hover:text-gray-300"
       >
         <icon-material-symbols-play-circle-outline-rounded />
       </a>
     </div>
-    <div class="info-list">
-      <p class="info-item" v-for="(info, i) of infoList" :key="info">
+    <div class="flex flex-col gap-3 break-words py-2">
+      <p class="leading-[1.5]" v-for="(info, i) of infoList" :key="info">
         <template v-if="!i">
-          <a :href="link" target="_blank" rel="noreferrer noopener">{{ info }}</a>
+          <a :href="link" target="_blank" rel="noreferrer noopener" class="text-lg">{{ info }}</a>
           <!-- <a v-if="playLink" :href="playLink" style="margin-left: 1em;font-size: 14px" target="_blank"
             rel="noreferrer noopener">(播放)</a> -->
         </template>
-        <span class="info-item-text" v-else>{{ info }}</span>
+        <span class="text-sm" v-else>{{ info }}</span>
       </p>
     </div>
   </div>
@@ -41,58 +41,3 @@ defineProps<{
   playLink?: string
 }>()
 </script>
-
-<style scoped>
-.item {
-  overflow: hidden;
-  font-size: 14px;
-  display: flex;
-}
-
-.cover {
-  object-fit: cover;
-  /* float: left; */
-  /* margin-right: 20px; */
-  border-radius: 3px;
-  display: inline-block;
-}
-
-.info-list {
-  display: flex;
-  flex-direction: column;
-  margin: 8px 0;
-  word-wrap: break-word;
-  gap: 12px;
-  /* justify-content: space-between; */
-}
-
-.info-item:first-of-type {
-  /* font-size: 16px;
-  margin-bottom: 20px; */
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.info-item {
-  line-height: 1.5;
-  margin: 0;
-}
-
-.cover-container {
-  margin-right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.play-icon {
-  position: absolute;
-  color: white;
-  text-decoration: none;
-  font-size: 0;
-}
-
-.play-icon svg {
-  font-size: 48px;
-}
-</style>

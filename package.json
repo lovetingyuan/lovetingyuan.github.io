@@ -14,7 +14,8 @@
     "deploy": "node ./scripts/deploy",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "knip": "knip"
   },
   "dependencies": {
     "@vueuse/core": "^10.1.0",
@@ -47,6 +48,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.46.0",
     "eslint-plugin-vue": "^9.17.0",
+    "knip": "^2.21.1",
     "markdown-it": "^13.0.1",
     "markdown-it-container": "^3.0.0",
     "markdown-it-link-attributes": "^4.0.1",

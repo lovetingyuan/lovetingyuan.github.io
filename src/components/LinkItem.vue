@@ -4,9 +4,7 @@
     target="_blank"
     rel="noopener noreferrer"
     :aria-label="desc"
-    data-balloon-pos="up"
-    class="flex flex-col justify-center text-center"
-    :data-balloon-blunt="reduceAnimation || undefined"
+    class="flex flex-col justify-center gap-2 text-center"
   >
     <img
       :width="imageSize"
@@ -16,13 +14,13 @@
       alt="favicon"
       class="mx-auto my-0"
     />
-    <span class="mt-2">{{ a.title }}</span>
+    <span class="text-base">{{ a.title }}</span>
   </a>
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
+// import { computed } from 'vue'
+// import { useMediaQuery } from '@vueuse/core'
 
 const props = defineProps<{
   a: {
@@ -33,24 +31,14 @@ const props = defineProps<{
   size?: number
   capitalize?: boolean
 }>()
-const imageSize = props.size || 32
-const capitalizeCss = computed(() => {
-  return props.capitalize ?? true ? 'capitalize' : 'none'
-})
+const imageSize = props.size || 34
+// const capitalizeCss = computed(() => {
+//   return props.capitalize ?? true ? 'capitalize' : 'none'
+// })
 const getIcon = (url: string) => {
   const { host } = new URL(url)
   return `https://api.faviconkit.com/${host}/${imageSize}`
 }
 const desc = props.a.description || undefined
-const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
+// const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
-
-<style scoped>
-:root.dark img[src*='github.com'] {
-  filter: brightness(8);
-}
-
-:root.dark img[src*='iconfinder'] {
-  filter: brightness(500);
-}
-</style>

@@ -4,22 +4,22 @@
       <router-link to="/">庭院 Ⴆʅσɠ</router-link>
     </h4>
     <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
-      <li class="float-left mx-5 my-2">
+      <li class="float-left mx-2 my-2 sm:mx-5">
         <router-link :to="{ name: RouteName.BlogList }" class="text-sky-700 hover:text-sky-900">
           博客
-          <icon-material-symbols-article />
+          <icon-material-symbols-article class="align-sub" />
         </router-link>
       </li>
-      <li class="float-left mx-5 my-2">
+      <li class="float-left mx-2 my-2 sm:mx-5">
         <router-link :to="{ name: RouteName.Music }" class="text-lime-700 hover:text-lime-900">
           音乐
-          <icon-material-symbols-library-music />
+          <icon-material-symbols-library-music class="align-sub" />
         </router-link>
       </li>
-      <li class="float-left mx-5 my-2">
+      <li class="float-left mx-2 my-2 sm:mx-5">
         <router-link :to="{ name: RouteName.Movie }" class="text-amber-700 hover:text-amber-900">
           电影
-          <icon-material-symbols-movie />
+          <icon-material-symbols-movie class="align-sub" />
         </router-link>
       </li>
     </ul>
