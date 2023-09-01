@@ -152,7 +152,7 @@ export default defineConfig((env) => ({
             urlPattern: ({ request }) => {
               return request.destination === 'document'
             },
-            handler: 'NetworkFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'html-cache',
               cacheableResponse: {
