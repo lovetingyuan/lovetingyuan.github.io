@@ -1,5 +1,5 @@
 <template>
-  <ul class="blog-list" v-if="Object.keys(displayBlogList).length">
+  <ul class="blog-list columns-2 gap-5" v-if="Object.keys(displayBlogList).length">
     <li v-for="(list, c) of displayBlogList" :key="c">
       <h3 class="mb-3 text-lg font-bold">
         <span v-if="cate" class="capitalize">{{ c }}</span>
@@ -39,13 +39,5 @@ const displayBlogList = computed(() => {
   }, {})
 })
 
-const columns = computed(() => (cate.value ? 1 : 2))
+// const columns = computed(() => (cate.value ? 1 : 2))
 </script>
-
-<style scoped>
-.blog-list {
-  column-count: v-bind(columns);
-  column-gap: 20px;
-  padding-left: 0;
-}
-</style>

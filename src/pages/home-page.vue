@@ -24,7 +24,7 @@
       </li>
     </ul>
   </header>
-  <main class="px-8 pb-8 pt-5">
+  <main class="px-8 pb-20 pt-8">
     <router-view v-slot="{ Component, route }">
       <transition
         v-if="!reduceAnimation"
@@ -36,7 +36,7 @@
       <component v-else :is="Component" />
     </router-view>
   </main>
-  <footer class="absolute bottom-0 left-0 h-6 w-full select-none text-center text-xs text-zinc-500">
+  <footer class="absolute bottom-0 left-0 h-8 w-full select-none text-center text-xs text-zinc-500">
     <i>{{ time }}</i>
     <span class="mr-2">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
@@ -67,42 +67,3 @@ onMounted(() => {
 })
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
-
-<style scoped>
-@media screen and (max-width: 500px) {
-  .links {
-    margin-left: 20px;
-  }
-
-  .links li {
-    margin: 10px;
-  }
-
-  header {
-    justify-content: space-between;
-  }
-
-  main {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .links {
-    margin-left: 10px;
-  }
-
-  .title {
-    font-size: 18px;
-  }
-
-  .links {
-    font-size: 16px;
-  }
-
-  .links li {
-    margin: 5px;
-  }
-}
-</style>

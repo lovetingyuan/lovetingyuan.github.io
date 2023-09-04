@@ -1,19 +1,43 @@
 <template>
-  <div class="container">
-    <music-item
-      v-for="music of musics"
-      :key="music.link"
-      :image="music.image"
-      :link="music.link"
-      :info-list="music.infos"
-      :play-link="music.playLink"
-    />
+  <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
+    <div v-for="music of musics" :key="music.link" class="flex gap-4">
+      <div class="relative shrink-0">
+        <img
+          class="inline-block rounded-md object-cover"
+          loading="lazy"
+          width="120"
+          height="120"
+          :src="music.image"
+          alt="封面"
+        />
+        <a
+          v-if="music.playLink"
+          :href="music.playLink"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl text-white no-underline hover:text-gray-300"
+        >
+          <icon-material-symbols-play-circle-outline-rounded />
+        </a>
+      </div>
+      <div class="break-words py-2">
+        <p class="leading-[1.5]" v-for="(info, i) of music.infos" :key="info">
+          <a
+            v-if="!i"
+            :href="music.link"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="mb-4 inline-block text-lg"
+            >{{ info }}</a
+          >
+          <span class="text-sm" v-else>{{ info }}</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import MusicItem from '../components/MediaItem.vue'
-
 const musics = [
   {
     name: 'Breeze',
@@ -115,18 +139,3 @@ const musics = [
   }
 })
 </script>
-
-<style scoped>
-.container {
-  display: grid;
-  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
-  grid-row-gap: 40px;
-  grid-column-gap: 10px;
-}
-
-@media screen and (max-width: 640px) {
-  .container {
-    grid-template-columns: 100%;
-  }
-}
-</style>

@@ -1,6 +1,9 @@
 <template>
-  <div class="button" @click="update">
-    <icon-material-symbols-refresh />
+  <div
+    class="fixed bottom-[70px] right-3 cursor-pointer text-3xl hover:text-lime-600"
+    @click="update"
+  >
+    <icon-material-symbols-refresh class="animate-spin" />
   </div>
 </template>
 
@@ -14,37 +17,3 @@ const update = () => {
   hasUpdate.value = false
 }
 </script>
-
-<style scoped>
-.button {
-  position: fixed;
-  bottom: 70px;
-  right: 12px;
-  display: block;
-  padding: 3px 6px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0;
-}
-
-.button svg {
-  font-size: 28px;
-  animation-name: rotate;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-}
-
-.button:hover {
-  color: green;
-}
-
-@keyframes rotate {
-  75% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>

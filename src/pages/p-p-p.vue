@@ -1,14 +1,22 @@
 <template>
-  <div class="container">
+  <div class="mx-auto my-32 max-w-[500px] max-sm:w-4/5">
     <form @submit.prevent="copy">
-      <input type="text" id="username" name="username" autocomplete="off" required autofocus v-model="username" />
+      <input
+        type="text"
+        id="username"
+        name="username"
+        autocomplete="off"
+        required
+        autofocus
+        v-model="username"
+      />
       <input type="password" id="password" name="password" required v-model="password" />
       <select v-model="length" name="count">
         <option v-for="len of lengthList" :value="len" :key="len">{{ len }}</option>
       </select>
       <button type="submit">随着海风吹，吹向来时庭院</button>
     </form>
-    <p class="statement">使用ChatGPT制作</p>
+    <p class="mt-12 select-none text-right text-xs text-gray-400">使用ChatGPT制作</p>
   </div>
 </template>
 
@@ -114,11 +122,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.container {
-  max-width: 500px;
-  margin: 120px auto;
-}
-
 input[type='text'],
 input[type='password'],
 select {
@@ -134,8 +137,6 @@ select {
 
 select {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
   background-size: 12px;
   background-repeat: no-repeat;
@@ -158,19 +159,5 @@ button[type='submit'] {
 
 button[type='submit']:hover {
   background-color: #0069d9;
-}
-
-@media screen and (max-width: 600px) {
-  .container {
-    max-width: 85%;
-  }
-}
-
-.statement {
-  font-size: 12px;
-  color: #555;
-  text-align: right;
-  margin-top: 50px;
-  user-select: none;
 }
 </style>

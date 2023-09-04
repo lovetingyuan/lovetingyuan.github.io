@@ -1,19 +1,32 @@
 <template>
-  <div>
-    <movie-item
-      v-for="movie of movies"
-      :key="movie.link"
-      :image="movie.image"
-      :link="movie.link"
-      :info-list="movie.infos"
-      style="margin-top: 45px"
-    />
+  <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
+    <div class="flex gap-6 text-sm" v-for="movie of movies" :key="movie.link">
+      <img
+        class="inline-block shrink-0 rounded-md object-cover"
+        loading="lazy"
+        width="120"
+        height="180"
+        :src="movie.image"
+        alt="封面"
+      />
+      <div class="flex flex-col gap-3 break-words py-2">
+        <p class="leading-[1.5]" v-for="(info, i) of movie.infos" :key="info">
+          <a
+            v-if="!i"
+            :href="movie.link"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="text-lg"
+            >{{ info }}</a
+          >
+          <span class="text-sm" v-else>{{ info }}</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import MovieItem from '../components/MediaItem.vue'
-
 const movies = [
   {
     cover: 'https://img5.mtime.cn/mg/2019/06/20/161106.48021449_270X405X4.jpg',
