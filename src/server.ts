@@ -14,10 +14,17 @@ const useDocument = (url: string, html: string) => {
   })
   window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))
-  return () => {
-    const html = DocType + '\n' + document.documentElement.outerHTML
-    GlobalRegistrator.unregister()
-    return html
+  return (rendered: string) => {
+    const container = document.getElementById('app')
+    const id = Math.random().toString()
+    if (container) {
+      container.innerHTML = id
+    }
+    try {
+      return DocType + '\n' + document.documentElement.outerHTML.replace(id, rendered)
+    } finally {
+      GlobalRegistrator.unregister()
+    }
   }
 }
 
@@ -29,7 +36,6 @@ export default async function render([url, html]: string[]) {
   await router.isReady()
   const rendered = await renderToString(app)
 
-  const content = document.getElementById('app')?.outerHTML!
   // url === '/' && console.log(1234, rendered)
   // happy-dom可能有bug，这里直接写入会导致最终序列化的结果不符合原始html
   // document.getElementById('app')!.innerHTML = rendered
@@ -39,5 +45,5 @@ export default async function render([url, html]: string[]) {
     script.textContent = 'window._ssrPage=true'
     document.head.appendChild(script)
   }
-  return getHtml().replace(content, rendered)
+  return getHtml(rendered)
 }
