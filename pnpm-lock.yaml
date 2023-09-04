@@ -91,9 +91,6 @@ devDependencies:
   eslint-plugin-vue:
     specifier: ^9.17.0
     version: 9.17.0(eslint@8.48.0)
-  happy-dom:
-    specifier: ^10.11.2
-    version: 10.11.2
   knip:
     specifier: ^2.21.1
     version: 2.21.1
