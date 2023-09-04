@@ -10,7 +10,7 @@ const useDocument = (url: string, html: string) => {
     disableCSSFileLoading: true,
     enableFileSystemHttpRequests: false,
     disableIframePageLoading: true,
-    disableComputedStyleRendering: true,
+    disableComputedStyleRendering: true
   })
   window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))
@@ -27,11 +27,17 @@ export default async function render([url, html]: string[]) {
   const { app, router } = render()
   await router.push(url)
   await router.isReady()
-  document.getElementById('app')!.innerHTML = await renderToString(app)
+  const rendered = await renderToString(app)
+
+  const content = document.getElementById('app')?.outerHTML!
+  // url === '/' && console.log(1234, rendered)
+  // happy-dom可能有bug，这里直接写入会导致最终序列化的结果不符合原始html
+  // document.getElementById('app')!.innerHTML = rendered
+  // url === '/' && console.log(4444, document.getElementById('app')!.innerHTML)
   if (url !== '/404') {
     const script = document.createElement('script')
     script.textContent = 'window._ssrPage=true'
     document.head.appendChild(script)
   }
-  return getHtml()
+  return getHtml().replace(content, rendered)
 }

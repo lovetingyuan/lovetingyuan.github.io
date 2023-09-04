@@ -22,8 +22,8 @@ export default defineConfig((env) => ({
     }
   },
   build: {
-    copyPublicDir: !env.ssrBuild
-    // minify: false,
+    copyPublicDir: !env.ssrBuild,
+    minify: false
     // rollupOptions: {
     //   external: ['vue'],
     //   // https://rollupjs.org/configuration-options/
