@@ -5,19 +5,28 @@
     </h4>
     <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link :to="{ name: RouteName.BlogList }" class="text-sky-700 hover:text-sky-900">
+        <router-link
+          :to="{ name: RouteName.BlogList }"
+          class="text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
+        >
           博客
           <icon-material-symbols-article class="align-sub" />
         </router-link>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link :to="{ name: RouteName.Music }" class="text-lime-700 hover:text-lime-900">
+        <router-link
+          :to="{ name: RouteName.Music }"
+          class="text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
+        >
           音乐
           <icon-material-symbols-library-music class="align-sub" />
         </router-link>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link :to="{ name: RouteName.Movie }" class="text-amber-700 hover:text-amber-900">
+        <router-link
+          :to="{ name: RouteName.Movie }"
+          class="text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
+        >
           电影
           <icon-material-symbols-movie class="align-sub" />
         </router-link>
