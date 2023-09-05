@@ -31,5 +31,5 @@ if (!import.meta.env.SSR) {
   router.isReady().then(() => {
     app.mount('#app')
   })
-  import('./pwa')
+  // import('./pwa')
 }
