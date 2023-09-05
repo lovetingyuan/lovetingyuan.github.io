@@ -1,27 +1,36 @@
 <template>
   <div>
-    <div title="404" class="not-found">404</div>
+    <div title="404" class="not-found mx-auto my-24 w-fit text-center text-[80px]">404</div>
     <p class="text-center">
-      😅 当前页面( <code>{{ path }}</code> )找不到，请检查地址或刷新重试（<RouterLink
+      😅 当前页面(
+      <code>
+        <i>{{ path }}</i>
+      </code>
+      )找不到，请检查地址或刷新重试
+      <br />
+      <br />
+      <RouterLink
         :to="{
           path: '/',
           replace: true
         }"
+        class="text-lg"
         >🏠 返回首页</RouterLink
-      >）
+      >
     </p>
   </div>
 </template>
 
 <script setup lang="ts">
-const path = location.pathname
+import { onMounted, ref } from 'vue'
+const path = ref('')
+onMounted(() => {
+  path.value = location.pathname
+})
 </script>
 
 <style scoped>
 .not-found {
-  width: fit-content;
-  margin: 100px auto;
-  font-size: 50px;
   animation: glitch 1s linear infinite;
 }
 
@@ -48,7 +57,7 @@ const path = location.pathname
   left: 0;
 }
 
-div:before {
+.not-found:before {
   animation: glitchTop 1s linear infinite;
   clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
 }

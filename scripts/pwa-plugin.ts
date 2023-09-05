@@ -1,3 +1,5 @@
+// https://vite-pwa-org.netlify.app/guide/
+
 import { VitePWA } from 'vite-plugin-pwa'
 
 const config = (ssrBuild: boolean) =>

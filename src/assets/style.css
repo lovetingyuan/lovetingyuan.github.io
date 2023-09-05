@@ -1,5 +1,4 @@
 @import './base.css';
-/* @import 'balloon-css'; */
 @import './tailwind.css';
 
 #app {
@@ -41,9 +40,12 @@
 /* a link style */
 
 a {
-  text-decoration: none !important;
   color: var(--link-color);
   position: relative;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 @media (any-hover: hover) {
@@ -80,22 +82,6 @@ a.no-underline:after {
   }
 }
 
-summary {
-  font-size: 16px;
-}
-
-.g-fullscreen {
-  position: fixed;
-  inset: 0;
-  margin: auto;
-  z-index: 1;
-}
-
 .g-un-icons {
   display: inline-block;
-}
-
-body:has(.g-fullscreen) {
-  position: fixed;
-  overflow: hidden;
 }

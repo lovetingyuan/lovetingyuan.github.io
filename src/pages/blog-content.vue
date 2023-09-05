@@ -47,6 +47,10 @@ article .markdown-body {
   background-color: transparent;
 }
 
+article .markdown-body a:hover {
+  text-decoration: none;
+}
+
 article .markdown-body :is(p, blockquote, ul, ol, dl, table, pre, details) {
   font-size: 15px;
 }

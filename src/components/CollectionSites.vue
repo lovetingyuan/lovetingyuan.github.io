@@ -2,7 +2,7 @@
   <ul class="list-none pl-2.5">
     <li v-for="(list, cate) in collections" :key="cate" class="my-3">
       <details open>
-        <summary class="cursor-pointer tracking-wider hover:font-bold">
+        <summary class="cursor-pointer text-base tracking-wider hover:font-bold">
           {{ cate }}
           <a
             target="_blank"
