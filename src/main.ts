@@ -1,12 +1,11 @@
 import './assets/style.css'
-
 import { createApp, createSSRApp } from 'vue'
 import App from './App.vue'
 import createRouter from './router'
 
 export default function start() {
-  // _ssrPage 表示是ssr预渲染的页面
-  const createVueApp = import.meta.env.SSR || window._ssrPage ? createSSRApp : createApp
+  // data-ssr 表示是ssr预渲染的页面
+  const createVueApp = import.meta.env.SSR || document.body.dataset.ssr ? createSSRApp : createApp
   const app = createVueApp(App)
   const router = createRouter()
   app.use(router)
@@ -31,5 +30,4 @@ if (!import.meta.env.SSR) {
   router.isReady().then(() => {
     app.mount('#app')
   })
-  // import('./pwa')
 }

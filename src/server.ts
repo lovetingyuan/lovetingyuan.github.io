@@ -41,9 +41,7 @@ export default async function render([url, html]: string[]) {
   // document.getElementById('app')!.innerHTML = rendered
   // url === '/' && console.log(4444, document.getElementById('app')!.innerHTML)
   if (url !== '/404') {
-    const script = document.createElement('script')
-    script.textContent = 'window._ssrPage=true'
-    document.head.appendChild(script)
+    document.body.dataset.ssr = 'true'
   }
   return getHtml(rendered)
 }
