@@ -46,7 +46,7 @@
     </router-view>
   </main>
   <footer class="absolute bottom-0 left-0 h-8 w-full select-none text-center text-xs text-zinc-500">
-    <i>{{ time }}</i>
+    <i class="mr-2">{{ time }}</i>
     <span class="mr-2">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
     <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
     <a
