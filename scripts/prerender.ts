@@ -28,13 +28,18 @@ export default (options?: {
       const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
       let routesToPrerender = options?.routes || {}
       if (Array.isArray(routesToPrerender)) {
-        routesToPrerender = routesToPrerender.reduce((a, b) => {
-          a[b] = b === '/' ? 'index.html' : (b[0] === '/' ? b.slice(1) : b) + '.html'
-          return a
-        }, {} as Record<string, string>)
+        routesToPrerender = routesToPrerender.reduce(
+          (a, b) => {
+            a[b] = b === '/' ? 'index.html' : (b[0] === '/' ? b.slice(1) : b) + '.html'
+            return a
+          },
+          {} as Record<string, string>
+        )
       }
       const indexBundle = bundle['index.html']
-      if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') return
+      if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') {
+        return
+      }
       const indexHtml = indexBundle.source.toString()
       console.log()
       console.log('start prerender...')

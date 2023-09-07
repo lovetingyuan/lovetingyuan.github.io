@@ -1,8 +1,9 @@
 import { renderToString } from 'vue/server-renderer'
 import { GlobalRegistrator } from '@happy-dom/global-registrator'
 
+const DocType = '<!DOCTYPE html>'
+
 const useDocument = (url: string, html: string) => {
-  const DocType = '<!DOCTYPE html>'
   GlobalRegistrator.register()
   Object.assign(window.happyDOM.settings, {
     disableJavaScriptFileLoading: true,
@@ -20,6 +21,11 @@ const useDocument = (url: string, html: string) => {
     if (container) {
       container.innerHTML = id
     }
+    // <link rel="stylesheet" href="/path/to/my.css" media="print" onload="this.media='all'; this.onload=null;">
+    document.querySelectorAll('link[rel="stylesheet"]').forEach((link) => {
+      link.setAttribute('media', 'print')
+      link.setAttribute('onload', "this.media='all'; this.onload=null;")
+    })
     try {
       return DocType + '\n' + document.documentElement.outerHTML.replace(id, rendered)
     } finally {
@@ -41,9 +47,7 @@ export default async function render([url, html]: string[]) {
   // document.getElementById('app')!.innerHTML = rendered
   // url === '/' && console.log(4444, document.getElementById('app')!.innerHTML)
   if (url !== '/404') {
-    const script = document.createElement('script')
-    script.textContent = 'window._ssrPage=true'
-    document.head.appendChild(script)
+    document.body.dataset.ssr = 'true'
   }
   return getHtml(rendered)
 }
