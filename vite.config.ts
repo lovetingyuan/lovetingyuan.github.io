@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
-// import VueJsx from '@vitejs/plugin-vue-jsx'
 import Markdown from 'unplugin-vue-markdown/vite'
 import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
