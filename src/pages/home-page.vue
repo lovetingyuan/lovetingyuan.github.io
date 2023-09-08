@@ -11,7 +11,11 @@
         >
           博客
           <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
-          <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span>
+          <!-- <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span> -->
+          <iconify-icon
+            icon="material-symbols:article"
+            class="align-[-0.15em] text-lg"
+          ></iconify-icon>
           <!-- <icon-material-symbols-article class="align-sub" /> -->
         </router-link>
       </li>
@@ -21,8 +25,11 @@
           class="text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
         >
           音乐
-          <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span>
-
+          <!-- <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span> -->
+          <iconify-icon
+            icon="material-symbols:library-music"
+            class="align-[-0.15em] text-lg"
+          ></iconify-icon>
           <!-- <icon-material-symbols-library-music class="align-sub" /> -->
         </router-link>
       </li>
@@ -66,7 +73,8 @@
       rel="noopener noreferrer"
     >
       <!-- <icon-mdi-github class="align-text-top" /> -->
-      <span class="icon-[mdi--github] align-text-bottom text-sm"></span>
+      <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
+      <iconify-icon icon="mdi:github" class="align-text-bottom text-sm"></iconify-icon>
     </a>
   </footer>
   <GoTop />

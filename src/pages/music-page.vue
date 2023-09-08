@@ -15,9 +15,10 @@
           :href="music.playLink"
           target="_blank"
           rel="noreferrer noopener"
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl text-white no-underline hover:text-gray-300"
+          class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 text-5xl text-white no-underline hover:text-gray-300"
         >
-          <icon-material-symbols-play-circle-outline-rounded />
+          <iconify-icon icon="material-symbols:play-circle-outline-rounded"></iconify-icon>
+          <!-- <icon-material-symbols-play-circle-outline-rounded /> -->
         </a>
       </div>
       <div class="break-words py-2">

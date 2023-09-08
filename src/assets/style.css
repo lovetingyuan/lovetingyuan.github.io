@@ -91,3 +91,8 @@ a.no-underline:after {
   height: 1.2em;
   vertical-align: middle;
 } */
+
+iconify-icon {
+  min-width: 1em;
+  min-height: 1em;
+}

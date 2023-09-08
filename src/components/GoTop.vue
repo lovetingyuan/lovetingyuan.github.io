@@ -1,10 +1,14 @@
 <template>
   <div
-    class="go-top fixed bottom-5 right-3 z-9 cursor-pointer opacity-80 hover:opacity-100"
+    class="go-top z-9 fixed bottom-5 right-4 cursor-pointer opacity-80 hover:opacity-100"
     title="返回顶部"
     @click="goTop"
   >
-    <icon-material-symbols-arrow-circle-up class="text-3xl hover:text-cyan-600" />
+    <iconify-icon
+      icon="material-symbols:arrow-circle-up"
+      class="text-4xl hover:text-cyan-600"
+    ></iconify-icon>
+    <!-- <icon-material-symbols-arrow-circle-up class="text-3xl hover:text-cyan-600" /> -->
   </div>
 </template>
 

@@ -9,7 +9,8 @@
             title="添加"
             :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/collection/${cate}.txt`"
           >
-            <icon-material-symbols-add class="align-sub" />
+            <!-- <icon-material-symbols-add class="align-sub" /> -->
+            <iconify-icon icon="material-symbols:add" class="align-sub text-lg"></iconify-icon>
           </a>
         </summary>
         <ul class="my-6">

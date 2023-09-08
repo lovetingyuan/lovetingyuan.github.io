@@ -1,11 +1,11 @@
 <template>
   <div
-    class="fixed right-3 top-2 cursor-pointer opacity-80 hover:opacity-100 text-lg"
+    class="fixed right-4 top-2 cursor-pointer text-xl opacity-80 hover:opacity-100"
     @click="switchColor"
     title="切换亮/暗色"
   >
-    <icon-material-symbols-dark-mode v-if="colorMode === 'dark'" />
-    <icon-material-symbols-light-mode v-else />
+    <iconify-icon icon="material-symbols:dark-mode" v-if="colorMode === 'dark'"></iconify-icon>
+    <iconify-icon icon="material-symbols:light-mode" v-else></iconify-icon>
   </div>
 </template>
 

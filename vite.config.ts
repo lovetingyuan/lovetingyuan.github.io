@@ -5,10 +5,10 @@ import Markdown from 'unplugin-vue-markdown/vite'
 import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
-import Icons from 'unplugin-icons/vite'
+// import Icons from 'unplugin-icons/vite'
 import mdDetail from './scripts/markdown-detail'
-import IconsResolver from 'unplugin-icons/resolver'
-import Components from 'unplugin-vue-components/vite'
+// import IconsResolver from 'unplugin-icons/resolver'
+// import Components from 'unplugin-vue-components/vite'
 import preRender from './scripts/prerender'
 import injectBuildInfo from './scripts/build-info'
 import getPWAConfig from './scripts/pwa-plugin'
@@ -44,18 +44,18 @@ export default defineConfig((env) => ({
       }
     }),
     getPWAConfig(!!env.ssrBuild),
-    Components({
-      resolvers: [
-        IconsResolver({
-          prefix: 'icon' // <--
-        })
-      ],
-      dts: false
-    }),
-    Icons({
-      compiler: 'vue3',
-      defaultClass: 'g-un-icons'
-    }),
+    // Components({
+    //   resolvers: [
+    //     IconsResolver({
+    //       prefix: 'icon' // <--
+    //     })
+    //   ],
+    //   dts: false
+    // }),
+    // Icons({
+    //   compiler: 'vue3',
+    //   defaultClass: 'g-un-icons'
+    // }),
     Markdown({
       wrapperClasses: 'markdown-body',
       markdownItSetup(md) {

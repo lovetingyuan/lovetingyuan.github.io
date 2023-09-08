@@ -7,12 +7,13 @@
         <a
           v-if="cate"
           :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
-          class="ml-3"
+          class="ml-3 align-text-top text-xl"
           target="_blank"
           rel="noopener noreferrer"
           title="新增"
         >
-          <icon-material-symbols-add />
+          <iconify-icon icon="material-symbols:add"></iconify-icon>
+          <!-- <icon-material-symbols-add /> -->
         </a>
       </h3>
       <ul class="mb-8 ml-4">

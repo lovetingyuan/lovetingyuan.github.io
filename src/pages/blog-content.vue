@@ -1,15 +1,16 @@
 <template>
   <section>
     <span class="float-right ml-3 text-base">
-      <router-link :to="`/blog/${cate}`">{{ cate }}</router-link>
+      <router-link :to="`/blog/${cate}`" class="capitalize">{{ cate }}</router-link>
       <a
-        class="ml-3"
+        class="ml-3 align-text-top"
         title="编辑"
         target="_blank"
         rel="noopener noreferrer"
         :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
       >
-        <icon-material-symbols-edit-document-rounded />
+        <iconify-icon icon="material-symbols:edit-document-rounded"></iconify-icon>
+        <!-- <icon-material-symbols-edit-document-rounded /> -->
       </a>
     </span>
     <div class="pb-[10vh] pt-[15vh]" v-if="blogStatus === 'loading'">

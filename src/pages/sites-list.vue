@@ -6,9 +6,10 @@
         <a
           target="_blank"
           title="添加"
+          class="align-text-top text-xl"
           href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/pages/common-sites.txt"
         >
-          <icon-material-symbols-add class="align-sub" />
+          <iconify-icon icon="material-symbols:add"></iconify-icon>
         </a>
       </figcaption>
       <ul class="mt-3 list-none p-0">
@@ -23,9 +24,10 @@
         <a
           target="_blank"
           title="添加"
+          class="align-text-top text-xl"
           href="https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/src/collection"
         >
-          <icon-material-symbols-add class="align-sub" />
+          <iconify-icon icon="material-symbols:add"></iconify-icon>
         </a>
       </figcaption>
       <CollectionSites />
