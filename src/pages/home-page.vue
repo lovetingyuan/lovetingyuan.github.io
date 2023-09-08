@@ -32,8 +32,11 @@
           class="text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
         >
           电影
-          <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span>
-
+          <!-- <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span> -->
+          <iconify-icon
+            icon="material-symbols:movie"
+            class="align-[-0.15em] text-lg"
+          ></iconify-icon>
           <!-- <icon-material-symbols-movie class="align-sub" /> -->
         </router-link>
       </li>

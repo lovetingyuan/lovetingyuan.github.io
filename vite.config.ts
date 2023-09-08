@@ -30,7 +30,18 @@ export default defineConfig((env) => ({
   },
   plugins: [
     Vue({
-      include: [/\.vue$/, /\.md$/] // <--
+      include: [/\.vue$/, /\.md$/], // <--
+      template: {
+        compilerOptions: {
+          // treat all tags with a dash as custom elements
+          isCustomElement: (tag) => {
+            if (tag === 'iconify-icon') {
+              return true
+            }
+            return false
+          }
+        }
+      }
     }),
     getPWAConfig(!!env.ssrBuild),
     Components({
