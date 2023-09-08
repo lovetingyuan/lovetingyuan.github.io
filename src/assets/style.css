@@ -85,3 +85,9 @@ a.no-underline:after {
 .g-un-icons {
   display: inline-block;
 }
+
+/* [class^="icon-"] {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: middle;
+} */

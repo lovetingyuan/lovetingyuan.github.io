@@ -10,7 +10,9 @@
           class="text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
         >
           博客
-          <icon-material-symbols-article class="align-sub" />
+          <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
+          <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span>
+          <!-- <icon-material-symbols-article class="align-sub" /> -->
         </router-link>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
@@ -19,7 +21,9 @@
           class="text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
         >
           音乐
-          <icon-material-symbols-library-music class="align-sub" />
+          <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span>
+
+          <!-- <icon-material-symbols-library-music class="align-sub" /> -->
         </router-link>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
@@ -28,7 +32,9 @@
           class="text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
         >
           电影
-          <icon-material-symbols-movie class="align-sub" />
+          <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span>
+
+          <!-- <icon-material-symbols-movie class="align-sub" /> -->
         </router-link>
       </li>
     </ul>
@@ -48,15 +54,16 @@
   <footer class="absolute bottom-0 left-0 h-8 w-full select-none text-center text-xs text-zinc-500">
     <i class="mr-2">{{ time }}</i>
     <span class="mr-2">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
-    <i> ❄️ 随着海风吹，吹向来时庭院~ </i>
+    <i>❄️ 随着海风吹，吹向来时庭院~</i>
     <a
-      class="ml-2 text-sm"
+      class="ml-2"
       title="github"
       href="https://github.com/lovetingyuan/lovetingyuan.github.io"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <icon-mdi-github class="align-text-top" />
+      <!-- <icon-mdi-github class="align-text-top" /> -->
+      <span class="icon-[mdi--github] align-text-bottom text-sm"></span>
     </a>
   </footer>
   <GoTop />
