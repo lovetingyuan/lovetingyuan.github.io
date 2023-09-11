@@ -15,7 +15,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "preview": "vite preview",
-    "knip": "knip"
+    "knip": "knip -c scripts/knip.js"
   },
   "dependencies": {
     "@vueuse/core": "^10.4.1",
