@@ -1,4 +1,4 @@
-import type { Plugin, ResolvedConfig } from 'vite'
+import { type Plugin, type ResolvedConfig, createLogger } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
 import Piscina from 'piscina'
@@ -15,6 +15,7 @@ export default (options?: {
 }): Plugin => {
   let config: ResolvedConfig
   const defaultPage = 'index.html'
+  const logger = createLogger()
 
   const getRoutes = () => {
     let routesToPrerender = options?.routes || {}
@@ -48,7 +49,7 @@ export default (options?: {
         return
       }
       const indexHtml = indexBundle.source.toString()
-      console.log('\nstart prerender...')
+      logger.info('\nstart prerender...')
       const piscina = new Piscina({
         filename: pathToFileURL(ssrEntry).toString()
       })
@@ -58,7 +59,7 @@ export default (options?: {
             console.warn(`${file} has been in output assets.`)
             return
           }
-          console.log('prerender: ' + file)
+          logger.info('prerender: ' + file)
           bundle[file] = {
             type: 'asset',
             name: undefined,
@@ -69,7 +70,7 @@ export default (options?: {
         })
       )
       await piscina.destroy()
-      console.log('prerender done.')
+      logger.info('prerender done.')
     }
   }
 }
