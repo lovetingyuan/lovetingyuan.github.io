@@ -77,15 +77,16 @@
   function post(url, payload) {
     return fetch(url, {
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/json'
       },
       body: JSON.stringify(payload),
       method: 'POST',
       mode: 'cors',
-      credentials: 'include',
+      credentials: 'include'
     }).then((r) => r.json())
   }
 
+  // eslint-disable-next-line sonarjs/cognitive-complexity
   function h(tag, props, children = []) {
     const element = document.createElement(tag)
     if (props) {
@@ -128,6 +129,6 @@
     injectStyle,
     scheduleTasks,
     post,
-    h,
+    h
   }
 })()
