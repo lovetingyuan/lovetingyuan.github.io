@@ -1,3 +1,4 @@
+import 'iconify-icon'
 import './assets/style.css'
 import { createApp, createSSRApp } from 'vue'
 import App from './App.vue'
@@ -11,6 +12,7 @@ export default function start() {
   app.use(router)
   app.config.warnHandler = (msg, instance, trace) => {
     // `trace` is the component hierarchy trace
+    // eslint-disable-next-line no-console
     console.log('[Vue warn]:', msg, instance, trace)
   }
   return {
@@ -21,6 +23,7 @@ export default function start() {
 
 if (!import.meta.env.SSR) {
   if (typeof console === 'object') {
+    // eslint-disable-next-line no-console
     console.log(
       `%c Build: ${window._buildTime} ${window._buildHash} `,
       'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'

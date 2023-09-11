@@ -18,14 +18,20 @@ module.exports = {
   },
   plugins: ['sonarjs'],
   rules: {
-    semi: [2, 'never']
+    semi: [2, 'never'],
+    '@typescript-eslint/consistent-type-imports': 'error',
+    'no-console': 'error',
+    'no-duplicate-imports': 'error'
   },
   overrides: [
     {
-      files: ['scripts/**/*.{js,mjs,cjs}', '*.js'],
+      files: ['scripts/**/*.{js,mjs,cjs,ts}', '*.js'],
       env: {
         node: true,
         commonjs: true
+      },
+      rules: {
+        'no-console': 'off'
       }
     }
   ]

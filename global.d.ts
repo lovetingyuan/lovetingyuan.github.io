@@ -1,5 +1,5 @@
 /* eslint-disable no-var */
-import { Window } from 'happy-dom'
+import type { Window } from 'happy-dom'
 
 declare global {
   var _buildTime: string

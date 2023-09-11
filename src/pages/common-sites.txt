@@ -4,8 +4,8 @@ bilibili: https://bilibili.com
 twitter: https://twitter.com/home
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
-npm: https://www.npmjs.com/
 看电影: https://www.4kvm.com/
+npm: https://www.npmjs.com/
 Poe: https://poe.com/ChatGPT
 Bard: https://bard.google.com/
 Bing: https://www.bing.com/search?q=Bing+AI&showconv=1

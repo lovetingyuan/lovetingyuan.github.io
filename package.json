@@ -20,6 +20,7 @@
   "dependencies": {
     "@vueuse/core": "^10.4.1",
     "github-markdown-css": "^5.2.0",
+    "iconify-icon": "^1.0.8",
     "normalize.css": "^8.0.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"

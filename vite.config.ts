@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
 import Markdown from 'unplugin-vue-markdown/vite'
@@ -26,6 +26,7 @@ export default defineConfig((env) => ({
     // },
   },
   plugins: [
+    splitVendorChunkPlugin(),
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
       template: {

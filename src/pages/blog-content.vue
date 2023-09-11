@@ -10,7 +10,6 @@
         :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
       >
         <iconify-icon icon="material-symbols:edit-document-rounded"></iconify-icon>
-        <!-- <icon-material-symbols-edit-document-rounded /> -->
       </a>
     </span>
     <div class="pb-[10vh] pt-[15vh]" v-if="blogStatus === 'loading'">
