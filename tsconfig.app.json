@@ -20,7 +20,6 @@
       "WebWorker"
     ],
     "types": [
-      "unplugin-icons/types/vue",
       "vite-plugin-pwa/client"
     ]
   }
