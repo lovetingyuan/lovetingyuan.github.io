@@ -14,6 +14,21 @@ export default (options?: {
   ssrEntry?: string
 }): Plugin => {
   let config: ResolvedConfig
+  const defaultPage = 'index.html'
+
+  const getRoutes = () => {
+    let routesToPrerender = options?.routes || {}
+    if (Array.isArray(routesToPrerender)) {
+      routesToPrerender = routesToPrerender.reduce(
+        (a, b) => {
+          a[b] = b === '/' ? defaultPage : (b[0] === '/' ? b.slice(1) : b) + '.html'
+          return a
+        },
+        {} as Record<string, string>
+      )
+    }
+    return Object.entries(routesToPrerender)
+  }
 
   return {
     name: 'prerender-plugin',
@@ -23,41 +38,31 @@ export default (options?: {
       config = c
     },
     async generateBundle(_, bundle) {
-      if (config.build.ssr) return
+      if (config.build.ssr) {
+        return
+      }
       const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
       const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
-      let routesToPrerender = options?.routes || {}
-      if (Array.isArray(routesToPrerender)) {
-        routesToPrerender = routesToPrerender.reduce(
-          (a, b) => {
-            a[b] = b === '/' ? 'index.html' : (b[0] === '/' ? b.slice(1) : b) + '.html'
-            return a
-          },
-          {} as Record<string, string>
-        )
-      }
-      const indexBundle = bundle['index.html']
+      const indexBundle = bundle[defaultPage]
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') {
         return
       }
       const indexHtml = indexBundle.source.toString()
-      console.log()
-      console.log('start prerender...')
+      console.log('\nstart prerender...')
       const piscina = new Piscina({
         filename: pathToFileURL(ssrEntry).toString()
       })
       await Promise.all(
-        Object.entries(routesToPrerender).map(async ([route, file]) => {
-          if (file !== 'index.html' && file in bundle) {
+        getRoutes().map(async ([route, file]) => {
+          if (file !== defaultPage && file in bundle) {
             console.warn(`${file} has been in output assets.`)
             return
           }
           console.log('prerender: ' + file)
-          const renderedHtml = await piscina.run([route, indexHtml])
           bundle[file] = {
             type: 'asset',
             name: undefined,
-            source: renderedHtml,
+            source: await piscina.run([route, indexHtml]),
             fileName: file,
             needsCodeReference: false
           }

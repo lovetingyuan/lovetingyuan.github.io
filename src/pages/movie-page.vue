@@ -150,16 +150,13 @@ const movies = [
     douban: 'https://movie.douban.com/subject/1759386/'
   }
 ].map((item) => {
+  const studio = item.studio ? `(${item.studio})` : ''
   return {
     name: item.name,
     image: item.cover,
     baike: item.baike,
     douban: item.douban,
-    infos: [
-      `${item.director} ${item.studio ? `(${item.studio})` : ''}`,
-      item.actor,
-      `${item.area} ${item.time}`
-    ].filter(Boolean)
+    infos: [`${item.director} ${studio}`, item.actor, `${item.area} ${item.time}`].filter(Boolean)
   }
 })
 </script>

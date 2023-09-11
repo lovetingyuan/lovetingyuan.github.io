@@ -73,6 +73,9 @@ devDependencies:
   eslint:
     specifier: ^8.46.0
     version: 8.48.0
+  eslint-plugin-sonarjs:
+    specifier: ^0.21.0
+    version: 0.21.0(eslint@8.48.0)
   eslint-plugin-vue:
     specifier: ^9.17.0
     version: 9.17.0(eslint@8.48.0)
@@ -2913,6 +2916,15 @@ packages:
       prettier: 3.0.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
+    dev: true
+
+  /eslint-plugin-sonarjs@0.21.0(eslint@8.48.0):
+    resolution: {integrity: sha512-oezUDfFT5S6j3rQheZ4DLPrbetPmMS7zHIKWGHr0CM3g5JgyZroz1FpIKa4jV83NsGpmgIeagpokWDKIJzRQmw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 8.48.0
     dev: true
 
   /eslint-plugin-vue@9.17.0(eslint@8.48.0):

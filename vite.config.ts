@@ -32,10 +32,7 @@ export default defineConfig((env) => ({
         compilerOptions: {
           // treat all tags with a dash as custom elements
           isCustomElement: (tag) => {
-            if (tag === 'iconify-icon') {
-              return true
-            }
-            return false
+            return ['iconify-icon'].includes(tag)
           }
         }
       }
