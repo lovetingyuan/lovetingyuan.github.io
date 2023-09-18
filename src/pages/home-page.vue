@@ -14,7 +14,7 @@
           <!-- <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span> -->
           <iconify-icon
             icon="material-symbols:article"
-            class="align-[-0.15em] text-lg"
+            class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-article class="align-sub" /> -->
         </router-link>
@@ -28,7 +28,7 @@
           <!-- <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span> -->
           <iconify-icon
             icon="material-symbols:library-music"
-            class="align-[-0.15em] text-lg"
+            class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-library-music class="align-sub" /> -->
         </router-link>
@@ -42,7 +42,7 @@
           <!-- <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span> -->
           <iconify-icon
             icon="material-symbols:movie"
-            class="align-[-0.15em] text-lg"
+            class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-movie class="align-sub" /> -->
         </router-link>
