@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+
 const path = ref('')
 onMounted(() => {
   path.value = location.pathname

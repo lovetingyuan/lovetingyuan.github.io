@@ -28,7 +28,9 @@
 
 #app .slide-enter-active,
 #app .slide-leave-active {
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 #app .slide-enter-from,
@@ -58,7 +60,9 @@ a:hover {
     left: 50%;
     position: absolute;
     background: var(--link-underline-color);
-    transition: width 0.25s ease 0s, left 0.25s ease 0s;
+    transition:
+      width 0.25s ease 0s,
+      left 0.25s ease 0s;
     width: 0;
   }
 

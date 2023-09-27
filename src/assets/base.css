@@ -32,7 +32,15 @@
 
 body {
   margin: 0;
-  font-family: system-ui, —apple-system, Segoe UI, Rototo, Emoji, Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    —apple-system,
+    Segoe UI,
+    Rototo,
+    Emoji,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: 15px;
   background-color: var(--bg-color);
   color: var(--text-color);
