@@ -1,13 +1,15 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+
 import Vue from '@vitejs/plugin-vue'
-import Markdown from 'unplugin-vue-markdown/vite'
-import Shiki from 'markdown-it-shiki'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
+import Shiki from 'markdown-it-shiki'
+import Markdown from 'unplugin-vue-markdown/vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
+
+import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
 import preRender from './scripts/prerender'
-import injectBuildInfo from './scripts/build-info'
 import getPWAConfig from './scripts/pwa-plugin'
 
 // https://vitejs.dev/config/

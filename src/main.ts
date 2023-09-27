@@ -1,6 +1,8 @@
 import 'iconify-icon'
 import './assets/style.css'
+
 import { createApp, createSSRApp } from 'vue'
+
 import App from './App.vue'
 import createRouter from './router'
 

@@ -42,6 +42,7 @@
     "autoprefixer": "^10.4.15",
     "cross-env": "^7.0.3",
     "eslint": "^8.46.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.21.0",
     "eslint-plugin-vue": "^9.17.0",
     "knip": "^2.24.1",

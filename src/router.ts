@@ -1,13 +1,14 @@
-import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import SitesList from './pages/sites-list.vue'
-import Home from './pages/home-page.vue'
-import BlogList from './pages/blog-list.vue'
-import Music from './pages/music-page.vue'
-import Movie from './pages/movie-page.vue'
-import NotFound from './pages/not-found.vue'
-import Loading from './pages/loading-page.vue'
-import PPP from './pages/p-p-p.vue'
+import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
+
 import { RouteName } from './constants'
+import BlogList from './pages/blog-list.vue'
+import Home from './pages/home-page.vue'
+import Loading from './pages/loading-page.vue'
+import Movie from './pages/movie-page.vue'
+import Music from './pages/music-page.vue'
+import NotFound from './pages/not-found.vue'
+import PPP from './pages/p-p-p.vue'
+import SitesList from './pages/sites-list.vue'
 
 export default function () {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory

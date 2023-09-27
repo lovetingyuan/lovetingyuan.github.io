@@ -1,8 +1,9 @@
-import { type Plugin, type ResolvedConfig, createLogger } from 'vite'
 import fs from 'node:fs'
 import path from 'node:path'
-import Piscina from 'piscina'
 import { pathToFileURL } from 'node:url'
+
+import Piscina from 'piscina'
+import { createLogger,type Plugin, type ResolvedConfig } from 'vite'
 
 /**
  * https://cn.vitejs.dev/guide/ssr.html#pre-rendering--ssg

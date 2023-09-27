@@ -16,12 +16,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest'
   },
-  plugins: ['sonarjs'],
+  plugins: ['sonarjs', 'simple-import-sort'],
   rules: {
     semi: [2, 'never'],
     '@typescript-eslint/consistent-type-imports': 'error',
     'no-console': 'error',
-    'no-duplicate-imports': 'error'
+    'no-duplicate-imports': 'error',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error'
   },
   overrides: [
     {

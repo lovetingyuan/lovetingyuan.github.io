@@ -24,10 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-import useBlogs from '@/blogs'
 import { useColorMode, useStyleTag } from '@vueuse/core'
-import CircleLoading from '@/components/CircleLoading.vue'
 import { watchEffect } from 'vue'
+
+import useBlogs from '@/blogs'
+import CircleLoading from '@/components/CircleLoading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 const colorMode = useColorMode()

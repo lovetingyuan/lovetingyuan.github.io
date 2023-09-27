@@ -82,10 +82,10 @@
 
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
-import GoTop from '../components/GoTop.vue'
+import { onMounted, ref } from 'vue'
 
+import GoTop from '../components/GoTop.vue'
 import { RouteName } from '../constants'
-import { ref, onMounted } from 'vue'
 
 const time = ref('')
 onMounted(() => {

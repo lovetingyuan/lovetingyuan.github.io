@@ -1,5 +1,5 @@
-import { renderToString } from 'vue/server-renderer'
 import { GlobalRegistrator } from '@happy-dom/global-registrator'
+import { renderToString } from 'vue/server-renderer'
 
 const DocType = '<!DOCTYPE html>'
 

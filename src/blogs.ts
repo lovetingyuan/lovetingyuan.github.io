@@ -1,5 +1,6 @@
+import { type Component, computed, ref, shallowRef, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { ref, computed, watchEffect, type Component, shallowRef } from 'vue'
+
 import { RouteName } from './constants'
 
 const blogsMap = import.meta.glob<Component>('/blogs/**/*.md', {

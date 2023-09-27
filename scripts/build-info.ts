@@ -1,5 +1,6 @@
-import type { Plugin } from 'vite'
 import cp from 'node:child_process'
+
+import type { Plugin } from 'vite'
 
 export default (): Plugin => {
   const buildTime = new Intl.DateTimeFormat('zh', {
