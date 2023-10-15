@@ -4,8 +4,8 @@
     @click="switchColor"
     title="切换亮/暗色"
   >
-    <iconify-icon icon="material-symbols:dark-mode" v-if="colorMode === 'dark'"></iconify-icon>
-    <iconify-icon icon="material-symbols:light-mode" v-else></iconify-icon>
+    <iconify-icon icon="material-symbols:dark-mode" v-show="colorMode === 'dark'"></iconify-icon>
+    <iconify-icon icon="material-symbols:light-mode" v-show="colorMode === 'light'"></iconify-icon>
   </div>
 </template>
 
