@@ -5,6 +5,7 @@ twitter: https://twitter.com/home
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 看电影: https://www.4kvm.com/
+dianying: https://dianyi.ng
 npm: https://www.npmjs.com/
 Poe: https://poe.com/ChatGPT
 Bard: https://bard.google.com/
