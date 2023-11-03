@@ -3,7 +3,7 @@
     <li v-for="(list, cate) in collections" :key="cate" class="mt-11">
       <details open>
         <summary
-          class="cursor-pointer rounded bg-slate-200 px-4 py-1 text-base tracking-wider transition-[background-color] hover:bg-slate-300 hover:font-bold"
+          class="cursor-pointer rounded bg-slate-200 px-4 py-1 text-base tracking-wider transition-[background-color] hover:bg-slate-300 hover:font-bold dark:bg-slate-700 hover:dark:bg-slate-600"
         >
           <span>
             {{ cate }}
