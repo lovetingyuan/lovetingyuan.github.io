@@ -2,6 +2,8 @@
 
 ## css 选择器和优先级
 
+> 这里有一个css选择器的可视化站点 https://fffuel.co/css-selectors/
+
 ### 一些选择器：
 
 - 直接子代选择器 `ul > li`, ul 下面**一层**的 li
