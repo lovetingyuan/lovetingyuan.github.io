@@ -48,14 +48,14 @@
     const script = document.createElement('script')
     script.src = url
     script.setAttribute('crossorigin', 'anonymous')
-    document.head.appendChild(script)
+    document.head.append(script)
     return new Promise((resolve, reject) => {
-      script.onload = resolve
+      script.addEventListener('load', resolve)
       script.onerror = reject
     })
   }
 
-  function scheduleTasks(tasks, maxNum) {
+  function scheduleTasks(tasks, maxNumber) {
     return new Promise((resolve) => {
       let [current, finished] = [0, 0]
       const total = tasks.length
@@ -64,14 +64,14 @@
           ++finished === total ? resolve() : doTask()
         })
       }
-      while (maxNum-- > 0) doTask()
+      while (maxNumber-- > 0) doTask()
     })
   }
 
   function injectStyle(css) {
     const style = document.createElement('style')
     style.textContent = css
-    document.head.appendChild(style)
+    document.head.append(style)
   }
 
   function post(url, payload) {
@@ -87,14 +87,14 @@
   }
 
   // eslint-disable-next-line sonarjs/cognitive-complexity
-  function h(tag, props, children = []) {
+  function h(tag, properties, children = []) {
     const element = document.createElement(tag)
-    if (props) {
-      for (let key in props) {
-        if (typeof props[key] === 'function') {
-          element.addEventListener(key, props[key])
+    if (properties) {
+      for (let key in properties) {
+        if (typeof properties[key] === 'function') {
+          element.addEventListener(key, properties[key])
         } else {
-          element.setAttribute(key, props[key])
+          element.setAttribute(key, properties[key])
         }
       }
     }
@@ -103,18 +103,18 @@
     }
     if (Array.isArray(children)) {
       for (let child of children) {
-        element.appendChild(child)
+        element.append(child)
       }
     }
     element.mount = function (selector) {
       if (typeof selector === 'string') {
         if (document[selector]) {
-          document[selector].appendChild(this)
+          document[selector].append(this)
         } else {
-          document.querySelector(selector).appendChild(this)
+          document.querySelector(selector).append(this)
         }
       } else {
-        selector.appendChild(this)
+        selector.append(this)
       }
       return this
     }
