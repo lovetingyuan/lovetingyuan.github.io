@@ -2,7 +2,7 @@ const collection = import.meta.glob('./*.txt', { eager: true, as: 'raw' })
 
 const result: Record<string, { title: string; url: string; description?: string }[]> = {}
 
-Object.keys(collection).forEach((cate) => {
+for (const cate of Object.keys(collection)) {
   const cate2 = cate.slice(2, -4)
   result[cate2] = collection[cate]
     .trim()
@@ -23,6 +23,6 @@ Object.keys(collection).forEach((cate) => {
         description
       }
     })
-})
+}
 
 export default result

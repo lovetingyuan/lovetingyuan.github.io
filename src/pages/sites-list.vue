@@ -35,9 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import CollectionSites from '@/components/CollectionSites.vue'
+import CollectionSites from '@/components/collection-sites.vue'
 
-import LinkItem from '../components/LinkItem.vue'
+import LinkItem from '../components/link-item.vue'
 import commonLinks from './common-sites.txt?raw'
 const commonLinks2 = commonLinks
   .trim()

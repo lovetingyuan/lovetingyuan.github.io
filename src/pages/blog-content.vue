@@ -28,7 +28,7 @@ import { useColorMode, useStyleTag } from '@vueuse/core'
 import { watchEffect } from 'vue'
 
 import useBlogs from '@/blogs'
-import CircleLoading from '@/components/CircleLoading.vue'
+import CircleLoading from '@/components/circle-loading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 const colorMode = useColorMode()

@@ -43,8 +43,8 @@ export default (options?: {
       if (config.build.ssr) {
         return
       }
-      const ssrDist = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
-      const ssrEntry = path.resolve(ssrDist, options?.ssrEntry || 'server.mjs')
+      const ssrDistribution = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
+      const ssrEntry = path.resolve(ssrDistribution, options?.ssrEntry || 'server.mjs')
       const indexBundle = bundle[defaultPage]
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') {
         return

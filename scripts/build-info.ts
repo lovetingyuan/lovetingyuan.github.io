@@ -12,7 +12,7 @@ export default (): Plugin => {
     hour12: false,
     timeZone: 'Asia/Shanghai'
   }).format(new Date())
-  const gitHash = cp.execSync('git rev-parse HEAD').toString('utf-8').trim().slice(0, 8)
+  const gitHash = cp.execSync('git rev-parse HEAD').toString('utf8').trim().slice(0, 8)
   return {
     name: 'inject-build-info-plugin',
     transformIndexHtml() {

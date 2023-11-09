@@ -1,4 +1,4 @@
-const compiler = /<script\b[^>]*>([\s\S]*?)<\/script>/gm
+const compiler = /<script\b[^>]*>([\S\s]*?)<\/script>/gm
 
 export default {
   ignore: '*.d.ts',

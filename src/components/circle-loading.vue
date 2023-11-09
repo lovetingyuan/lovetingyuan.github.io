@@ -10,14 +10,14 @@
 <script setup lang="ts">
 import { onUnmounted, ref } from 'vue'
 
-const props = defineProps<{
+const properties = defineProps<{
   defer?: number
 }>()
-const show = ref(props.defer ? false : true)
+const show = ref(properties.defer ? false : true)
 
 const timer = setTimeout(() => {
   show.value = true
-}, props.defer ?? 0)
+}, properties.defer ?? 0)
 
 onUnmounted(() => {
   clearTimeout(timer)

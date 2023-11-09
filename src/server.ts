@@ -1,7 +1,7 @@
 import { GlobalRegistrator } from '@happy-dom/global-registrator'
 import { renderToString } from 'vue/server-renderer'
 
-const DocType = '<!DOCTYPE html>'
+const DocumentType_ = '<!DOCTYPE html>'
 
 const useDocument = (url: string, html: string) => {
   GlobalRegistrator.register()
@@ -14,9 +14,9 @@ const useDocument = (url: string, html: string) => {
     disableComputedStyleRendering: true
   })
   window.happyDOM.setURL('https://localhost' + url)
-  document.write(html.replace(DocType, ''))
+  document.write(html.replace(DocumentType_, ''))
   return (rendered: string) => {
-    const container = document.getElementById('app')
+    const container = document.querySelector('#app')
     const id = Math.random().toString()
     if (container) {
       container.innerHTML = id
@@ -27,7 +27,7 @@ const useDocument = (url: string, html: string) => {
     //   link.setAttribute('onload', "this.media='all'; this.onload=null;")
     // })
     try {
-      return DocType + '\n' + document.documentElement.outerHTML.replace(id, rendered)
+      return DocumentType_ + '\n' + document.documentElement.outerHTML.replace(id, rendered)
     } finally {
       GlobalRegistrator.unregister()
     }

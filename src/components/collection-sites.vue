@@ -30,5 +30,5 @@
 
 <script setup lang="ts">
 import collections from '../collection'
-import LinkItem from './LinkItem.vue'
+import LinkItem from './link-item.vue'
 </script>

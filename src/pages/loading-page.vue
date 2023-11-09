@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-import CircleLoading from '@/components/CircleLoading.vue'
+import CircleLoading from '@/components/circle-loading.vue'
 </script>

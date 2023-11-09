@@ -2,12 +2,12 @@
 const core = require('@actions/core')
 const { exec } = require('@actions/exec')
 const { rmRF, mv } = require('@actions/io')
-const { join } = require('path')
+const { join } = require('node:path')
 
 async function main() {
   const workDir = join(__dirname, '..')
   const docs = join(workDir, 'docs')
-  const dist = join(workDir, 'dist')
+  const distribution = join(workDir, 'dist')
   await exec('npm', ['run', 'build'])
   console.log('run npm build')
   await exec('git', ['fetch', 'origin'])
@@ -16,7 +16,7 @@ async function main() {
   console.log('git checkout to gh')
   await rmRF(docs)
   console.log('delete docs')
-  await mv(dist, docs)
+  await mv(distribution, docs)
   console.log('rename dist to docs')
   await exec('git', ['add', '.'])
   console.log('git add all files')
@@ -37,9 +37,9 @@ async function main() {
   console.log('git push to origin gh')
 }
 
-main().catch((err) => {
+main().catch((error) => {
   console.log('部署失败')
-  console.error(err)
-  core.setFailed(err.message)
+  console.error(error)
+  core.setFailed(error.message)
   process.exit(-1)
 })

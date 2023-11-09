@@ -12,11 +12,16 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting',
     'plugin:sonarjs/recommended'
+    // 'plugin:unicorn/recommended'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
   },
-  plugins: ['sonarjs', 'simple-import-sort'],
+  plugins: [
+    'sonarjs',
+    'simple-import-sort'
+    // 'unicorn'
+  ],
   rules: {
     semi: [2, 'never'],
     '@typescript-eslint/consistent-type-imports': 'error',

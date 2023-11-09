@@ -33,18 +33,18 @@ const lengthList = [8, 16, 20, 32, 64, 128]
 async function sha512(message: string) {
   const messageBuffer = new TextEncoder().encode(message)
   const hashBuffer = await crypto.subtle.digest('SHA-512', messageBuffer)
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  const hashArray = [...new Uint8Array(hashBuffer)]
   return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
 }
 
 function deterministicRandomGenerator(seed: string) {
-  var a = 1664525,
-    b = 1013904223,
-    seed_ = parseInt(seed),
+  var a = 1_664_525,
+    b = 1_013_904_223,
+    seed_ = Number.parseInt(seed),
     x = seed_
   return function () {
-    x = (a * x + b) & 0x7fffffff
-    return x / 0x7fffffff
+    x = (a * x + b) & 0x7F_FF_FF_FF
+    return x / 0x7F_FF_FF_FF
   }
 }
 
@@ -58,8 +58,8 @@ function sha512ToPassword(hash: string, length = 32) {
   var charSet = charTypes.join('')
   var binaryArray = hexToBinary(hash)
   var hashInt = 0
-  for (var i = 0; i < binaryArray.length; i++) {
-    var bit = binaryArray[i] ? 1 : 0
+  for (const element of binaryArray) {
+    var bit = element ? 1 : 0
     hashInt = (hashInt << 1) | bit
   }
   var baseIndex = Math.abs(hashInt % charSet.length)
@@ -75,11 +75,11 @@ function sha512ToPassword(hash: string, length = 32) {
 
 function hexToBinary(hexString: string) {
   var binaryArray = []
-  for (var i = 0; i < hexString.length; i += 2) {
-    var byteHex = hexString.substr(i, 2)
-    var byte = parseInt(byteHex, 16)
-    for (var j = 7; j >= 0; j--) {
-      var bit = (byte >> j) & 1
+  for (var index = 0; index < hexString.length; index += 2) {
+    var byteHex = hexString.slice(index, index + 2)
+    var byte = Number.parseInt(byteHex, 16)
+    for (var index_ = 7; index_ >= 0; index_--) {
+      var bit = (byte >> index_) & 1
       binaryArray.push(bit)
     }
   }
@@ -101,10 +101,10 @@ watchEffect(() => {
   }
   const input = username.value + '@' + password.value
   disabled.value = true
-  const len = length.value
+  const length_ = length.value
   sha512(input)
     .then((r) => {
-      result.value = sha512ToPassword(r, len)
+      result.value = sha512ToPassword(r, length_)
       disabled.value = false
     })
     .catch(() => {
@@ -114,8 +114,8 @@ watchEffect(() => {
 
 onMounted(() => {
   try {
-    Object(crypto.subtle)
-  } catch (err) {
+    new Object(crypto.subtle)
+  } catch {
     window.alert('当前环境不支持')
   }
 })

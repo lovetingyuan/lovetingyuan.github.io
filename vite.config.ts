@@ -13,15 +13,15 @@ import preRender from './scripts/prerender'
 import getPWAConfig from './scripts/pwa-plugin'
 
 // https://vitejs.dev/config/
-export default defineConfig((env) => ({
+export default defineConfig((environment) => ({
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('src', import.meta.url))
     }
   },
   build: {
-    copyPublicDir: !env.ssrBuild,
-    minify: !env.ssrBuild
+    copyPublicDir: !environment.ssrBuild,
+    minify: !environment.ssrBuild
     // rollupOptions: {
     //   external: ['vue'],
     //   // https://rollupjs.org/configuration-options/
@@ -40,7 +40,7 @@ export default defineConfig((env) => ({
         }
       }
     }),
-    getPWAConfig(!!env.ssrBuild),
+    getPWAConfig(!!environment.ssrBuild),
     Markdown({
       wrapperClasses: 'markdown-body',
       markdownItSetup(md) {

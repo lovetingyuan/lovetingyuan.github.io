@@ -3,7 +3,7 @@ import './assets/style.css'
 
 import { createApp, createSSRApp } from 'vue'
 
-import App from './App.vue'
+import App from './app.vue'
 import createRouter from './router'
 
 export default function start() {
@@ -12,10 +12,10 @@ export default function start() {
   const app = createVueApp(App)
   const router = createRouter()
   app.use(router)
-  app.config.warnHandler = (msg, instance, trace) => {
+  app.config.warnHandler = (message, instance, trace) => {
     // `trace` is the component hierarchy trace
     // eslint-disable-next-line no-console
-    console.log('[Vue warn]:', msg, instance, trace)
+    console.log('[Vue warn]:', message, instance, trace)
   }
   return {
     app,
@@ -27,7 +27,7 @@ if (!import.meta.env.SSR) {
   if (typeof console === 'object') {
     // eslint-disable-next-line no-console
     console.log(
-      `%c Build: ${window._buildTime} ${window._buildHash} `,
+      `%c Build: ${window._buildTime} ${window._buildHash}`,
       'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
     )
   }

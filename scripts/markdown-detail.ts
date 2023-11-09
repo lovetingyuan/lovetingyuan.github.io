@@ -1,9 +1,9 @@
 export default {
-  validate(params: string) {
-    return params.trim().match(/^detail /)
+  validate(parameters: string) {
+    return parameters.trim().match(/^detail /)
   },
-  render(tokens: any[], idx: number) {
-    let { info = '' }: { info?: string } = tokens[idx]
+  render(tokens: any[], index: number) {
+    let { info = '' }: { info?: string } = tokens[index]
     info = info.trim()
     if (!info) {
       return '</div></details>\n'
@@ -11,7 +11,7 @@ export default {
     let title
     let link
     if (info.includes('[')) {
-      ;[, title, link] = info.match(/detail \[(.*)\]\((.*)\)$/) || []
+      ;[, title, link] = info.match(/detail \[(.*)]\((.*)\)$/) || []
     } else {
       ;[, title, link] = info.split(' ')
     }

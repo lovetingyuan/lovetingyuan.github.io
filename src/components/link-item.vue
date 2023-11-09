@@ -22,7 +22,7 @@
 // import { computed } from 'vue'
 // import { useMediaQuery } from '@vueuse/core'
 
-const props = defineProps<{
+const properties = defineProps<{
   a: {
     url: string
     title: string
@@ -31,7 +31,7 @@ const props = defineProps<{
   size?: number
   capitalize?: boolean
 }>()
-const imageSize = props.size || 34
+const imageSize = properties.size || 34
 // const capitalizeCss = computed(() => {
 //   return props.capitalize ?? true ? 'capitalize' : 'none'
 // })
@@ -39,6 +39,6 @@ const getIcon = (url: string) => {
   const { host } = new URL(url)
   return `https://api.faviconkit.com/${host}/${imageSize}`
 }
-const desc = props.a.description || undefined
+const desc = properties.a.description || undefined
 // const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
