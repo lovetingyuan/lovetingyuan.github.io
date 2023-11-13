@@ -8,6 +8,7 @@ WebDev: https://web.dev/
 看电影: https://www.4kvm.com/
 dianying: https://dianyi.ng
 npm: https://www.npmjs.com/
+ts-playground: https://www.typescriptlang.org/play
 Poe: https://poe.com/ChatGPT
 Bard: https://bard.google.com/
 Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
