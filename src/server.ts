@@ -1,7 +1,7 @@
 import { GlobalRegistrator } from '@happy-dom/global-registrator'
 import { renderToString } from 'vue/server-renderer'
 
-const DocumentType_ = '<!DOCTYPE html>'
+const DocType = '<!DOCTYPE html>'
 
 const useDocument = (url: string, html: string) => {
   GlobalRegistrator.register()
@@ -14,7 +14,7 @@ const useDocument = (url: string, html: string) => {
     disableComputedStyleRendering: true
   })
   window.happyDOM.setURL('https://localhost' + url)
-  document.write(html.replace(DocumentType_, ''))
+  document.write(html.replace(DocType, ''))
   return (rendered: string) => {
     const container = document.querySelector('#app')
     const id = Math.random().toString()
@@ -27,7 +27,7 @@ const useDocument = (url: string, html: string) => {
     //   link.setAttribute('onload', "this.media='all'; this.onload=null;")
     // })
     try {
-      return DocumentType_ + '\n' + document.documentElement.outerHTML.replace(id, rendered)
+      return DocType + '\n' + document.documentElement.outerHTML.replace(id, rendered)
     } finally {
       GlobalRegistrator.unregister()
     }
@@ -42,10 +42,6 @@ export default async function render([url, html]: string[]) {
   await router.isReady()
   const rendered = await renderToString(app)
 
-  // url === '/' && console.log(1234, rendered)
-  // happy-dom可能有bug，这里直接写入会导致最终序列化的结果不符合原始html
-  // document.getElementById('app')!.innerHTML = rendered
-  // url === '/' && console.log(4444, document.getElementById('app')!.innerHTML)
   if (url !== '/404') {
     document.body.dataset.ssr = 'true'
   }

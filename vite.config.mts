@@ -20,12 +20,8 @@ export default defineConfig((environment) => ({
     }
   },
   build: {
-    copyPublicDir: !environment.ssrBuild,
-    minify: !environment.ssrBuild
-    // rollupOptions: {
-    //   external: ['vue'],
-    //   // https://rollupjs.org/configuration-options/
-    // },
+    copyPublicDir: !environment.isSsrBuild,
+    minify: !environment.isSsrBuild
   },
   plugins: [
     splitVendorChunkPlugin(),
@@ -40,7 +36,7 @@ export default defineConfig((environment) => ({
         }
       }
     }),
-    getPWAConfig(!!environment.ssrBuild),
+    getPWAConfig(!!environment.isSsrBuild),
     Markdown({
       wrapperClasses: 'markdown-body',
       markdownItSetup(md) {
