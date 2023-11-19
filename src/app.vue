@@ -11,6 +11,15 @@ import ColorSwitch from './components/color-switch.vue'
 import UpdateButton from './components/update-button.vue'
 
 const { needRefresh, updateServiceWorker } = useRegisterSW({
-  immediate: false
+  immediate: false,
+  onRegisteredSW(u, r) {
+    r &&
+      setInterval(
+        () => {
+          r.update()
+        },
+        4 * 60 * 60 * 1000
+      )
+  }
 })
 </script>
