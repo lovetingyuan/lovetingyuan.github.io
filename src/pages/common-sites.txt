@@ -6,6 +6,7 @@ MDH: https://mdhweekly.com/weekly
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 看电影: https://www.4kvm.com/
+爱追剧: https://www.ikanju.vip/
 dianying: https://dianyi.ng
 npm: https://www.npmjs.com/
 ts-playground: https://www.typescriptlang.org/play
