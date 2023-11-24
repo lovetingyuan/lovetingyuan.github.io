@@ -1,0 +1,7 @@
+import{u as p,_ as f,a as c}from"./index-zsvdltaM.js";import{d as g,u as b,w as k,h as v,c as o,g as i,i as l,p as y,f as e,k as a,j as C,z as x,o as t,q as E,t as V,L as B}from"./vendor-u6r1Igrm.js";const w={class:"float-right ml-3 text-base"},D=["href"],M=i("iconify-icon",{icon:"material-symbols:edit-document-rounded"},null,-1),N=[M],T={key:0,class:"pb-[10vh] pt-[15vh]"},$={key:1},L={key:2},P={key:3},I=g({__name:"blog-content",setup(S){const{articleCmp:_,blogStatus:s,cate:n,name:d}=p(),u=b();return k(()=>{(u.value==="dark"?c(()=>import("./github-markdown-dark-TTeDPHNR.js"),__vite__mapDeps([])):c(()=>import("./github-markdown-light--WnqV2BM.js"),__vite__mapDeps([]))).then(({default:r})=>{B(r,{id:"github-markdown-css"})})}),(m,r)=>{const h=v("router-link");return t(),o("section",null,[i("span",w,[l(h,{to:`/blog/${e(n)}`,class:"capitalize"},{default:y(()=>[E(V(e(n)),1)]),_:1},8,["to"]),i("a",{class:"ml-3 align-text-top",title:"编辑",target:"_blank",rel:"noopener noreferrer",href:`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${e(n)}/${e(d)}.md`},N,8,D)]),e(s)==="loading"?(t(),o("div",T,[l(f,{defer:600})])):a("",!0),e(s)==="failed"?(t(),o("div",$,"加载失败，请重试...")):a("",!0),e(s)==="notFound"?(t(),o("div",L,"当前文章不存在")):a("",!0),e(s)==="loaded"?(t(),o("article",P,[(t(),C(x(e(_))))])):a("",!0)])}}});export{I as default};
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = []
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
