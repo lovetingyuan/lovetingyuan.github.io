@@ -11,10 +11,9 @@ dianying: https://dianyi.ng
 npm: https://www.npmjs.com/
 ts-playground: https://www.typescriptlang.org/play
 Poe: https://poe.com/ChatGPT
+perplexity: https://www.perplexity.ai/
 Bard: https://bard.google.com/
 Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
 Claude: https://claude.ai/chat/
-claudeai: https://chat.claudeai.ai/
 ForeFrond: https://chat.forefront.ai/
-copilothub: https://app.copilothub.ai/home
 魔戒: https://mojie.me/
