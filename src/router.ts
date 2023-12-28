@@ -1,5 +1,6 @@
 import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
+import App from './app.vue'
 import { RouteName } from './constants'
 import BlogList from './pages/blog-list.vue'
 import Home from './pages/home-page.vue'
@@ -10,7 +11,7 @@ import NotFound from './pages/not-found.vue'
 import PPP from './pages/p-p-p.vue'
 import SitesList from './pages/sites-list.vue'
 
-export default function () {
+function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
@@ -86,3 +87,5 @@ export default function () {
   })
   return router
 }
+
+export { App, createRoute }
