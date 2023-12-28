@@ -1,6 +1,5 @@
 import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
-import App from './app.vue'
 import { RouteName } from './constants'
 import BlogList from './pages/blog-list.vue'
 import Home from './pages/home-page.vue'
@@ -88,4 +87,4 @@ function createRoute() {
   return router
 }
 
-export { App, createRoute }
+export { createRoute }

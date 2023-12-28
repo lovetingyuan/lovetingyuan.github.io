@@ -3,10 +3,12 @@ import './assets/style.css'
 
 import { createApp, createSSRApp } from 'vue'
 
-export default async function start() {
+import App from './app.vue'
+import { createRoute } from './router'
+
+export default function start() {
   // data-ssr 表示是ssr预渲染的页面
   const createVueApp = import.meta.env.SSR || document.body.dataset.ssr ? createSSRApp : createApp
-  const { App, createRoute } = await import('./router')
   const app = createVueApp(App)
   const router = createRoute()
   app.use(router)
@@ -15,7 +17,6 @@ export default async function start() {
     // eslint-disable-next-line no-console
     console.log('[Vue warn]:', message, instance, trace)
   }
-
   return {
     app,
     router
@@ -23,14 +24,16 @@ export default async function start() {
 }
 
 if (!import.meta.env.SSR) {
-  // eslint-disable-next-line no-console
-  console.log(
-    `%c Build: ${window._buildTime} ${window._buildHash}`,
-    'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
-  )
-  start().then(({ app, router }) => {
-    router.isReady().then(() => {
-      app.mount('#app')
-    })
+  if (typeof console === 'object') {
+    // eslint-disable-next-line no-console
+    console.log(
+      // @ts-ignore
+      `%c Build: ${window._buildTime} ${window._buildHash}`,
+      'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
+    )
+  }
+  const { app, router } = start()
+  router.isReady().then(() => {
+    app.mount('#app')
   })
 }

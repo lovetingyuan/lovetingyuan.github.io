@@ -5,6 +5,7 @@ const DocType = '<!DOCTYPE html>'
 
 const useDocument = (url: string, html: string) => {
   GlobalRegistrator.register()
+  // @ts-ignore
   Object.assign(window.happyDOM.settings, {
     disableJavaScriptFileLoading: true,
     disableJavaScriptEvaluation: true,
@@ -13,6 +14,7 @@ const useDocument = (url: string, html: string) => {
     disableIframePageLoading: true,
     disableComputedStyleRendering: true
   })
+  // @ts-ignore
   window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))
   return (rendered: string) => {
