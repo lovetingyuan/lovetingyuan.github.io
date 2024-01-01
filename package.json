@@ -13,7 +13,7 @@
     "build:client": "cross-env NODE_ENV=production && vite build",
     "build:ssr": "cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist-ssr",
     "serve": "vite preview",
-    "deploy": "node ./scripts/deploy",
+    "deploy": "node ./scripts/deploy.cjs",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "preview": "vite preview",
