@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ppp</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100dvh;
+        display: grid;
+        place-content: center;
+      }
+      .container {
+        max-width: 400px;
+        width: 80vw;
+        position: relative;
+        top: -10vh;
+      }
+      input[type='text'],
+      input[type='password'],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #8d8d8d;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      select {
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        user-select: none;
+      }
+
+      button:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="username" name="username" autocomplete="off" autofocus />
+      <input type="password" id="password" autocomplete="off" name="password" required />
+      <select id="length" name="length">
+        <option value="8">8</option>
+        <option value="16" selected>16</option>
+        <option value="20">20</option>
+        <option value="32">32</option>
+        <option value="64">64</option>
+        <option value="128">128</option>
+      </select>
+      <button id="copy">随着海风吹，吹向来时庭院</button>
+    </div>
+    <script nomodule>
+      window.alert('当前环境不支持')
+    </script>
+    <script type="module">
+      try {
+        new Object(crypto.subtle)
+      } catch {
+        window.alert('当前环境不支持')
+      }
+      async function sha512(message) {
+        const messageBuffer = new TextEncoder().encode(message)
+        const hashBuffer = await crypto.subtle.digest('SHA-512', messageBuffer)
+        const hashArray = [...new Uint8Array(hashBuffer)]
+        return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+      }
+
+      function deterministicRandomGenerator(seed) {
+        var a = 1_664_525,
+          b = 1_013_904_223,
+          seed_ = Number.parseInt(seed),
+          x = seed_
+        return function () {
+          x = (a * x + b) & 0x7f_ff_ff_ff
+          return x / 0x7f_ff_ff_ff
+        }
+      }
+
+      function sha512ToPassword(hash, length = 32) {
+        var charTypes = [
+          'abcdefghijklmnopqrstuvwxyz',
+          'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+          '12345678901234567890',
+          '!@#$%^&*()-_=+[{]}\\|;:\'",<.>/?'
+        ]
+        var charSet = charTypes.join('')
+        var binaryArray = hexToBinary(hash)
+        var hashInt = 0
+        for (const element of binaryArray) {
+          var bit = element ? 1 : 0
+          hashInt = (hashInt << 1) | bit
+        }
+        var baseIndex = Math.abs(hashInt % charSet.length)
+        var baseChar = charSet.charAt(baseIndex)
+        var generator = deterministicRandomGenerator(hashInt.toString())
+        var password = baseChar
+        while (password.length < length) {
+          var charIndex = Math.floor(generator() * charSet.length)
+          password += charSet.charAt(charIndex)
+        }
+        return password // substring(0, length);
+      }
+
+      function hexToBinary(hexString) {
+        var binaryArray = []
+        for (var index = 0; index < hexString.length; index += 2) {
+          var byteHex = hexString.slice(index, index + 2)
+          var byte = Number.parseInt(byteHex, 16)
+          for (var index_ = 7; index_ >= 0; index_--) {
+            var bit = (byte >> index_) & 1
+            binaryArray.push(bit)
+          }
+        }
+        return binaryArray
+      }
+      document.getElementById('copy').addEventListener('click', () => {
+        const username = document.getElementById('username').value.trim()
+        const password = document.getElementById('password').value.trim()
+        const length = document.getElementById('length')
+        if (!username || !password) {
+          alert('请输入')
+          return
+        }
+        sha512(username + '@' + password)
+          .then((r) => {
+            const value = sha512ToPassword(r, Number(length.value))
+            return window.navigator.clipboard.writeText(value)
+          })
+          .then(() => {
+            alert('复制成功')
+          })
+          .catch(() => {
+            alert('复制失败')
+          })
+      })
+    </script>
+  </body>
+</html>

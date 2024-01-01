@@ -43,8 +43,8 @@ function deterministicRandomGenerator(seed: string) {
     seed_ = Number.parseInt(seed),
     x = seed_
   return function () {
-    x = (a * x + b) & 0x7F_FF_FF_FF
-    return x / 0x7F_FF_FF_FF
+    x = (a * x + b) & 0x7f_ff_ff_ff
+    return x / 0x7f_ff_ff_ff
   }
 }
 

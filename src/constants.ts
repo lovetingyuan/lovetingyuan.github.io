@@ -6,6 +6,6 @@ export enum RouteName {
   Music = 'Music',
   Movie = 'Movie',
   Loading = 'Loading',
-  PPP = 'PPP',
+  // PPP = 'PPP',
   SitesList = 'SitesList'
 }

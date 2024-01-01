@@ -21,7 +21,13 @@ export default defineConfig((environment) => ({
   },
   build: {
     copyPublicDir: !environment.isSsrBuild,
-    minify: !environment.isSsrBuild
+    minify: !environment.isSsrBuild,
+    rollupOptions: {
+      input: {
+        index: fileURLToPath(new URL('index.html', import.meta.url)),
+        ppp: fileURLToPath(new URL('ppp.html', import.meta.url))
+      }
+    }
   },
   plugins: [
     splitVendorChunkPlugin(),
@@ -29,7 +35,6 @@ export default defineConfig((environment) => ({
       include: [/\.vue$/, /\.md$/], // <--
       template: {
         compilerOptions: {
-          // treat all tags with a dash as custom elements
           isCustomElement: (tag) => {
             return ['iconify-icon'].includes(tag)
           }
@@ -55,7 +60,7 @@ export default defineConfig((environment) => ({
     }),
     injectBuildInfo(),
     preRender({
-      routes: ['/', '/404', '/blog', '/music', '/movie', '/ppp']
+      routes: ['/', '/404', '/blog', '/music', '/movie']
     })
   ]
 }))
