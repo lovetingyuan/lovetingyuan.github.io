@@ -1,40 +1,85 @@
-<!DOCTYPE html>
-<html lang="zh-CN" class="light">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tingyuan</title>
-    <meta name="description" content="庭院的个人网站">
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" sizes="192x192">
-    <link rel="mask-icon" href="/icons/icon-512x512.png" color="#FFFFFF">
-    <meta name="theme-color" content="#fffafa">
-    <link rel="preconnect" crossorigin="anonymous" href="https://api.faviconkit.com">
-    <link rel="preconnect" crossorigin="anonymous" href="https://img5.mtime.cn">
-    <link rel="preconnect" crossorigin="anonymous" href="https://y.qq.com">
-    <link rel="preconnect" crossorigin="anonymous" href="https://image11.m1905.cn">
-    <link rel="preconnect" crossorigin="anonymous" href="https://code.iconify.design">
-    <link rel="preconnect" crossorigin="anonymous" href="https://api.iconify.design">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ppp</title>
     <style>
-      :root {
-        --theme-color: #fffafa;
+      body {
+        margin: 0;
+        height: 100dvh;
+        display: grid;
+        place-content: center;
+      }
+      .container {
+        max-width: 400px;
+        width: 80vw;
+        position: relative;
+        top: -10vh;
+      }
+      input[type='text'],
+      input[type='password'],
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #8d8d8d;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      select {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+                user-select: none;
+      }
+
+      button:hover {
+        background-color: #0069d9;
       }
     </style>
-    <script type="module" crossorigin="" src="/assets/index-DOf9OthW.js"></script>
-    <link rel="modulepreload" crossorigin="" href="/assets/vendor-p4wqXKRY.js">
-    <link rel="stylesheet" crossorigin="" href="/assets/index-YRuuJxH-.css">
+    <script type="module" crossorigin src="/assets/ppp-PlNno43C.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-9p4a8sJU.js">
   <link rel="manifest" href="/manifest.webmanifest"></head>
-
-  <body data-ssr="true">
-    <noscript>
-      <p>请开启JavaScript</p>
-    </noscript>
-    <div id="app"><!--[--><div class="mx-auto my-32 max-w-[500px] max-sm:w-4/5" data-v-4d46523e><form data-v-4d46523e><input type="text" id="username" name="username" autocomplete="off" required autofocus value="" data-v-4d46523e><input type="password" id="password" name="password" required value="" data-v-4d46523e><select name="count" data-v-4d46523e><!--[--><option value="8" data-v-4d46523e>8</option><option value="16" data-v-4d46523e>16</option><option value="20" data-v-4d46523e>20</option><option value="32" data-v-4d46523e>32</option><option value="64" data-v-4d46523e>64</option><option value="128" data-v-4d46523e>128</option><!--]--></select><button type="submit" data-v-4d46523e>随着海风吹，吹向来时庭院</button></form><p class="mt-12 select-none text-right text-xs text-gray-400" data-v-4d46523e>使用ChatGPT制作</p></div><!----><div class="fixed right-4 top-2 cursor-pointer text-xl opacity-80 hover:opacity-100" title="切换亮/暗色"><iconify-icon icon="material-symbols:dark-mode" style="display:none;"></iconify-icon><iconify-icon icon="material-symbols:light-mode" style=""></iconify-icon></div><!--]--></div>
-    <script nomodule="">
-      window.alert('请使用最新的Chrome, Edge, Firefox浏览器访问')
-    </script>
-    <script>window._buildTime="2023/12/28 22:32";window._buildHash="3ee5d0d2";</script>
-  
-
-</body>
+  <body>
+    <div class="container">
+      <input type="text" id="username" name="username" autocomplete="off" autofocus />
+      <input type="password" id="password" autocomplete="off" name="password" required />
+      <select id="length" name="length">
+        <option value="8">8</option>
+        <option value="16" selected>16</option>
+        <option value="20">20</option>
+        <option value="32">32</option>
+        <option value="64">64</option>
+        <option value="128">128</option>
+      </select>
+      <button id="copy">随着海风吹，吹向来时庭院</button>
+    </div>
+    <script nomodule>
+      window.alert('当前环境不支持')
+    </script>
+    <script>window._buildTime="2024/01/02 00:25";window._buildHash="d86c98c2";</script>
+  </body>
 </html>
