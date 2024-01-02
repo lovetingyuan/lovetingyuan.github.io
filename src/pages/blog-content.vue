@@ -17,7 +17,7 @@
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
     <div v-if="blogStatus === 'notFound'">当前文章不存在</div>
-    <article v-if="blogStatus === 'loaded'">
+    <article v-if="blogStatus === 'loaded'" ref="articleContainerRef">
       <component :is="articleCmp"></component>
     </article>
   </section>
@@ -25,12 +25,25 @@
 
 <script lang="ts" setup>
 import { useColorMode, useStyleTag } from '@vueuse/core'
-import { watchEffect } from 'vue'
+import { watchEffect, ref } from 'vue'
 
 import useBlogs from '@/blogs'
 import CircleLoading from '@/components/circle-loading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
+const articleContainerRef = ref<HTMLElement | null>(null)
+
+// watchEffect(() => {
+//   if (articleContainerRef.value && articleCmp.value) {
+//     const markdown = articleContainerRef.value.querySelector('.markdown-body')
+//     if (markdown) {
+//       markdown.classList.add('blog-content')
+//     }
+//   }
+// }, {
+//   flush: 'post'
+// })
+
 const colorMode = useColorMode()
 watchEffect(() => {
   const githubMdCss =
@@ -70,36 +83,41 @@ article .markdown-body li {
   margin: 10px 0;
 }
 
-article .markdown-body ul {
-  padding-left: 16px;
+article .markdown-body :is(ul, ol) {
+  padding-left: 20px;
+  list-style: auto;
 }
 
 article .markdown-body code:not([class]) {
-  font-weight: bold;
+  font-weight: 500;
   margin: 0 4px;
-  font-size: 90%;
+  font-size: 0.9em;
   padding: 0.15em 0.4em;
 }
 
-article .markdown-body pre.shiki code {
+/* article .markdown-body pre.shiki code {
   font-weight: 400;
   margin: 0;
   padding: 0;
-}
-
+} */
+/*
 article .markdown-body {
   background-color: transparent;
-}
+} */
 
 article .markdown-body summary:hover {
   font-weight: bold;
 }
 
 article .markdown-body .shiki {
-  border: 1px solid #c9d1d9;
+  border: 0.5px solid #c9d1d9;
 }
 
-article .markdown-body .shiki .line:last-child:empty {
-  display: none;
+html.dark article .markdown-body a {
+  color: #7bb1ff;
 }
+
+/* article .markdown-body .shiki .line:last-child:empty {
+  display: none;
+} */
 </style>

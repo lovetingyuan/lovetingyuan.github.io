@@ -90,3 +90,8 @@ iconify-icon {
   min-width: 1em;
   min-height: 1em;
 }
+
+h1,
+h2 {
+  text-transform: capitalize;
+}
