@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
-// import Shiki from 'markdown-it-shiki'
+import Shikiji from 'markdown-it-shikiji'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
@@ -11,11 +11,6 @@ import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
 import preRender from './scripts/prerender'
 import getPWAConfig from './scripts/pwa-plugin'
-// import MarkdownIt from 'markdown-it'
-import Shikiji from 'markdown-it-shikiji'
-
-// const md = MarkdownIt()
-
 
 // https://vitejs.dev/config/
 export default defineConfig((environment) => ({
@@ -51,16 +46,14 @@ export default defineConfig((environment) => ({
       wrapperClasses: 'markdown-body',
       async markdownItSetup(md) {
         md.use(container, 'detail', mdDetail)
-        md.use(await Shikiji({
-          themes: {
-            light: 'github-light',
-            dark: 'github-dark',
-            // dim: 'github-dimmed',
-          }
-        }))
-        // md.use(Shiki, {
-        //   theme: 'dark-plus'
-        // })
+        md.use(
+          await Shikiji({
+            themes: {
+              light: 'github-light',
+              dark: 'github-dark'
+            }
+          })
+        )
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
