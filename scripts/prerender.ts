@@ -2,8 +2,20 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
+import { minify as minifyFn, type Options as MinifyOptions } from 'html-minifier-terser'
 import Piscina from 'piscina'
 import { createLogger, type Plugin, type ResolvedConfig } from 'vite'
+
+const minifyHtmlOptions: MinifyOptions = {
+  collapseWhitespace: true,
+  keepClosingSlash: true,
+  removeComments: true,
+  removeRedundantAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+  useShortDoctype: true,
+  minifyCSS: true
+}
 
 /**
  * https://cn.vitejs.dev/guide/ssr.html#pre-rendering--ssg
@@ -49,7 +61,11 @@ export default (options?: {
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') {
         return
       }
-      const indexHtml = indexBundle.source.toString()
+      let indexHtml = indexBundle.source.toString()
+
+      if (config.mode === 'production') {
+        indexHtml = await minifyFn(indexHtml, minifyHtmlOptions)
+      }
       logger.info('\nstart prerender...')
       const piscina = new Piscina({
         filename: pathToFileURL(ssrEntry).toString()

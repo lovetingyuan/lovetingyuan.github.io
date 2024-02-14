@@ -67,7 +67,8 @@ export default defineConfig((environment) => ({
     }),
     injectBuildInfo(),
     preRender({
-      routes: ['/', '/404', '/blog', '/music', '/movie']
+      routes: ['/', '/404', '/blog', '/music', '/movie'],
+      ssrEntry: 'server.js'
     })
   ]
 }))
