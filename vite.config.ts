@@ -1,9 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
 
+import Shiki from '@shikijs/markdown-it'
 import Vue from '@vitejs/plugin-vue'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
-import Shikiji from 'markdown-it-shikiji'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
@@ -46,14 +46,16 @@ export default defineConfig((environment) => ({
       wrapperClasses: 'markdown-body',
       async markdownItSetup(md) {
         md.use(container, 'detail', mdDetail)
+
         md.use(
-          await Shikiji({
+          await Shiki({
             themes: {
               light: 'github-light',
               dark: 'github-dark'
             }
           })
         )
+
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {

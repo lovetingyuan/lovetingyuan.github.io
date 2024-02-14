@@ -1,4 +1,8 @@
-const collection = import.meta.glob('./*.txt', { eager: true, as: 'raw' })
+const collection = import.meta.glob<string>('./*.txt', {
+  eager: true,
+  query: '?raw',
+  import: 'default'
+})
 
 const result: Record<string, { title: string; url: string; description?: string }[]> = {}
 

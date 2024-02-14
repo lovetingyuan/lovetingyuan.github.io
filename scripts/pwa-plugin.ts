@@ -96,7 +96,7 @@ const config = (ssrBuild: boolean) =>
       // },
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
       globIgnores: ['js/*', 'resume.html'],
-      navigateFallbackDenylist: [/.+\.txt$/, /\/resume(\.html)?$/, /\/minibili\//],
+      navigateFallbackDenylist: [/.+\.txt$/, /\/resume(\.html)?$/, /\/minibili\//, /\.pdf$/],
       disableDevLogs: true,
       // importScripts: ['./a.js'],
       // navigateFallback: '404.html',
