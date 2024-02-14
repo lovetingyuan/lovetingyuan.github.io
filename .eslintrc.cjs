@@ -3,9 +3,6 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  env: {
-    es2022: true
-  },
   extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
@@ -27,7 +24,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['scripts/**/*.{js,mjs,cjs,ts}', '*.config.js'],
+      files: ['scripts/**/*', '*.config.js'],
       env: {
         node: true,
         commonjs: true

@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "noEmit": true,
     "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "paths": {
       "@/*": [
         "./src/*"

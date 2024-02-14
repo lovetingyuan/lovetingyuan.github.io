@@ -7,10 +7,9 @@
   "homepage": "https://lovetingyuan.github.io",
   "scripts": {
     "dev": "vite",
-    "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "build": "npm run build:ssr && npm run build:client",
-    "build:client": "cross-env NODE_ENV=production && npm run build-only",
+    "build:client": "cross-env NODE_ENV=production && vite build",
     "build:ssr": "cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist-ssr",
     "serve": "vite preview",
     "deploy": "node ./scripts/deploy.cjs",

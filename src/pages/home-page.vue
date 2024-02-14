@@ -90,6 +90,7 @@ import { RouteName } from '../constants'
 const time = ref('')
 onMounted(() => {
   // 避免水合不一致
+  // @ts-expect-error _buildTime is injected in building.
   time.value = window._buildTime || new Date().toLocaleDateString()
 })
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
