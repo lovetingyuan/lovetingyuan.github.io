@@ -25,24 +25,13 @@
 
 <script lang="ts" setup>
 import { useColorMode, useStyleTag } from '@vueuse/core'
-import { watchEffect, ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
 import useBlogs from '@/blogs'
 import CircleLoading from '@/components/circle-loading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 const articleContainerRef = ref<HTMLElement | null>(null)
-
-// watchEffect(() => {
-//   if (articleContainerRef.value && articleCmp.value) {
-//     const markdown = articleContainerRef.value.querySelector('.markdown-body')
-//     if (markdown) {
-//       markdown.classList.add('blog-content')
-//     }
-//   }
-// }, {
-//   flush: 'post'
-// })
 
 const colorMode = useColorMode()
 watchEffect(() => {
