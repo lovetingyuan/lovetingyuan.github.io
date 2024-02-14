@@ -20,8 +20,5 @@
       "DOM.Iterable",
       "WebWorker"
     ],
-    "types": [
-      "vite-plugin-pwa/client"
-    ]
   }
 }

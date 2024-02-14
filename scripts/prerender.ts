@@ -3,7 +3,7 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 import Piscina from 'piscina'
-import { createLogger,type Plugin, type ResolvedConfig } from 'vite'
+import { createLogger, type Plugin, type ResolvedConfig } from 'vite'
 
 /**
  * https://cn.vitejs.dev/guide/ssr.html#pre-rendering--ssg
@@ -44,7 +44,7 @@ export default (options?: {
         return
       }
       const ssrDistribution = path.resolve(config.root, options?.ssrDist || 'dist-ssr')
-      const ssrEntry = path.resolve(ssrDistribution, options?.ssrEntry || 'server.mjs')
+      const ssrEntry = path.resolve(ssrDistribution, options?.ssrEntry || 'server.js')
       const indexBundle = bundle[defaultPage]
       if (!indexBundle || !fs.existsSync(ssrEntry) || indexBundle.type !== 'asset') {
         return

@@ -7,7 +7,6 @@ import Loading from './pages/loading-page.vue'
 import Movie from './pages/movie-page.vue'
 import Music from './pages/music-page.vue'
 import NotFound from './pages/not-found.vue'
-// import PPP from './pages/p-p-p.vue'
 import SitesList from './pages/sites-list.vue'
 
 function createRoute() {
@@ -68,11 +67,6 @@ function createRoute() {
         path: '/index.html',
         redirect: '/'
       }
-      // {
-      //   name: RouteName.PPP,
-      //   path: '/ppp',
-      //   component: PPP
-      // }
     ]
   })
   router.afterEach((to) => {
