@@ -13,7 +13,7 @@ ts-playground: https://www.typescriptlang.org/play
 Poe: https://poe.com/ChatGPT
 devv: https://devv.ai/zh
 perplexity: https://www.perplexity.ai/
-Bard: https://bard.google.com/
+Gemini: https://gemini.google.com/
 Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
 Claude: https://claude.ai/chat/
 ForeFrond: https://chat.forefront.ai/
