@@ -47,8 +47,13 @@
 </template>
 
 <script setup lang="ts">
+import { onUnmounted } from 'vue'
+
 import { store } from '@/store'
 const url = 'https://www.bilibili.com/blackboard/html5mobileplayer.html?&bvid='
+onUnmounted(() => {
+  store.playingMusic = ''
+})
 
 const musics = [
   {
