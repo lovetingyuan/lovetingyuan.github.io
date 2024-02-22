@@ -10,16 +10,23 @@
           :src="music.image"
           alt="封面"
         />
-        <a
+        <span
           v-if="music.playLink"
-          :href="music.playLink"
-          target="_blank"
+          @click="store.playingMusic = music.playLink"
           rel="noreferrer noopener"
           class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 text-5xl text-white no-underline hover:text-gray-300"
         >
-          <iconify-icon icon="material-symbols:play-circle-outline-rounded"></iconify-icon>
+          <iconify-icon
+            v-show="music.playLink !== store.playingMusic"
+            icon="material-symbols:play-circle-outline-rounded"
+          ></iconify-icon>
+          <iframe
+            v-if="music.playLink === store.playingMusic"
+            :src="store.playingMusic"
+            class="h-[120px] w-[120px] border-0"
+          ></iframe>
           <!-- <icon-material-symbols-play-circle-outline-rounded /> -->
-        </a>
+        </span>
       </div>
       <div class="break-words py-2">
         <p>
@@ -40,6 +47,9 @@
 </template>
 
 <script setup lang="ts">
+import { store } from '@/store'
+const url = 'https://www.bilibili.com/blackboard/html5mobileplayer.html?&bvid='
+
 const musics = [
   {
     name: 'Breeze',
@@ -50,8 +60,8 @@ const musics = [
     year: 2002,
     baike: 'https://baike.baidu.com/item/breeze/18612901',
     song: 'https://mp3.haoge500.com/new/2008/05-24/117452.mp3',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=949308637&bvid=BV13s4y1a7v5&cid=1005088800&page=1'
+    playLink: url + 'BV13s4y1a7v5'
+    // 'https://player.bilibili.com/player.html?aid=949308637&bvid=BV13s4y1a7v5&cid=1005088800&page=1'
   },
   {
     name: '500 miles',
@@ -61,8 +71,8 @@ const musics = [
     album: 'The Journeymen',
     year: '1961',
     baike: 'https://baike.baidu.com/item/500%20miles',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=330624190&bvid=BV1FA411s7df&cid=262875402&page=1'
+    playLink: url + 'BV1FA411s7df'
+    // 'https://player.bilibili.com/player.html?aid=330624190&bvid=BV1FA411s7df&cid=262875402&page=1'
   },
   {
     name: "Arrietty's Song",
@@ -72,8 +82,8 @@ const musics = [
     album: '《借东西的小人阿莉埃蒂》片尾曲',
     year: 2010,
     baike: 'https://baike.baidu.com/item/arrietty%27s%20song/6510590',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=808682273&bvid=BV1S34y127fZ&cid=499250353&page=1'
+    playLink: url + 'BV1S34y127fZ'
+    // 'https://player.bilibili.com/player.html?aid=808682273&bvid=BV1S34y127fZ&cid=499250353&page=1'
   },
   {
     name: '白鸽',
@@ -83,8 +93,8 @@ const musics = [
     album: '白鸽',
     year: 1999,
     baike: 'https://baike.baidu.com/item/%E7%99%BD%E9%B8%BD/3366',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=546753572&bvid=BV1iq4y1W7M3&cid=372949126&page=1'
+    playLink: url + 'BV1iq4y1W7M3'
+    // 'https://player.bilibili.com/player.html?aid=546753572&bvid=BV1iq4y1W7M3&cid=372949126&page=1'
   },
   {
     name: 'Let Her Go',
@@ -94,8 +104,8 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M000002Ihs301jQP7R_1.jpg',
     year: 2013,
     baike: 'https://baike.baidu.com/item/let%20her%20go',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=818843810&bvid=BV1HG4y1g7G8&cid=925286793&page=1'
+    playLink: url + 'BV1HG4y1g7G8'
+    // 'https://player.bilibili.com/player.html?aid=818843810&bvid=BV1HG4y1g7G8&cid=925286793&page=1'
   },
   {
     name: 'Safe And Sound',
@@ -105,8 +115,9 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M000000Vud1B17iKlX_2.jpg',
     year: 2011,
     baike: 'https://baike.baidu.com/item/Safe%20%26%20Sound/15439451',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=20167734&bvid=BV17W411t7yi&cid=32923619&page=1'
+    playLink: url + 'BV17W411t7yi'
+    // 'https://www.bilibili.com/blackboard/newplayer.html?crossDomain=true&bvid=BV17W411t7yi&as_wide=1&page=1&autoplay=0&poster=1'
+    // 'https://player.bilibili.com/player.html?aid=20167734&bvid=BV17W411t7yi&cid=32923619&page=1'
   },
   {
     name: '庭院',
@@ -115,8 +126,8 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M000001G2cRu0aj1lK_2.jpg',
     year: 2007,
     baike: 'https://baike.baidu.com/item/%E5%BA%AD%E9%99%A2/18634073',
-    playLink:
-      'https://www.bilibili.com/blackboard/webplayer/embed-old.html?aid=801335944&bvid=BV1Vy4y1p7hX&cid=285242906&page=9'
+    playLink: url + 'BV1Vy4y1p7hX'
+    // 'https://www.bilibili.com/blackboard/webplayer/embed-old.html?aid=801335944&bvid=BV1Vy4y1p7hX&cid=285242906&page=9'
   },
   {
     name: 'No One But You',
@@ -125,8 +136,8 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M0000017IzR53A8UQO_2.jpg',
     year: 2010,
     baike: 'https://baike.baidu.com/item/No%20One%20But%20You/23545457',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=674536765&bvid=BV13U4y1J7aG&cid=460629633&page=1'
+    playLink: url + 'BV13U4y1J7aG'
+    // 'https://player.bilibili.com/player.html?aid=674536765&bvid=BV13U4y1J7aG&cid=460629633&page=1'
   },
   {
     name: '无与伦比的美丽',
@@ -137,8 +148,8 @@ const musics = [
     year: 2007,
     baike:
       'https://baike.baidu.com/item/%E6%97%A0%E4%B8%8E%E4%BC%A6%E6%AF%94%E7%9A%84%E7%BE%8E%E4%B8%BD/16767707',
-    playLink:
-      'https://player.bilibili.com/player.html?aid=69169384&bvid=BV1UJ411T728&cid=119877561&page=1'
+    playLink: url + 'BV1UJ411T728'
+    // 'https://player.bilibili.com/player.html?aid=69169384&bvid=BV1UJ411T728&cid=119877561&page=1'
   }
 ].map((item) => {
   return {
