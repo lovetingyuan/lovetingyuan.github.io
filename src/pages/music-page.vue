@@ -131,7 +131,7 @@ const musics = [
     cover: 'https://y.qq.com/music/photo_new/T002R300x300M000001G2cRu0aj1lK_2.jpg',
     year: 2007,
     baike: 'https://baike.baidu.com/item/%E5%BA%AD%E9%99%A2/18634073',
-    playLink: url + 'BV1Vy4y1p7hX'
+    playLink: url + 'BV1LD4y1o7vd'
     // 'https://www.bilibili.com/blackboard/webplayer/embed-old.html?aid=801335944&bvid=BV1Vy4y1p7hX&cid=285242906&page=9'
   },
   {
