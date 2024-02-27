@@ -17,4 +17,5 @@ Gemini: https://gemini.google.com/
 Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
 Claude: https://claude.ai/chat/
 ForeFrond: https://chat.forefront.ai/
+Mistral: https://chat.mistral.ai/chat
 魔戒: https://mojie.me/
