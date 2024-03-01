@@ -6,8 +6,8 @@ MDH: https://mdhweekly.com/weekly
 CCTV: https://tv.cctv.com/live/
 WebDev: https://web.dev/
 看电影: https://www.4kvm.com/
-爱追剧: https://www.ikanju.vip/
-dianying: https://dianyi.ng
+爱看机器人: https://v.ikanbot.com/
+电影先生: https://dianyi.ng
 npm: https://www.npmjs.com/
 ts-playground: https://www.typescriptlang.org/play
 Poe: https://poe.com/ChatGPT
