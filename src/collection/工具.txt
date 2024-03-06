@@ -2,3 +2,4 @@
 codesandbox: https://codesandbox.io/s/
 stackblitz: https://stackblitz.com/
 hoppscotch: https://hoppscotch.io/
+httpie: https://httpie.io/app
