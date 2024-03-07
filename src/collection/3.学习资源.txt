@@ -1,0 +1,15 @@
+github: https://github.com
+MDH: https://mdhweekly.com/weekly
+WebDev: https://web.dev/
+leetcode: https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D
+type-challenge: https://github.com/type-challenges/type-challenges
+面试反问问题: https://github.com/yifeikong/reverse-interview-zh
+代码随想录: https://programmercarl.com/
+labuladong算法小抄: https://labuladong.gitee.io/algo/
+一些LeetCode题目: https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md
+CodeTop: https://codetop.cc/home
+小林coding: https://xiaolincoding.com/
+算法题解: https://doocs.github.io/leetcode
+React题目: https://github.com/sudheerj/reactjs-interview-questions
+前端面试题目: https://www.frontendinterviewhandbook.com/zh/
+tailscale教程: https://blog.laisky.com/p/tailscale/

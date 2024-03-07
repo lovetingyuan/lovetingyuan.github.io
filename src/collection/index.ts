@@ -6,7 +6,10 @@ const collection = import.meta.glob<string>('./*.txt', {
 
 const result: Record<string, { title: string; url: string; description?: string }[]> = {}
 
-for (const cate of Object.keys(collection)) {
+const lists = Object.keys(collection).sort((a, b) => {
+  return parseInt(a) - parseInt(b)
+})
+for (const cate of lists) {
   const cate2 = cate.slice(2, -4)
   result[cate2] = collection[cate]
     .trim()
