@@ -2,20 +2,32 @@ import { GlobalRegistrator } from '@happy-dom/global-registrator'
 import { renderToString } from 'vue/server-renderer'
 
 const DocType = '<!DOCTYPE html>'
+const settings = {
+  disableJavaScriptFileLoading: true,
+  disableJavaScriptEvaluation: true,
+  disableCSSFileLoading: true,
+  enableFileSystemHttpRequests: false,
+  disableIframePageLoading: true,
+  disableComputedStyleRendering: true
+}
+// eslint-disable-next-line no-console
+const logError = console.error
+// eslint-disable-next-line no-console
+console.error = function error(...args) {
+  if (
+    args[0] instanceof Error &&
+    /(JavaScript|CSS) file loading is disabled/.test(args[0].message)
+  ) {
+    return
+  }
+  logError.call(console, ...args)
+}
 
 const useDocument = (url: string, html: string) => {
-  GlobalRegistrator.register()
-  // @ts-ignore
-  Object.assign(window.happyDOM.settings, {
-    disableJavaScriptFileLoading: true,
-    disableJavaScriptEvaluation: true,
-    disableCSSFileLoading: true,
-    enableFileSystemHttpRequests: false,
-    disableIframePageLoading: true,
-    disableComputedStyleRendering: true
+  GlobalRegistrator.register({
+    url: 'https://localhost' + url,
+    settings
   })
-  // @ts-ignore
-  window.happyDOM.setURL('https://localhost' + url)
   document.write(html.replace(DocType, ''))
   return (rendered: string) => {
     const container = document.querySelector('#app')

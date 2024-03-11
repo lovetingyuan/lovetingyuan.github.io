@@ -1,5 +1,5 @@
 <template>
-  <header class="flex items-center justify-between px-8 pt-6">
+  <header class="flex items-center justify-between px-4 pt-6 md:px-6 lg:px-8">
     <h4 class="m-0 select-none text-xl">
       <router-link to="/">庭院 Ⴆʅσɠ</router-link>
     </h4>
@@ -49,7 +49,7 @@
       </li>
     </ul>
   </header>
-  <main class="px-8 pb-20 pt-8">
+  <main class="px-2 pb-20 pt-8 md:px-5 lg:px-8">
     <router-view v-slot="{ Component, route }">
       <transition
         v-if="!reduceAnimation"
