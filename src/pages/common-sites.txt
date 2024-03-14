@@ -1,4 +1,4 @@
 github: https://github.com
 twitter: https://twitter.com/home
 npm: https://www.npmjs.com/
-魔戒: https://mojie.me/
+魔戒: https://mojie.app/
