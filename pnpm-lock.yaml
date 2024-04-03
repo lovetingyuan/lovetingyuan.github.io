@@ -60,7 +60,7 @@ devDependencies:
     version: 18.18.10
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
-    version: 5.0.4(vite@5.1.1)(vue@3.4.19)
+    version: 5.0.4(vite@5.1.7)(vue@3.4.19)
   '@vue/eslint-config-prettier':
     specifier: ^9.0.0
     version: 9.0.0(eslint@8.54.0)(prettier@3.1.0)
@@ -120,13 +120,13 @@ devDependencies:
     version: 5.3.3
   unplugin-vue-markdown:
     specifier: ^0.26.0
-    version: 0.26.0(rollup@2.79.1)(vite@5.1.1)
+    version: 0.26.0(rollup@2.79.1)(vite@5.1.7)
   vite:
-    specifier: ^5.1.1
-    version: 5.1.1(@types/node@18.18.10)
+    specifier: ^5.1.7
+    version: 5.1.7(@types/node@18.18.10)
   vite-plugin-pwa:
     specifier: ^0.19.2
-    version: 0.19.2(vite@5.1.1)(workbox-build@7.0.0)(workbox-window@7.0.0)
+    version: 0.19.2(vite@5.1.7)(workbox-build@7.0.0)(workbox-window@7.0.0)
   vue-tsc:
     specifier: ^2.0.6
     version: 2.0.6(typescript@5.3.3)
@@ -2396,14 +2396,14 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-vue@5.0.4(vite@5.1.1)(vue@3.4.19):
+  /@vitejs/plugin-vue@5.0.4(vite@5.1.7)(vue@3.4.19):
     resolution: {integrity: sha512-WS3hevEszI6CEVEx28F8RjTX97k3KsrcY6kvTg7+Whm5y3oYvcqzVeGCU3hxSAn4uY2CLCkeokkGKpoctccilQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.1.1(@types/node@18.18.10)
+      vite: 5.1.7(@types/node@18.18.10)
       vue: 3.4.19(typescript@5.3.3)
     dev: true
 
@@ -6025,7 +6025,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unplugin-vue-markdown@0.26.0(rollup@2.79.1)(vite@5.1.1):
+  /unplugin-vue-markdown@0.26.0(rollup@2.79.1)(vite@5.1.7):
     resolution: {integrity: sha512-JohVC2KhMklr3OQJB6YfB20E1AZ/K+wV/q+6XtmamyUccr0cmdWRBR5jSS45y4fNtZqN3ULC+02EiD4pmaOqdQ==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0-0 || ^4.0.0-0 || ^5.0.0-0
@@ -6037,7 +6037,7 @@ packages:
       '@types/markdown-it': 13.0.7
       markdown-it: 14.0.0
       unplugin: 1.7.1
-      vite: 5.1.1(@types/node@18.18.10)
+      vite: 5.1.7(@types/node@18.18.10)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -6115,7 +6115,7 @@ packages:
       semver: 7.6.0
     dev: true
 
-  /vite-plugin-pwa@0.19.2(vite@5.1.1)(workbox-build@7.0.0)(workbox-window@7.0.0):
+  /vite-plugin-pwa@0.19.2(vite@5.1.7)(workbox-build@7.0.0)(workbox-window@7.0.0):
     resolution: {integrity: sha512-LSQJFPxCAQYbRuSyc9EbRLRqLpaBA9onIZuQFomfUYjWSgHuQLonahetDlPSC9zsxmkSEhQH8dXZN8yL978h3w==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -6130,15 +6130,15 @@ packages:
       debug: 4.3.4
       fast-glob: 3.3.2
       pretty-bytes: 6.1.1
-      vite: 5.1.1(@types/node@18.18.10)
+      vite: 5.1.7(@types/node@18.18.10)
       workbox-build: 7.0.0
       workbox-window: 7.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.1.1(@types/node@18.18.10):
-    resolution: {integrity: sha512-wclpAgY3F1tR7t9LL5CcHC41YPkQIpKUGeIuT8MdNwNZr6OqOTLs7JX5vIHAtzqLWXts0T+GDrh9pN2arneKqg==}
+  /vite@5.1.7(@types/node@18.18.10):
+    resolution: {integrity: sha512-sgnEEFTZYMui/sTlH1/XEnVNHMujOahPLGMxn1+5sIT45Xjng1Ec1K78jRP15dSmVgg5WBin9yO81j3o9OxofA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
