@@ -4,6 +4,7 @@ import Shiki from '@shikijs/markdown-it'
 import Vue from '@vitejs/plugin-vue'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
+import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
@@ -31,6 +32,7 @@ export default defineConfig((environment) => ({
   },
   plugins: [
     splitVendorChunkPlugin(),
+    UnpluginDetectDuplicatedDeps({ throwErrorWhenDuplicated: true }),
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
       template: {
