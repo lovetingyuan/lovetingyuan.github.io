@@ -5,7 +5,7 @@ leetcode: https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=
 type-challenge: https://github.com/type-challenges/type-challenges
 面试反问问题: https://github.com/yifeikong/reverse-interview-zh
 代码随想录: https://programmercarl.com/
-labuladong算法小抄: https://labuladong.gitee.io/algo/
+labuladong算法小抄: https://labuladong.online/algo/
 一些LeetCode题目: https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md
 CodeTop: https://codetop.cc/home
 算法教程: https://www.hello-algo.com/
