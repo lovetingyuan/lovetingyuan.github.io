@@ -176,19 +176,89 @@ Promise.prototype.then = function then(onResolve, onReject) {
 - [`Promise.allSettled`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)，等待所有 promise 结束，返回一个结果数组
 
   ```js
-  ;[
-    {
-      status: 'fulfilled',
-      value: any,
-    },
-    {
-      status: 'rejected',
-      reason: any,
-    },
-    // ...
-  ]
+  Promise.allSettled = function (promises) {
+    return new Promise(function (resolve) {
+      var results = []
+      var remaining = promises.length
+
+      function onSettled(result, index) {
+        results[index] = {
+          status: 'fulfilled',
+          value: result
+        }
+
+        remaining--
+
+        if (remaining === 0) {
+          resolve(results)
+        }
+      }
+
+      function onRejected(error, index) {
+        results[index] = {
+          status: 'rejected',
+          reason: error
+        }
+
+        remaining--
+
+        if (remaining === 0) {
+          resolve(results)
+        }
+      }
+
+      for (var i = 0; i < promises.length; i++) {
+        promises[i].then(
+          function (result) {
+            onSettled(result, i)
+          },
+          function (error) {
+            onRejected(error, i)
+          }
+        )
+      }
+    })
+  }
   ```
 
 - [`Promise.race`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)，谁先结束就返回谁
 
+  ```js
+  Promise.race = function (promises) {
+    return new Promise(function (resolve, reject) {
+      for (var i = 0; i < promises.length; i++) {
+        promises[i].then(resolve, reject)
+      }
+    })
+  }
+  ```
+
 - [`Promise.any`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)，和`Promise.all`在功能上是相反的，会尝试返回第一个成功的 promise，如果都失败那就以`AggregateError`来 reject
+
+  ```js
+  if (!Promise.any) {
+    Promise.any = function (promises) {
+      return new Promise(function (resolve, reject) {
+        const errors = []
+        let remaining = promises.length
+
+        function onFulfilled(value) {
+          resolve(value)
+        }
+
+        function onRejected(error) {
+          errors.push(error)
+          remaining--
+
+          if (remaining === 0) {
+            reject(new AggregateError(errors, 'All promises were rejected'))
+          }
+        }
+
+        for (var i = 0; i < promises.length; i++) {
+          promises[i].then(onFulfilled, onRejected)
+        }
+      })
+    }
+  }
+  ```

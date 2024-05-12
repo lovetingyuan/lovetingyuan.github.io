@@ -169,8 +169,8 @@
            })
            two: this.count++
            console.log(2, this.count, this.$refs.count.textContent)
-         },
-       },
+         }
+       }
      }
    </script>
    ```
@@ -186,3 +186,10 @@
 2. 使用递归和迭代两种方式反转一个链表 [leetcode](https://leetcode-cn.com/problems/reverse-linked-list/)
 3. 有一个数组，从其中找到两个数的最大差值(要求这两个数递增)，返回对应的差值
 4. 使用两种方法实现 N 叉树的层次遍历 [leetcode](https://leetcode.cn/problems/n-ary-tree-level-order-traversal/)
+
+---
+
+- https://hytonightyx.github.io/
+- https://muyiy.cn/question/
+- https://vue3js.cn/interview/
+- https://github.com/CavsZhouyou/Front-End-Interview-Notebook
