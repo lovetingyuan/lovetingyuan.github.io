@@ -193,3 +193,4 @@
 - https://muyiy.cn/question/
 - https://vue3js.cn/interview/
 - https://github.com/CavsZhouyou/Front-End-Interview-Notebook
+- https://github.com/pwstrick/daily
