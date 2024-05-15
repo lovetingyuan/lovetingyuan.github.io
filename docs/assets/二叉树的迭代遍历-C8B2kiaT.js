@@ -97,4 +97,25 @@ import{o as a,c as n,L as l}from"./vendor-Zve-xysi.js";const p={class:"markdown-
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> result</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre><p>类似的，你也可以从上面的遍历方法推导出另一种二叉树的后序遍历方法</p>`,14),o=[i],t={__name:"二叉树的迭代遍历",setup(r,{expose:s}){return s({frontmatter:{}}),(e,E)=>(a(),n("div",p,o))}};export{t as default};
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre><p>类似的，你也可以从上面的遍历方法推导出另一种二叉树的后序遍历方法</p><pre class="shiki shiki-themes github-light github-dark" style="background-color:#fff;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8;" tabindex="0"><code class="language-js"><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> postorderTraversal</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#E36209;--shiki-dark:#FFAB70;">root</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  if</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> (</span><span style="color:#D73A49;--shiki-dark:#F97583;">!</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">root) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">    return</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> []</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  const</span><span style="color:#005CC5;--shiki-dark:#79B8FF;"> stack</span><span style="color:#D73A49;--shiki-dark:#F97583;"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> [root]</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  const</span><span style="color:#005CC5;--shiki-dark:#79B8FF;"> result</span><span style="color:#D73A49;--shiki-dark:#F97583;"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  while</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> (stack.</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">length</span><span style="color:#D73A49;--shiki-dark:#F97583;"> &gt;</span><span style="color:#005CC5;--shiki-dark:#79B8FF;"> 0</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">    const</span><span style="color:#005CC5;--shiki-dark:#79B8FF;"> node</span><span style="color:#D73A49;--shiki-dark:#F97583;"> =</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> stack.</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">pop</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">()</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    result.</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">unshift</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(node.val) </span><span style="color:#6A737D;--shiki-dark:#6A737D;">// 跟前序不同，这里要逆序加入解</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D;">    // 并且这里要顺序遍历子节点</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> (node.left) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      stack.</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">push</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(node.left)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">    if</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> (node.right) {</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      stack.</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">push</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(node.right)</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> result</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre>`,15),o=[i],t={__name:"二叉树的迭代遍历",setup(r,{expose:s}){return s({frontmatter:{}}),(e,E)=>(a(),n("div",p,o))}};export{t as default};
