@@ -1,5 +1,6 @@
 @import './base.css';
 @import './tailwind.css';
+@import './balloon.css';
 
 #app {
   min-height: 100vh;
@@ -94,4 +95,9 @@ iconify-icon {
 h1,
 h2 {
   text-transform: capitalize;
+}
+
+[data-balloon-pos] {
+  cursor: pointer;
+  z-index: 9;
 }

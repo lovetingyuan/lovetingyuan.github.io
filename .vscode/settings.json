@@ -4,4 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
 }
