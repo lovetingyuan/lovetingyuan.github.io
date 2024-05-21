@@ -18,7 +18,7 @@
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
     <div v-if="blogStatus === 'notFound'">当前文章不存在</div>
     <article v-if="blogStatus === 'loaded'" ref="articleContainerRef">
-      <component :is="articleCmp"></component>
+      <component :is="articleCmp"> </component>
     </article>
   </section>
 </template>

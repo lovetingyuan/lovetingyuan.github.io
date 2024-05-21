@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人简历</title>
+  <title>前端开发工程师-个人简历</title>
+  <script src="js/reload.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css" />
-  <script src="js/reload.js" async></script>
-  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" async></script>
-  <script src="https://cdn.tailwindcss.com" async></script>
-  <script async src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <style>
     body {
       font-family:
@@ -42,9 +42,9 @@
             '参与运行时操作日志模块开发'
           ],
           技术建设: [
-            '优化运行时 React 代码性能',
+            '优化运行时代码性能',
             '开发了一个基于 vite 的简版脚手架',
-            '对低代码平台和公用业务组件进行单仓库集成'
+            '对低代码平台和公用业务组件进行 monorepo 集成'
           ]
         }
       },
@@ -54,16 +54,16 @@
         details: {
           美团优选零售系统: [
             '负责系统中的区域规划子项目从 React + Redux 向 Vue + Vuex 重构，并优化了地图渲染性能',
-            '参与中心仓储物流部分业务开发，包括建立协同仓、自动化仓改造，月台建设，出库作业管理等',
+            '参与中心仓储物流系统业务开发，包括建立协同仓、自动化仓储适配、月台作业管理、出库作业管理等',
             '负责开发 PDA 设计预览项目，实现了设计稿一键上传、预览功能，并支持了静态资源权限校验'
           ],
           零售系统页面配置化开发: [
-            '参与低代码平台建设，采用 monorepo，对于相似页面进行配置化抽象，通过编写配置渲染页面，提升了开发效率',
+            '参与表单低代码工具建设，对于相似页面进行配置化抽象，通过编写配置渲染页面，提升了开发效率',
             '实现了公共业务组件库和相似页面抽离成 npm 包分发，提升了代码复用率和开发效率'
           ],
           技术建设: [
             '本地开发 API 代理优化，支持了 mock 响应数据以及 proxy 配置的热更新',
-            '推动项目研发工具由 webpack 迁移到 vite，配套开发了新的脚手架和迁移脚本，支持旧项目一键迁移并大幅提升了本地开发效率和热更新性能',
+            '推动项目研发工具由 webpack 迁移到 vite，配套开发了新的脚手架和迁移脚本，支持旧项目一键迁移，提升了本地开发效率和热更新性能',
             '参与浏览器打印组件的开发，采用 Web Worker 以及批处理的方式提升了打印作业性能和用户体验'
           ]
         }
@@ -75,20 +75,16 @@
           卖家后台管理系统前端开发: [
             '参与了由 Ember 转 Vue 的渐进式重构和部署方案',
             '基于微前端框架 single-spa 重构了系统架构，完成了部分子应用拆分和接入',
-            '基于 Koa 开发了新的部署平台，支持了子应用独立部署，简化并缩短了系统部署流程和时间'
+            '基于 Koa 开发了新的部署平台（对接Jenkins），支持了子应用独立部署，简化并缩短了系统部署流程和时间'
           ],
           'Vue 通用组件库开发': [
-            '完成了组件库基础架构搭建，建立了完整的组件开发、自动化测试、文档生成以及交互式发版流程',
-            '共同参与完善了组件开发准则和设计规范，并参与了部分组件的开发'
+            '参与了组件库基础架构搭建以及组件开发规范的制定，建立了完整的组件开发、自动化测试、文档生成以及交互式发版流程'
           ],
           公司招聘网站重构: [
-            '负责基于 Vue 和 Vue-cli 对旧的招聘站点从多页模式重构到 SPA，包括支持移动端响应式渲染',
+            '负责基于 Vue 和 Vue-cli 对公司招聘站点从多页模式重构到 SPA，包括支持移动端响应式渲染',
             '独立完成了站点的 SSR 服务端渲染，并接入了错误监控和性能监控以及行为追踪，改善了 SEO 和访问速度'
           ],
-          买家卖家线上聊天系统: [
-            '对主要的逻辑代码使用 TypeScript 改写以及部分组件的 Hooks 重构',
-            '将项目迁移至 CRA，提升了本地开发和线上构建效率'
-          ],
+          买家卖家线上聊天系统: ['对主要的逻辑代码使用 TypeScript 改写以及部分组件的 Hooks 重构'],
           技术建设: [
             '开发 Webpack 插件支持项目业务需求分环境差异化部署',
             '使用 Service Worker 改善了 API 代理性能',
@@ -116,13 +112,13 @@
 <body>
   <main class="flex flex-col gap-8 p-8 print:p-0">
     <section class="flex flex-col gap-2">
-      <h3 class="mb-4 flex items-center gap-2 text-base font-bold bg-zinc-300 rounded py-1 px-4">
+      <h3 class="mb-4 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
         <iconify-icon icon="mdi:user" height="1.4em"></iconify-icon>
         <span class="tracking-widest">个人信息</span>
       </h3>
       <div class="px-4">
-        <div class="flex gap-6 mb-3">
-          <span>黄百途（男，1993年生）</span>
+        <div class="mb-3 flex gap-6">
+          <span>黄百途（男）</span>
           <span class="flex items-center gap-1">
             <iconify-icon icon="mdi:wechat" class="text-lg opacity-80"></iconify-icon>
             <span>13266570225</span>
@@ -145,15 +141,15 @@
       </div>
     </section>
     <section id="jobs">
-      <h3 class="mb-5 flex items-center gap-2 text-base font-bold bg-zinc-300 rounded py-1 px-4">
+      <h3 class="mb-5 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
         <iconify-icon icon="mdi:work-outline"></iconify-icon>
         <span class="tracking-widest">工作经历</span>
       </h3>
-      <div x-data="{jobs: window.jobs}" class="px-2 flex flex-col gap-6">
+      <div x-data="{jobs: window.jobs}" class="flex flex-col gap-6 px-2">
         <template x-for="job in jobs" :key="job.company">
           <div>
-            <p class="flex flex-row gap-2 items-center mb-2">
-              <img :src="job.icon" alt="logo" width="20" height="20">
+            <p class="mb-2 flex flex-row items-center gap-2">
+              <img :src="job.icon" alt="logo" width="20" height="20" />
               <span x-text="job.company" class="font-semibold"></span>
             </p>
             <ol class="list-decimal pl-6">
@@ -162,7 +158,7 @@
                   <p x-text="title" class="mb-2"></p>
                   <ol type="a" class="list-disc pl-4">
                     <template x-for="detail of details">
-                      <li x-text="detail"> </li>
+                      <li x-text="detail"></li>
                     </template>
                   </ol>
                 </li>
@@ -173,9 +169,9 @@
       </div>
     </section>
     <section>
-      <h3 class="mb-5 flex items-center gap-2 text-base font-bold bg-zinc-300 rounded py-1 px-4">
+      <h3 class="mb-5 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
         <iconify-icon icon="healthicons:interoperability"></iconify-icon>
-        <span class="tracking-widest">职业技能</span>
+        <span class="tracking-widest">技能总结</span>
       </h3>
       <ul class="list-disc pl-8" x-data="{
         skills: [
@@ -184,7 +180,7 @@
         ]
       }">
         <template x-for="items of skills">
-          <li class="flex gap-3 my-1">
+          <li class="my-1 flex gap-3">
             <template x-for="item of items">
               <span x-text="item"></span>
             </template>

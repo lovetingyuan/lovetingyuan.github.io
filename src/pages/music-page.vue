@@ -155,6 +155,15 @@ const musics = [
       'https://baike.baidu.com/item/%E6%97%A0%E4%B8%8E%E4%BC%A6%E6%AF%94%E7%9A%84%E7%BE%8E%E4%B8%BD/16767707',
     playLink: url + 'BV1UJ411T728'
     // 'https://player.bilibili.com/player.html?aid=69169384&bvid=BV1UJ411T728&cid=119877561&page=1'
+  },
+  {
+    name: '爸爸妈妈',
+    singer: '王蓉',
+    album: '多爱',
+    cover: 'https://y.qq.com/music/photo_new/T002R300x300M000002MaTCR2gou69_1.jpg',
+    year: 2005,
+    baike: 'https://baike.baidu.com/item/%E7%88%B8%E7%88%B8%E5%A6%88%E5%A6%88/3560533',
+    playLink: url + 'BV1N44y1n7f8'
   }
 ].map((item) => {
   return {

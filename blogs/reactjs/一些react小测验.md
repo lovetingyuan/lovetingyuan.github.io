@@ -1,5 +1,7 @@
 ### 代码运行结果分析
 
+https://bigfrontend.dev/react-quiz
+
 #### useEffect
 
 ```jsx
@@ -162,6 +164,117 @@ root.render(<App />)
 "useEffect 2 cleanup"
 "useEffect 1"
 "useEffect 2"
+```
+
+:::
+
+### useEffect
+
+```jsx
+export function App() {
+  const [state, setState] = useState(0)
+  console.log(1)
+
+  const start = Date.now()
+  // while (Date.now() - start < 50);
+
+  useEffect(() => {
+    console.log(2)
+  }, [state])
+
+  Promise.resolve().then(() => console.log(3))
+
+  setTimeout(() => console.log(4), 0)
+
+  useLayoutEffect(() => {
+    console.log(5)
+    setState((state) => state + 1)
+  }, [])
+
+  return null
+}
+```
+
+::: detail result
+
+```bash
+1
+5
+2
+1
+2
+3
+3
+4
+4
+```
+
+:::
+
+### useEffect
+
+```jsx
+// 200ms后点击
+export function Test9() {
+  const [state, setState] = useState(0)
+  console.log(1)
+
+  const start = Date.now()
+  while (Date.now() - start < 50);
+
+  useEffect(() => {
+    console.log(2)
+  }, [state])
+
+  if (!state) {
+    setState(1)
+  }
+
+  if (!state) {
+    setTimeout(() => {
+      setState((state) => state + 1)
+    }, 100)
+  }
+
+  Promise.resolve().then(() => console.log(3))
+
+  setTimeout(() => console.log(4), 0)
+
+  useLayoutEffect(() => {
+    setState((state) => state + 1)
+  }, [])
+
+  const onClick = () => {
+    setState((num) => num + 1)
+  }
+  return (
+    <div>
+      <button onClick={onClick}>click me</button>
+    </div>
+  )
+}
+```
+
+::: detail result
+
+```bash
+1
+1
+2
+1
+2
+3
+3
+4
+4
+1
+3
+4
+2
+1
+2
+3
+4
 ```
 
 :::
