@@ -33,3 +33,15 @@
 - Cache-control: `immutable`
 - Cache-control: `stale-while-revalidate=<seconds>`
 - Cache-control: `stale-if-error=<seconds>`
+
+### 协商缓存
+
+- Last-Modified/If-Modified-Since
+
+  响应中携带 Last-Modified，表示资源最后修改的时间，请求时将这个时间再通过 If-Modified-Since 发送出去
+
+- ETag/If-None-Match (优先级高于Last-Modified)
+
+  响应中携带 ETag，表示资源最后修改的时间，请求时将这个时间再通过 If-None-Match 发送出去
+
+如果服务器判断资源没有修改，那么会返回 304 的状态响应码

@@ -6,7 +6,8 @@ Set-Cookie: username=jimu; Domain=jimu.com; Path=/blog; Expires=Wed, 21 Oct 2015
 
 Domain 和 Path 标识定义了 Cookie 的作用域：即 Cookie 应该发送给哪些 URL。
 
-Domain 标识指定了哪些主机可以接受 Cookie。如果不指定，默认为当前主机，不包含子域名。如果指定了Domain，则一般包含子域名。例如，如果设置 `Domain=mozilla.org`，则 Cookie 也包含在子域名中（如`developer.mozilla.org`）。
+Domain 标识指定了哪些主机可以接受 Cookie。如果不指定，默认为当前主机，不包含子域名。如果指定了Domain，则只能指定当前域名或其父域名，此时其子域名也通常会生效。例如，如果设置 `Domain=mozilla.org`，则 Cookie 也包含在子域名中（如`developer.mozilla.org`）。如果域名不符合上述要求，则会默认设置失败。
+
 Path则限制了cookie在有效域名下面可以生效的地址，例如Path=/docs，则以下地址都会匹配：
 
 - /docs
@@ -21,9 +22,4 @@ HttpOnly表示限制cookie无法通过JavaScript获取
 
 SameSite表示限制第三方cookie的发送，它可以有效防止用户追踪以及降低CSRF的风险。它有三个值Strict, Lax, None。同站设置的cookie就是第一方cookie，跨站设置的cookie就属于第三方cookie（是否跨站会根据协议和域名公共后缀是否相同来判断）。现在SameSite的默认值是Lax，表示在点击链接，预加载请求，GET 表单这三类请求时会发送三方cookie，其余情况不会发送；Strict是任何情况都不会发送；None则是会发送（需要启用Secure属性才有效）。
 
-[Partitioned](https://developer.mozilla.org/zh-CN/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies)表示分区cookie
-
-### 限制
-
-1. 设置cookie时，Domain只能指定为当前域名或者其父域名，否则cookie会被拒绝设置
-2. 指定了Domain的cookie在其及其子域名下面都有效，例如 foo=a; Domain=example.com; foo在example.com及其子域名下都是生效的
+[Partitioned](https://developer.mozilla.org/zh-CN/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies)表示分区cookie，主要用来防止在无法完全禁用三方cookie的情况下三方的跨站点跟踪。例如站点A和B都嵌入了三方站点T，用户访问A和B时，T都可以收到在A时和B时设置的cookie，但是如果使用了分区cookie，访问B时T只能收到其在B时设置的cookie，无法获知用户访问过A，反之亦然。
