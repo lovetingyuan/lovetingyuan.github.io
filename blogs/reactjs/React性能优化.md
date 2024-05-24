@@ -18,10 +18,15 @@
 1. 对于计算昂贵的数据或者昂贵的组件（jsx），可以使用 `useMemo` 来进行缓存
 2. 对于数据量比较大的状态，我们可以给 `useState` 传递一个函数，因为这个函数只会执行一次
 
-### 使用 startTransition useTransition useDeferredValue
+### 使用 startTransition useTransition
 
 1. 如果某些状态更新会导致一些长任务的话，可以使用 `startTransition` 来包裹，比如当你发现某些状态变化引起的组件重渲染导致UI卡顿的时候，可以使用 `startTransition`，这样状态更新的优先级会被降低而优先保证UI的流畅
-2. 如果某个状态会频繁快速的更新而导致部分UI频繁重渲染，可以使用 `useDeferredValue` 来获取一个类似于防抖版本的值，这样可以避免某些UI频繁更新
+
+### 使用 useDeferredValue
+
+如果某个状态会频繁快速的更新而导致部分UI频繁重渲染，可以使用 `useDeferredValue` 来获取一个类似于防抖版本的值，这样可以避免某些UI频繁更新，尤其是这些UI优先级较低但是负载又较高的时候。
+
+想象一下你的组件中包含一些需要及时更新的部分和不那么重要的部分，当状态频繁变化时，所有的部分都会频繁渲染。如果不重要的部分使用了 `useDeferredValue` 返回的值，那么在下一次状态更新时，不重要的部分的状态并不会变化，这样可以借助于 `React.memo` 来避免这部分的渲染，从而保证重要的部分可以及时得到更新。当重要部分渲染完毕后，`useDeferredValue` 会自动触发第二次渲染，这时候会使用更新后的状态，此时如果状态再次发生变化，react会中断本次渲染，然后再继续新的渲染。（[文章](https://www.joshwcomeau.com/react/use-deferred-value/)）
 
 ### 谨慎更新 React.Context 的value
 

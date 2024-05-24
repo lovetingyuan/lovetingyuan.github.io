@@ -34,7 +34,8 @@ export default function useBlogs() {
           blogStatus.value = 'loaded'
           articleCmp.value = r
         },
-        () => {
+        (err) => {
+          console.log(err)
           blogStatus.value = 'failed'
         }
       )

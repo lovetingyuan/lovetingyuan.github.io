@@ -75,9 +75,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <!-- <icon-mdi-github class="align-text-top" /> -->
-      <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
-      <iconify-icon icon="mdi:github" class="align-text-bottom text-sm"></iconify-icon>
+      <iconify-icon noobserver icon="mdi:github" class="align-text-bottom text-sm"></iconify-icon>
     </a>
   </footer>
   <GoTop />
