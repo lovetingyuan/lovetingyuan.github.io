@@ -42,9 +42,9 @@
             '参与运行时操作日志模块开发'
           ],
           技术建设: [
-            '优化运行时代码性能',
+            '参与优化运行时代码性能',
             '开发了一个基于 vite 的简版脚手架',
-            '对低代码平台和公用业务组件进行 monorepo 集成'
+            '对低代码平台系统和公用业务组件进行 Monorepo 改造'
           ]
         }
       },
@@ -77,19 +77,15 @@
             '基于微前端框架 single-spa 重构了系统架构，完成了部分子应用拆分和接入',
             '基于 Koa 开发了新的部署平台（对接Jenkins），支持了子应用独立部署，简化并缩短了系统部署流程和时间'
           ],
-          'Vue 通用组件库开发': [
-            '参与了组件库基础架构搭建以及组件开发规范的制定，建立了完整的组件开发、自动化测试、文档生成以及交互式发版流程'
-          ],
           公司招聘网站重构: [
             '负责基于 Vue 和 Vue-cli 对公司招聘站点从多页模式重构到 SPA，包括支持移动端响应式渲染',
             '独立完成了站点的 SSR 服务端渲染，并接入了错误监控和性能监控以及行为追踪，改善了 SEO 和访问速度'
           ],
           买家卖家线上聊天系统: ['对主要的逻辑代码使用 TypeScript 改写以及部分组件的 Hooks 重构'],
           技术建设: [
-            '开发 Webpack 插件支持项目业务需求分环境差异化部署',
-            '使用 Service Worker 改善了 API 代理性能',
-            '实现了一个简单的视图层框架并落地到活动页脚手架',
-            '开发了 ESLint 插件检验规范全局副作用，PostCSS 插件隔离样式'
+            '开发一个 Webpack 插件支持项目业务需求分环境差异化部署功能',
+            '实现了一个简单的视图层框架并落地到活动页脚手架，并内置了 Service Worker 的支持',
+            '配合微前端改造开发了 ESLint 插件检验全局副作用，PostCSS 插件隔离样式'
           ]
         }
       },
@@ -98,10 +94,10 @@
         icon: 'https://www.zuolin.com/frontend/web/image/layout/favicon.ico',
         details: {
           园区管理后台系统前端开发: [
-            '使用 AngularJS 和 Material-UI 组件库开发园区后台管理系统，① 为项目接入了 Browser-Sync + Gulp，② 重写了开发、构建脚本，支持了一键开发和部署。'
+            '使用 AngularJS 和 Material-UI 组件库开发园区后台管理系统，为项目接入了 Browser-Sync + Gulp，并重写了开发、构建脚本，支持了一键开发和部署。'
           ],
           左邻线上点餐移动端H5应用开发: [
-            '基于 Hybrid 模式和 React 开发手机端订餐系统，① 为项目接入了 Redux 和热更新；② 对业务模块进行拆分，优化了项目结构，抽离了公共组件和业务组件；③ 为应用热更新设计并实现了离线包差量更新机制。'
+            '基于 Hybrid 模式和 React 开发手机端订餐系统，①为项目接入了 Redux 和热更新，并对业务模块进行拆分，优化了项目结构，抽离了公共组件和业务组件'
           ]
         }
       }
@@ -113,28 +109,28 @@
   <main class="flex flex-col gap-8 p-8 print:p-0">
     <section class="flex flex-col gap-2">
       <h3 class="mb-4 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
-        <iconify-icon icon="mdi:user" height="1.4em"></iconify-icon>
+        <iconify-icon noobserver icon="mdi:user" height="1.4em"></iconify-icon>
         <span class="tracking-widest">个人信息</span>
       </h3>
       <div class="px-4">
         <div class="mb-3 flex gap-6">
           <span>黄百途（男）</span>
           <span class="flex items-center gap-1">
-            <iconify-icon icon="mdi:wechat" class="text-lg opacity-80"></iconify-icon>
+            <iconify-icon noobserver icon="mdi:wechat" class="text-lg opacity-80"></iconify-icon>
             <span>13266570225</span>
           </span>
           <span class="flex items-center gap-1">
-            <iconify-icon icon="mdi:email" class="text-base opacity-80"></iconify-icon>
+            <iconify-icon noobserver icon="mdi:email" class="text-base opacity-80"></iconify-icon>
             <span>1932294867@qq.com</span>
           </span>
         </div>
         <div class="flex gap-6">
           <span class="flex items-center gap-1">
-            <iconify-icon icon="mdi:university-outline" class="text-lg"></iconify-icon>
+            <iconify-icon noobserver icon="mdi:university-outline" class="text-lg"></iconify-icon>
             <span>武汉大学计算机学院 - 全日制本科（2011-2015年）</span>
           </span>
           <span class="flex items-center gap-1">
-            <iconify-icon icon="hugeicons:permanent-job" class="text-lg"></iconify-icon>
+            <iconify-icon noobserver icon="hugeicons:permanent-job" class="text-lg"></iconify-icon>
             <span>期望职位：Web前端开发工程师</span>
           </span>
         </div>
@@ -142,7 +138,7 @@
     </section>
     <section id="jobs">
       <h3 class="mb-5 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
-        <iconify-icon icon="mdi:work-outline"></iconify-icon>
+        <iconify-icon noobserver icon="mdi:work-outline"></iconify-icon>
         <span class="tracking-widest">工作经历</span>
       </h3>
       <div x-data="{jobs: window.jobs}" class="flex flex-col gap-6 px-2">
@@ -155,7 +151,7 @@
             <ol class="list-decimal pl-6">
               <template x-for="(details, title) in job.details">
                 <li class="my-4">
-                  <p x-text="title" class="mb-2"></p>
+                  <p x-text="title" class="mb-2 tracking-wider"></p>
                   <ol type="a" class="list-disc pl-4">
                     <template x-for="detail of details">
                       <li x-text="detail"></li>
@@ -170,10 +166,10 @@
     </section>
     <section>
       <h3 class="mb-5 flex items-center gap-2 rounded bg-zinc-300 px-4 py-1 text-base font-bold">
-        <iconify-icon icon="healthicons:interoperability"></iconify-icon>
+        <iconify-icon noobserver icon="healthicons:interoperability"></iconify-icon>
         <span class="tracking-widest">技能总结</span>
       </h3>
-      <ul class="list-disc pl-8" x-data="{
+      <ul class="list-disc pl-5" x-data="{
         skills: [
           ['HTML', 'CSS', 'JavaScript', 'TypeScript', '','', 'Vue', 'React', 'TailwindCSS'],
           ['Webpack', 'Vite', 'Babel', 'ESLint', 'PostCSS', 'Git', 'Monorepo', 'Nodejs', 'ReactNative(Expo)'],
@@ -187,7 +183,7 @@
           </li>
         </template>
         <li class="flex items-center gap-2">
-          <iconify-icon icon="mdi:github" inline></iconify-icon>
+          <iconify-icon icon="mdi:github" inline noobserver></iconify-icon>
           <a href="https://github.com/lovetingyuan" class="text-cyan-700"
             target="_blank">https://github.com/lovetingyuan</a>
         </li>

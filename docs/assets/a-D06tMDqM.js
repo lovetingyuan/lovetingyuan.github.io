@@ -1,1 +1,0 @@
-import{o as e,c as o,g as s}from"./vendor-Zve-xysi.js";const a={class:"markdown-body"},r=s("h2",null,"others",-1),c=[r],p={__name:"a",setup(n,{expose:t}){return t({frontmatter:{}}),(d,m)=>(e(),o("div",a,c))}};export{p as default};
