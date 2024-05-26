@@ -1,6 +1,6 @@
 
 <script setup>
-import Filter from './Filter.vue'
+import Filter from '@/blogs/leetcode-filter.vue'
 </script>
 
 ### leetcode题目汇总
@@ -239,7 +239,7 @@ import Filter from './Filter.vue'
 |621|[任务调度器](https://leetcode.cn/problems/task-scheduler) |<span style="color: #ffb800" data-level="medium">中等</span>|<span data-status="solved">✅</span>|53.8%|<span aria-label="贪心, 数组, 哈希表, 计数, 排序, 堆（优先队列）" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="facebook,amazon,google" tabindex="1" data-balloon-pos="left"> 🏢</span>|
 |8|[字符串转换整数 (atoi)](https://leetcode.cn/problems/string-to-integer-atoi) |<span style="color: #ffb800" data-level="medium">中等</span>|<span data-status="solved">✅</span>|53.7%|<span aria-label="字符串" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="microsoft,facebook,amazon" tabindex="1" data-balloon-pos="left"> 🏢</span>|
 |58|[最后一个单词的长度](https://leetcode.cn/problems/length-of-last-word) |<span style="color: #00af9b" data-level="easy">简单</span>|<span data-status="solved">✅</span>|53.7%|<span aria-label="字符串" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="amazon,adobe,google" tabindex="1" data-balloon-pos="left"> 🏢</span>|
-|887|[鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop) |<span style="color: #ff2d55" data-level="hard">困难</span>|<span data-status="unsolved">🤔</span>|53.6%|<span aria-label="数学, 二分查找, 动态规划" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="google,bytedance,vivo" tabindex="1" data-balloon-pos="left"> 🏢</span>|
+|887|[鸡蛋掉落](https://leetcode.cn/problems/super-egg-drop) |<span style="color: #ff2d55" data-level="hard">困难</span>|<span data-status="solved">✅</span>|53.6%|<span aria-label="数学, 二分查找, 动态规划" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="google,bytedance,vivo" tabindex="1" data-balloon-pos="left"> 🏢</span>|
 |2469|[温度转换](https://leetcode.cn/problems/convert-the-temperature) |<span style="color: #00af9b" data-level="easy">简单</span>|<span data-status="unsolved">🤔</span>|53.6%|<span aria-label="数学" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="microsoft,amazon,facebook" tabindex="1" data-balloon-pos="left"> 🏢</span>|
 |168|[Excel表列名称](https://leetcode.cn/problems/excel-sheet-column-title) |<span style="color: #00af9b" data-level="easy">简单</span>|<span data-status="solved">✅</span>|53.6%|<span aria-label="数学, 字符串" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="microsoft,google,amazon" tabindex="1" data-balloon-pos="left"> 🏢</span>|
 |210|[课程表 II](https://leetcode.cn/problems/course-schedule-ii) |<span style="color: #ffb800" data-level="medium">中等</span>|<span data-status="solved">✅</span>|53.6%|<span aria-label="深度优先搜索, 广度优先搜索, 图, 拓扑排序" tabindex="1" data-balloon-pos="left">🏷️ </span><span aria-label="amazon,google,microsoft" tabindex="1" data-balloon-pos="left"> 🏢</span>|
