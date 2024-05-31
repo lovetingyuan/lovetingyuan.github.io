@@ -21,8 +21,8 @@ Child.prototype = Object.create(Parent.prototype, {
     writable: true,
     configurable: true,
     enumerable: false,
-    value: Child,
-  },
+    value: Child
+  }
 })
 Child.prototype.getAge = function getAge() {
   return this.age
@@ -71,8 +71,8 @@ var Parent = /*#__PURE__*/ (function () {
   _createClass(Parent, null, [
     {
       key: 'staticMethod',
-      value: function staticMethod() {},
-    },
+      value: function staticMethod() {}
+    }
   ])
   function Parent(a) {
     _classCallCheck(this, Parent) // 检查Parent不能直接调用
@@ -86,8 +86,8 @@ var Parent = /*#__PURE__*/ (function () {
       key: 'protoMethod',
       value: function protoMethod() {
         return 'parent proto'
-      },
-    },
+      }
+    }
   ])
   return Parent
 })()
@@ -125,8 +125,8 @@ var Child = /*#__PURE__*/ (function (_Parent) {
       value: function childStaticMethod() {
         // 这里调用的是父类的方法
         _get(_getPrototypeOf(Child), 'staticMethod', this).call(this)
-      },
-    },
+      }
+    }
   ])
   function Child(a, b) {
     var _this
@@ -145,13 +145,13 @@ var Child = /*#__PURE__*/ (function (_Parent) {
       key: 'protoMethod',
       value: function protoMethod() {
         _get(_getPrototypeOf(Child.prototype), 'protoMethod', this).call(this)
-      },
+      }
     },
     {
       // getter 属性是挂在到原型对象上的
       key: 'getterProp',
-      get: function get() {},
-    },
+      get: function get() {}
+    }
   ])
   return Child
 })(Parent)

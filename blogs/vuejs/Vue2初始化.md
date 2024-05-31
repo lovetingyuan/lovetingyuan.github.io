@@ -63,7 +63,7 @@ Vue 本身支持 web 和 weex 两种平台，所以不同平台的入口也会�
       {
         before() {
           callHook(vm, 'beforeUpdate')
-        },
+        }
       },
       true /* isRenderWatcher */
     )

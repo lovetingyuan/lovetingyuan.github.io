@@ -56,7 +56,7 @@ type AnyObject = Record<string, any>
 const x: Record<'home' | 'about' | 'contact', { title: string }> = {
   about: { title: 'about' },
   contact: { title: 'contact' },
-  home: { title: 'home' },
+  home: { title: 'home' }
 }
 
 // 从类型T中去除属于类型U的类型所得到的剩余类型，T通常是联合类型
@@ -84,7 +84,7 @@ const todo: Omit<
   'description'
 > = {
   title: 'Clean room',
-  completed: false,
+  completed: false
 }
 
 // 去除掉T中的null和undefined
@@ -104,7 +104,11 @@ type T1 = Parameters<(s: string) => void> // [string]
 type T2 = Parameters<typeof f1> // [{ a: number, b: string }]
 
 // 获取构造方法的参数类型列表
-type ConstructorParameters<T extends new (...args: any) => any> = T extends new (...args: infer P) => any ? P : never
+type ConstructorParameters<T extends new (...args: any) => any> = T extends new (
+  ...args: infer P
+) => any
+  ? P
+  : never
 // 例子
 type T0 = ConstructorParameters<ErrorConstructor> // [(string | undefined)?]
 type T1 = ConstructorParameters<FunctionConstructor> // string[]
@@ -122,7 +126,9 @@ type T2 = ReturnType<<T extends U, U extends number[]>() => T> // number[]
 type T3 = ReturnType<typeof f1> // { a: number, b: string }
 
 // 返回构造类型T的实例类型
-type InstanceType<T extends new (...args: any) => any> = T extends new (...args: any) => infer R ? R : any
+type InstanceType<T extends new (...args: any) => any> = T extends new (...args: any) => infer R
+  ? R
+  : any
 // 例子
 class C {
   x = 0
@@ -142,11 +148,12 @@ function numberToString(n: ThisParameterType<typeof toHex>) {
 }
 
 // 去除函数的this类型
-type OmitThisParameter<T> = unknown extends ThisParameterType<T>
-  ? T
-  : T extends (...args: infer A) => infer R
-  ? (...args: A) => R
-  : T
+type OmitThisParameter<T> =
+  unknown extends ThisParameterType<T>
+    ? T
+    : T extends (...args: infer A) => infer R
+      ? (...args: A) => R
+      : T
 // 例子
 function toHex(this: Number) {
   return this.toString(16)
