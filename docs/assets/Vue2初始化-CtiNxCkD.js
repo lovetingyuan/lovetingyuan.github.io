@@ -7,7 +7,7 @@ import{o,c,L as d}from"./vendor-CQk5JuTp.js";const s={class:"markdown-body"},l=d
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  {</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">    before</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      callHook</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(vm, </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;beforeUpdate&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
 <span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF;">  true</span><span style="color:#6A737D;--shiki-dark:#6A737D;"> /* isRenderWatcher */</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">)</span></span></code></pre></li><li>hook <code>mounted</code></li></ul></li></ul>`,6),i=[l],k={__name:"Vue2初始化",setup(n,{expose:e}){return e({frontmatter:{}}),(t,r)=>(o(),c("div",s,i))}};export{k as default};

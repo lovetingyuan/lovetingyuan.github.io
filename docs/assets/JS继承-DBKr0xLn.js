@@ -14,8 +14,8 @@ import{o as a,c as n,L as l}from"./vendor-CQk5JuTp.js";const p={class:"markdown-
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    writable: </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    configurable: </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    enumerable: </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">false</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    value: Child,</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    value: Child</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">})</span></span>
 <span class="line"><span style="color:#005CC5;--shiki-dark:#79B8FF;">Child</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">prototype</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">getAge</span><span style="color:#D73A49;--shiki-dark:#F97583;"> =</span><span style="color:#D73A49;--shiki-dark:#F97583;"> function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> getAge</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  return</span><span style="color:#005CC5;--shiki-dark:#79B8FF;"> this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">.age</span></span>
@@ -50,8 +50,8 @@ import{o as a,c as n,L as l}from"./vendor-CQk5JuTp.js";const p={class:"markdown-
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">  _createClass</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(Parent, </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">null</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">, [</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    {</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      key: </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;staticMethod&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      value</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> staticMethod</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {},</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      value</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> staticMethod</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  ])</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> Parent</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#E36209;--shiki-dark:#FFAB70;">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">    _classCallCheck</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">, Parent) </span><span style="color:#6A737D;--shiki-dark:#6A737D;">// 检查Parent不能直接调用</span></span>
@@ -65,8 +65,8 @@ import{o as a,c as n,L as l}from"./vendor-CQk5JuTp.js";const p={class:"markdown-
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      key: </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;protoMethod&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      value</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> protoMethod</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">        return</span><span style="color:#032F62;--shiki-dark:#9ECBFF;"> &#39;parent proto&#39;</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  ])</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> Parent</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">})()</span></span>
@@ -104,8 +104,8 @@ import{o as a,c as n,L as l}from"./vendor-CQk5JuTp.js";const p={class:"markdown-
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      value</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> childStaticMethod</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D;">        // 这里调用的是父类的方法</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">        _get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">_getPrototypeOf</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(Child), </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;staticMethod&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">call</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  ])</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> Child</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#E36209;--shiki-dark:#FFAB70;">a</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="color:#E36209;--shiki-dark:#FFAB70;">b</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">) {</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">    var</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> _this</span></span>
@@ -124,13 +124,13 @@ import{o as a,c as n,L as l}from"./vendor-CQk5JuTp.js";const p={class:"markdown-
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      key: </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;protoMethod&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      value</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> protoMethod</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {</span></span>
 <span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">        _get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">_getPrototypeOf</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">Child</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">prototype</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">), </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;protoMethod&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="color:#005CC5;--shiki-dark:#79B8FF;">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">).</span><span style="color:#6F42C1;--shiki-dark:#B392F0;">call</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="color:#005CC5;--shiki-dark:#79B8FF;">this</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    {</span></span>
 <span class="line"><span style="color:#6A737D;--shiki-dark:#6A737D;">      // getter 属性是挂在到原型对象上的</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">      key: </span><span style="color:#032F62;--shiki-dark:#9ECBFF;">&#39;getterProp&#39;</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
-<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {},</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#B392F0;">      get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="color:#D73A49;--shiki-dark:#F97583;">function</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> get</span><span style="color:#24292E;--shiki-dark:#E1E4E8;">() {}</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  ])</span></span>
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  return</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> Child</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">})(Parent)</span></span>
