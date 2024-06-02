@@ -27,7 +27,7 @@ export default defineConfig((environment) => ({
       input: {
         index: fileURLToPath(new URL('index.html', import.meta.url)),
         ppp: fileURLToPath(new URL('ppp.html', import.meta.url))
-      }
+      },
     }
   },
   plugins: [
