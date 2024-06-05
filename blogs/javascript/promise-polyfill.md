@@ -148,6 +148,7 @@ Promise.prototype.then = function then(onResolve, onReject) {
   }
   ```
 - `Promise.all`
+
   ```javascript
   Promise.all = function all(values) {
     return new Promise((resolve, reject) => {
@@ -173,6 +174,7 @@ Promise.prototype.then = function then(onResolve, onReject) {
     })
   }
   ```
+
 - [`Promise.allSettled`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)，等待所有 promise 结束，返回一个结果数组
 
   ```js
@@ -259,6 +261,21 @@ Promise.prototype.then = function then(onResolve, onReject) {
           promises[i].then(onFulfilled, onRejected)
         }
       })
+    }
+  }
+  ```
+
+- [`Promise.withResolvers`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/withResolvers)
+
+  ```js
+  if (typeof Promise.withResolvers === 'undefined') {
+    Promise.withResolvers = function () {
+      let resolve, reject
+      const promise = new Promise((res, rej) => {
+        resolve = res
+        reject = rej
+      })
+      return { promise, resolve, reject }
     }
   }
   ```
