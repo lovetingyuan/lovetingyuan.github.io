@@ -1,7 +1,11 @@
 <template>
   <header class="flex items-center justify-between px-4 pt-6 md:px-6 lg:px-8">
     <h4 class="m-0 select-none text-xl">
-      <router-link to="/">庭院 Ⴆʅσɠ</router-link>
+      <router-link to="/">
+        <span class="bg-gradient-to-r from-[#56B4D3] to-[#348F50] bg-clip-text text-transparent"
+          >庭院 Ⴆʅσɠ</span
+        >
+      </router-link>
     </h4>
     <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
       <li class="float-left mx-2 my-2 sm:mx-5">

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="px-2">
     <span class="float-right ml-3 text-base">
       <router-link :to="`/blog/${cate}`" class="capitalize">{{ cate }}</router-link>
       <a

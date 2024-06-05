@@ -14,7 +14,7 @@
           v-if="music.playLink"
           @click="store.playingMusic = music.playLink"
           rel="noreferrer noopener"
-          class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 text-5xl text-white no-underline hover:text-gray-300"
+          class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 cursor-pointer text-5xl text-white no-underline hover:text-gray-300"
         >
           <iconify-icon
             v-show="music.playLink !== store.playingMusic"

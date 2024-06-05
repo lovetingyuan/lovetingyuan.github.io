@@ -8,7 +8,6 @@
       icon="material-symbols:arrow-circle-up"
       class="text-4xl hover:text-cyan-600"
     ></iconify-icon>
-    <!-- <icon-material-symbols-arrow-circle-up class="text-3xl hover:text-cyan-600" /> -->
   </div>
 </template>
 

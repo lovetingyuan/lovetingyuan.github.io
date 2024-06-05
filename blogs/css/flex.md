@@ -35,3 +35,9 @@
 - `align-self`
   可以单独设置在交叉轴上的对齐方式，会覆盖`align-items`属性<br>
   `auto | flex-start | flex-end | center | baseline | stretch;`
+
+资源：
+
+- https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/
+- https://flexboxfroggy.com/
+- https://flexbox.tech/

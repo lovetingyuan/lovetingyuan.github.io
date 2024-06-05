@@ -2,6 +2,9 @@
   <router-view />
   <UpdateButton @click="updateServiceWorker()" v-if="needRefresh" />
   <ColorSwitch />
+  <div>
+    <!-- https://bg.ibelick.com/ -->
+  </div>
 </template>
 
 <script setup lang="ts">

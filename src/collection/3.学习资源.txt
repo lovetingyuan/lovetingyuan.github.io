@@ -1,4 +1,3 @@
-github: https://github.com
 MDH: https://mdhweekly.com/weekly
 WebDev: https://web.dev/
 leetcode: https://leetcode-cn.com/problemset/algorithms/?difficulty=MEDIUM&page=1&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D

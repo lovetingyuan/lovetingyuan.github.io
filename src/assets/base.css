@@ -42,7 +42,7 @@ body {
     Arial,
     sans-serif;
   font-size: 15px;
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   color: var(--text-color);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
