@@ -1,4 +1,5 @@
 <template>
+  <test />
   <router-view />
   <UpdateButton @click="updateServiceWorker()" v-if="needRefresh" />
   <ColorSwitch />
@@ -21,7 +22,7 @@ const { needRefresh, updateServiceWorker } = useRegisterSW({
         () => {
           r.update()
         },
-        4 * 60 * 60 * 1000
+        60 * 60 * 1000
       )
   }
 })

@@ -58,4 +58,6 @@ vnode 就是虚拟 dom 节点，它会包含以下一些主要的内容：
     - 旧队列遍历完毕，剩余的新首到新尾这些节点都是需要新建的节点
     - 新队列遍历完毕，旧首到旧尾的这些节点都需要被清除
 
+![示例](https://cdn.nlark.com/yuque/0/2020/gif/1355506/1598423349095-73718a2f-88d3-440e-af5e-5475755598ee.gif#align=left&display=inline&height=375&margin=%5Bobject%20Object%5D&name=vue2-dom-diff.gif&originHeight=375&originWidth=600&size=542460&status=done&style=none&width=600)
+
 diff-patch 的过程是参考了[`Snabbdom`](https://github.com/snabbdom/snabbdom)的实现。
