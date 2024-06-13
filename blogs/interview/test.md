@@ -128,7 +128,7 @@
    </div>
    ```
 
-4. 实现以下功能
+4. 实现以下功能，并说下这段代码有什么问题
 
    ```js
    '#foo'.html = '<b>foo</b>'
@@ -143,11 +143,7 @@
 
 ## vue
 
-1. 请说出
-   去掉 one: (2 1 0 \n 1 1 0)<br>
-   或去掉 two (2 1 0 \n 1 1 1)<br>
-   或者保留二者 (2 2 0 \n 1 2 2)<br>
-   三种情况下点击 add 的输出
+1. 请说出：去掉 one 与否的差异
 
    ```html
    <template>
@@ -169,6 +165,13 @@
            })
            two: this.count++
            console.log(2, this.count, this.$refs.count.textContent)
+           this.$nextTick(() => {
+             console.log(3, this.count, this.$refs.count.textContent)
+           })
+           three: this.count++
+           this.$nextTick(() => {
+             console.log(4, this.count, this.$refs.count.textContent)
+           })
          }
        }
      }
