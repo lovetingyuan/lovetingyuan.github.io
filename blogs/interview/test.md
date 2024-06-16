@@ -27,6 +27,7 @@
    hidden display visibility opacity content-visibility 绝对定位 size=0 clip-path:polygon(0 0)
 3. 实现一个小矩形逐渐变成大矩形的效果，有多少实现方式？
 4. 了解 gpu 硬件加速吗 背后的原理和流程是什么
+5. 在html中，我想展示一个图片，除了使用img标签之外还有哪些方式？(picture,css#(background,border-image,list-style-image,content...),input[type=image],image(svg),object,embed,canvas,iframe)
 
 ## javascript
 

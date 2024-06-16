@@ -83,7 +83,10 @@ article .markdown-body code:not([class]) {
   font-size: 0.9em;
   padding: 0.15em 0.4em;
 }
-
+article .markdown-body img {
+  width: 50%;
+  max-width: 100%;
+}
 /* article .markdown-body pre.shiki code {
   font-weight: 400;
   margin: 0;

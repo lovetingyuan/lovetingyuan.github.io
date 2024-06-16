@@ -4,3 +4,4 @@ CCTV: https://tv.cctv.com/live/
 2bt0: https://www.2bt0.com/
 B站: https://bilibili.com
 影视站: https://www.m2077.com/
+watching: https://www.watching.zone/

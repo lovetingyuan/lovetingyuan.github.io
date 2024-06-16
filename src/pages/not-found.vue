@@ -6,7 +6,7 @@
       <code>
         <i>{{ path }}</i>
       </code>
-      )找不到，请检查地址或刷新重试
+      )找不到，请检查地址
       <br />
       <br />
       <RouterLink

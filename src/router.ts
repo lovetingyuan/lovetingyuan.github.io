@@ -13,7 +13,13 @@ function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
     history: historyMethod(import.meta.env.BASE_URL),
-    scrollBehavior: () => ({ top: 0 }),
+    scrollBehavior(to, from, savedPosition) {
+      // return desired position
+      if (to.name === RouteName.BlogContent) {
+        return { top: 0 }
+      }
+      return savedPosition || { top: 0 }
+    },
     routes: [
       { path: '/:anyPath(.*)*', name: RouteName.NotFound, component: NotFound },
       {

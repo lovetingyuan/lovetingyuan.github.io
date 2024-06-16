@@ -12,7 +12,7 @@ Set-Cookie: username=jimu; Domain=jimu.com; Path=/blog; Expires=Wed, 21 Oct 2015
   3. Path属性必须为'/'
 - `__Secure-` 前缀则稍微弱化一些，需要满足上面的第一个条件
 
-如果cookie名称携带了这两个前缀但是又不满足这些条件，浏览器会拒绝写入。
+如果cookie名称携带了这两个前缀但是又不满足这些条件，浏览器会拒绝写入。cookie前缀对cookie的设置提供了一个限制的机制，这有利于cookie的安全。
 
 ---
 
@@ -20,6 +20,8 @@ Domain 和 Path 标识定义了 Cookie 的作用域：即 Cookie 应该发送给
 
 - Domain 标识指定了哪些主机可以接受 Cookie。
   如果不指定，默认为当前主机，不包含子域名。如果指定了Domain，则只能指定当前域名或其父域名，此时其子域名也通常会生效。例如，如果设置 `Domain=mozilla.org`，则 Cookie 也包含在子域名中，如`developer.mozilla.org`（这里的父子域名同样遵循跨站的定义）。如果域名不符合上述要求，则会默认设置失败。另外cookie的作用域不受端口的影响。
+
+  对于拥有多个子域名的系统来说，某个子域名设置的cookie是有可能影响到其他子域名的，这有可能会带来冲突和不安全的影响。
 
 - Path则限制了cookie在有效域名下面可以生效的地址，例如Path=/docs，则以下地址都会匹配：
 

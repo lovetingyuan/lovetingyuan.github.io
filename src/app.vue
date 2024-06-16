@@ -1,5 +1,4 @@
 <template>
-  <test />
   <router-view />
   <UpdateButton @click="updateServiceWorker()" v-if="needRefresh" />
   <ColorSwitch />

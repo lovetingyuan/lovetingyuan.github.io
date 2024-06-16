@@ -14,8 +14,10 @@ export default function start() {
   app.use(router)
   app.config.warnHandler = (message, instance, trace) => {
     // `trace` is the component hierarchy trace
-    // eslint-disable-next-line no-console
-    console.log('[Vue warn]:', message, instance, trace)
+    if (import.meta.env.DEV) {
+      // eslint-disable-next-line no-console
+      console.log('[Vue warn]:', message, instance, trace)
+    }
   }
   return {
     app,
