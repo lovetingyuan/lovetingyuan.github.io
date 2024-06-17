@@ -21,21 +21,21 @@
         <input type="radio" name="status" v-model="status" value="unsolved" />
       </label>
     </div>
-    <div class="mr-10 flex gap-5" style="margin-right: 60px">
+    <div class="mr-16 flex gap-5">
       <label>
         全部
         <input type="radio" name="level" v-model="level" value="all" />
       </label>
       <label>
-        <span style="color: #00af9b">简单 </span>
+        <span class="text-[#00af9b]">简单 </span>
         <input type="radio" name="level" v-model="level" value="easy" />
       </label>
       <label>
-        <span style="color: #ffb800">中等 </span>
+        <span class="text-[#ffb800]">中等 </span>
         <input type="radio" name="level" v-model="level" value="medium" />
       </label>
       <label>
-        <span style="color: #ff2d55">困难 </span>
+        <span class="text-[#ff2d55]">困难 </span>
         <input type="radio" name="level" v-model="level" value="hard" />
       </label>
     </div>
