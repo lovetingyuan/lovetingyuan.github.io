@@ -3,7 +3,7 @@ import './assets/style.css'
 
 import { createApp, createSSRApp } from 'vue'
 
-import App from './app.vue'
+import App from './App.vue'
 import { createRoute } from './router'
 
 export default function start() {

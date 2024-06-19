@@ -3,7 +3,7 @@
     <li v-for="(list, c) of displayBlogList" :key="c" class="overflow-hidden">
       <h3 class="mb-3 text-lg font-bold">
         <span v-if="cate" class="capitalize">{{ c }}</span>
-        <router-link v-else :to="`/blog/${c}`" class="capitalize">{{ c }}</router-link>
+        <RouterLink v-else :to="`/blog/${c}`" class="capitalize">{{ c }}</RouterLink>
         <a
           v-if="cate"
           :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
@@ -18,7 +18,7 @@
       </h3>
       <ul class="mb-8 ml-4">
         <li v-for="name of list" :key="name" class="my-3">
-          <router-link :to="`/blog/${c}/${name}`">{{ name }}</router-link>
+          <RouterLink :to="`/blog/${c}/${name}`">{{ name }}</RouterLink>
         </li>
       </ul>
     </li>

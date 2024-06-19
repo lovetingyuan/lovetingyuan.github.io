@@ -1,13 +1,13 @@
 import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
 import { RouteName } from './constants'
-import BlogList from './pages/blog-list.vue'
-import Home from './pages/home-page.vue'
-import Loading from './pages/loading-page.vue'
-import Movie from './pages/movie-page.vue'
-import Music from './pages/music-page.vue'
-import NotFound from './pages/not-found.vue'
-import SitesList from './pages/sites-list.vue'
+import BlogList from './pages/BlogList.vue'
+import Home from './pages/HomePage.vue'
+import Loading from './pages/LoadingPage.vue'
+import Movie from './pages/MoviePage.vue'
+import Music from './pages/MusicPage.vue'
+import NotFound from './pages/NotFound.vue'
+import SitesList from './pages/SitesList.vue'
 
 function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
@@ -49,7 +49,7 @@ function createRoute() {
           {
             name: RouteName.BlogContent,
             path: '/blog/:cate/:name',
-            component: () => import('@/pages/blog-content.vue'),
+            component: () => import('@/pages/BlogContent.vue'),
             meta: {
               title: ({ cate, name }: { cate: string; name: string }) =>
                 `博客 - ${cate + '/' + name}`

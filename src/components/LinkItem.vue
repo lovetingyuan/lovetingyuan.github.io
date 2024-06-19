@@ -21,6 +21,9 @@
 <script lang="ts" setup>
 // import { computed } from 'vue'
 // import { useMediaQuery } from '@vueuse/core'
+// defineOptions({
+//   name: 'LinkItem'
+// })
 
 const properties = defineProps<{
   a: {

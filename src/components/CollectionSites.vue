@@ -20,7 +20,7 @@
         </summary>
         <ul class="mt-5">
           <li v-for="site of list" :key="site.url" class="mx-4 my-2.5 inline-block">
-            <link-item :a="site" :size="24" />
+            <LinkItem :a="site" :size="24" />
           </li>
         </ul>
       </details>
@@ -30,5 +30,5 @@
 
 <script setup lang="ts">
 import collections from '../collection'
-import LinkItem from './link-item.vue'
+import LinkItem from './LinkItem.vue'
 </script>

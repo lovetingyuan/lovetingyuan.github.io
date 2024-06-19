@@ -3,7 +3,7 @@
     <figure class="my-3">
       <ul class="list-none p-0">
         <li v-for="a of commonLinks2" :key="a.url" class="mx-6 my-4 inline-block text-center">
-          <link-item :a="a" :size="28" />
+          <LinkItem :a="a" :size="28" />
         </li>
         <li class="mx-6 my-4 inline-block text-center">
           <a
@@ -24,9 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import CollectionSites from '@/components/collection-sites.vue'
+import CollectionSites from '@/components/CollectionSites.vue'
 
-import LinkItem from '../components/link-item.vue'
+import LinkItem from '../components/LinkItem.vue'
 import commonLinks from './common-sites.txt?raw'
 const commonLinks2 = commonLinks
   .trim()

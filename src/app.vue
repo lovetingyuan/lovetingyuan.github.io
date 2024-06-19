@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <RouterView />
   <UpdateButton @click="updateServiceWorker()" v-if="needRefresh" />
   <ColorSwitch />
   <div>
@@ -10,8 +10,8 @@
 <script setup lang="ts">
 import { useRegisterSW } from 'virtual:pwa-register/vue'
 
-import ColorSwitch from './components/color-switch.vue'
-import UpdateButton from './components/update-button.vue'
+import ColorSwitch from './components/ColorSwitch.vue'
+import UpdateButton from './components/UpdateButton.vue'
 
 const { needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: false,

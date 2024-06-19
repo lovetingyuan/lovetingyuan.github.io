@@ -20,7 +20,15 @@ module.exports = {
     'no-console': 'error',
     'no-duplicate-imports': 'error',
     'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error'
+    'simple-import-sort/exports': 'error',
+    'vue/component-name-in-template-casing': [
+      'error',
+      'PascalCase',
+      {
+        registeredComponentsOnly: false,
+        ignores: ['iconify-icon']
+      }
+    ]
   },
   overrides: [
     {

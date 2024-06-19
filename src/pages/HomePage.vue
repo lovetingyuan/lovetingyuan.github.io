@@ -1,15 +1,15 @@
 <template>
   <header class="flex items-center justify-between px-4 pt-6 md:px-6 lg:px-8">
     <h4 class="m-0 select-none text-xl">
-      <router-link to="/">
+      <RouterLink to="/">
         <span class="bg-gradient-to-r from-[#56B4D3] to-[#348F50] bg-clip-text text-transparent"
           >庭院 Ⴆʅσɠ</span
         >
-      </router-link>
+      </RouterLink>
     </h4>
     <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link
+        <RouterLink
           :to="{ name: RouteName.BlogList }"
           class="text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
         >
@@ -21,10 +21,10 @@
             class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-article class="align-sub" /> -->
-        </router-link>
+        </RouterLink>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link
+        <RouterLink
           :to="{ name: RouteName.Music }"
           class="text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
         >
@@ -35,10 +35,10 @@
             class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-library-music class="align-sub" /> -->
-        </router-link>
+        </RouterLink>
       </li>
       <li class="float-left mx-2 my-2 sm:mx-5">
-        <router-link
+        <RouterLink
           :to="{ name: RouteName.Movie }"
           class="text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
         >
@@ -49,21 +49,21 @@
             class="align-[-0.15em] text-xl"
           ></iconify-icon>
           <!-- <icon-material-symbols-movie class="align-sub" /> -->
-        </router-link>
+        </RouterLink>
       </li>
     </ul>
   </header>
   <main class="px-2 pb-20 pt-8 md:px-5 lg:px-8">
-    <router-view v-slot="{ Component, route }">
-      <transition
+    <RouterView v-slot="{ Component, route }">
+      <Transition
         v-if="!reduceAnimation"
         :name="(route.meta.animation as string) || 'fade'"
         mode="out-in"
       >
         <component :is="Component" />
-      </transition>
+      </Transition>
       <component v-else :is="Component" />
-    </router-view>
+    </RouterView>
   </main>
   <footer class="absolute bottom-0 left-0 h-8 w-full select-none text-center text-xs text-zinc-500">
     <span class="mr-2">{{ time }}</span>
@@ -89,7 +89,7 @@
 import { useMediaQuery } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
 
-import GoTop from '../components/go-top.vue'
+import GoTop from '../components/GoTop.vue'
 import { RouteName } from '../constants'
 
 const time = ref('')

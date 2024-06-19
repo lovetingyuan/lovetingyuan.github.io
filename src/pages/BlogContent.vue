@@ -1,7 +1,7 @@
 <template>
   <section class="px-2">
     <span class="float-right ml-3 text-base">
-      <router-link :to="`/blog/${cate}`" class="capitalize">{{ cate }}</router-link>
+      <RouterLink :to="`/blog/${cate}`" class="capitalize">{{ cate }}</RouterLink>
       <a
         class="ml-3 align-text-top"
         title="编辑"
@@ -28,7 +28,7 @@ import { useColorMode, useStyleTag } from '@vueuse/core'
 import { ref, watchEffect } from 'vue'
 
 import useBlogs from '@/blogs'
-import CircleLoading from '@/components/circle-loading.vue'
+import CircleLoading from '@/components/CircleLoading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 const articleContainerRef = ref<HTMLElement | null>(null)

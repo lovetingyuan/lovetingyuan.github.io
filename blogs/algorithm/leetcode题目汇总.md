@@ -1,11 +1,11 @@
 
 <script setup>
-import Filter from '@/blogs/leetcode-filter.vue'
+import LeetcodeFilter from '@/blogs/LeetcodeFilter.vue'
 </script>
 
 ### leetcode题目汇总
 
-<Filter />
+<LeetcodeFilter />
 
 | No. | 名称 | 难度 | 状态 | 概率 | 标签 |
 |---------|---------|---------|---------|----------|---------|
