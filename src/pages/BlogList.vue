@@ -1,5 +1,5 @@
 <template>
-  <ul class="blog-list columns-2 gap-5" v-if="Object.keys(displayBlogList).length > 0">
+  <ul v-if="Object.keys(displayBlogList).length > 0" class="blog-list columns-2 gap-5">
     <li v-for="(list, c) of displayBlogList" :key="c" class="overflow-hidden">
       <h3 class="mb-3 text-lg font-bold">
         <span v-if="cate" class="capitalize">{{ c }}</span>
@@ -28,6 +28,9 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+defineOptions({
+  name: 'BlogList'
+})
 
 import useBlogs from '@/blogs'
 

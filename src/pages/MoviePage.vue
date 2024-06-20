@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
-    <div class="flex gap-6 text-sm" v-for="movie of movies" :key="movie.name">
+    <div v-for="movie of movies" :key="movie.name" class="flex gap-6 text-sm">
       <img
         class="inline-block shrink-0 rounded-md object-cover"
         loading="lazy"
@@ -15,7 +15,7 @@
             movie.name
           }}</a>
         </p>
-        <p class="leading-[1.5]" v-for="info of movie.infos" :key="info">
+        <p v-for="info of movie.infos" :key="info" class="leading-[1.5]">
           <span class="text-sm">{{ info }}</span>
         </p>
         <p>

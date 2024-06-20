@@ -62,7 +62,7 @@
       >
         <component :is="Component" />
       </Transition>
-      <component v-else :is="Component" />
+      <component :is="Component" v-else />
     </RouterView>
   </main>
   <footer class="absolute bottom-0 left-0 h-8 w-full select-none text-center text-xs text-zinc-500">

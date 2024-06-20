@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center" v-show="show">
+  <div v-show="show" class="text-center">
     <div
       class="border-3 mx-auto my-0 box-border h-20 w-20 animate-spin rounded-full border-8 border-teal-200 border-t-teal-600"
     ></div>

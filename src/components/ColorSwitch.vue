@@ -1,11 +1,11 @@
 <template>
   <div
     class="fixed right-4 top-2 cursor-pointer text-xl opacity-80 hover:opacity-100"
-    @click="switchColor"
     title="切换亮/暗色"
+    @click="switchColor"
   >
-    <iconify-icon icon="material-symbols:dark-mode" v-show="colorMode === 'dark'"></iconify-icon>
-    <iconify-icon icon="material-symbols:light-mode" v-show="colorMode === 'light'"></iconify-icon>
+    <iconify-icon v-show="colorMode === 'dark'" icon="material-symbols:dark-mode"></iconify-icon>
+    <iconify-icon v-show="colorMode === 'light'" icon="material-symbols:light-mode"></iconify-icon>
   </div>
 </template>
 

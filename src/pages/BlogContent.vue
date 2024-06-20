@@ -12,7 +12,7 @@
         <iconify-icon icon="material-symbols:edit-document-rounded"></iconify-icon>
       </a>
     </span>
-    <div class="pb-[10vh] pt-[15vh]" v-if="blogStatus === 'loading'">
+    <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">
       <CircleLoading :defer="600" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>

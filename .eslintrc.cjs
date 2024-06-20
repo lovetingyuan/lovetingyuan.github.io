@@ -5,6 +5,8 @@ module.exports = {
   root: true,
   extends: [
     'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-strongly-recommended',
+    'plugin:vue/vue3-recommended',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting',
@@ -28,7 +30,15 @@ module.exports = {
         registeredComponentsOnly: false,
         ignores: ['iconify-icon']
       }
-    ]
+    ],
+    'vue/match-component-file-name': [
+      'error',
+      {
+        extensions: ['vue', 'jsx', 'tsx'],
+        shouldMatchCase: true
+      }
+    ],
+    'vue/component-definition-name-casing': ['error', 'PascalCase']
   },
   overrides: [
     {

@@ -12,9 +12,9 @@
         />
         <span
           v-if="music.playLink"
-          @click="store.playingMusic = music.playLink"
           rel="noreferrer noopener"
           class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 cursor-pointer text-5xl text-white no-underline hover:text-gray-300"
+          @click="store.playingMusic = music.playLink"
         >
           <iconify-icon
             v-show="music.playLink !== store.playingMusic"
@@ -38,7 +38,7 @@
             >{{ music.name }}</a
           >
         </p>
-        <p class="leading-[2]" v-for="info of music.infos" :key="info">
+        <p v-for="info of music.infos" :key="info" class="leading-[2]">
           <span class="text-sm">{{ info }}</span>
         </p>
       </div>

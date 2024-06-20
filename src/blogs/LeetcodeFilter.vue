@@ -10,33 +10,33 @@
     <div class="flex gap-4">
       <label>
         全部
-        <input type="radio" name="status" v-model="status" value="all" />
+        <input v-model="status" type="radio" name="status" value="all" />
       </label>
       <label>
         ✅({{ solvedCount }})
-        <input type="radio" name="status" v-model="status" value="solved" />
+        <input v-model="status" type="radio" name="status" value="solved" />
       </label>
       <label>
         🤔
-        <input type="radio" name="status" v-model="status" value="unsolved" />
+        <input v-model="status" type="radio" name="status" value="unsolved" />
       </label>
     </div>
     <div class="mr-16 flex gap-5">
       <label>
         全部
-        <input type="radio" name="level" v-model="level" value="all" />
+        <input v-model="level" type="radio" name="level" value="all" />
       </label>
       <label>
         <span class="text-[#00af9b]">简单 </span>
-        <input type="radio" name="level" v-model="level" value="easy" />
+        <input v-model="level" type="radio" name="level" value="easy" />
       </label>
       <label>
         <span class="text-[#ffb800]">中等 </span>
-        <input type="radio" name="level" v-model="level" value="medium" />
+        <input v-model="level" type="radio" name="level" value="medium" />
       </label>
       <label>
         <span class="text-[#ff2d55]">困难 </span>
-        <input type="radio" name="level" v-model="level" value="hard" />
+        <input v-model="level" type="radio" name="level" value="hard" />
       </label>
     </div>
   </div>

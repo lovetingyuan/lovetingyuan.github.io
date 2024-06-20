@@ -26,16 +26,16 @@ export default function start() {
 }
 
 if (!import.meta.env.SSR) {
-  if (typeof console === 'object') {
-    // eslint-disable-next-line no-console
-    console.log(
-      // @ts-ignore
-      `%c Build: ${window._buildTime} ${window._buildHash} `,
-      'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
-    )
-  }
   const { app, router } = start()
   router.isReady().then(() => {
     app.mount('#app')
   })
+  // eslint-disable-next-line no-console
+  console.log(
+    // @ts-ignore
+    `%c Build: ${window._buildTime} ${window._buildHash} `,
+    'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
+  )
+  // eslint-disable-next-line no-console
+  console.log('https://github.com/lovetingyuan')
 }
