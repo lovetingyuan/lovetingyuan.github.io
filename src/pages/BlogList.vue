@@ -28,9 +28,6 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-defineOptions({
-  name: 'BlogList'
-})
 
 import useBlogs from '@/blogs'
 

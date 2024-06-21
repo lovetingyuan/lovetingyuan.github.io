@@ -3,7 +3,7 @@
     <figure class="my-3">
       <ul class="list-none p-0">
         <li v-for="a of commonLinks2" :key="a.url" class="mx-6 my-4 inline-block text-center">
-          <LinkItem :a="a" :size="28" />
+          <LinkItem :a="a" :size="32" />
         </li>
         <li class="mx-6 my-4 inline-block text-center">
           <a

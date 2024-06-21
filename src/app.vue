@@ -12,6 +12,7 @@ import { useRegisterSW } from 'virtual:pwa-register/vue'
 
 import ColorSwitch from './components/ColorSwitch.vue'
 import UpdateButton from './components/UpdateButton.vue'
+
 const { needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: false,
   onRegisteredSW(u, r) {

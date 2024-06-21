@@ -13,11 +13,11 @@
       </a>
     </span>
     <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">
-      <CircleLoading :defer="600" />
+      <CircleLoading :defer="400" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
     <div v-if="blogStatus === 'notFound'">当前文章不存在</div>
-    <article v-if="blogStatus === 'loaded'" ref="articleContainerRef">
+    <article v-if="blogStatus === 'loaded'">
       <component :is="articleCmp"> </component>
     </article>
   </section>
@@ -25,13 +25,12 @@
 
 <script lang="ts" setup>
 import { useColorMode, useStyleTag } from '@vueuse/core'
-import { ref, watchEffect } from 'vue'
+import { watchEffect } from 'vue'
 
 import useBlogs from '@/blogs'
 import CircleLoading from '@/components/CircleLoading.vue'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
-const articleContainerRef = ref<HTMLElement | null>(null)
 
 const colorMode = useColorMode()
 watchEffect(() => {
