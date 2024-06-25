@@ -2,8 +2,9 @@
   <RouterView />
   <UpdateButton v-if="needRefresh" @click="updateServiceWorker()" />
   <ColorSwitch />
-  <div>
+  <div hidden>
     <!-- https://bg.ibelick.com/ -->
+    <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
   </div>
 </template>
 
