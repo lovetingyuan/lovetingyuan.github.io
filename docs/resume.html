@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
     <title>前端开发工程师-个人简历</title>
     <script src="js/reload.js"></script>
     <link
@@ -27,7 +28,6 @@
           'Droid Sans',
           'Helvetica Neue',
           sans-serif;
-        font-size: 15px;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -116,14 +116,32 @@
         </h3>
         <div class="px-4">
           <div class="mb-3 flex gap-6">
-            <span>黄百途（男）</span>
+            <span
+              x-data="{
+              n: 'JUU5JUJCJTg0JUU3JTk5JUJFJUU5JTgwJTk0JUVGJUJDJTg4JUU3JTk0JUI3JUVGJUJDJTg5'
+            }"
+              x-text="decodeURIComponent(atob(n))"
+            >
+            </span>
             <span class="flex items-center gap-1">
               <iconify-icon noobserver icon="mdi:wechat" class="text-lg opacity-80"></iconify-icon>
-              <span>13266570225</span>
+              <span
+                x-data="{p: (123456 * 98765432 - 876543 + 7654321 * 17) / 2 - 6083390639728}"
+                x-text="p"
+                >-</span
+              >
             </span>
             <span class="flex items-center gap-1">
               <iconify-icon noobserver icon="mdi:email" class="text-base opacity-80"></iconify-icon>
-              <span>1932294867@qq.com</span>
+              <span
+                x-data="
+              {
+                d: [49,57,51,50,50,57,52,56,54,55,64,113,113,46,99,111,109]
+              }
+              "
+                x-text="d.map(v=>String.fromCharCode(v)).join('')"
+                >-</span
+              >
             </span>
           </div>
           <div class="flex gap-6">
