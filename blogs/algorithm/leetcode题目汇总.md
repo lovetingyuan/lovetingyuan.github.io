@@ -1,5 +1,5 @@
 <script setup>
-import Filter from '@/blogs/leetcode-filter.vue'
+import Filter from '@/blogs/LeetcodeFilter.vue'
 </script>
 
 ### leetcode题目汇总
