@@ -96,11 +96,18 @@ const config = (ssrBuild: boolean) =>
       // },
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
       globIgnores: ['js/*', 'resume.html'],
-      navigateFallbackDenylist: [/.+\.txt$/, /\/resume(\.html)?$/, /\/minibili\//, /\.pdf$/],
+      navigateFallbackDenylist: [/.+\.txt$/, /\/minibili\//, /\.pdf$/, /\/api\//],
       disableDevLogs: true,
       // importScripts: ['./a.js'],
       // navigateFallback: '404.html',
       runtimeCaching: [
+        {
+          urlPattern: ({ url }) => {
+            const ignorePaths = ['/minibili/', '/api/']
+            return ignorePaths.some((p) => url.pathname.startsWith(p))
+          },
+          handler: 'NetworkOnly'
+        },
         {
           urlPattern: ({ request }) => {
             if (request.url.includes('api.faviconkit.com')) {

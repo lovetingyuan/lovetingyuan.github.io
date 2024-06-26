@@ -1,5 +1,7 @@
 ### react fiber
 
+> https://jser.pro/ddir/rie 这里有一个fiber工作可视化的演练场
+
 当React组件状态变化时，react需要重新渲染该组件，此时会向任务调度器（Scheduler）推入一个渲染更新的任务，任务总是从当前fibre树的**根节点**开始进行协调作业（scheduleUpdateOnFiber -> ensureRootIsScheduled -> performSyncWorkOnRoot/performConcurrentWorkOnRoot -> performUnitOfWork(will check spare time) -> beginWork|completeUnitOfWork）。
 
 ![](https://7km.top/static/reactfiberworkloop.b647e134.png)

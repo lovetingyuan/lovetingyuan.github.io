@@ -85,8 +85,8 @@ importers:
         specifier: ^12.1.0
         version: 12.1.0(eslint@8.57.0)
       eslint-plugin-sonarjs:
-        specifier: ^1.0.3
-        version: 1.0.3(eslint@8.57.0)
+        specifier: ^0.25.1
+        version: 0.25.1(eslint@8.57.0)
       eslint-plugin-vue:
         specifier: ^9.26.0
         version: 9.26.0(eslint@8.57.0)
@@ -1842,11 +1842,11 @@ packages:
     peerDependencies:
       eslint: '>=5.0.0'
 
-  eslint-plugin-sonarjs@1.0.3:
-    resolution: {integrity: sha512-6s41HLPYPyDrp+5+7Db5yFYbod6h9pC7yx+xfcNwHRcLe1EZwbbQT/tdOAkR7ekVUkNGEvN3GmYakIoQUX7dEg==}
+  eslint-plugin-sonarjs@0.25.1:
+    resolution: {integrity: sha512-5IOKvj/GMBNqjxBdItfotfRHo7w48496GOu1hxdeXuD0mB1JBlDCViiLHETDTfA8pDAVSBimBEQoetRXYceQEw==}
     engines: {node: '>=16'}
     peerDependencies:
-      eslint: ^8.0.0 || ^9.0.0
+      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
   eslint-plugin-vue@9.26.0:
     resolution: {integrity: sha512-eTvlxXgd4ijE1cdur850G6KalZqk65k1JKoOI2d1kT3hr8sPD07j1q98FRFdNnpxBELGPWxZmInxeHGF/GxtqQ==}
@@ -5316,7 +5316,7 @@ snapshots:
     dependencies:
       eslint: 8.57.0
 
-  eslint-plugin-sonarjs@1.0.3(eslint@8.57.0):
+  eslint-plugin-sonarjs@0.25.1(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
 
