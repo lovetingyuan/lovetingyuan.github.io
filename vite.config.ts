@@ -30,6 +30,7 @@ export default defineConfig((environment) => ({
       },
       output: {
         manualChunks(id) {
+          console.log(id.replace('D:/lovetingyuan/lovetingyuan.github.io', ''))
           if (id.includes('/node_modules/')) {
             // console.log(id)
             return 'vendor'
