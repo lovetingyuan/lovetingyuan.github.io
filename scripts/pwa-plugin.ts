@@ -95,15 +95,15 @@ const config = (ssrBuild: boolean) =>
       //   '': '',
       // },
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
-      globIgnores: ['js/*', 'resume.html', '*.zip'],
-      navigateFallbackDenylist: [/.+\.(txt|zip)$/, /\/minibili\//, /\.pdf$/, /\/api\//],
+      globIgnores: ['js/*', 'resume.html'],
+      navigateFallbackDenylist: [/\/minibili\//, /\/share\//, /\/api\//],
       disableDevLogs: true,
       // importScripts: ['./a.js'],
       // navigateFallback: '404.html',
       runtimeCaching: [
         {
           urlPattern: ({ url }) => {
-            const ignorePaths = ['/minibili/', '/api/']
+            const ignorePaths = ['/minibili/', '/api/', '/share/']
             return ignorePaths.some((p) => url.pathname.startsWith(p))
           },
           handler: 'NetworkOnly'
