@@ -27,11 +27,19 @@ export default defineConfig((environment) => ({
       input: {
         index: fileURLToPath(new URL('index.html', import.meta.url)),
         ppp: fileURLToPath(new URL('ppp.html', import.meta.url))
+      },
+      output: {
+        manualChunks(id) {
+          if (id.includes('/node_modules/')) {
+            // console.log(id)
+            return 'vendor'
+          }
+        }
       }
     }
   },
   plugins: [
-    splitVendorChunkPlugin(),
+    // splitVendorChunkPlugin(),
     UnpluginDetectDuplicatedDeps({ throwErrorWhenDuplicated: true }),
     Vue({
       include: [/\.vue$/, /\.md$/], // <--
