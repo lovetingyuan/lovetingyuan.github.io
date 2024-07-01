@@ -9,7 +9,7 @@ import Music from './pages/MusicPage.vue'
 import NotFound from './pages/NotFound.vue'
 import SitesList from './pages/SitesList.vue'
 
-const redirects = ['/movie.html', '/music.html', '/blog.html']
+const redirects = ['/movie.html', '/music.html', '/blog.html', '/404.html']
 
 function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory

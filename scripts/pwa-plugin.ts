@@ -94,9 +94,10 @@ const config = (ssrBuild: boolean) =>
       // modifyURLPrefix: {
       //   '': '',
       // },
+      navigateFallback: '/404.html',
+      navigateFallbackDenylist: [/^\/minibili\//, /^\/share\//, /^\/api\//, /^\/resume/],
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
       globIgnores: ['js/*', 'resume.html'],
-      // navigateFallbackDenylist: [/\/minibili\//, /\/share\//, /\/api\//, /\/resume/],
       disableDevLogs: true,
       // importScripts: ['./a.js'],
       // navigateFallback: '404.html',
