@@ -96,23 +96,23 @@ const config = (ssrBuild: boolean) =>
       // },
       globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'],
       globIgnores: ['js/*', 'resume.html'],
-      navigateFallbackDenylist: [/\/minibili\//, /\/share\//, /\/api\//],
+      // navigateFallbackDenylist: [/\/minibili\//, /\/share\//, /\/api\//, /\/resume/],
       disableDevLogs: true,
       // importScripts: ['./a.js'],
       // navigateFallback: '404.html',
       runtimeCaching: [
         {
           urlPattern: ({ url }) => {
-            const ignorePaths = ['/minibili/', '/api/', '/share/']
+            const ignorePaths = ['/minibili/', '/api/', '/share/', '/resume']
             return ignorePaths.some((p) => url.pathname.startsWith(p))
           },
-          handler: 'NetworkOnly'
+          handler: 'NetworkOnly',
+          options: {
+            cacheName: 'no-cache'
+          }
         },
         {
           urlPattern: ({ request }) => {
-            if (request.url.includes('api.faviconkit.com')) {
-              return true
-            }
             return request.destination === 'image'
           },
           // 'CacheFirst' | 'CacheOnly' | 'NetworkFirst' | 'NetworkOnly' | 'StaleWhileRevalidate';
