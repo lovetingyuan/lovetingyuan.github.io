@@ -3,3 +3,5 @@ twitter: https://twitter.com/home
 npm: https://www.npmjs.com/
 魔戒: https://mojie.app/
 域名: https://www.namesilo.com/account_domains.php
+B站: https://bilibili.com
+CCTV: https://tv.cctv.com/live/

@@ -6,7 +6,7 @@ import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
 import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import { defineConfig } from 'vite'
 
 import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
@@ -30,9 +30,10 @@ export default defineConfig((environment) => ({
       },
       output: {
         manualChunks(id) {
-          console.log(id.replace('D:/lovetingyuan/lovetingyuan.github.io', ''))
-          if (id.includes('/node_modules/')) {
-            // console.log(id)
+          if (environment.isSsrBuild) {
+            return
+          }
+          if (id.includes('/node_modules/') && !id.endsWith('.css')) {
             return 'vendor'
           }
         }
