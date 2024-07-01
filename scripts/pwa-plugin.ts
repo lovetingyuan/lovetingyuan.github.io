@@ -127,23 +127,23 @@ const config = (ssrBuild: boolean) =>
               maxAgeSeconds: 7 * 24 * 60 * 60
             }
           }
-        },
-        {
-          urlPattern: ({ request }) => {
-            return request.destination === 'document'
-          },
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'html-cache',
-            cacheableResponse: {
-              statuses: [0, 200]
-            },
-            expiration: {
-              // maxEntries: 10,
-              maxAgeSeconds: 7 * 24 * 60 * 60
-            }
-          }
         }
+        // {
+        //   urlPattern: ({ request }) => {
+        //     return request.destination === 'document'
+        //   },
+        //   handler: 'StaleWhileRevalidate',
+        //   options: {
+        //     cacheName: 'html-cache',
+        //     cacheableResponse: {
+        //       statuses: [0, 200]
+        //     },
+        //     expiration: {
+        //       // maxEntries: 10,
+        //       maxAgeSeconds: 7 * 24 * 60 * 60
+        //     }
+        //   }
+        // }
       ]
     }
   })

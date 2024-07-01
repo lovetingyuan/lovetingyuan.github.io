@@ -9,6 +9,8 @@ import Music from './pages/MusicPage.vue'
 import NotFound from './pages/NotFound.vue'
 import SitesList from './pages/SitesList.vue'
 
+const redirects = ['/movie.html', '/music.html', '/blog.html']
+
 function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
   const router = createRouter({
@@ -72,7 +74,13 @@ function createRoute() {
       {
         path: '/index.html',
         redirect: '/'
-      }
+      },
+      ...redirects.map((p) => {
+        return {
+          path: p,
+          redirect: p.replace('.html', '')
+        }
+      })
     ]
   })
   router.afterEach((to) => {
