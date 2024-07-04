@@ -1,0 +1,61 @@
+## 前端面试
+
+- JavaScript
+  - 数据类型
+  - this/闭包/上下文
+  - Promise和任务队列
+  - class继承
+  - 新的语言特性
+  - 设计模式
+  - 手写实现
+- CSS
+  - flex
+  - 常见布局
+  - BFC
+  - 硬件加速
+- HTML
+  - 语义化
+  - 新的标签
+  - script/link等资源加载
+- 浏览器
+  - 基础架构/进程-线程模型
+  - 网页渲染流程
+  - 渲染帧
+  - cookie/token/认证/存储
+  - 性能指标
+- 前端安全
+  - xss
+  - csrf
+  - 跨域
+- 网络
+  - http（状态码/缓存/header等）
+  - https
+  - http2/http3
+  - cdn/dns
+  - sso
+- 算法
+  - 字符串/数组/链表/栈/队列/区间
+  - 二叉树
+  - 回溯
+  - 动态规划
+  - 递归/排序/dfs/bfs/动规
+- 工程化
+  - 脚手架
+  - 构建工具（webpack/vite/rollup等）
+  - npm/package.json
+  - 监控/日志上报/性能测量
+- 前端框架
+  - react/vue
+  - 原理/过程
+  - 生命周期/组件通信/渲染调度
+  - vnode diff/patch
+  - 响应式/hook/fiber/api
+  - 运行结果
+  - 性能优化
+- 前端性能优化
+  - 资源
+  - 网络
+  - api
+  - 渲染
+  - 框架
+  - 性能排查/衡量/追踪
