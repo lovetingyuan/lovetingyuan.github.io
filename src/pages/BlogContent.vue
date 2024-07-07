@@ -9,7 +9,7 @@
         rel="noopener noreferrer"
         :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
       >
-        <iconify-icon icon="material-symbols:edit-document-rounded"></iconify-icon>
+        <IconifyIcon icon="material-symbols:edit-document-rounded" mode="style"></IconifyIcon>
       </a>
     </span>
     <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">

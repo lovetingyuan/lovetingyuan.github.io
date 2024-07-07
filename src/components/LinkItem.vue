@@ -6,7 +6,7 @@
     :aria-label="desc"
     class="flex flex-col justify-center gap-2 text-center"
   >
-  <iconify-icon v-if="props.a.icon && !props.a.icon.startsWith('http')" :icon="props.a.icon" class="text-2xl"></iconify-icon>
+  <IconifyIcon v-if="props.a.icon && !props.a.icon.startsWith('http')" :icon="props.a.icon" class="text-2xl"></IconifyIcon>
   <img
   v-else
       :width="imageSize"

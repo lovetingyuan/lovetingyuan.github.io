@@ -4,10 +4,9 @@
     title="切换亮/暗色"
   >
     <label class="swap swap-rotate">
-      <!-- this hidden checkbox controls the state -->
       <input v-model="checked" type="checkbox" />
-      <iconify-icon class="swap-on" icon="material-symbols:dark-mode"></iconify-icon>
-      <iconify-icon class="swap-off" icon="material-symbols:light-mode"></iconify-icon>
+      <IconifyIcon class="swap-on" icon="material-symbols:dark-mode"></IconifyIcon>
+      <IconifyIcon class="swap-off" icon="material-symbols:light-mode"></IconifyIcon>
     </label>
   </div>
 </template>

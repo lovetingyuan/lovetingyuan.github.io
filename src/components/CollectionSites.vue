@@ -39,7 +39,7 @@
             :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/collection/${cate}.txt`"
           >
             <!-- <icon-material-symbols-add class="align-sub" /> -->
-            <iconify-icon icon="material-symbols:add" class="align-sub text-lg"></iconify-icon>
+            <IconifyIcon icon="material-symbols:add" class="align-sub text-lg"></IconifyIcon>
           </a>
         </summary>
         <ul class="mt-5">

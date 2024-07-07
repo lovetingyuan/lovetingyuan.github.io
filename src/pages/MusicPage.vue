@@ -16,10 +16,10 @@
           class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 cursor-pointer text-5xl text-white no-underline hover:text-gray-300"
           @click="store.playingMusic = music.playLink"
         >
-          <iconify-icon
+          <IconifyIcon
             v-show="music.playLink !== store.playingMusic"
             icon="material-symbols:play-circle-outline-rounded"
-          ></iconify-icon>
+          ></IconifyIcon>
           <iframe
             v-if="music.playLink === store.playingMusic"
             :src="store.playingMusic"

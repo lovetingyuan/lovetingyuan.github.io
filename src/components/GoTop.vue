@@ -4,10 +4,10 @@
     title="返回顶部"
     @click="goTop"
   >
-    <iconify-icon
+    <IconifyIcon
       icon="material-symbols:arrow-circle-up"
       class="text-4xl hover:text-cyan-600"
-    ></iconify-icon>
+    ></IconifyIcon>
   </div>
 </template>
 

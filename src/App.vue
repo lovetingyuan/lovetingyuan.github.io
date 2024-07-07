@@ -4,7 +4,7 @@
   <ColorSwitch />
   <div hidden>
     <!-- https://bg.ibelick.com/ -->
-    <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
+     <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
   </div>
 </template>
 

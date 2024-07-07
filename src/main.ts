@@ -1,6 +1,7 @@
 import 'iconify-icon'
 import './assets/style.css'
 
+import { Icon } from '@iconify/vue'
 import { createApp, createSSRApp } from 'vue'
 
 import App from './App.vue'
@@ -12,6 +13,7 @@ export default function start() {
   const app = createVueApp(App)
   const router = createRoute()
   app.use(router)
+  app.component('IconifyIcon', Icon)
   app.config.warnHandler = (message, instance, trace) => {
     // `trace` is the component hierarchy trace
     if (import.meta.env.DEV) {

@@ -12,7 +12,7 @@
             class="align-text-top text-3xl"
             href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/pages/common-sites.txt"
           >
-            <iconify-icon icon="material-symbols:add"></iconify-icon>
+            <IconifyIcon icon="material-symbols:add" class="inline"></IconifyIcon>
           </a>
         </li>
       </ul>

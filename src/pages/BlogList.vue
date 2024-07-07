@@ -12,7 +12,7 @@
           rel="noopener noreferrer"
           title="新增"
         >
-          <iconify-icon icon="material-symbols:add"></iconify-icon>
+          <IconifyIcon mode="style" icon="material-symbols:add"></IconifyIcon>
           <!-- <icon-material-symbols-add /> -->
         </a>
       </h3>
@@ -36,7 +36,7 @@ const { blogList, cate } = useBlogs()
 const displayBlogList = computed(() => {
   return blogList.value.reduce<Record<string, string[]>>((blogs, k) => {
     const [cate, name] = k.split('/')
-    ;(blogs[cate] ??= []).push(name)
+      ; (blogs[cate] ??= []).push(name)
     return blogs
   }, {})
 })

@@ -16,10 +16,10 @@
           博客
           <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
           <!-- <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span> -->
-          <iconify-icon
+          <IconifyIcon
             icon="material-symbols:article"
-            class="align-[-0.15em] text-xl"
-          ></iconify-icon>
+            class="align-[-0.15em] text-xl inline"
+          ></IconifyIcon>
           <!-- <icon-material-symbols-article class="align-sub" /> -->
         </RouterLink>
       </li>
@@ -30,10 +30,10 @@
         >
           音乐
           <!-- <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span> -->
-          <iconify-icon
+          <IconifyIcon
             icon="material-symbols:library-music"
-            class="align-[-0.15em] text-xl"
-          ></iconify-icon>
+            class="align-[-0.15em] text-xl inline"
+          ></IconifyIcon>
           <!-- <icon-material-symbols-library-music class="align-sub" /> -->
         </RouterLink>
       </li>
@@ -44,10 +44,10 @@
         >
           电影
           <!-- <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span> -->
-          <iconify-icon
+          <IconifyIcon
             icon="material-symbols:movie"
-            class="align-[-0.15em] text-xl"
-          ></iconify-icon>
+            class="align-[-0.15em] text-xl inline"
+          ></IconifyIcon>
           <!-- <icon-material-symbols-movie class="align-sub" /> -->
         </RouterLink>
       </li>
@@ -79,7 +79,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <iconify-icon noobserver icon="mdi:github" class="align-text-bottom text-sm"></iconify-icon>
+      <IconifyIcon noobserver icon="mdi:github" class="align-text-bottom text-sm inline"></IconifyIcon>
     </a>
   </footer>
   <GoTop />
