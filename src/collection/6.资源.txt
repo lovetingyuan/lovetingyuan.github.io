@@ -1,6 +1,0 @@
-图标库iconify: https://icon-sets.iconify.design/
-图标搜索: https://www.iconfinder.com/
-图标库icones: https://icones.js.org/
-nodejs库: https://nodejstoolbox.com/
-图标库: https://www.mingcute.com/
-中文图标库: https://yesicon.app/

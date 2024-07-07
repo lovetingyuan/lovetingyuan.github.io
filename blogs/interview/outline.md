@@ -28,7 +28,7 @@
   - csrf
   - 跨域
 - 网络
-  - http（状态码/缓存/header等）
+  - http（状态码/缓存/header/code等）
   - https
   - http2/http3
   - cdn/dns

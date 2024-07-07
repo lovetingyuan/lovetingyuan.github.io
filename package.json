@@ -45,6 +45,7 @@
     "@vue/tsconfig": "^0.5.1",
     "autoprefixer": "^10.4.16",
     "cross-env": "^7.0.3",
+    "daisyui": "^4.12.10",
     "eslint": "^8.57.0",
     "eslint-plugin-simple-import-sort": "^12.1.0",
     "eslint-plugin-sonarjs": "^0.25.1",

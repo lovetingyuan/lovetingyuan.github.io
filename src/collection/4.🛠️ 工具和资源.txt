@@ -1,0 +1,14 @@
+npm: https://www.npmjs.com/
+魔戒: https://mojie.app/
+域名: https://www.namesilo.com/account_domains.php
+各种图片压缩工具(压缩): https://www.smashingmagazine.com/2022/07/powerful-image-optimization-tools/
+codesandbox: https://codesandbox.io/s/
+stackblitz: https://stackblitz.com/
+hoppscotch: https://hoppscotch.io/
+httpie: https://httpie.io/app
+图标库iconify: https://icon-sets.iconify.design/
+图标搜索: https://www.iconfinder.com/
+图标库icones: https://icones.js.org/
+nodejs库: https://nodejstoolbox.com/
+图标库: https://www.mingcute.com/
+中文图标库: https://yesicon.app/

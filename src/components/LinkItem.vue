@@ -6,7 +6,9 @@
     :aria-label="desc"
     class="flex flex-col justify-center gap-2 text-center"
   >
-    <img
+  <iconify-icon v-if="props.a.icon && !props.a.icon.startsWith('http')" :icon="props.a.icon" class="text-2xl"></iconify-icon>
+  <img
+  v-else
       :width="imageSize"
       loading="lazy"
       :height="imageSize"
@@ -19,29 +21,24 @@
 </template>
 
 <script lang="ts" setup>
-// import { computed } from 'vue'
-// import { useMediaQuery } from '@vueuse/core'
-// defineOptions({
-//   name: 'LinkItem'
-// })
-
-const properties = defineProps<{
+const props = defineProps<{
   a: {
     url: string
     title: string
+    icon?: string
     description?: string
   }
   size?: number
   capitalize?: boolean
 }>()
-const imageSize = properties.size || 34
-// const capitalizeCss = computed(() => {
-//   return props.capitalize ?? true ? 'capitalize' : 'none'
-// })
+const imageSize = props.size || 34
 const getIcon = (url: string) => {
+  if (props.a.icon && props.a.icon.startsWith('http')) {
+    return props.a.icon
+  }
   const { host } = new URL(url)
   return `https://api.faviconkit.com/${host}/${imageSize}`
 }
-const desc = properties.a.description || undefined
+const desc = props.a.description || undefined
 // const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 </script>
