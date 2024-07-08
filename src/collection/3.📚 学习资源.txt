@@ -16,3 +16,4 @@ bigfrontend: https://bigfrontend.dev/
 tailscale教程: https://blog.laisky.com/p/tailscale/
 前端精读: https://github.com/ascoders/weekly
 Rust教程: https://course.rs/
+Rust练习: https://practice-zh.course.rs/why-exercise.html
