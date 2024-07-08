@@ -1,6 +1,6 @@
 <template>
   <section>
-    <figure class="mt-2 mb-5">
+    <figure class="mb-5 mt-2">
       <ul class="list-none p-0">
         <li v-for="a of commonLinks2" :key="a.url" class="mx-6 my-4 inline-block text-center">
           <LinkItem :a="a" :size="30" />

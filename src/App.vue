@@ -4,16 +4,18 @@
   <ColorSwitch />
   <div hidden>
     <!-- https://bg.ibelick.com/ -->
-     <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
+    <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
   </div>
+  <!-- <img :key="catkey" :src="'https://cataas.com/cat?_t=' + Date.now()" alt="" width="100%" height="200" @click="catkey++"> -->
 </template>
 
 <script setup lang="ts">
 import { useRegisterSW } from 'virtual:pwa-register/vue'
 
+// import { ref } from 'vue'
 import ColorSwitch from './components/ColorSwitch.vue'
 import UpdateButton from './components/UpdateButton.vue'
-
+// const catkey = ref(0)
 const { needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: false,
   onRegisteredSW(u, r) {

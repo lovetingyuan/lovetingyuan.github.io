@@ -1,7 +1,7 @@
 <template>
   <ul class="list-none pl-2.5">
     <li v-for="(list, cate, i) in collections" :key="cate" :class="!i ? '' : 'mt-10'">
-      <details class="bg-neutral-100 dark:bg-neutral-800 collapse-arrow collapse" open>
+      <details class="collapse collapse-arrow bg-neutral-100 dark:bg-neutral-800" open>
         <summary
           class="collapse-title pl-6 text-lg font-medium hover:font-bold hover:tracking-widest"
         >

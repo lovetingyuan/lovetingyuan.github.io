@@ -18,7 +18,7 @@
           <!-- <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span> -->
           <IconifyIcon
             icon="material-symbols:article"
-            class="align-[-0.15em] text-xl inline"
+            class="inline align-[-0.15em] text-xl"
           ></IconifyIcon>
           <!-- <icon-material-symbols-article class="align-sub" /> -->
         </RouterLink>
@@ -32,7 +32,7 @@
           <!-- <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span> -->
           <IconifyIcon
             icon="material-symbols:library-music"
-            class="align-[-0.15em] text-xl inline"
+            class="inline align-[-0.15em] text-xl"
           ></IconifyIcon>
           <!-- <icon-material-symbols-library-music class="align-sub" /> -->
         </RouterLink>
@@ -46,7 +46,7 @@
           <!-- <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span> -->
           <IconifyIcon
             icon="material-symbols:movie"
-            class="align-[-0.15em] text-xl inline"
+            class="inline align-[-0.15em] text-xl"
           ></IconifyIcon>
           <!-- <icon-material-symbols-movie class="align-sub" /> -->
         </RouterLink>
@@ -79,7 +79,11 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <IconifyIcon noobserver icon="mdi:github" class="align-text-bottom text-sm inline"></IconifyIcon>
+      <IconifyIcon
+        noobserver
+        icon="mdi:github"
+        class="inline align-text-bottom text-sm"
+      ></IconifyIcon>
     </a>
   </footer>
   <GoTop />

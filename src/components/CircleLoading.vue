@@ -11,6 +11,9 @@
 import { onUnmounted, ref } from 'vue'
 
 const properties = defineProps<{
+  /**
+   * 延迟显示的时间 ms
+   */
   defer?: number
 }>()
 const show = ref(properties.defer ? false : true)

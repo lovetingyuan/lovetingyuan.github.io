@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed right-4 top-2 w-6 h-6 text-center cursor-pointer text-xl opacity-80 hover:opacity-100"
+    class="fixed right-4 top-2 h-6 w-6 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
     title="切换亮/暗色"
   >
     <label class="swap swap-rotate">

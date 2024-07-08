@@ -13,12 +13,12 @@
           title="新增"
         >
           <IconifyIcon mode="style" icon="material-symbols:add"></IconifyIcon>
-          <!-- <icon-material-symbols-add /> -->
         </a>
       </h3>
       <ul class="mb-8 ml-4">
-        <li v-for="name of list" :key="name" class="my-3">
-          <RouterLink :to="`/blog/${c}/${name}`">{{ name }}</RouterLink>
+        <li v-for="{ zh, en } of list" :key="zh" class="my-3">
+          <RouterLink :to="`/blog/${c}/${zh}`">{{ zh }}</RouterLink>
+          <RouterLink v-if="en" :to="`/blog/${c}/${en}`" class="ml-4">🌐𝐸𝓃𝑔𝓁𝒾𝓈𝒽</RouterLink>
         </li>
       </ul>
     </li>
@@ -34,11 +34,29 @@ import useBlogs from '@/blogs'
 const { blogList, cate } = useBlogs()
 
 const displayBlogList = computed(() => {
-  return blogList.value.reduce<Record<string, string[]>>((blogs, k) => {
-    const [cate, name] = k.split('/')
-      ; (blogs[cate] ??= []).push(name)
-    return blogs
-  }, {})
+  return blogList.value.reduce<Record<string, Record<string, { zh: string; en: string }>>>(
+    (blogs, k) => {
+      const [cate, name] = k.split('/')
+      if (!blogs[cate]) {
+        blogs[cate] = {}
+      }
+      const group = blogs[cate]
+      let blogName = name
+      let blogEnName = ''
+      if (name.endsWith('.en')) {
+        blogEnName = name
+        blogName = name.slice(0, -3)
+      }
+      if (!group[blogName]) {
+        group[blogName] = {
+          zh: blogName,
+          en: blogEnName
+        }
+      }
+      return blogs
+    },
+    {}
+  )
 })
 
 // const columns = computed(() => (cate.value ? 1 : 2))
