@@ -35,13 +35,14 @@ const props = defineProps<{
   size?: number
   capitalize?: boolean
 }>()
-const imageSize = props.size || 34
+const imageSize = props.size || 32
 const getIcon = (url: string) => {
   if (props.a.icon && props.a.icon.startsWith('http')) {
     return props.a.icon
   }
   const { host } = new URL(url)
-  return `https://api.faviconkit.com/${host}/${imageSize}`
+  return `https://favicone.com/${host}?s=${imageSize}`
+  // return `https://api.faviconkit.com/${host}/${imageSize}`
 }
 const desc = props.a.description || undefined
 // const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
