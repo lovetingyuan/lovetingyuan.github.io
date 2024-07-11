@@ -2,7 +2,7 @@
   <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
     <div v-for="movie of movies" :key="movie.name" class="flex gap-6 text-sm">
       <img
-        class="inline-block shrink-0 rounded-md object-cover"
+        class="inline-block shrink-0 rounded-md object-cover dark:opacity-75 hover:opacity-100"
         loading="lazy"
         width="120"
         height="165"

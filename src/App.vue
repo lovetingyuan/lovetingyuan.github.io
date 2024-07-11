@@ -2,6 +2,7 @@
   <RouterView />
   <UpdateButton v-if="needRefresh" @click="updateServiceWorker()" />
   <ColorSwitch />
+  <GoTop />
   <div hidden>
     <!-- https://bg.ibelick.com/ -->
     <!-- <img src="/images/http2-stream-frame.png" alt="" /> -->
@@ -14,8 +15,10 @@ import { useRegisterSW } from 'virtual:pwa-register/vue'
 
 // import { ref } from 'vue'
 import ColorSwitch from './components/ColorSwitch.vue'
-import UpdateButton from './components/UpdateButton.vue'
 // const catkey = ref(0)
+import GoTop from './components/GoTop.vue'
+import UpdateButton from './components/UpdateButton.vue'
+
 const { needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: false,
   onRegisteredSW(u, r) {

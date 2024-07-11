@@ -82,18 +82,16 @@
       <IconifyIcon
         noobserver
         icon="mdi:github"
-        class="inline align-text-bottom text-sm"
+        class="inline align-text-bottom text-base"
       ></IconifyIcon>
     </a>
   </footer>
-  <GoTop />
 </template>
 
 <script lang="ts" setup>
 import { useMediaQuery } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
 
-import GoTop from '../components/GoTop.vue'
 import { RouteName } from '../constants'
 
 const time = ref('')

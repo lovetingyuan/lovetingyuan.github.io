@@ -3,7 +3,7 @@
     <div v-for="music of musics" :key="music.name" class="flex gap-4">
       <div class="relative shrink-0">
         <img
-          class="inline-block rounded-md object-cover"
+          class="inline-block rounded-md object-cover hover:opacity-100 dark:opacity-75"
           loading="lazy"
           width="120"
           height="120"

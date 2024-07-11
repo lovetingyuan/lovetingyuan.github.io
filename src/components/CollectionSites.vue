@@ -15,11 +15,11 @@
             <li class="mx-4 my-2.5 inline-block">
               <LinkItem
                 :a="{
-                  title: 'Add',
+                  title: '',
                   icon: 'material-symbols:add',
                   url: `https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/collection/${cate}.txt`
                 }"
-                :size="24"
+                :size="32"
               />
             </li>
           </ul>
