@@ -6,7 +6,7 @@ import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
 import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
-import { defineConfig } from 'vite'
+import { defineConfig, type Plugin } from 'vite'
 
 import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
@@ -81,6 +81,15 @@ export default defineConfig((environment) => ({
     preRender({
       routes: ['/', '/404', '/blog', '/music', '/movie'],
       ssrEntry: 'server.js'
-    })
+    }),
+    {
+      name: 'leetcode-generator-plugin',
+      enforce: 'pre',
+      load(id) {
+        if (id.endsWith('/leetcode题目汇总.md')) {
+          return require('./blogs/algorithm/leetcode.cjs')
+        }
+      }
+    } satisfies Plugin
   ]
 }))
