@@ -9,4 +9,3 @@ PiAi: https://pi.ai/
 ForeFrond: https://chat.forefront.ai/
 Mistral: https://chat.mistral.ai/chat
 Groq: https://console.groq.com/playground
-Coze: https://www.coze.com/space/7312893431217635336/bot/7343658509609402373
