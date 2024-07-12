@@ -8,7 +8,6 @@
   "scripts": {
     "dev": "vite",
     "type-check": "vue-tsc --build --force",
-    "prebuild": "node scripts/prebuild.cjs",
     "build": "npm run build:ssr && npm run build:client",
     "build:client": "cross-env NODE_ENV=production && vite build",
     "build:ssr": "cross-env NODE_ENV=production vite build --ssr src/server.ts --outDir dist-ssr",
@@ -58,6 +57,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.6.4",
+    "simple-git-hooks": "^2.11.1",
     "tailwindcss": "^3.4.0",
     "tinypool": "^1.0.0",
     "typescript": "~5.4.5",
@@ -68,5 +68,8 @@
     "vue-tsc": "^2.0.14",
     "workbox-build": "^7.1.0",
     "workbox-window": "^7.1.0"
+  },
+  "simple-git-hooks": {
+    "pre-push": "node scripts/prebuild.cjs"
   }
 }
