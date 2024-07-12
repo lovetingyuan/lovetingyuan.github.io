@@ -5,4 +5,4 @@ import{o as a,f as n,N as o}from"./vendor-KON_WPKK.js";const e={class:"markdown-
 <span class="line"><span style="color:#D73A49;--shiki-dark:#F97583;">  export</span><span style="color:#D73A49;--shiki-dark:#F97583;"> interface</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> GlobalComponents</span><span style="color:#24292E;--shiki-dark:#E1E4E8;"> {</span></span>
 <span class="line"><span style="color:#E36209;--shiki-dark:#FFAB70;">    IconifyIcon</span><span style="color:#D73A49;--shiki-dark:#F97583;">:</span><span style="color:#6F42C1;--shiki-dark:#B392F0;"> YourGlobalComponent</span></span>
 <span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
-<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre>`,4),l=[p],d={__name:"vue3-global-component-types",setup(r,{expose:s}){return s({frontmatter:{}}),(t,c)=>(a(),n("div",e,l))}};export{d as default};
+<span class="line"><span style="color:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre>`,4),l=[p],d={__name:"vue3全局组件ts支持",setup(r,{expose:s}){return s({frontmatter:{}}),(t,c)=>(a(),n("div",e,l))}};export{d as default};
