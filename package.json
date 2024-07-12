@@ -70,6 +70,6 @@
     "workbox-window": "^7.1.0"
   },
   "simple-git-hooks": {
-    "pre-push": "node scripts/prebuild.cjs"
+    "pre-push": "test -f scripts/prebuild.cjs && node scripts/prebuild.cjs"
   }
 }
