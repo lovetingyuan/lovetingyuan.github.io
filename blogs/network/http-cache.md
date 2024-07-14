@@ -1,5 +1,7 @@
 ## http 缓存
 
+> https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching
+
 ### 强缓存
 
 [`cache-control`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)

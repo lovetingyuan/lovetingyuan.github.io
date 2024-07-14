@@ -1,6 +1,6 @@
 ## http2
 
-> 参考： https://web.dev/articles/performance-http2?hl=zh-cn
+> https://web.dev/articles/performance-http2?hl=zh-cn
 
 http2 是 http1.1 之后的重大版本更新，它最初源于google于2009年发布的SPDY协议，后来HTTP工作组基于SPDY的思想开始起草HTTP/2协议，最终于2015年正式发布最新的http2协议标准
 

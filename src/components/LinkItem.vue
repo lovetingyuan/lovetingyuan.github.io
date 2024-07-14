@@ -14,7 +14,6 @@
     <img
       v-else
       :width="imageSize"
-      loading="lazy"
       :height="imageSize"
       :src="getIcon(a.url)"
       alt="favicon"

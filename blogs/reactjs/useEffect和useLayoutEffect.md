@@ -6,7 +6,7 @@
 
 在useLayoutEffect中触发的状态更新，也会在浏览器渲染页面之前被调度执行。
 
-例如，在组件内部调用useLayoutEffect以及立即添加一个微任务，useLayoutEffect的回调通常会在微任务之前运行。
+例如，在组件内部调用useLayoutEffect以及立即添加一个微任务，useLayoutEffect的回调通常会在微任务之前运行，这说明其回调是在dom变更提交完毕后立即执行的。
 
 ### useEffect
 
@@ -78,3 +78,5 @@ root.render(<App />)
 ```
 
 :::
+
+另外react还提供了 `useInsertionEffect` 这个hook，它的用法和 `useLayoutEffect`相同，但是适用场景更受限，一般只用在对样式表有更改的情况下，通常在dom修改提交之前运行。因为样式表的更改会引起页面的回流和重绘，尽早提交有助于保持渲染性能。

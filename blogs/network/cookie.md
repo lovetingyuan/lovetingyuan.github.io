@@ -1,5 +1,7 @@
 ## cookie
 
+> https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies
+
 ### 格式和属性
 
 Set-Cookie: username=jimu; Domain=jimu.com; Path=/blog; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Max-Age=347824; Secure; HttpOnly; SameSite=Lax; Partitioned

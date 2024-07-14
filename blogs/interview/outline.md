@@ -2,17 +2,17 @@
 
 - JavaScript
   - 数据类型
-  - this/闭包/上下文
-  - Promise和任务队列
+  - this/闭包/上下文/作用域
+  - Promise和事件循环
   - class继承
   - 新的语言特性
   - 设计模式
   - 手写实现
 - CSS
   - flex
-  - 常见布局
+  - 常见布局/居中
   - BFC
-  - 硬件加速
+  - 硬件加速优化/重排重绘
 - HTML
   - 语义化
   - 新的标签
@@ -38,7 +38,7 @@
   - 二叉树
   - 回溯
   - 动态规划
-  - 递归/排序/dfs/bfs/动规
+  - 递归/排序/dfs/bfs
 - 工程化
   - 脚手架
   - 构建工具（webpack/vite/rollup等）
@@ -48,14 +48,8 @@
   - react/vue
   - 原理/过程
   - 生命周期/组件通信/渲染调度
-  - vnode diff/patch
+  - 虚拟dom/diff/patch
   - 响应式/hook/fiber/api
   - 运行结果
   - 性能优化
 - 前端性能优化
-  - 资源
-  - 网络
-  - api
-  - 渲染
-  - 框架
-  - 性能排查/衡量/追踪
