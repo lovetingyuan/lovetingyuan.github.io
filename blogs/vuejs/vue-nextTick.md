@@ -44,36 +44,26 @@ export function queueJob(job) {
 
 ```html
 <template>
-  <div style="margin: 100px; position: absolute">
-    <span ref="count">{{ count }}</span>
-    <button @click="handleAdd">add</button>
-  </div>
+  <span ref="counter">{{ count }}</span>
+  <button @click="handleAdd">add</button>
 </template>
 <script>
   export default {
     data() {
       return { count: 0 }
     },
-    watch: {
-      count(c) {
-        console.log('count change', c)
-      }
-    },
     methods: {
+      log(i) {
+        console.log(i, this.count, this.$refs.counter.textContent)
+      },
       handleAdd() {
         this.count++ // 保留或去掉这行输出有何不同？
-        this.$nextTick(() => {
-          console.log(1, this.count, this.$refs.count.textContent)
-        })
+        this.$nextTick(() => this.log(1))
         this.count++
-        console.log(2, this.count, this.$refs.count.textContent)
-        this.$nextTick(() => {
-          console.log(3, this.count, this.$refs.count.textContent)
-        })
+        this.log(2)
+        this.$nextTick(() => this.log(3))
         this.count++
-        this.$nextTick(() => {
-          console.log(4, this.count, this.$refs.count.textContent)
-        })
+        this.$nextTick(() => this.log(4))
       }
     }
   }

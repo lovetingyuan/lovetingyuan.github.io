@@ -1,17 +1,22 @@
 <template>
   <section class="px-2">
-    <span class="float-right ml-3 text-base">
-      <RouterLink :to="`/blog/${cate}`" class="capitalize">{{ cate }}</RouterLink>
-      <a
-        class="ml-3 align-text-top"
-        title="编辑"
-        target="_blank"
-        rel="noopener noreferrer"
-        :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
-      >
-        <IconifyIcon icon="material-symbols:edit-document-rounded" mode="style"></IconifyIcon>
-      </a>
-    </span>
+    <div class="mb-4 flex items-center justify-between">
+      <button title="返回" class="btn btn-square btn-sm" @click.prevent="$router.go(-1)">
+        <IconifyIcon icon="material-symbols:arrow-back-rounded" :width="28"></IconifyIcon>
+      </button>
+      <span class="ml-3 text-base">
+        <RouterLink :to="`/blog/${cate}`" class="capitalize">{{ cate }}</RouterLink>
+        <a
+          class="ml-3 align-text-top"
+          title="编辑"
+          target="_blank"
+          rel="noopener noreferrer"
+          :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/blogs/${cate}/${name}.md`"
+        >
+          <IconifyIcon icon="material-symbols:edit-document-rounded" mode="style"></IconifyIcon>
+        </a>
+      </span>
+    </div>
     <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">
       <CircleLoading :defer="400" />
     </div>
@@ -81,6 +86,7 @@ article .markdown-body code:not([class]) {
   margin: 0 4px;
   font-size: 0.9em;
   padding: 0.15em 0.4em;
+  font-family: 'Sriracha', 'Wotfard-fallback', sans-serif;
 }
 
 article .markdown-body img {
