@@ -2,56 +2,35 @@
   <header class="flex items-center justify-between px-4 pt-6 md:px-6 lg:px-8">
     <h4 class="m-0 select-none text-xl">
       <RouterLink to="/">
-        <span class="bg-gradient-to-r from-[#56B4D3] to-[#348F50] bg-clip-text text-transparent"
+        <span
+          class="bg-gradient-to-r from-[#56B4D3] to-[#348F50] bg-clip-text leading-7 text-transparent"
           >庭院 Ⴆʅσɠ</span
         >
       </RouterLink>
     </h4>
-    <ul class="ml-13 m-0 select-none list-none overflow-hidden p-0 text-lg">
-      <li class="float-left mx-2 my-2 sm:mx-5">
-        <RouterLink
-          :to="{ name: RouteName.BlogList }"
-          class="text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
-        >
-          博客
-          <!-- <span class="icon-[mdi--github] align-text-bottom text-sm"></span> -->
-          <!-- <span class="icon-[material-symbols--article] align-text-bottom text-xl"></span> -->
-          <IconifyIcon
-            icon="material-symbols:article"
-            class="inline align-[-0.15em] text-xl"
-          ></IconifyIcon>
-          <!-- <icon-material-symbols-article class="align-sub" /> -->
-        </RouterLink>
-      </li>
-      <li class="float-left mx-2 my-2 sm:mx-5">
-        <RouterLink
-          :to="{ name: RouteName.Music }"
-          class="text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
-        >
-          音乐
-          <!-- <span class="icon-[material-symbols--library-music] align-text-bottom text-xl"></span> -->
-          <IconifyIcon
-            icon="material-symbols:library-music"
-            class="inline align-[-0.15em] text-xl"
-          ></IconifyIcon>
-          <!-- <icon-material-symbols-library-music class="align-sub" /> -->
-        </RouterLink>
-      </li>
-      <li class="float-left mx-2 my-2 sm:mx-5">
-        <RouterLink
-          :to="{ name: RouteName.Movie }"
-          class="text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
-        >
-          电影
-          <!-- <span class="icon-[material-symbols--movie] align-text-bottom text-xl"></span> -->
-          <IconifyIcon
-            icon="material-symbols:movie"
-            class="inline align-[-0.15em] text-xl"
-          ></IconifyIcon>
-          <!-- <icon-material-symbols-movie class="align-sub" /> -->
-        </RouterLink>
-      </li>
-    </ul>
+    <nav class="ml-13 m-0 flex flex-wrap gap-x-2">
+      <RouterLink
+        :to="{ name: RouteName.BlogList }"
+        class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
+      >
+        博客
+        <IconifyIcon icon="material-symbols:article" class="inline align-[-0.15em] text-xl" />
+      </RouterLink>
+      <RouterLink
+        :to="{ name: RouteName.Music }"
+        class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
+      >
+        音乐
+        <IconifyIcon icon="material-symbols:library-music" class="inline align-[-0.15em] text-xl" />
+      </RouterLink>
+      <RouterLink
+        :to="{ name: RouteName.Movie }"
+        class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
+      >
+        电影
+        <IconifyIcon icon="material-symbols:movie" class="inline align-[-0.15em] text-xl" />
+      </RouterLink>
+    </nav>
   </header>
   <main class="px-2 pb-20 pt-8 md:px-5 lg:px-8">
     <RouterView v-slot="{ Component, route }">

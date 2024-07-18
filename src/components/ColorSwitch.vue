@@ -1,6 +1,6 @@
 <template>
-  <div
-    class="fixed right-4 top-2 h-6 w-6 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
+  <button
+    class="btn btn-square btn-ghost btn-xs fixed right-2 top-2 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
     title="切换亮/暗色"
   >
     <label class="swap swap-rotate">
@@ -8,7 +8,7 @@
       <IconifyIcon class="swap-on" icon="material-symbols:dark-mode"></IconifyIcon>
       <IconifyIcon class="swap-off" icon="material-symbols:light-mode"></IconifyIcon>
     </label>
-  </div>
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -28,8 +28,10 @@ const checked = computed<boolean>({
 watchEffect(() => {
   if (colorMode.value === 'dark') {
     document.documentElement.classList.add('dark')
+    document.documentElement.dataset.theme = 'dark'
   } else {
     document.documentElement.classList.remove('dark')
+    document.documentElement.dataset.theme = 'light'
   }
 })
 

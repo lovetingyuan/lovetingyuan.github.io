@@ -34,7 +34,7 @@
             :href="music.baike"
             target="_blank"
             rel="noreferrer noopener"
-            class="mb-4 inline-block text-lg"
+            class="link-hover link link-primary mb-4 inline-block text-lg dark:link-accent"
             >{{ music.name }}</a
           >
         </p>

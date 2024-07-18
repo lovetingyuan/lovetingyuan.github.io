@@ -17,8 +17,10 @@
       </h3>
       <ul class="mb-8 ml-4">
         <li v-for="{ zh, en } of list" :key="zh" class="my-3">
-          <RouterLink :to="`/blog/${c}/${zh}`">{{ zh }}</RouterLink>
-          <RouterLink v-if="en" :to="`/blog/${c}/${en}`" class="ml-4">🌐𝐸𝓃𝑔𝓁𝒾𝓈𝒽</RouterLink>
+          <RouterLink class="link-hover link" :to="`/blog/${c}/${zh}`">{{ zh }}</RouterLink>
+          <RouterLink v-if="en" class="link-hover link ml-4" :to="`/blog/${c}/${en}`"
+            >🌐𝐸𝓃𝑔𝓁𝒾𝓈𝒽</RouterLink
+          >
         </li>
       </ul>
     </li>

@@ -7,7 +7,7 @@ import Loading from './pages/LoadingPage.vue'
 import Movie from './pages/MoviePage.vue'
 import Music from './pages/MusicPage.vue'
 import NotFound from './pages/NotFound.vue'
-import SitesList from './pages/SitesList.vue'
+import SitesList from './pages/SitesList/SitesList.vue'
 
 const redirects = ['/movie.html', '/music.html', '/blog.html', '/404.html']
 
@@ -36,8 +36,8 @@ function createRoute() {
           },
           {
             path: '/404', // just for SSG to 404.html
-            name: RouteName.Loading,
-            component: Loading
+            name: RouteName.NotFound,
+            component: NotFound
           },
           {
             name: RouteName.BlogList,

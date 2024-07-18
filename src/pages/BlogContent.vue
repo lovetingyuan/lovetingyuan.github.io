@@ -1,7 +1,7 @@
 <template>
   <section class="px-2">
     <div class="mb-4 flex items-center justify-between">
-      <button title="返回" class="btn btn-square btn-sm" @click.prevent="$router.go(-1)">
+      <button title="返回" class="btn btn-square btn-sm" @click.prevent="$router.back()">
         <IconifyIcon icon="material-symbols:arrow-back-rounded" :width="28"></IconifyIcon>
       </button>
       <span class="ml-3 text-base">
@@ -17,7 +17,7 @@
         </a>
       </span>
     </div>
-    <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">
+    <div v-if="true" class="pb-[10vh] pt-[15vh]">
       <CircleLoading :defer="400" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>
@@ -55,7 +55,7 @@ article .markdown-body {
 }
 
 article .markdown-body a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 article .markdown-body :is(p, blockquote, ul, ol, dl, table, pre, details) {
@@ -66,6 +66,7 @@ article .markdown-body:empty:after {
   content: '⌛️ Todo...';
   margin: 20px;
   font-style: italic;
+  font-size: 20px;
 }
 
 article .markdown-body :is(p, li) {
@@ -94,16 +95,6 @@ article .markdown-body img {
   max-width: 100%;
 }
 
-/* article .markdown-body pre.shiki code {
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-} */
-/*
-article .markdown-body {
-  background-color: transparent;
-} */
-
 article .markdown-body summary:hover {
   font-weight: bold;
 }
@@ -115,8 +106,4 @@ article .markdown-body .shiki {
 html.dark article .markdown-body a {
   color: #7bb1ff;
 }
-
-/* article .markdown-body .shiki .line:last-child:empty {
-  display: none;
-} */
 </style>

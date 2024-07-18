@@ -4,13 +4,13 @@
     target="_blank"
     rel="noopener noreferrer"
     :aria-label="desc"
-    class="flex flex-col justify-center gap-2 text-center"
+    class="btn btn-ghost flex flex-col items-center justify-center gap-2 text-center"
   >
     <IconifyIcon
       v-if="props.a.icon && !props.a.icon.startsWith('http')"
       :icon="props.a.icon"
       class="text-2xl"
-    ></IconifyIcon>
+    />
     <img
       v-else
       :width="imageSize"
@@ -19,7 +19,7 @@
       alt="favicon"
       class="mx-auto my-0"
     />
-    <span class="text-base">{{ a.title }}</span>
+    <span v-if="a.title" class="text-base font-normal">{{ a.title }}</span>
   </a>
 </template>
 
