@@ -43,3 +43,30 @@ function concurrentRequests(urls, limit) {
 ```
 
 :::
+
+2. 拍平一个数组
+
+::: detail result
+
+```js
+function flatArray(array, depth = 1) {
+  const stack = [[array, depth]]
+  const result = []
+
+  while (stack.length > 0) {
+    const [arr, currentDepth] = stack.pop()
+    // mind currentDepth equal 0
+    if (Array.isArray(arr) && currentDepth >= 0) {
+      for (let i = arr.length - 1; i >= 0; i--) {
+        stack.push([arr[i], currentDepth - 1])
+      }
+    } else {
+      result.push(arr)
+    }
+  }
+
+  return result
+}
+```
+
+:::

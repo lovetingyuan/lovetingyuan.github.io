@@ -3,7 +3,7 @@ import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 import { RouteName } from './constants'
 import BlogList from './pages/BlogList.vue'
 import Home from './pages/HomePage.vue'
-import Loading from './pages/LoadingPage.vue'
+// import Loading from './pages/LoadingPage.vue'
 import Movie from './pages/MoviePage.vue'
 import Music from './pages/MusicPage.vue'
 import NotFound from './pages/NotFound.vue'
@@ -23,6 +23,11 @@ function createRoute() {
       return savedPosition || { top: 0 }
     },
     routes: [
+      {
+        path: '/404', // just for SSG to 404.html
+        name: RouteName.NotFound,
+        component: NotFound
+      },
       { path: '/:anyPath(.*)*', name: RouteName.NotFound, component: NotFound },
       {
         path: '/',
@@ -34,11 +39,11 @@ function createRoute() {
             component: SitesList,
             name: RouteName.SitesList
           },
-          {
-            path: '/404', // just for SSG to 404.html
-            name: RouteName.NotFound,
-            component: NotFound
-          },
+          // {
+          //   path: '/404', // just for SSG to 404.html
+          //   name: RouteName.NotFound,
+          //   component: NotFound
+          // },
           {
             name: RouteName.BlogList,
             path: '/blog/:cate?',

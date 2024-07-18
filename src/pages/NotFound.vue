@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flow-root">
     <div title="404" class="not-found mx-auto my-24 w-fit text-center text-[80px]">404</div>
     <p class="text-center">
       😅 当前页面(
@@ -7,17 +7,17 @@
         <i>{{ path }}</i>
       </code>
       )找不到，请检查地址
-      <br />
-      <br />
+    </p>
+    <div class="text-center">
       <RouterLink
         :to="{
           path: '/',
           replace: true
         }"
-        class="text-lg"
+        class="btn btn-outline btn-info mt-10 text-lg"
         >🏠 返回首页</RouterLink
       >
-    </p>
+    </div>
   </div>
 </template>
 
