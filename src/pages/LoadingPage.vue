@@ -1,5 +1,7 @@
 <template>
-  <CircleLoading></CircleLoading>
+  <div class="my-20">
+    <CircleLoading></CircleLoading>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -3,7 +3,6 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 import { minify as minifyFn, type Options as MinifyOptions } from 'html-minifier-terser'
-// import Piscina from 'piscina'
 import Tinypool from 'tinypool'
 import { createLogger, type Plugin, type ResolvedConfig } from 'vite'
 
@@ -69,12 +68,9 @@ export default (options?: {
       }
       logger.info('\nstart prerender...')
       const workerPool = new Tinypool({
-        // filename: new URL('./worker.mjs', import.meta.url).href,
         filename: pathToFileURL(ssrEntry).toString()
       })
-      // const piscina = new Piscina({
-      //   filename: pathToFileURL(ssrEntry).toString()
-      // })
+
       await Promise.all(
         getRoutes().map(async ([route, file]) => {
           if (file !== defaultPage && file in bundle) {
