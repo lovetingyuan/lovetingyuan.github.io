@@ -42,6 +42,7 @@ const getIcon = (url: string) => {
   const { host } = new URL(url)
   // return `https://www.google.com/s2/favicons?domain=${host}&sz=${imageSize}`
   return `https://favicone.com/${host}?s=${imageSize}`
+  // return `https://favicon.im/${host}?larger=true`
   // return `https://api.faviconkit.com/${host}/${imageSize}`
 }
 const desc = props.a.description || undefined

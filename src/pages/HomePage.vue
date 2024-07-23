@@ -9,11 +9,12 @@
           >
         </RouterLink>
       </div>
-      <ul class="menu menu-horizontal">
+      <ul class="menu menu-horizontal gap-x-2">
         <li>
           <RouterLink
+            active-class="btn-active"
             :to="{ name: RouteName.BlogList }"
-            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
+            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
           >
             博客
             <IconifyIcon icon="material-symbols:article" class="inline align-[-0.15em] text-xl" />
@@ -21,8 +22,9 @@
         </li>
         <li>
           <RouterLink
+            active-class="btn-active"
             :to="{ name: RouteName.Music }"
-            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
+            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-lime-700 hover:text-lime-900 dark:text-lime-400 dark:hover:text-lime-300"
           >
             音乐
             <IconifyIcon
@@ -33,8 +35,9 @@
         </li>
         <li>
           <RouterLink
+            active-class="btn-active"
             :to="{ name: RouteName.Movie }"
-            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[1em] text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
+            class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
           >
             电影
             <IconifyIcon icon="material-symbols:movie" class="inline align-[-0.15em] text-xl" />

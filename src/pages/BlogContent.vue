@@ -5,7 +5,11 @@
         <IconifyIcon icon="material-symbols:arrow-back-rounded" :width="28"></IconifyIcon>
       </button>
       <span class="ml-3 text-base">
-        <RouterLink :to="`/blog/${cate}`" class="capitalize">{{ cate }}</RouterLink>
+        <RouterLink
+          :to="`/blog/${cate}`"
+          class="btn btn-ghost btn-md h-[2.5em] min-h-[2.5em] px-[1em] capitalize"
+          >{{ cate }}</RouterLink
+        >
         <a
           class="ml-3 align-text-top"
           title="编辑"

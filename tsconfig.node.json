@@ -12,8 +12,6 @@
   },
   "include": [
     "scripts/*.ts",
-    "*.d.ts",
-    "vite.config.*",
-    "public/**/*.ts"
+    "vite.config.*"
   ],
 }
