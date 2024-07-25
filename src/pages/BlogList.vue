@@ -1,6 +1,11 @@
 <template>
   <ul v-if="Object.keys(displayBlogList).length > 0" class="blog-list columns-2 gap-5">
-    <li v-for="(list, c) of displayBlogList" :key="c" class="overflow-hidden">
+    <li
+      v-for="(list, c, i) of displayBlogList"
+      :key="c"
+      class="flow-root"
+      :class="colors[i].join(' ')"
+    >
       <h3 class="mb-3 text-lg font-bold">
         <span v-if="cate" class="capitalize">{{ c }}</span>
         <RouterLink v-else :to="`/blog/${c}`" class="capitalize">{{ c }}</RouterLink>
@@ -34,6 +39,22 @@ import { computed } from 'vue'
 import useBlogs from '@/blogs'
 
 const { blogList, cate } = useBlogs()
+
+const colors = [
+  ['text-violet-800', 'dark:text-violet-300'],
+  ['text-lime-800', 'dark:text-lime-300'],
+  ['text-fuchsia-800', 'dark:text-fuchsia-300'],
+  ['text-teal-800', 'dark:text-teal-300'],
+  ['text-rose-800', 'dark:text-rose-300'],
+  ['text-yellow-800', 'dark:text-yellow-300'],
+  ['text-orange-800', 'dark:text-orange-300'],
+  ['text-cyan-800', 'dark:text-cyan-300'],
+  ['text-green-800', 'dark:text-green-300'],
+  ['text-amber-800', 'dark:text-amber-300'],
+  ['text-blue-800', 'dark:text-blue-300'],
+  ['text-sky-800', 'dark:text-sky-300'],
+  ['text-green-800', 'dark:text-green-300']
+]
 
 const displayBlogList = computed(() => {
   return blogList.value.reduce<Record<string, Record<string, { zh: string; en: string }>>>(

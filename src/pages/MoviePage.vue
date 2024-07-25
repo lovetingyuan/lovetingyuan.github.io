@@ -15,7 +15,7 @@
             :href="movie.baike"
             target="_blank"
             rel="noreferrer noopener"
-            class="link-hover link link-primary text-lg dark:link-accent"
+            class="link-hover link text-lg text-sky-600 dark:text-sky-300"
             >{{ movie.name }}</a
           >
         </p>
