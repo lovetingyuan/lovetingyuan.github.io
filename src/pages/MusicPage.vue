@@ -19,28 +19,31 @@
           <IconifyIcon
             v-show="music.playLink !== store.playingMusic"
             icon="material-symbols:play-circle-outline-rounded"
-          ></IconifyIcon>
+          />
           <iframe
             v-if="music.playLink === store.playingMusic"
             :src="store.playingMusic"
             class="h-[120px] w-[120px] border-0"
           ></iframe>
-          <!-- <icon-material-symbols-play-circle-outline-rounded /> -->
         </span>
       </div>
       <div class="break-words py-2">
-        <p>
+        <p class="mb-4">
           <a
             :href="music.baike"
             target="_blank"
             rel="noreferrer noopener"
-            class="link-hover link mb-4 inline-block text-lg text-teal-600 dark:text-teal-300"
-            >{{ music.name }}</a
+            class="link-hover link inline-block text-lg text-teal-600 dark:text-teal-300"
           >
+            <strong v-if="music.name === '庭院'">庭院</strong>
+            <span v-else>{{ music.name }}</span>
+          </a>
         </p>
-        <p v-for="info of music.infos" :key="info" class="leading-[2]">
-          <span class="text-sm">{{ info }}</span>
-        </p>
+        <div class="flex flex-col gap-y-2">
+          <p v-for="info of music.infos" :key="info" class="text-sm">
+            {{ info }}
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
   <section class="px-2">
     <div class="mb-4 flex items-center justify-between">
-      <button title="返回" class="btn btn-square btn-sm" @click.prevent="$router.back()">
+      <button title="返回" class="btn btn-square btn-sm" @click.prevent="goBack()">
         <IconifyIcon icon="material-symbols:arrow-back-rounded" :width="28"></IconifyIcon>
       </button>
       <span class="ml-3 text-base">
@@ -35,9 +35,11 @@
 <script lang="ts" setup>
 import { useColorMode, useStyleTag } from '@vueuse/core'
 import { watchEffect } from 'vue'
+import { useRouter } from 'vue-router'
 
 import useBlogs from '@/blogs'
 import CircleLoading from '@/components/CircleLoading.vue'
+import { RouteName } from '@/constants'
 
 const { articleCmp, blogStatus, cate, name } = useBlogs()
 
@@ -51,6 +53,14 @@ watchEffect(() => {
     useStyleTag(css, { id: 'github-markdown-css' })
   })
 })
+const router = useRouter()
+const goBack = () => {
+  if (history.length > 2) {
+    router.back()
+  } else {
+    router.push({ name: RouteName.BlogList })
+  }
+}
 </script>
 
 <style>

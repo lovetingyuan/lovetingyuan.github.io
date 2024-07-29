@@ -22,7 +22,7 @@
     "@vueuse/core": "^10.9.0",
     "github-markdown-css": "^5.5.0",
     "iconify-icon": "^2.1.0",
-    "vue": "^3.4.31",
+    "vue": "^3.4.34",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {

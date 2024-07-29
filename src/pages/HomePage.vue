@@ -9,7 +9,7 @@
           >
         </RouterLink>
       </div>
-      <ul class="menu menu-horizontal gap-x-2">
+      <menu class="menu menu-horizontal gap-x-2">
         <li>
           <RouterLink
             active-class="btn-active"
@@ -43,7 +43,7 @@
             <IconifyIcon icon="material-symbols:movie" class="inline align-[-0.15em] text-xl" />
           </RouterLink>
         </li>
-      </ul>
+      </menu>
     </nav>
   </header>
   <main class="px-2 pb-20 pt-8 md:px-5 lg:px-8">
