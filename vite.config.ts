@@ -24,10 +24,9 @@ export default defineConfig((environment) => ({
     copyPublicDir: !environment.isSsrBuild,
     minify: !environment.isSsrBuild,
     rollupOptions: {
-      input: {
-        index: fileURLToPath(new URL('index.html', import.meta.url)),
-        ppp: fileURLToPath(new URL('ppp.html', import.meta.url))
-      },
+      // input: {
+      //   index: fileURLToPath(new URL('index.html', import.meta.url))
+      // },
       output: {
         manualChunks(id) {
           if (environment.isSsrBuild) {
