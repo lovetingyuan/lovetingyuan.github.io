@@ -14,12 +14,46 @@ export default function useBlogs() {
   const cate = computed(() => route.params.cate)
   const name = computed(() => route.params.name)
   const blogList = computed(() => {
-    if (route.name !== RouteName.BlogList) {
-      return []
-    }
+    // if (route.name !== RouteName.BlogList) {
+    //   return []
+    // }
     return Object.keys(blogsMap)
       .map((key) => key.slice(7, -3))
       .filter((v) => (cate.value ? v.startsWith(cate.value + '/') : true))
+  })
+  const allCates = computed(() => {
+    const cates = new Set<string>()
+    Object.keys(blogsMap)
+      .map((key) => key.slice(7, -3))
+      .forEach((p) => {
+        cates.add(p.split('/').shift() as string)
+      })
+    return [...cates]
+  })
+  const displayBlogList = computed(() => {
+    return blogList.value.reduce<Record<string, Record<string, { zh: string; en: string }>>>(
+      (blogs, k) => {
+        const [cate, name] = k.split('/')
+        if (!blogs[cate]) {
+          blogs[cate] = {}
+        }
+        const group = blogs[cate]
+        let blogName = name
+        let blogEnName = ''
+        if (name.endsWith('.en')) {
+          blogEnName = name
+          blogName = name.slice(0, -3)
+        }
+        if (!group[blogName]) {
+          group[blogName] = {
+            zh: blogName,
+            en: blogEnName
+          }
+        }
+        return blogs
+      },
+      {}
+    )
   })
   watchEffect(() => {
     if (route.name === RouteName.BlogContent) {
@@ -50,6 +84,8 @@ export default function useBlogs() {
     blogStatus,
     articleCmp,
     cate,
-    name
+    name,
+    allCates,
+    displayBlogList
   }
 }

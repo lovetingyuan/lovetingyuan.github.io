@@ -1,7 +1,9 @@
 import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
 import { RouteName } from './constants'
-import BlogList from './pages/BlogList.vue'
+import BlogAllList from './pages/BlogList/BlogAllList.vue'
+import BlogCateList from './pages/BlogList/BlogCateList.vue'
+import BlogList from './pages/BlogList/BlogList.vue'
 import Home from './pages/HomePage.vue'
 import LoadingPage from './pages/LoadingPage.vue'
 import Movie from './pages/MoviePage.vue'
@@ -30,7 +32,7 @@ function createRoute() {
         name: RouteName.Home,
         children: [
           {
-            path: '/',
+            path: '',
             component: SitesList,
             name: RouteName.SitesList
           },
@@ -41,12 +43,30 @@ function createRoute() {
           },
           {
             name: RouteName.BlogList,
-            path: '/blog/:cate?',
+            path: '/blog',
             component: BlogList,
             meta: {
               title: ({ cate }: { cate: string }) => `博客${cate ? ' - ' + cate : ''}`,
               animation: 'slide'
-            }
+            },
+            children: [
+              {
+                path: '',
+                component: BlogAllList,
+                meta: {
+                  title: '博客',
+                  animation: 'slide'
+                }
+              },
+              {
+                path: ':cate',
+                component: BlogCateList,
+                meta: {
+                  title: ({ cate }: { cate: string }) => `博客-${cate}`,
+                  animation: 'slide'
+                }
+              }
+            ]
           },
           {
             name: RouteName.BlogContent,

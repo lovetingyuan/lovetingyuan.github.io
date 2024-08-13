@@ -13,7 +13,7 @@
         <li>
           <RouterLink
             active-class="btn-active"
-            :to="{ name: RouteName.BlogList }"
+            :to="{ path: '/blog' }"
             class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
           >
             博客
@@ -46,7 +46,7 @@
       </menu>
     </nav>
   </header>
-  <main class="px-2 pb-20 pt-8 md:px-5 lg:px-8">
+  <main class="px-2 pb-20 pt-4 md:px-5 lg:px-8">
     <RouterView v-slot="{ Component, route }">
       <Transition
         v-if="!reduceAnimation"
