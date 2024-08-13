@@ -3,3 +3,4 @@ github: https://github.com
 B站: https://www.bilibili.com
 CCTV: https://tv.cctv.com/live/
 央视频: https://www.yangshipin.cn/
+电视直播: https://yeslivetv.com/
