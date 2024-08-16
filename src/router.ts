@@ -53,6 +53,7 @@ function createRoute() {
               {
                 path: '',
                 component: BlogAllList,
+                name: RouteName.BlogAllList,
                 meta: {
                   title: '博客',
                   animation: 'slide'
@@ -61,6 +62,7 @@ function createRoute() {
               {
                 path: ':cate',
                 component: BlogCateList,
+                name: RouteName.BlogCateList,
                 meta: {
                   title: ({ cate }: { cate: string }) => `博客-${cate}`,
                   animation: 'slide'

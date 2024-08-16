@@ -1,39 +1,41 @@
 <template>
-  <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
-    <div v-for="movie of movies" :key="movie.name" class="flex gap-6 text-sm">
-      <img
-        class="inline-block shrink-0 rounded-md object-cover hover:opacity-100 dark:opacity-75"
-        loading="lazy"
-        width="120"
-        height="165"
-        :src="movie.image"
-        alt="封面"
-      />
-      <div class="flex flex-col gap-3 break-words py-2">
-        <p>
-          <a
-            :href="movie.baike"
-            target="_blank"
-            rel="noreferrer noopener"
-            class="link-hover link text-lg text-sky-600 dark:text-sky-300"
-            >{{ movie.name }}</a
-          >
-        </p>
-        <p v-for="info of movie.infos" :key="info" class="leading-[1.5]">
-          <span class="text-sm">{{ info }}</span>
-        </p>
-        <p>
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            :href="movie.douban"
-            class="btn btn-square btn-success btn-xs text-white"
-            >豆</a
-          >
-        </p>
+  <section class="grid grid-cols-2 gap-x-6 gap-y-10 max-sm:grid-cols-1">
+    <div
+      v-for="movie of movies"
+      :key="movie.name"
+      class="card card-side card-compact bg-base-100 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+    >
+      <figure class="min-h-max min-w-max">
+        <img
+          class="h-40 min-h-full w-32 min-w-full hover:opacity-100 dark:opacity-75"
+          loading="lazy"
+          width="128"
+          height="165"
+          :src="movie.image"
+          alt="封面"
+        />
+      </figure>
+      <div class="card-body">
+        <a
+          :href="movie.baike"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="link-hover link mb-2 text-lg text-sky-600 dark:text-sky-300"
+          >{{ movie.name }}</a
+        >
+        <span v-for="info of movie.infos" :key="info" class="text-sm">
+          {{ info }}
+        </span>
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          :href="movie.douban"
+          class="btn btn-square btn-success btn-xs text-white"
+          >豆</a
+        >
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>

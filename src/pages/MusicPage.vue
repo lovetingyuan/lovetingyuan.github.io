@@ -1,44 +1,40 @@
 <template>
-  <div class="grid grid-cols-2 gap-x-4 gap-y-10 max-sm:grid-cols-1">
-    <div v-for="music of musics" :key="music.name" class="flex gap-4">
-      <div class="relative shrink-0">
-        <img
-          class="inline-block rounded-md object-cover hover:opacity-100 dark:opacity-75"
-          loading="lazy"
-          width="120"
-          height="120"
-          :src="music.image"
-          alt="封面"
-        />
-        <span
-          v-if="music.playLink"
-          rel="noreferrer noopener"
-          class="absolute left-1/2 top-[60px] -translate-x-1/2 -translate-y-1/2 cursor-pointer text-5xl text-white no-underline hover:text-gray-300"
-          @click="store.playingMusic = music.playLink"
-        >
+  <section class="grid grid-cols-2 gap-x-6 gap-y-10 max-sm:grid-cols-1">
+    <div
+      v-for="music of musics"
+      :key="music.name"
+      class="card card-bordered card-side card-compact h-32 bg-base-100 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+    >
+      <figure class="relative min-h-max min-w-max">
+        <img :src="music.image" alt="封面" class="h-full w-32" />
+        <div>
           <IconifyIcon
             v-show="music.playLink !== store.playingMusic"
+            class="absolute inset-0 m-auto cursor-pointer text-6xl text-white no-underline hover:text-cyan-300"
             icon="material-symbols:play-circle-outline-rounded"
+            @click="store.playingMusic = music.playLink"
           />
-          <iframe
-            v-if="music.playLink === store.playingMusic"
-            :src="store.playingMusic"
-            class="h-[120px] w-[120px] border-0"
-          ></iframe>
-        </span>
-      </div>
-      <div class="break-words py-2">
-        <p class="mb-4">
+        </div>
+        <iframe
+          v-if="music.playLink === store.playingMusic"
+          :src="store.playingMusic"
+          class="absolute inset-0 m-auto h-full w-full border-0"
+        ></iframe>
+      </figure>
+      <div class="card-body justify-between">
+        <h2 class="card-title mb-4 font-normal">
           <a
             :href="music.baike"
             target="_blank"
             rel="noreferrer noopener"
             class="link-hover link inline-block text-lg text-teal-600 dark:text-teal-300"
           >
-            <strong v-if="music.name === '庭院'">庭院</strong>
+            <strong v-if="music.name === '庭院'" class="text-cyan-600 dark:text-cyan-300"
+              >庭院</strong
+            >
             <span v-else>{{ music.name }}</span>
           </a>
-        </p>
+        </h2>
         <div class="flex flex-col gap-y-2">
           <p v-for="info of music.infos" :key="info" class="text-sm">
             {{ info }}
@@ -46,7 +42,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

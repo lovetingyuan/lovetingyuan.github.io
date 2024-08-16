@@ -13,7 +13,7 @@
         <li>
           <RouterLink
             active-class="btn-active"
-            :to="{ path: '/blog' }"
+            :to="{ name: RouteName.BlogAllList }"
             class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
           >
             博客

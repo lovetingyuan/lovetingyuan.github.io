@@ -1,5 +1,5 @@
 <template>
-  <ul class="blog-list columns-2 gap-5">
+  <ul class="blog-list columns-2 gap-5 py-2">
     <li v-for="(list, c) of displayBlogList" :key="c" class="mb-8 flow-root">
       <h3 class="mb-3 text-lg font-bold">
         <span v-if="cate" class="capitalize">{{ c }}</span>

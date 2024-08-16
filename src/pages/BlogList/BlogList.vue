@@ -16,7 +16,10 @@
       >
         <!-- Sidebar content here -->
         <li>
-          <RouterLink to="/blog" class="py-4 capitalize" :class="cate ? '' : 'active'"
+          <RouterLink
+            :to="{ name: RouteName.BlogAllList }"
+            class="py-4 capitalize"
+            :class="cate ? '' : 'active'"
             >All -----------</RouterLink
           >
         </li>
@@ -38,6 +41,7 @@
 import { computed } from 'vue'
 
 import useBlogs from '@/blogs'
+import { RouteName } from '@/constants'
 
 const { blogList, cate, allCates } = useBlogs()
 
