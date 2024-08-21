@@ -184,6 +184,8 @@ function advancedRequest(url, timeout, errorRetry) {
 
 :::
 
+6. 说一下JavaScript中能使代码运行阻塞的一些情况吗
+
 ## http
 
 1. 当前网站 A 向第三方网站 C（可信但是不同域名）请求一个接口并且希望带上二者的 cookie，请问需要满足什么条件或者做什么设置？
@@ -234,7 +236,6 @@ function advancedRequest(url, timeout, errorRetry) {
 ## 算法
 
 1. 判断一个二叉树是否是另一个二叉树的**子结构** [leetcode](https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/)
-
 2. 使用递归和迭代两种方式反转一个链表 [leetcode](https://leetcode-cn.com/problems/reverse-linked-list/)
 3. 有一个数组，从其中找到两个数的最大差值(要求这两个数递增)，返回对应的差值
 4. 使用两种方法实现 N 叉树的层次遍历 [leetcode](https://leetcode.cn/problems/n-ary-tree-level-order-traversal/)

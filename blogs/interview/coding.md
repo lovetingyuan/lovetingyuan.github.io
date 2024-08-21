@@ -7,14 +7,17 @@
 ```js
 function concurrentRequests(urls, limit) {
   return new Promise((resolve, reject) => {
-    const results = new Array(urls.length)
+    const results = Array(urls.length).fill()
     let completedCount = 0
     let index = 0
+    let fetchingCount = 0
 
     function processNext() {
-      if (index >= urls.length) return
-
+      if (index >= urls.length || fetchingCount >= limit) {
+        return
+      }
       const currentIndex = index++
+      fetchingCount++
       window
         .fetch(urls[currentIndex])
         .then((response) => response.json())
@@ -22,10 +25,11 @@ function concurrentRequests(urls, limit) {
           results[currentIndex] = data
         })
         .catch((error) => {
-          results[currentIndex] = { error: error.message }
+          results[currentIndex] = { error }
         })
         .finally(() => {
           completedCount++
+          fetchingCount--
           if (completedCount === urls.length) {
             resolve(results)
           } else {
@@ -66,6 +70,65 @@ function flatArray(array, depth = 1) {
   }
 
   return result
+}
+```
+
+:::
+
+3. [最长有效括号的长度](https://leetcode.cn/problems/longest-valid-parentheses/description/)
+
+给你一个只包含 '(' 和 ')' 的字符串，找出最长有效（格式正确且连续）括号子串的长度。
+
+::: detail result
+
+```js
+var longestValidParentheses = function (s) {
+  const stack = [-1] // 存储当前有效括号上一个位置的下标
+  let i = 0
+  let maxLen = 0
+  while (i < s.length) {
+    // 遇到合法的括号就弹出，同时计算最长长度
+    if (s[i] === ')' && s[stack.at(-1)] === '(') {
+      stack.pop()
+      // 此时stack最顶部的位置表示该位置之后都是合法的
+      maxLen = Math.max(maxLen, i - stack.at(-1))
+    } else {
+      stack.push(i)
+    }
+    i++
+  }
+  return maxLen
+}
+```
+
+:::
+
+4. 将一维数组转换为树形结构的数据
+
+::: detail result
+
+```js
+function arrayToTree(data) {
+  const idMap = new Map()
+  const root = []
+
+  // 创建 id 到节点的映射
+  for (const item of data) {
+    idMap.set(item.id, { ...item, children: [] })
+  }
+
+  // 构建树形结构
+  for (const item of data) {
+    const node = idMap.get(item.id)
+    if (item.parentId === '') {
+      root.push(node)
+    } else {
+      const parent = idMap.get(item.parentId)
+      parent.children.push(node)
+    }
+  }
+
+  return root
 }
 ```
 
