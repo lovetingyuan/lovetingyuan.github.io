@@ -17,4 +17,4 @@ Search Engine Optimization（搜索引擎优化）的几条原则：
 
 > https://developers.google.com/search/docs/essentials?hl=zh-cn
 
-> https://ahrefs.com/seo
+> https://ahrefs.com/zh/seo
