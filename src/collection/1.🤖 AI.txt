@@ -3,9 +3,8 @@ Poe: https://poe.com/ChatGPT
 devv: https://devv.ai/zh
 perplexity: https://www.perplexity.ai/
 Gemini: https://gemini.google.com/
-Bing: https://www.bing.com/search?q=Bing+AI&showconv=1
+Bing: https://copilot.microsoft.com/
 Claude: https://claude.ai/chat/
 PiAi: https://pi.ai/
-ForeFrond: https://chat.forefront.ai/
 Mistral: https://chat.mistral.ai/chat
-Groq: https://console.groq.com/playground
+Groq: https://groq.com/
