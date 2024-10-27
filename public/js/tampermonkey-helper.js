@@ -61,7 +61,11 @@
       const total = tasks.length
       const doTask = () => {
         tasks[current++]?.().finally(() => {
-          ++finished === total ? resolve() : doTask()
+          if (++finished === total) {
+            resolve()
+          } else {
+            doTask()
+          }
         })
       }
       while (maxNumber-- > 0) doTask()
@@ -86,7 +90,6 @@
     }).then((r) => r.json())
   }
 
-  // eslint-disable-next-line sonarjs/cognitive-complexity
   function h(tag, properties, children = []) {
     const element = document.createElement(tag)
     if (properties) {

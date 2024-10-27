@@ -83,7 +83,8 @@ export default (options?: {
             name: undefined,
             source: await workerPool.run([route, indexHtml]),
             fileName: file,
-            needsCodeReference: false
+            needsCodeReference: false,
+            originalFileName: file
           }
         })
       )

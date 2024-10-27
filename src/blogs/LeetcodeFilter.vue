@@ -40,10 +40,11 @@
       </label>
     </div>
   </div>
+  <!-- eslint-disable-next-line vue/no-v-html -->
   <div data-leetcode-problems-filter v-html="css"></div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { nextTick, ref, watchEffect } from 'vue'
 const status = ref('all')
 const level = ref('all')

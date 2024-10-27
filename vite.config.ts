@@ -8,6 +8,8 @@ import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, type Plugin } from 'vite'
 
+// @ts-expect-error any
+import leetcode from './blogs/algorithm/leetcode'
 import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
 import preRender from './scripts/prerender'
@@ -86,7 +88,7 @@ export default defineConfig((environment) => ({
       enforce: 'pre',
       load(id) {
         if (id.endsWith('/leetcode题目汇总.md')) {
-          return require('./blogs/algorithm/leetcode.cjs')
+          return leetcode
         }
       }
     } satisfies Plugin

@@ -2,8 +2,8 @@ export default {
   validate(parameters: string) {
     return parameters.trim().match(/^detail /)
   },
-  render(tokens: any[], index: number) {
-    let { info = '' }: { info?: string } = tokens[index]
+  render(tokens: { info?: string }[], index: number) {
+    let { info = '' } = tokens[index]
     info = info.trim()
     if (!info) {
       return '</div></details>\n'

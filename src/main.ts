@@ -34,7 +34,7 @@ if (!import.meta.env.SSR) {
   })
   // eslint-disable-next-line no-console
   console.log(
-    // @ts-ignore
+    // @ts-expect-error this globals is safe
     `%c Build: ${window._buildTime} ${window._buildHash} `,
     'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
   )

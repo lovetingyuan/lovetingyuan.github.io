@@ -22,13 +22,14 @@ import UpdateButton from './components/UpdateButton.vue'
 const { needRefresh, updateServiceWorker } = useRegisterSW({
   immediate: false,
   onRegisteredSW(u, r) {
-    r &&
+    if (r) {
       setInterval(
         () => {
           r.update()
         },
         60 * 60 * 1000
       )
+    }
   }
 })
 </script>
