@@ -38,7 +38,6 @@
             class="float-right"
             :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/collection/${cate}.txt`"
           >
-            <!-- <icon-material-symbols-add class="align-sub" /> -->
             <IconifyIcon icon="material-symbols:add" class="align-sub text-lg"></IconifyIcon>
           </a>
         </summary>

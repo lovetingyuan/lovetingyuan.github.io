@@ -60,6 +60,7 @@
       let [current, finished] = [0, 0]
       const total = tasks.length
       const doTask = () => {
+        // eslint-disable-next-line sonarjs/no-nested-functions
         tasks[current++]?.().finally(() => {
           if (++finished === total) {
             resolve()

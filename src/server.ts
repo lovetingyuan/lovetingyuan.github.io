@@ -31,6 +31,7 @@ const useDocument = (url: string, html: string) => {
   document.write(html.replace(DocType, ''))
   return (rendered: string) => {
     const container = document.querySelector('#app')
+    // eslint-disable-next-line sonarjs/pseudo-random
     const id = Math.random().toString()
     if (container) {
       container.innerHTML = id

@@ -40,7 +40,7 @@
       </label>
     </div>
   </div>
-  <!-- eslint-disable-next-line vue/no-v-html -->
+  <!-- eslint-disable-next-line vue/no-v-html sonarjs/no-vue-bypass-sanitization -->
   <div data-leetcode-problems-filter v-html="css"></div>
 </template>
 

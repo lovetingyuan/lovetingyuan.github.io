@@ -35,7 +35,8 @@ export default (options?: {
     if (Array.isArray(routesToPrerender)) {
       routesToPrerender = routesToPrerender.reduce(
         (a, b) => {
-          a[b] = b === '/' ? defaultPage : (b[0] === '/' ? b.slice(1) : b) + '.html'
+          const page = (b[0] === '/' ? b.slice(1) : b) + '.html'
+          a[b] = b === '/' ? defaultPage : page
           return a
         },
         {} as Record<string, string>

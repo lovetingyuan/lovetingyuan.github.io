@@ -17,17 +17,18 @@ for (const cate of lists) {
     .map((v) => {
       // eslint-disable-next-line prefer-const
       let [title, url] = v.split(': ').map((v) => v.trim())
-      let description = ''
-      if (title.includes('(')) {
-        const [, title2, description2] = title.match(/(.+)\((.+)\)/) || []
-        if (title2 && description2) {
-          ;[title, description] = [title2, description2]
-        }
-      }
+      // let description = ''
+      // console.log(title)
+      // if (title.includes('(')) {
+      //   const [, title2, description2] = title.match(/(.+)\((.+)\)/) || []
+      //   if (title2 && description2) {
+      //     ;[title, description] = [title2, description2]
+      //   }
+      // }
       return {
         title,
-        url,
-        description
+        url
+        // description
       }
     })
 }

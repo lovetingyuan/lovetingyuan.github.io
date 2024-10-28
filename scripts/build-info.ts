@@ -12,6 +12,7 @@ export default (): Plugin => {
     hour12: false,
     timeZone: 'Asia/Shanghai'
   }).format(new Date())
+  // eslint-disable-next-line sonarjs/no-os-command-from-path
   const gitHash = cp.execSync('git rev-parse HEAD').toString('utf8').trim().slice(0, 8)
   return {
     name: 'inject-build-info-plugin',

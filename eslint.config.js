@@ -3,9 +3,8 @@
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import vueTsEslintConfig from '@vue/eslint-config-typescript'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
-// import sonarjs from 'eslint-plugin-sonarjs'
+import sonarjs from 'eslint-plugin-sonarjs'
 import pluginVue from 'eslint-plugin-vue'
-// sonarjs.configs.recommended.plugins = { sonarjs }
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
@@ -37,7 +36,7 @@ export default tseslint.config(
       '@typescript-eslint/no-require-imports': 'off'
     }
   },
-  // sonarjs.configs.recommended,
+  sonarjs.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   ...vueTsEslintConfig(),
   skipFormatting,
@@ -59,7 +58,8 @@ export default tseslint.config(
           shouldMatchCase: true
         }
       ],
-      'vue/component-definition-name-casing': ['error', 'PascalCase']
+      'vue/component-definition-name-casing': ['error', 'PascalCase'],
+      'sonarjs/no-vue-bypass-sanitization': 'warn'
     }
   }
 )
