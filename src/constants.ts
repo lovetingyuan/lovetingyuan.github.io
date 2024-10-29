@@ -8,5 +8,5 @@ export enum RouteName {
   Loading = 'Loading',
   SitesList = 'SitesList',
   BlogCateList = 'BlogCateList',
-  BlogAllList = 'BlogAllList',
+  BlogAllList = 'BlogAllList'
 }

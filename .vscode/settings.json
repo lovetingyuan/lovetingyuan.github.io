@@ -4,9 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "cSpell.words": [
-    "Iconify"
-  ],
+  "cSpell.words": ["Iconify"],
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
