@@ -12,7 +12,6 @@ export default tseslint.config(
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}', 'scripts/**/*', '*.config.js'],
     plugins: {
-      // sonarjs,
       'simple-import-sort': simpleImportSort
     },
     rules: {
@@ -33,7 +32,6 @@ export default tseslint.config(
     files: ['scripts/**/*', '*.config.js'],
     rules: {
       'no-console': 'off',
-      '@typescript-eslint/no-require-imports': 'off'
     }
   },
   sonarjs.configs.recommended,
