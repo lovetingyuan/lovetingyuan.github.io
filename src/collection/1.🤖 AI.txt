@@ -8,3 +8,4 @@ Claude: https://claude.ai/chat/
 PiAi: https://pi.ai/
 Mistral: https://chat.mistral.ai/chat
 Groq: https://groq.com/
+Deepseek: https://chat.deepseek.com/
