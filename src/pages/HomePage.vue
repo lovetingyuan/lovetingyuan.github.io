@@ -1,5 +1,5 @@
 <template>
-  <header class="px-2 py-2 sm:px-6">
+  <header class="px-2 py-2 sm:px-6" :class="onlyContent ? 'hidden' : ''">
     <nav class="navbar bg-base-100 bg-transparent">
       <div class="flex-1">
         <RouterLink to="/">
@@ -58,7 +58,10 @@
       <component :is="Component" v-else />
     </RouterView>
   </main>
-  <footer class="footer footer-center absolute bottom-0 py-2 text-base-content">
+  <footer
+    class="footer footer-center absolute bottom-0 py-2 text-base-content"
+    :class="onlyContent ? 'hidden' : ''"
+  >
     <aside class="flex select-none text-xs">
       <span class="mr-1">{{ time }}</span>
       <span class="mr-1">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
@@ -90,10 +93,12 @@ import { onMounted, ref } from 'vue'
 import { RouteName } from '../constants'
 
 const time = ref('')
+const onlyContent = ref(false)
 onMounted(() => {
   // 避免水合不一致
   // @ts-expect-error _buildTime is injected in building.
   time.value = window._buildTime || new Date().toLocaleDateString()
+  onlyContent.value = location.search.includes('onlycontent=true')
 })
 const reduceAnimation = useMediaQuery('(prefers-reduced-motion: reduce)')
 
