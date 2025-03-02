@@ -12,5 +12,6 @@ httpie: https://httpie.io/app
 nodejs库: https://nodejstoolbox.com/
 图标库: https://www.mingcute.com/
 中文图标库: https://yesicon.app/
+svgrepo: https://www.svgrepo.com/
 开发者资源: https://free-for.dev/
 在线diff: https://www.littlediffer.com/
