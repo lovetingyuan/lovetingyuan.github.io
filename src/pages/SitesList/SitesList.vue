@@ -1,6 +1,6 @@
 <template>
   <section>
-    <figure class="mb-5 mt-2">
+    <figure class="mt-2 mb-5">
       <ul class="mb-8 flex flex-wrap gap-4">
         <li v-for="a of commonLinks2" :key="a.url">
           <LinkItem :a="a" :size="28" />
@@ -32,8 +32,8 @@ import commonLinks from './common-sites.txt?raw'
 const commonLinks2 = commonLinks
   .trim()
   .split('\n')
-  .map((v) => {
-    const [title, url] = v.split(': ').map((v) => v.trim())
+  .map(v => {
+    const [title, url] = v.split(': ').map(v => v.trim())
     return {
       title,
       url

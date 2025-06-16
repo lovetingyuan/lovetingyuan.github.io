@@ -56,7 +56,7 @@
   }
 
   function scheduleTasks(tasks, maxNumber) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       let [current, finished] = [0, 0]
       const total = tasks.length
       const doTask = () => {
@@ -88,7 +88,7 @@
       method: 'POST',
       mode: 'cors',
       credentials: 'include'
-    }).then((r) => r.json())
+    }).then(r => r.json())
   }
 
   function h(tag, properties, children = []) {

@@ -12,7 +12,7 @@ const config: KnipConfig = {
     '@/*': ['./src/*']
   },
   compilers: {
-    vue: (text) => {
+    vue: text => {
       const scripts = []
       let match
       while ((match = vueScriptReg.exec(text))) {

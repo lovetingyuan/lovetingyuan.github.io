@@ -97,7 +97,7 @@ function createRoute() {
         path: '/index.html',
         redirect: '/'
       },
-      ...redirects.map((p) => {
+      ...redirects.map(p => {
         return {
           path: p,
           redirect: p.replace('.html', '')
@@ -105,7 +105,7 @@ function createRoute() {
       })
     ]
   })
-  router.afterEach((to) => {
+  router.afterEach(to => {
     let title = 'tingyuan'
     if (typeof to.meta.title === 'function') {
       title += ' ' + to.meta.title(to.params)

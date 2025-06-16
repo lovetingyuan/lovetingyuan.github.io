@@ -14,9 +14,9 @@ for (const cate of lists) {
   result[cate2] = collection[cate]
     .trim()
     .split('\n')
-    .map((v) => {
+    .map(v => {
       // eslint-disable-next-line prefer-const
-      let [title, url] = v.split(': ').map((v) => v.trim())
+      let [title, url] = v.split(': ').map(v => v.trim())
       // let description = ''
       // console.log(title)
       // if (title.includes('(')) {

@@ -12,7 +12,7 @@
     <div class="drawer-side">
       <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
       <ul
-        class="menu menu-md min-h-full w-auto min-w-32 rounded-lg bg-base-200 px-0 py-2 text-base-content [&_li>*]:rounded-none"
+        class="menu menu-md bg-base-200 text-base-content min-h-full w-auto min-w-32 rounded-lg px-0 py-2 [&_li>*]:rounded-none"
       >
         <!-- Sidebar content here -->
         <li>

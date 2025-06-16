@@ -18,14 +18,14 @@ export default function useBlogs() {
     //   return []
     // }
     return Object.keys(blogsMap)
-      .map((key) => key.slice(7, -3))
-      .filter((v) => (cate.value ? v.startsWith(cate.value + '/') : true))
+      .map(key => key.slice(7, -3))
+      .filter(v => (cate.value ? v.startsWith(cate.value + '/') : true))
   })
   const allCates = computed(() => {
     const cates = new Set<string>()
     Object.keys(blogsMap)
-      .map((key) => key.slice(7, -3))
-      .forEach((p) => {
+      .map(key => key.slice(7, -3))
+      .forEach(p => {
         cates.add(p.split('/').shift() as string)
       })
     return [...cates]
@@ -64,11 +64,11 @@ export default function useBlogs() {
       }
       blogStatus.value = 'loading'
       blog().then(
-        (r) => {
+        r => {
           blogStatus.value = 'loaded'
           articleCmp.value = r
         },
-        (err) => {
+        err => {
           if (import.meta.env.DEV) {
             // eslint-disable-next-line no-console
             console.log(err)

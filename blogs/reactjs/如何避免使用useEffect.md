@@ -175,13 +175,13 @@ function Game() {
   // 🔴 Avoid: Chains of Effects that adjust the state solely to trigger each other
   useEffect(() => {
     if (card !== null && card.gold) {
-      setGoldCardCount((c) => c + 1)
+      setGoldCardCount(c => c + 1)
     }
   }, [card])
 
   useEffect(() => {
     if (goldCardCount > 3) {
-      setRound((r) => r + 1)
+      setRound(r => r + 1)
       setGoldCardCount(0)
     }
   }, [goldCardCount])
@@ -400,7 +400,7 @@ function SearchResults({ query }) {
   const [page, setPage] = useState(1)
   useEffect(() => {
     let ignore = false
-    fetchResults(query, page).then((json) => {
+    fetchResults(query, page).then(json => {
       if (!ignore) {
         setResults(json)
       }

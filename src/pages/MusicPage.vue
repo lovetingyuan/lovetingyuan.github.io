@@ -164,7 +164,7 @@ const musics = [
     baike: 'https://baike.baidu.com/item/%E7%88%B8%E7%88%B8%E5%A6%88%E5%A6%88/3560533',
     playLink: url + 'BV1N44y1n7f8'
   }
-].map((item) => {
+].map(item => {
   return {
     image: item.cover,
     baike: item.baike,

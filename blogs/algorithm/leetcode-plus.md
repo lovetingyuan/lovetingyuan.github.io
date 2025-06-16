@@ -202,7 +202,7 @@ var longestCommonSubsequence = function (arrays) {
   }
   const result = []
   for (let n of list) {
-    if (arrays2.every((v) => v.has(n))) {
+    if (arrays2.every(v => v.has(n))) {
       result.push(n)
     }
   }
@@ -375,7 +375,7 @@ var countUnivalSubtrees = function (root) {
     return 0
   }
   let count = 0
-  const isUnivalSubtree = (node) => {
+  const isUnivalSubtree = node => {
     if (!node.left && !node.right) {
       count++
       return true
@@ -971,7 +971,7 @@ var verifyPreorder = function (preorder) {
  * @return {Node|null}
  */
 var cloneTree = function (root) {
-  const copy = (node) => {
+  const copy = node => {
     if (!node) {
       return null
     }
@@ -1076,7 +1076,7 @@ class AutocompleteSystem {
         }
         return b.time - a.time
       })
-      .map((val) => val['word'])
+      .map(val => val['word'])
       .slice(0, 3)
   }
 }
@@ -1244,7 +1244,7 @@ var boldWords = function (words, s) {
     return s
   }
   const intervals = []
-  const findword = (word) => {
+  const findword = word => {
     // 查找单词匹配的位置
     if (word.length > s.length) {
       return
@@ -1930,7 +1930,7 @@ Vector2D.prototype.hasNext = function () {
  */
 var diameter = function (root) {
   let max = 0
-  const dfs = (node) => {
+  const dfs = node => {
     if (node.children.length === 0) {
       return 1
     }
@@ -2198,7 +2198,7 @@ var removeInterval = function (intervals, toBeRemoved) {
   if (!intervals.length || start >= intervals.at(-1)[1] || end <= intervals[0][0]) {
     return intervals
   }
-  const findLeft = (target) => {
+  const findLeft = target => {
     let left = 0
     let right = intervals.length - 1
     // if (target <= intervals[0][1]) return 0
@@ -2220,7 +2220,7 @@ var removeInterval = function (intervals, toBeRemoved) {
     return right
   }
 
-  const findRight = (target) => {
+  const findRight = target => {
     let left = 0
     let right = intervals.length - 1
     // if (target <= intervals[0][1]) return 0
@@ -2511,7 +2511,7 @@ var numKLenSubstrNoRepeats = function (s, k) {
     } else {
       map[s[right]]++
     }
-    if (Object.values(map).every((v) => v === 1)) {
+    if (Object.values(map).every(v => v === 1)) {
       count++
     }
     left++
@@ -2570,7 +2570,7 @@ var verticalOrder = function (root) {
     result[index][y] ??= []
     result[index][y].push(node.val)
   }
-  return result.map((map) => {
+  return result.map(map => {
     return Object.values(map).flat()
   })
 }
@@ -2691,7 +2691,7 @@ var missingElement = function (nums, k) {
   let left = 0
   let right = nums.length - 1
 
-  const getmisscount = (index) => {
+  const getmisscount = index => {
     return nums[index] - nums[0] - index
   }
   let target = null // 表示缺失的数字就在nums[target]和nums[target+1]之间
@@ -2750,7 +2750,7 @@ var missingElement = function (nums, k) {
  */
 var maximumAverageSubtree = function (root) {
   let maxmean = 0
-  const getmean = (node) => {
+  const getmean = node => {
     // console.log(node.val, max)
     if (!node) {
       return [0, 0]
@@ -2801,7 +2801,7 @@ class Codec {
    */
   // Encodes a tree to a single string.
   serialize = function (root) {
-    const encode = (node) => {
+    const encode = node => {
       if (!node) {
         return ''
       }
@@ -2935,7 +2935,7 @@ class Codec {
  */
 var longestConsecutive = function (root) {
   let maxlen = 1
-  const getmaxlen = (node) => {
+  const getmaxlen = node => {
     let leftincmaxlen = 1
     let leftdecmaxlen = 1
     let rightincmaxlen = 1

@@ -280,7 +280,7 @@ JSON.parse(sUserInput)
 
 ```javascript
 // bad: 使用indexOf校验Origin值
-window.addEventListener('message', (e) => {
+window.addEventListener('message', e => {
   if (~e.origin.indexOf('https://a.qq.com')) {
     // ...
   } else {
@@ -289,7 +289,7 @@ window.addEventListener('message', (e) => {
 })
 
 // good: 使用postMessage时，限定Origin，且使用===判断
-window.addEventListener('message', (e) => {
+window.addEventListener('message', e => {
   if (e.origin === 'https://a.qq.com') {
     // ...
   }
@@ -753,7 +753,7 @@ good
 其中,isAdmin将会用于是否系统管理员的鉴权，默认值为false
 */
 // Sequelize: 只允许变更username、email字段值
-User.create(req.body, { fields: ['username', 'email'] }).then((user) => {
+User.create(req.body, { fields: ['username', 'email'] }).then(user => {
   // handle the rest..
 })
 ```
@@ -849,7 +849,7 @@ renderer.renderToString(app)
 
 ```javascript
 // bad: 渲染后的html再拼接不受信的外部输入
-return new Promise((resolve) => {
+return new Promise(resolve => {
   renderer.renderToString(component, (err, html) => {
     let htmlOutput = html
     htmlOutput += `${__USER_INPUT__}`

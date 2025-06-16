@@ -17,7 +17,7 @@ import preRender from './scripts/prerender'
 import getPWAConfig from './scripts/pwa-plugin'
 
 // https://vitejs.dev/config/
-export default defineConfig((environment) => ({
+export default defineConfig(environment => ({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('src', import.meta.url))

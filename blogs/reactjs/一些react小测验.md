@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     console.log(4)
-    setCount((count) => count + 1)
+    setCount(count => count + 1)
   }, [])
   return <Child count={count} />
 }
@@ -119,7 +119,7 @@ function App() {
   console.log('App')
   const [state, setState] = useState(0)
   useEffect(() => {
-    setState((state) => state + 1)
+    setState(state => state + 1)
   }, [])
 
   useEffect(() => {
@@ -188,7 +188,7 @@ export function App() {
 
   useLayoutEffect(() => {
     console.log(5)
-    setState((state) => state + 1)
+    setState(state => state + 1)
   }, [])
 
   return null
@@ -232,7 +232,7 @@ export function Test9() {
 
   if (!state) {
     setTimeout(() => {
-      setState((state) => state + 1)
+      setState(state => state + 1)
     }, 100)
   }
 
@@ -241,11 +241,11 @@ export function Test9() {
   setTimeout(() => console.log(4), 0)
 
   useLayoutEffect(() => {
-    setState((state) => state + 1)
+    setState(state => state + 1)
   }, [])
 
   const onClick = () => {
-    setState((num) => num + 1)
+    setState(num => num + 1)
   }
   return (
     <div>

@@ -20,7 +20,7 @@ const createServer = (req, res) => {
   const fnMiddleware = compose(middlewares)
   return fnMiddleware(ctx)
     .then(() => finalRespond(ctx))
-    .catch((err) => ctx.onerror(err))
+    .catch(err => ctx.onerror(err))
 }
 // 洋葱模型
 function compose(middlewares) {

@@ -45,7 +45,7 @@
 
    ```js
    ;(async () => {
-     const p = new Promise((r) => {
+     const p = new Promise(r => {
        console.log(1)
        Promise.resolve().then(() => {
          r()
@@ -112,7 +112,7 @@
    const myPromise = Promise.resolve(Promise.resolve('Promise!'))
 
    function funcOne() {
-     myPromise.then((res) => res).then((res) => console.log(11, res))
+     myPromise.then(res => res).then(res => console.log(11, res))
    }
 
    async function funcTwo() {
@@ -155,8 +155,8 @@ function advancedRequest(url, timeout, errorRetry) {
       }, timeout)
 
       fetch(url, { signal })
-        .then((response) => response.json())
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
           clearTimeout(timeoutId)
           // if (data.code === -1) {
           //   throw new Error('Request failed with code -1')

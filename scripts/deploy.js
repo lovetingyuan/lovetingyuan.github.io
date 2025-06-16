@@ -38,7 +38,7 @@ async function main() {
   console.log('git push to origin gh')
 }
 
-main().catch((error) => {
+main().catch(error => {
   console.log('部署失败')
   console.error(error)
   core.setFailed(error.message)

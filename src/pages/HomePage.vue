@@ -46,7 +46,7 @@
       </menu>
     </nav>
   </header>
-  <main class="px-2 pb-20 pt-4 md:px-5 lg:px-8">
+  <main class="px-2 pt-4 pb-20 md:px-5 lg:px-8">
     <RouterView v-slot="{ Component, route }">
       <Transition
         v-if="!reduceAnimation"
@@ -59,10 +59,10 @@
     </RouterView>
   </main>
   <footer
-    class="footer footer-center absolute bottom-0 py-2 text-base-content"
+    class="footer footer-center text-base-content absolute bottom-0 py-2"
     :class="onlyContent ? 'hidden' : ''"
   >
-    <aside class="flex select-none text-xs">
+    <aside class="flex text-xs select-none">
       <span class="mr-1">{{ time }}</span>
       <span class="mr-1">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
       <span>❄️</span>

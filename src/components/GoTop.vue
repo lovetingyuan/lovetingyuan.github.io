@@ -1,6 +1,6 @@
 <template>
   <div
-    class="go-top z-9 fixed bottom-5 right-4 cursor-pointer opacity-80 hover:opacity-100"
+    class="go-top fixed right-4 bottom-5 z-9 cursor-pointer opacity-80 hover:opacity-100"
     title="返回顶部"
     @click="goTop"
   >

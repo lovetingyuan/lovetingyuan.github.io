@@ -105,7 +105,7 @@ const config = (ssrBuild: boolean) =>
         {
           urlPattern: ({ url }) => {
             const ignorePaths = ['/minibili/', '/api/', '/share/']
-            return ignorePaths.some((p) => url.pathname.startsWith(p))
+            return ignorePaths.some(p => url.pathname.startsWith(p))
           },
           handler: 'NetworkOnly',
           options: {

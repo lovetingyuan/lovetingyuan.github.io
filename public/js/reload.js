@@ -1,7 +1,7 @@
 if (location.hostname === 'localhost') {
   fetch('/@vite/client')
-    .then((r) => r.text())
-    .then((code) => {
+    .then(r => r.text())
+    .then(code => {
       if (code.includes('<!DOCTYPE html>')) return
       const client = document.createElement('script')
       client.type = 'module'

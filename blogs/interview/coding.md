@@ -20,11 +20,11 @@ function concurrentRequests(urls, limit) {
       fetchingCount++
       window
         .fetch(urls[currentIndex])
-        .then((response) => response.json())
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
           results[currentIndex] = data
         })
-        .catch((error) => {
+        .catch(error => {
           results[currentIndex] = { error }
         })
         .finally(() => {

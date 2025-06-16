@@ -26,7 +26,7 @@ export function queueJob(job) {
         isFlushPending = false
         isFlushing = true
         queue.sort(comparator)
-        queue.forEach((job) => job())
+        queue.forEach(job => job())
         queue.length = 0
         isFlushing = false
         currentFlushPromise = null

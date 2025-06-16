@@ -19,13 +19,13 @@ function resolveValue(value, resolve, reject) {
   try {
     then.call(
       value,
-      (val) => {
+      val => {
         if (!called) {
           called = true
           resolveValue(val, resolve, reject) // 需要递归resolve，因为可能多次返回thenable
         }
       },
-      (reason) => {
+      reason => {
         if (!called) {
           called = true
           reject(reason) // reject就直接调用即可
@@ -50,28 +50,28 @@ function Promise(callback) {
     if (this._status === 'pending') {
       // 状态只能变更一次
       ;[this._status, this._value] = [status, value]
-      this._callbacks[status].forEach((cb) => cb(value))
+      this._callbacks[status].forEach(cb => cb(value))
     }
   }
   try {
     callback(
-      (value) => {
+      value => {
         if (this === value) {
           // 不能返回自身
           fulfill('rejected', new TypeError('Can not resolve or return the current promise.'))
         } else {
           resolveValue(
             value,
-            (val) => {
+            val => {
               fulfill('resolved', val)
             },
-            (reason) => {
+            reason => {
               fulfill('rejected', reason)
             }
           )
         }
       },
-      (reason) => {
+      reason => {
         fulfill('rejected', reason) // reject 直接返回值
       }
     )
@@ -82,7 +82,7 @@ function Promise(callback) {
 
 Promise.prototype.then = function then(onResolve, onReject) {
   const promise = new Promise((resolve, reject) => {
-    const handleCallback = (resolved) => {
+    const handleCallback = resolved => {
       setTimeout(() => {
         // then的回调需要在新的事件循环中执行
         const callback = resolved ? onResolve : onReject
@@ -127,10 +127,10 @@ Promise.prototype.then = function then(onResolve, onReject) {
   ```javascript
   Promise.prototype.finally = function (callback) {
     return this.then(
-      (val) => {
+      val => {
         return Promise.resolve(callback()).then(() => val)
       },
-      (err) => {
+      err => {
         return Promise.resolve(callback()).then(() => {
           throw err
         })
@@ -141,7 +141,7 @@ Promise.prototype.then = function then(onResolve, onReject) {
 - `Promise.resolve` & `Promise.reject`
   ```javascript
   Promise.resolve = function resolve(val) {
-    return val instanceof Promise ? val : new Promise((resolve) => resolve(val))
+    return val instanceof Promise ? val : new Promise(resolve => resolve(val))
   }
   Promise.reject = function reject(reason) {
     return new Promise((_, reject) => reject(reason))
@@ -163,7 +163,7 @@ Promise.prototype.then = function then(onResolve, onReject) {
         return resolve(resolvedValues)
       }
       for (let i = 0; i < taskCount; i++) {
-        Promise.resolve(values[i]).then((val) => {
+        Promise.resolve(values[i]).then(val => {
           resolvedValues[i] = val
           resolvedCount++
           if (resolvedCount === taskCount) {

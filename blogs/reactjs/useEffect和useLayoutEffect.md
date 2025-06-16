@@ -30,7 +30,7 @@ function App() {
   console.log('App')
   const [state, setState] = useState(0)
   useEffect(() => {
-    setState((state) => state + 1)
+    setState(state => state + 1)
   }, [])
 
   useEffect(() => {

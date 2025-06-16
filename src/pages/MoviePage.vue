@@ -155,7 +155,7 @@ const movies = [
       'https://baike.baidu.com/item/%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84%E7%8B%90%E7%8B%B8%E7%88%B8%E7%88%B8/9915300',
     douban: 'https://movie.douban.com/subject/1759386/'
   }
-].map((item) => {
+].map(item => {
   const studio = item.studio ? `(${item.studio})` : ''
   return {
     name: item.name,

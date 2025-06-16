@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn btn-square btn-ghost btn-xs fixed right-2 top-2 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
+    class="btn btn-square btn-ghost btn-xs fixed top-2 right-2 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
     title="切换亮/暗色"
   >
     <label class="swap swap-rotate">

@@ -21,7 +21,7 @@
         </a>
       </span>
     </div>
-    <div v-if="blogStatus === 'loading'" class="pb-[10vh] pt-[15vh]">
+    <div v-if="blogStatus === 'loading'" class="pt-[15vh] pb-[10vh]">
       <CircleLoading :defer="400" />
     </div>
     <div v-if="blogStatus === 'failed'">加载失败，请重试...</div>

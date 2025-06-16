@@ -11,7 +11,7 @@
               class="link-hover link tooltip ml-4"
               data-tip="English version"
               :to="`/blog/${cate}/${en}`"
-              >🌐<span class="italic tracking-[-2px]">𝐸𝓃𝑔𝓁𝒾𝓈𝒽</span></RouterLink
+              >🌐<span class="tracking-[-2px] italic">𝐸𝓃𝑔𝓁𝒾𝓈𝒽</span></RouterLink
             >
           </span>
         </li>
