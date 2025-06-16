@@ -10,7 +10,7 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}', 'scripts/**/*', '*.config.js'],
+    files: ['**/*.{ts,mts,tsx,vue}', 'scripts/**/*'],
     plugins: {
       'simple-import-sort': simpleImportSort
     },
@@ -31,7 +31,7 @@ export default tseslint.config(
     name: 'app/scripts',
     files: ['scripts/**/*', '*.config.js'],
     rules: {
-      'no-console': 'off',
+      'no-console': 'off'
     }
   },
   sonarjs.configs.recommended,

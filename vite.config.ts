@@ -7,6 +7,7 @@ import LinkAttributes from 'markdown-it-link-attributes'
 import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, type Plugin } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 
 // @ts-expect-error any
 import leetcode from './blogs/algorithm/leetcode'
@@ -43,6 +44,7 @@ export default defineConfig((environment) => ({
   },
   plugins: [
     // splitVendorChunkPlugin(),
+    tailwindcss(),
     UnpluginDetectDuplicatedDeps({ throwErrorWhenDuplicated: true }),
     Vue({
       include: [/\.vue$/, /\.md$/], // <--

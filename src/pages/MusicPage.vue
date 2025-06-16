@@ -3,7 +3,7 @@
     <div
       v-for="music of musics"
       :key="music.name"
-      class="card card-bordered card-side card-compact h-32 bg-base-100 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+      class="card card-bordered card-side card-compact bg-base-100 h-32 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
     >
       <figure class="relative min-h-max min-w-max">
         <img :src="music.image" alt="封面" class="h-full w-32" />
@@ -21,7 +21,7 @@
           class="absolute inset-0 m-auto h-full w-full border-0"
         ></iframe>
       </figure>
-      <div class="card-body justify-between">
+      <div class="card-body justify-between px-4 py-2">
         <h2 class="card-title mb-4 font-normal">
           <a
             :href="music.baike"

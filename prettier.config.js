@@ -5,5 +5,6 @@ export default {
   singleQuote: true,
   printWidth: 100,
   trailingComma: 'none',
+  arrowParens: 'avoid',
   plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-packagejson']
 }

@@ -4,7 +4,7 @@
     target="_blank"
     rel="noopener noreferrer"
     :aria-label="desc"
-    class="btn btn-ghost flex flex-col items-center justify-center gap-2 text-center"
+    class="btn btn-ghost btn-lg flex h-18 flex-col items-center justify-center gap-2 py-2 text-center"
   >
     <IconifyIcon
       v-if="props.a.icon && !props.a.icon.startsWith('http')"
