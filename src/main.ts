@@ -1,4 +1,4 @@
-import 'iconify-icon'
+// import 'iconify-icon'
 import './assets/style.css'
 
 import { Icon } from '@iconify/vue'

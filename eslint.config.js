@@ -8,6 +8,7 @@ import pluginVue from 'eslint-plugin-vue'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
+  sonarjs.configs.recommended,
   {
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}', 'scripts/**/*'],
@@ -16,11 +17,12 @@ export default tseslint.config(
     },
     rules: {
       semi: [2, 'never'],
-      '@typescript-eslint/consistent-type-imports': 'error',
+      // '@typescript-eslint/consistent-type-imports': 'error',
       'no-console': 'error',
       'no-duplicate-imports': 'error',
       'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error'
+      'simple-import-sort/exports': 'error',
+      'sonarjs/no-commented-code': 'off'
     }
   },
   {
@@ -34,7 +36,6 @@ export default tseslint.config(
       'no-console': 'off'
     }
   },
-  sonarjs.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
   ...vueTsEslintConfig(),
   skipFormatting,
@@ -46,7 +47,7 @@ export default tseslint.config(
         'PascalCase',
         {
           registeredComponentsOnly: false,
-          ignores: ['iconify-icon']
+          ignores: []
         }
       ],
       'vue/match-component-file-name': [

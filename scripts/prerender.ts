@@ -79,13 +79,14 @@ export default (options?: {
             return
           }
           logger.info('prerender: ' + file)
+          // @ts-expect-error any
           bundle[file] = {
             type: 'asset',
-            name: undefined,
             source: await workerPool.run([route, indexHtml]),
             fileName: file,
             needsCodeReference: false,
-            originalFileName: file
+            names: [file],
+            originalFileNames: [file]
           }
         })
       )

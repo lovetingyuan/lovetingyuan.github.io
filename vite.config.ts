@@ -1,13 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import Shiki from '@shikijs/markdown-it'
+import tailwindcss from '@tailwindcss/vite'
 import Vue from '@vitejs/plugin-vue'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
 import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { defineConfig, type Plugin } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
 
 // @ts-expect-error any
 import leetcode from './blogs/algorithm/leetcode'
@@ -50,9 +50,9 @@ export default defineConfig((environment) => ({
       include: [/\.vue$/, /\.md$/], // <--
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => {
-            return ['iconify-icon'].includes(tag)
-          }
+          // isCustomElement: (tag) => {
+          //   return ['iconify-icon'].includes(tag)
+          // }
         }
       }
     }),
