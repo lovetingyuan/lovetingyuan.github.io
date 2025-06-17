@@ -1,7 +1,7 @@
 npm: https://www.npmjs.com/
 魔戒: https://mojie.app/
 域名: https://www.namesilo.com/account_domains.php
-各种图片压缩工具(压缩): https://www.smashingmagazine.com/2022/07/powerful-image-optimization-tools/
+图片压缩: https://www.smashingmagazine.com/2022/07/powerful-image-optimization-tools/
 codesandbox: https://codesandbox.io/s/
 stackblitz: https://stackblitz.com/
 hoppscotch: https://hoppscotch.io/
