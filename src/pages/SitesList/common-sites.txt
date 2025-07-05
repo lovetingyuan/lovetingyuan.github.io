@@ -5,3 +5,4 @@ CCTV: https://tv.cctv.com/live/
 央视频: https://www.yangshipin.cn/
 电视直播: https://yeslivetv.com/
 niu: https://live.bilibili.com/25334922
+优酷体育: https://vku.youku.com/live/ilproom?id=8195045
