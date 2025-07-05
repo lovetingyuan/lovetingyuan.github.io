@@ -30,9 +30,9 @@
           rel="noopener noreferrer"
           target="_blank"
           :href="movie.douban"
-          class="btn btn-square btn-success btn-xs text-white"
-          >豆</a
-        >
+          class="btn btn-square btn-success btn-xs bg-cover"
+          style="background-image: url('https://img1.doubanio.com/favicon.ico')"
+        ></a>
       </div>
     </div>
   </section>
