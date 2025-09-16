@@ -15,3 +15,5 @@ nodejs库: https://nodejstoolbox.com/
 svgrepo: https://www.svgrepo.com/
 开发者资源: https://free-for.dev/
 在线diff: https://www.littlediffer.com/
+transferIt: https://transfer.it/start
+wormhole: https://wormhole.app/
