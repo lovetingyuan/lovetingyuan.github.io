@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import Shiki from '@shikijs/markdown-it'
 import tailwindcss from '@tailwindcss/vite'
 import Vue from '@vitejs/plugin-vue'
+import { execSync } from 'child_process'
 import container from 'markdown-it-container'
 import LinkAttributes from 'markdown-it-link-attributes'
 import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
@@ -11,10 +12,13 @@ import { defineConfig, type Plugin } from 'vite'
 
 // @ts-expect-error any
 import leetcode from './blogs/algorithm/leetcode'
-import injectBuildInfo from './scripts/build-info'
 import mdDetail from './scripts/markdown-detail'
 import preRender from './scripts/prerender'
 import getPWAConfig from './scripts/pwa-plugin'
+
+process.env.VITE_BUILD_TIME = new Date().toLocaleString()
+// eslint-disable-next-line sonarjs/no-os-command-from-path
+process.env.VITE_GIT_HASH = execSync('git rev-parse --short HEAD').toString('utf8').trim()
 
 // https://vitejs.dev/config/
 export default defineConfig(environment => ({
@@ -80,7 +84,6 @@ export default defineConfig(environment => ({
         })
       }
     }),
-    injectBuildInfo(),
     preRender({
       routes: ['/', '/404', '/blog', '/music', '/movie'],
       ssrEntry: 'server.js'

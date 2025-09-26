@@ -32,12 +32,7 @@ if (!import.meta.env.SSR) {
   router.isReady().then(() => {
     app.mount('#app')
   })
-  // eslint-disable-next-line no-console
-  console.log(
-    // @ts-expect-error this globals is safe
-    `%c Build: ${window._buildTime} ${window._buildHash} `,
-    'background-color: #4DBA87; color: #fff; padding: 2px; border-radius: 2px;'
-  )
+
   // eslint-disable-next-line no-console
   console.log('https://github.com/lovetingyuan')
 }
