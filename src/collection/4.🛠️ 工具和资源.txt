@@ -17,3 +17,4 @@ svgrepo: https://www.svgrepo.com/
 在线diff: https://www.littlediffer.com/
 transferIt: https://transfer.it/start
 wormhole: https://wormhole.app/
+diffchecker: https://www.diffchecker.com/
