@@ -11,3 +11,4 @@ Groq: https://groq.com/
 Deepseek: https://chat.deepseek.com/
 Grok: https://grok.com/
 AIStudio: https://aistudio.google.com/prompts/new_chat
+idkey: https://one.idkey.cc/
