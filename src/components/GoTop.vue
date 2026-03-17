@@ -7,7 +7,7 @@
     <IconifyIcon
       icon="material-symbols:arrow-circle-up"
       class="text-4xl hover:text-cyan-600"
-    ></IconifyIcon>
+    />
   </div>
 </template>
 

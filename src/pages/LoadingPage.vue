@@ -1,6 +1,6 @@
 <template>
   <div class="my-20">
-    <CircleLoading></CircleLoading>
+    <CircleLoading />
   </div>
 </template>
 

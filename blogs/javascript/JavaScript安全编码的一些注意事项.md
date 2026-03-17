@@ -6,7 +6,6 @@
   <summary>目录</summary>
 
 - [1 JavaScript页面类](#1)
-
   - [I. 代码实现](#1.1)
     - [1.1 原生DOM API的安全操作](#1.1.1)
     - [1.2 流行框架/库的安全操作](#1.1.2)
@@ -95,10 +94,10 @@ text.innerText = `Follow @${user}`
 // good: setAttribute操作前，限定引入资源的目标地址
 function addExternalCss(e) {
   const t = document.createElement('link')
-  t.setAttribute('href', e),
+  ;(t.setAttribute('href', e),
     t.setAttribute('rel', 'stylesheet'),
     t.setAttribute('type', 'text/css'),
-    document.head.appendChild(t)
+    document.head.appendChild(t))
 }
 
 function validURL(sUrl) {
@@ -880,7 +879,6 @@ return new Promise(resolve => {
   ```
 
 - Ejs、LoDash、UnderScore提供的HTML插值模板默认形似`<%= data %>`，尽管在默认情况下`<%= data %>`存在过滤，在编写HTML插值模板时需注意:
-
   1. 用户输入流入html属性值时，必须使用双引号包裹：`<base data-id = "<%= __USER_INPUT__ %>">`
   2. 用户输入流入`<script></script>`标签或on\*的html属性中时，如`<script>var id = <%= __USER_INPUT__ %></script>` ，须按照1.6.3中的做法或白名单方法进行过滤，框架/组件的过滤在此处不起作用
 

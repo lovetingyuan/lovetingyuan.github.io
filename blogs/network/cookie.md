@@ -26,7 +26,6 @@ Domain 和 Path 标识定义了 Cookie 的作用域：即 Cookie 应该发送给
   对于拥有多个子域名的系统来说，某个子域名设置的cookie是有可能影响到其他子域名的，这有可能会带来冲突和不安全的影响。
 
 - Path则限制了cookie在有效域名下面可以生效的地址，例如Path=/docs，则以下地址都会匹配：
-
   - /docs
   - /docs/Web/
   - /docs/Web/HTTP

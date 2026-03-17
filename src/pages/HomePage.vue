@@ -1,12 +1,14 @@
 <template>
-  <header class="px-2 py-2 sm:px-6" :class="onlyContent ? 'hidden' : ''">
+  <header
+    class="px-2 py-2 sm:px-6"
+    :class="onlyContent ? 'hidden' : ''"
+  >
     <nav class="navbar bg-base-100 bg-transparent">
       <div class="flex-1">
         <RouterLink to="/">
           <span
             class="bg-gradient-to-r from-[#56B4D3] to-[#348F50] bg-clip-text text-xl leading-7 text-transparent"
-            >庭院 Ⴆʅσɠ</span
-          >
+          >庭院 Ⴆʅσɠ</span>
         </RouterLink>
       </div>
       <menu class="menu menu-horizontal gap-x-2">
@@ -17,7 +19,10 @@
             class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-sky-700 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-300"
           >
             博客
-            <IconifyIcon icon="material-symbols:article" class="inline align-[-0.15em] text-xl" />
+            <IconifyIcon
+              icon="material-symbols:article"
+              class="inline align-[-0.15em] text-xl"
+            />
           </RouterLink>
         </li>
         <li>
@@ -40,7 +45,10 @@
             class="btn btn-ghost btn-lg h-[2em] min-h-[2em] px-[0.8em] text-amber-700 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300"
           >
             电影
-            <IconifyIcon icon="material-symbols:movie" class="inline align-[-0.15em] text-xl" />
+            <IconifyIcon
+              icon="material-symbols:movie"
+              class="inline align-[-0.15em] text-xl"
+            />
           </RouterLink>
         </li>
       </menu>
@@ -55,7 +63,10 @@
       >
         <component :is="Component" />
       </Transition>
-      <component :is="Component" v-else />
+      <component
+        :is="Component"
+        v-else
+      />
     </RouterView>
   </main>
   <footer
@@ -66,9 +77,10 @@
       <span class="mr-1">{{ time }}</span>
       <span class="mr-1">𝘵𝘪𝘯𝘨𝘺𝘶𝘢𝘯</span>
       <span>❄️</span>
-      <i class="hover:underline" @click="openUrl('https://www.youtube.com/watch?v=ou6TnENM6IY')"
-        >随着海风吹，吹向来时庭院~</i
-      >
+      <i
+        class="hover:underline"
+        @click="openUrl('https://www.youtube.com/watch?v=ou6TnENM6IY')"
+      >随着海风吹，吹向来时庭院~</i>
       <a
         class="ml-1"
         title="github"
@@ -80,7 +92,7 @@
           noobserver
           icon="mdi:github"
           class="inline align-text-bottom text-base"
-        ></IconifyIcon>
+        />
       </a>
     </aside>
   </footer>

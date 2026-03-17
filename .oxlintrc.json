@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "unicorn", "typescript", "oxc", "import", "vue"],
+  "ignorePatterns": ["dist/**", "dist-ssr/**", "coverage/**", "node_modules/**"],
+  "overrides": [
+    {
+      "files": ["scripts/**/*", "vite.config.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
+  "rules": {
+    "semi": ["error", "never"],
+    "no-console": "error",
+    "no-duplicate-imports": "error"
+  }
+}

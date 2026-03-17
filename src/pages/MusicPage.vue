@@ -6,7 +6,11 @@
       class="card card-bordered card-side card-compact bg-base-100 h-32 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
     >
       <figure class="relative min-h-max min-w-max">
-        <img :src="music.image" alt="封面" class="h-full w-32" />
+        <img
+          :src="music.image"
+          alt="封面"
+          class="h-full w-32"
+        >
         <div>
           <IconifyIcon
             v-show="music.playLink !== store.playingMusic"
@@ -19,7 +23,7 @@
           v-if="music.playLink === store.playingMusic"
           :src="store.playingMusic"
           class="absolute inset-0 m-auto h-full w-full border-0"
-        ></iframe>
+        />
       </figure>
       <div class="card-body justify-between px-4 py-2">
         <h2 class="card-title mb-4 font-normal">
@@ -29,14 +33,19 @@
             rel="noreferrer noopener"
             class="link-hover link inline-block text-lg text-teal-600 dark:text-teal-300"
           >
-            <strong v-if="music.name === '庭院'" class="text-cyan-600 dark:text-cyan-300"
-              >庭院</strong
-            >
+            <strong
+              v-if="music.name === '庭院'"
+              class="text-cyan-600 dark:text-cyan-300"
+            >庭院</strong>
             <span v-else>{{ music.name }}</span>
           </a>
         </h2>
         <div class="flex flex-col gap-y-2">
-          <p v-for="info of music.infos" :key="info" class="text-sm">
+          <p
+            v-for="info of music.infos"
+            :key="info"
+            class="text-sm"
+          >
             {{ info }}
           </p>
         </div>

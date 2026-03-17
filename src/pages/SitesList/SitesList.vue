@@ -2,8 +2,14 @@
   <section>
     <figure class="mt-2 mb-5">
       <ul class="mb-8 flex flex-wrap gap-4">
-        <li v-for="a of commonLinks2" :key="a.url">
-          <LinkItem :a="a" :size="28" />
+        <li
+          v-for="a of commonLinks2"
+          :key="a.url"
+        >
+          <LinkItem
+            :a="a"
+            :size="28"
+          />
         </li>
 
         <li>
@@ -13,7 +19,10 @@
             class="btn btn-square btn-ghost btn-md align-text-top text-3xl"
             href="https://github.com/lovetingyuan/lovetingyuan.github.io/edit/main/src/pages/SitesList/common-sites.txt"
           >
-            <IconifyIcon icon="material-symbols:add" class="inline"></IconifyIcon>
+            <IconifyIcon
+              icon="material-symbols:add"
+              class="inline"
+            />
           </a>
         </li>
       </ul>

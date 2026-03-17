@@ -1,9 +1,22 @@
 <template>
   <ul class="blog-list columns-2 gap-5 py-2">
-    <li v-for="(list, c) of displayBlogList" :key="c" class="mb-8 flow-root">
+    <li
+      v-for="(list, c) of displayBlogList"
+      :key="c"
+      class="mb-8 flow-root"
+    >
       <h3 class="mb-3 text-lg font-bold">
-        <span v-if="cate" class="capitalize">{{ c }}</span>
-        <RouterLink v-else :to="`/blog/${c}`" class="capitalize">{{ c }}</RouterLink>
+        <span
+          v-if="cate"
+          class="capitalize"
+        >{{ c }}</span>
+        <RouterLink
+          v-else
+          :to="`/blog/${c}`"
+          class="capitalize"
+        >
+          {{ c }}
+        </RouterLink>
         <a
           v-if="cate"
           :href="`https://github.com/lovetingyuan/lovetingyuan.github.io/new/main/blogs/${cate}`"
@@ -12,15 +25,31 @@
           rel="noopener noreferrer"
           title="新增"
         >
-          <IconifyIcon mode="style" icon="material-symbols:add"></IconifyIcon>
+          <IconifyIcon
+            mode="style"
+            icon="material-symbols:add"
+          />
         </a>
       </h3>
       <ul class="ml-4">
-        <li v-for="{ zh, en } of list" :key="zh" class="my-3">
-          <RouterLink class="link-hover link" :to="`/blog/${c}/${zh}`">{{ zh }}</RouterLink>
-          <RouterLink v-if="en" class="link-hover link ml-4" :to="`/blog/${c}/${en}`"
-            >🌐𝐸𝓃𝑔𝓁𝒾𝓈𝒽</RouterLink
+        <li
+          v-for="{ zh, en } of list"
+          :key="zh"
+          class="my-3"
+        >
+          <RouterLink
+            class="link-hover link"
+            :to="`/blog/${c}/${zh}`"
           >
+            {{ zh }}
+          </RouterLink>
+          <RouterLink
+            v-if="en"
+            class="link-hover link ml-4"
+            :to="`/blog/${c}/${en}`"
+          >
+            🌐𝐸𝓃𝑔𝓁𝒾𝓈𝒽
+          </RouterLink>
         </li>
       </ul>
     </li>

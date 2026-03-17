@@ -79,15 +79,18 @@ export default (options?: {
             return
           }
           logger.info('prerender: ' + file)
-          // @ts-expect-error any
-          bundle[file] = {
-            type: 'asset',
-            source: await workerPool.run([route, indexHtml]),
-            fileName: file,
-            needsCodeReference: false,
-            names: [file],
-            originalFileNames: [file]
+          const html = await workerPool.run([route, indexHtml])
+
+          if (file === defaultPage) {
+            indexBundle.source = html
+            return
           }
+
+          this.emitFile({
+            type: 'asset',
+            fileName: file,
+            source: html
+          })
         })
       )
       await workerPool.destroy()

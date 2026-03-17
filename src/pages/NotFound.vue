@@ -1,6 +1,11 @@
 <template>
   <div class="flow-root">
-    <div title="404" class="not-found mx-auto my-24 w-fit text-center text-[80px]">404</div>
+    <div
+      title="404"
+      class="not-found mx-auto my-24 w-fit text-center text-[80px]"
+    >
+      404
+    </div>
     <p class="text-center">
       😅 当前页面(
       <code>
@@ -15,8 +20,9 @@
           replace: true
         }"
         class="btn btn-outline btn-info mt-10 text-lg"
-        >🏠 返回首页</RouterLink
       >
+        🏠 返回首页
+      </RouterLink>
     </div>
   </div>
 </template>

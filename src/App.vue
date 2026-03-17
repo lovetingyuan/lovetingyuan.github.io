@@ -1,6 +1,9 @@
 <template>
   <RouterView />
-  <UpdateButton v-if="needRefresh" @click="updateServiceWorker()" />
+  <UpdateButton
+    v-if="needRefresh"
+    @click="updateServiceWorker()"
+  />
   <ColorSwitch />
   <GoTop />
   <div hidden>

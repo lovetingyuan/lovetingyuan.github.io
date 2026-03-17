@@ -56,7 +56,6 @@ Vue 的每个响应式对象包括数组都有`__ob__`的属性，这就是`Obse
 ![alt](https://cn.vuejs.org/images/data.png)
 
 - Dep
-
   - `Dep.target`
   - `id`
   - `subs` watchers 列表
@@ -64,7 +63,6 @@ Vue 的每个响应式对象包括数组都有`__ob__`的属性，这就是`Obse
   - `notify()` 调用 watchers 的`update`方法
 
 - Observer
-
   - `value`
   - `dep`
   - 如果值是数组，那么覆写原型方法，然后对每个值递归 `new Observer(value)`

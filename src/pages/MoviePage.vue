@@ -13,7 +13,7 @@
           height="165"
           :src="movie.image"
           alt="封面"
-        />
+        >
       </figure>
       <div class="card-body">
         <a
@@ -21,9 +21,12 @@
           target="_blank"
           rel="noreferrer noopener"
           class="link-hover link mb-2 text-lg text-sky-600 dark:text-sky-300"
-          >{{ movie.name }}</a
+        >{{ movie.name }}</a>
+        <span
+          v-for="info of movie.infos"
+          :key="info"
+          class="text-sm"
         >
-        <span v-for="info of movie.infos" :key="info" class="text-sm">
           {{ info }}
         </span>
         <a
@@ -32,7 +35,7 @@
           :href="movie.douban"
           class="btn btn-square btn-success btn-xs bg-cover"
           style="background-image: url('https://img1.doubanio.com/favicon.ico')"
-        ></a>
+        />
       </div>
     </div>
   </section>

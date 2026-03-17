@@ -1,47 +1,94 @@
 <template>
   <div class="my-5 flex flex-row items-center gap-10">
     <span>
-      <a href="https://leetcode.cn/u/lovetingyua" target="_blank">主页</a>
+      <a
+        href="https://leetcode.cn/u/lovetingyua"
+        target="_blank"
+      >主页</a>
       &
-      <a href="https://leetcode.cn/problemset/algorithms/" target="_blank">题库</a>
+      <a
+        href="https://leetcode.cn/problemset/algorithms/"
+        target="_blank"
+      >题库</a>
       &
-      <a href="https://doocs.github.io/leetcode/lc/1/" target="_blank">全解</a>
+      <a
+        href="https://doocs.github.io/leetcode/lc/1/"
+        target="_blank"
+      >全解</a>
     </span>
     <div class="flex gap-4">
       <label>
         全部
-        <input v-model="status" type="radio" name="status" value="all" />
+        <input
+          v-model="status"
+          type="radio"
+          name="status"
+          value="all"
+        >
       </label>
       <label>
         ✅({{ solvedCount }})
-        <input v-model="status" type="radio" name="status" value="solved" />
+        <input
+          v-model="status"
+          type="radio"
+          name="status"
+          value="solved"
+        >
       </label>
       <label>
         🤔
-        <input v-model="status" type="radio" name="status" value="unsolved" />
+        <input
+          v-model="status"
+          type="radio"
+          name="status"
+          value="unsolved"
+        >
       </label>
     </div>
     <div class="mr-16 flex gap-5">
       <label>
         全部
-        <input v-model="level" type="radio" name="level" value="all" />
+        <input
+          v-model="level"
+          type="radio"
+          name="level"
+          value="all"
+        >
       </label>
       <label>
         <span class="text-[#00af9b]">简单 </span>
-        <input v-model="level" type="radio" name="level" value="easy" />
+        <input
+          v-model="level"
+          type="radio"
+          name="level"
+          value="easy"
+        >
       </label>
       <label>
         <span class="text-[#ffb800]">中等 </span>
-        <input v-model="level" type="radio" name="level" value="medium" />
+        <input
+          v-model="level"
+          type="radio"
+          name="level"
+          value="medium"
+        >
       </label>
       <label>
         <span class="text-[#ff2d55]">困难 </span>
-        <input v-model="level" type="radio" name="level" value="hard" />
+        <input
+          v-model="level"
+          type="radio"
+          name="level"
+          value="hard"
+        >
       </label>
     </div>
   </div>
   <!-- eslint-disable-next-line vue/no-v-html sonarjs/no-vue-bypass-sanitization -->
-  <div data-leetcode-problems-filter v-html="css"></div>
+  <div
+    data-leetcode-problems-filter
+    v-html="css"
+  />
 </template>
 
 <script setup lang="ts">

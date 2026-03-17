@@ -4,9 +4,18 @@
     title="切换亮/暗色"
   >
     <label class="swap swap-rotate">
-      <input v-model="checked" type="checkbox" />
-      <IconifyIcon class="swap-on" icon="material-symbols:dark-mode"></IconifyIcon>
-      <IconifyIcon class="swap-off" icon="material-symbols:light-mode"></IconifyIcon>
+      <input
+        v-model="checked"
+        type="checkbox"
+      >
+      <IconifyIcon
+        class="swap-on"
+        icon="material-symbols:dark-mode"
+      />
+      <IconifyIcon
+        class="swap-off"
+        icon="material-symbols:light-mode"
+      />
     </label>
   </button>
 </template>

@@ -1,7 +1,12 @@
 <template>
-  <div v-show="show" class="text-center">
-    <span class="loading loading-spinner loading-lg text-info scale-[2]"></span>
-    <p class="mt-12 text-lg leading-8">❄️ 加载中...</p>
+  <div
+    v-show="show"
+    class="text-center"
+  >
+    <span class="loading loading-spinner loading-lg text-info scale-[2]" />
+    <p class="mt-12 text-lg leading-8">
+      ❄️ 加载中...
+    </p>
   </div>
 </template>
 

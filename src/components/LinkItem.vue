@@ -18,8 +18,11 @@
       :src="getIcon(a.url)"
       alt="favicon"
       class="mx-auto my-0"
-    />
-    <span v-if="a.title" class="text-base font-normal">{{ a.title }}</span>
+    >
+    <span
+      v-if="a.title"
+      class="text-base font-normal"
+    >{{ a.title }}</span>
   </a>
 </template>
 
