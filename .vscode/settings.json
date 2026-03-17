@@ -3,5 +3,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "cSpell.words": ["Iconify"]
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "cSpell.words": [
+    "Iconify"
+  ]
 }
