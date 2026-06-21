@@ -68,7 +68,7 @@ const movies = [
     douban: 'https://movie.douban.com/subject/1291583/'
   },
   {
-    cover: 'https://img5.mtime.cn/mt/2019/02/13/104653.23607322_283X406X2.jpg',
+    cover: 'https://image11.m1905.cn/mdb/uploadfile/2026/0512/thumb_1_283_390_20260512053045692572.jpg',
     name: '龙猫 / となりのトトロ',
     director: '宫崎骏',
     studio: '吉卜力',
