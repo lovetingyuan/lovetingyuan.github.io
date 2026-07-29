@@ -4,9 +4,6 @@
   "private": true,
   "description": "庭院的个人网站",
   "homepage": "https://lovetingyuan.github.io",
-  "engines": {
-    "node": ">=24.12.0"
-  },
   "type": "module",
   "scripts": {
     "build": "npm run build:ssr && npm run build:client",
@@ -58,5 +55,8 @@
     "vue-tsc": "^3.2.6",
     "workbox-build": "^7.4.0",
     "workbox-window": "^7.4.0"
+  },
+  "engines": {
+    "node": ">=24.12.0"
   }
 }

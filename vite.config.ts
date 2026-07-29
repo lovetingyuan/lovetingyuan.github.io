@@ -1,31 +1,35 @@
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath, URL } from 'node:url'
 
-import Shiki from "@shikijs/markdown-it";
-import tailwindcss from "@tailwindcss/vite";
-import Vue from "@vitejs/plugin-vue";
-import { execSync } from "child_process";
-import container from "markdown-it-container";
-import LinkAttributes from "markdown-it-link-attributes";
-import UnpluginDetectDuplicatedDeps from "unplugin-detect-duplicated-deps/vite";
-import Markdown from "unplugin-vue-markdown/vite";
-import { defineConfig, type Plugin } from "vite";
+import Shiki from '@shikijs/markdown-it'
+import tailwindcss from '@tailwindcss/vite'
+import Vue from '@vitejs/plugin-vue'
+import { execSync } from 'child_process'
+import container from 'markdown-it-container'
+import LinkAttributes from 'markdown-it-link-attributes'
+import UnpluginDetectDuplicatedDeps from 'unplugin-detect-duplicated-deps/vite'
+import Markdown from 'unplugin-vue-markdown/vite'
+import { defineConfig, type Plugin } from 'vite'
 
 // @ts-expect-error any
-import leetcode from "./blogs/algorithm/leetcode";
-import mdDetail from "./scripts/markdown-detail";
-import preRender from "./scripts/prerender";
-import getPWAConfig from "./scripts/pwa-plugin";
+import leetcode from './blogs/algorithm/leetcode'
+import mdDetail from './scripts/markdown-detail'
+import preRender from './scripts/prerender'
+import getPWAConfig from './scripts/pwa-plugin'
 
-process.env.VITE_BUILD_TIME = new Date().toLocaleString();
-// eslint-disable-next-line sonarjs/no-os-command-from-path
-process.env.VITE_GIT_HASH = execSync("git rev-parse --short HEAD").toString("utf8").trim();
+process.env.VITE_BUILD_TIME = new Date().toLocaleString()
+try {
+  // eslint-disable-next-line sonarjs/no-os-command-from-path
+  process.env.VITE_GIT_HASH = execSync('git rev-parse --short HEAD').toString('utf8').trim()
+} catch {
+  process.env.VITE_GIT_HASH = 'local'
+}
 
 // https://vitejs.dev/config/
-export default defineConfig((environment) => ({
+export default defineConfig(environment => ({
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("src", import.meta.url)),
-    },
+      '@': fileURLToPath(new URL('src', import.meta.url))
+    }
   },
   build: {
     copyPublicDir: !environment.isSsrBuild,
@@ -37,58 +41,58 @@ export default defineConfig((environment) => ({
       output: {
         manualChunks(id) {
           if (environment.isSsrBuild) {
-            return;
+            return
           }
-          if (id.includes("/node_modules/") && !id.endsWith(".css")) {
-            return "vendor";
+          if (id.includes('/node_modules/') && !id.endsWith('.css')) {
+            return 'vendor'
           }
-        },
-      },
-    },
+        }
+      }
+    }
   },
   plugins: [
     // splitVendorChunkPlugin(),
     tailwindcss(),
     UnpluginDetectDuplicatedDeps({ throwErrorWhenDuplicated: true }),
     Vue({
-      include: [/\.vue$/, /\.md$/], // <--
+      include: [/\.vue$/, /\.md$/] // <--
     }),
     getPWAConfig(!!environment.isSsrBuild),
     Markdown({
-      wrapperClasses: "markdown-body",
+      wrapperClasses: 'markdown-body',
       async markdownItSetup(md) {
-        md.use(container as unknown as Parameters<typeof md.use>[0], "detail", mdDetail);
+        md.use(container as unknown as Parameters<typeof md.use>[0], 'detail', mdDetail)
 
         md.use(
           (await Shiki({
             themes: {
-              light: "github-light",
-              dark: "github-dark",
-            },
-          })) as unknown as Parameters<typeof md.use>[0],
-        );
+              light: 'github-light',
+              dark: 'github-dark'
+            }
+          })) as unknown as Parameters<typeof md.use>[0]
+        )
 
         md.use(LinkAttributes as unknown as Parameters<typeof md.use>[0], {
           matcher: (link: string) => /^https?:\/\//.test(link),
           attrs: {
-            target: "_blank",
-            rel: "noopener",
-          },
-        });
-      },
+            target: '_blank',
+            rel: 'noopener'
+          }
+        })
+      }
     }),
     preRender({
-      routes: ["/", "/404", "/blog", "/music", "/movie"],
-      ssrEntry: "server.js",
+      routes: ['/', '/404', '/blog', '/music', '/movie'],
+      ssrEntry: 'server.js'
     }),
     {
-      name: "leetcode-generator-plugin",
-      enforce: "pre",
+      name: 'leetcode-generator-plugin',
+      enforce: 'pre',
       load(id) {
-        if (id.endsWith("/leetcode题目汇总.md")) {
-          return leetcode;
+        if (id.endsWith('/leetcode题目汇总.md')) {
+          return leetcode
         }
-      },
-    } satisfies Plugin,
-  ],
-}));
+      }
+    } satisfies Plugin
+  ]
+}))

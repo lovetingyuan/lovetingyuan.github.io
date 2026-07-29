@@ -1,41 +1,39 @@
 <template>
-  <section class="grid grid-cols-2 gap-x-6 gap-y-10 max-sm:grid-cols-1">
+  <section class="grid grid-cols-2 gap-x-6 gap-y-8 max-sm:grid-cols-1">
     <div
       v-for="movie of movies"
       :key="movie.name"
-      class="card card-side card-compact bg-base-100 shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+      class="media-card card card-side card-compact bg-base-100"
     >
-      <figure class="min-h-max min-w-max">
+      <figure class="min-h-max min-w-max overflow-hidden">
         <img
-          class="h-40 min-h-full w-32 min-w-full hover:opacity-100 dark:opacity-75"
+          class="media-cover h-40 min-h-full w-32 min-w-full dark:opacity-80"
           loading="lazy"
           width="128"
           height="165"
           :src="movie.image"
-          alt="封面"
-        >
+          :alt="`${movie.name} 封面`"
+        />
       </figure>
       <div class="card-body">
         <a
           :href="movie.baike"
           target="_blank"
           rel="noreferrer noopener"
-          class="link-hover link mb-2 text-lg text-sky-600 dark:text-sky-300"
-        >{{ movie.name }}</a>
-        <span
-          v-for="info of movie.infos"
-          :key="info"
-          class="text-sm"
+          class="link-hover link mb-2 text-lg text-sky-700 dark:text-sky-300"
+          >{{ movie.name }}</a
         >
+        <span v-for="info of movie.infos" :key="info" class="text-sm">
           {{ info }}
         </span>
         <a
           rel="noopener noreferrer"
           target="_blank"
           :href="movie.douban"
-          class="btn btn-square btn-success btn-xs bg-cover"
-          style="background-image: url('https://img1.doubanio.com/favicon.ico')"
-        />
+          class="douban-button btn btn-xs"
+        >
+          豆瓣
+        </a>
       </div>
     </div>
   </section>
@@ -68,7 +66,8 @@ const movies = [
     douban: 'https://movie.douban.com/subject/1291583/'
   },
   {
-    cover: 'https://image11.m1905.cn/mdb/uploadfile/2026/0512/thumb_1_283_390_20260512053045692572.jpg',
+    cover:
+      'https://image11.m1905.cn/mdb/uploadfile/2026/0512/thumb_1_283_390_20260512053045692572.jpg',
     name: '龙猫 / となりのトトロ',
     director: '宫崎骏',
     studio: '吉卜力',

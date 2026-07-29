@@ -45,6 +45,9 @@ const useDocument = (url: string, html: string) => {
 }
 
 export default async function render([url, html]: string[]) {
+  if (!url || !html) {
+    throw new Error('The prerenderer requires a URL and an HTML document.')
+  }
   const getHtml = useDocument(url, html)
   const { default: render } = await import('./main')
   const { app, router } = await render()

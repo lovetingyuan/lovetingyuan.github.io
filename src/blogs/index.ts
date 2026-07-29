@@ -34,6 +34,7 @@ export default function useBlogs() {
     return blogList.value.reduce<Record<string, Record<string, { zh: string; en: string }>>>(
       (blogs, k) => {
         const [cate, name] = k.split('/')
+        if (!cate || !name) return blogs
         if (!blogs[cate]) {
           blogs[cate] = {}
         }

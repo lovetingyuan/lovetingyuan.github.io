@@ -1,22 +1,16 @@
 <template>
   <button
-    class="btn btn-square btn-ghost btn-xs fixed top-2 right-2 cursor-pointer text-center text-xl opacity-80 hover:opacity-100"
-    title="切换亮/暗色"
+    type="button"
+    class="theme-switch"
+    :title="checked ? '切换到浅色模式' : '切换到深色模式'"
+    :aria-label="checked ? '切换到浅色模式' : '切换到深色模式'"
+    :aria-pressed="checked"
+    @click="checked = !checked"
   >
-    <label class="swap swap-rotate">
-      <input
-        v-model="checked"
-        type="checkbox"
-      >
-      <IconifyIcon
-        class="swap-on"
-        icon="material-symbols:dark-mode"
-      />
-      <IconifyIcon
-        class="swap-off"
-        icon="material-symbols:light-mode"
-      />
-    </label>
+    <IconifyIcon
+      :icon="checked ? 'solar:sun-2-outline' : 'solar:moon-stars-outline'"
+      aria-hidden="true"
+    />
   </button>
 </template>
 
@@ -26,8 +20,8 @@ import { computed, watch, watchEffect } from 'vue'
 
 const colorMode = useColorMode()
 const checked = computed<boolean>({
-  set(v) {
-    colorMode.value = v ? 'dark' : 'light'
+  set(value) {
+    colorMode.value = value ? 'dark' : 'light'
   },
   get() {
     return colorMode.value === 'dark'
@@ -35,19 +29,14 @@ const checked = computed<boolean>({
 })
 
 watchEffect(() => {
-  if (colorMode.value === 'dark') {
-    document.documentElement.classList.add('dark')
-    document.documentElement.dataset.theme = 'dark'
-  } else {
-    document.documentElement.classList.remove('dark')
-    document.documentElement.dataset.theme = 'light'
-  }
+  const isDark = colorMode.value === 'dark'
+  document.documentElement.classList.toggle('dark', isDark)
+  document.documentElement.dataset.theme = isDark ? 'dark' : 'light'
 })
 
-// 响应系统设置
-const cp = usePreferredColorScheme()
-watch(cp, () => {
-  if (cp.value === 'no-preference') return
-  colorMode.value = cp.value
+const preferredScheme = usePreferredColorScheme()
+watch(preferredScheme, () => {
+  if (preferredScheme.value === 'no-preference') return
+  colorMode.value = preferredScheme.value
 })
 </script>
