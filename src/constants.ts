@@ -5,6 +5,7 @@ export enum RouteName {
   Home = 'Home',
   Music = 'Music',
   Movie = 'Movie',
+  Projects = 'Projects',
   Loading = 'Loading',
   SitesList = 'SitesList',
   BlogCateList = 'BlogCateList',

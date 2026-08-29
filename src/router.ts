@@ -9,9 +9,10 @@ import LoadingPage from './pages/LoadingPage.vue'
 import Movie from './pages/MoviePage.vue'
 import Music from './pages/MusicPage.vue'
 import NotFound from './pages/NotFound.vue'
+import Projects from './pages/ProjectsPage.vue'
 import SitesList from './pages/SitesList/SitesList.vue'
 
-const redirects = ['/movie.html', '/music.html', '/blog.html', '/404.html']
+const redirects = ['/movie.html', '/music.html', '/blog.html', '/projects.html', '/404.html']
 
 function createRoute() {
   const historyMethod = import.meta.env.SSR ? createMemoryHistory : createWebHistory
@@ -78,6 +79,12 @@ function createRoute() {
               title: ({ cate, name }: { cate: string; name: string }) =>
                 `博客 - ${cate + '/' + name}`
             }
+          },
+          {
+            name: RouteName.Projects,
+            path: '/projects',
+            component: Projects,
+            meta: { title: '项目', animation: 'slide' }
           },
           {
             name: RouteName.Music,
