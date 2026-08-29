@@ -1,11 +1,14 @@
 <template>
-  <div
-    class="fixed right-4 bottom-[70px] cursor-pointer text-4xl hover:text-lime-600"
+  <button
+    type="button"
+    class="update-button"
     title="网站有更新"
+    aria-label="刷新网站以获取最新内容"
   >
     <IconifyIcon
       icon="material-symbols:refresh"
-      class="animate-spin"
+      class="update-button__icon"
+      aria-hidden="true"
     />
-  </div>
+  </button>
 </template>

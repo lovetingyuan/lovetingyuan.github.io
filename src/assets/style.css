@@ -253,6 +253,7 @@ summary:focus-visible {
   text-transform: none;
 }
 
+.update-button,
 .theme-switch,
 .go-top {
   position: fixed;
@@ -274,6 +275,16 @@ summary:focus-visible {
     background-color 180ms ease;
 }
 
+.update-button {
+  bottom: 7.8rem;
+}
+
+.update-button__icon {
+  width: 1.45rem;
+  height: 1.45rem;
+  animation: update-button-spin 2.2s ease-in-out infinite;
+}
+
 .theme-switch {
   bottom: 1rem;
 }
@@ -282,10 +293,26 @@ summary:focus-visible {
   bottom: 4.4rem;
 }
 
+.update-button:hover,
 .theme-switch:hover,
 .go-top:hover {
   background: color-mix(in srgb, var(--text-color) 10%, var(--site-surface-strong));
   transform: translateY(-2px);
+}
+
+.update-button:hover {
+  color: #65a30d;
+}
+
+@keyframes update-button-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  55%,
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .go-top.is-hidden {
@@ -355,6 +382,7 @@ summary:focus-visible {
     padding-left: 1rem;
   }
 
+  .update-button,
   .theme-switch,
   .go-top {
     right: 0.75rem;
