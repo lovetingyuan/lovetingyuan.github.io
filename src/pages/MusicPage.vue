@@ -54,7 +54,7 @@ import { onUnmounted } from 'vue'
 
 import { store } from '@/store'
 
-const url = 'https://www.bilibili.com/blackboard/html5mobileplayer.html?&bvid='
+const url = 'https://player.bilibili.com/player.html?&bvid='
 
 onUnmounted(() => {
   store.playingMusic = ''
